@@ -1,0 +1,309 @@
+
+.page_pic{
+ width:180px;
+ height:180px;
+ border-radius: 30%;
+ margin-left:1%;
+ margin-top:1%;
+float:right;
+  
+}
+.information {
+    width: 100%;
+   /*  height: 100%; */
+    margin-top: 5%;
+    /* margin-left: 10%; */
+}
+.header_information {
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    padding: 15px;
+   /*  width: 85%; */
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    transition: 0.4s;
+}
+ .row {
+    margin-right: 0px; !important;
+    margin-left: -15px;
+}
+ .body-area{
+     margin-left: 250px;
+   /*  height: 100%; */
+ }
+ .body-area p{
+     margin-left: 10px;
+ }
+ 
+ .marg-left-10{
+ margin-left: 10px;
+ }
+ .marg-left-20{
+ margin-left: 20px;
+ }
+ .marg-left-30{
+ margin-left: 30px;
+ }
+ 
+ .marg-bottom-10{
+ margin-bottom: 10px;
+ }
+ .marg-bottom-20{
+ margin-bottom: 20px;
+ }
+ .marg-bottom-30{
+ margin-bottom: 30px;
+ }
+ 
+ .main-footer {
+ /*  margin : 19px 0px; */
+	width: 100%;
+	height: 25px;
+	float: left;
+	text-align: center;
+	color: #fff;
+	font-size: 17px;
+	margin-top:5%;
+	
+    background: #06ccb3;
+    
+}
+.buttn {
+    color: #f1f1f1;
+    padding: 10 100 34 1150;
+}
+
+
+.bg-gradient-9 {
+	background: #06ccb3; !important;
+}
+
+#page-content>.container {
+	margin: 0;
+	max-width: 100%;
+	padding: 0;
+	width: 100%;
+}
+
+
+.user_box {
+	/* padding: 20px 10px;
+	text-align: left;
+	position: relative;
+	z-index: 1; */
+
+}
+
+.user_box .user-pic {
+	height: 75px;
+	width: 75px;
+	/* margin-bottom: 10px;
+	margin: 0 auto 10px; */
+}
+
+.user_box .user-pic img {
+	max-width: 100%;
+	border-radius: 50%;
+}
+
+/* Sidebar */
+
+#page-sidebar {
+    width: 250px; 
+    float: left;
+    position: relative;
+    /* margin-right: -92%; */
+    /* margin-left: 10px; */
+    /* margin-bottom: -20px; */
+}
+
+
+/*--------------------------------css for Testimonial=--------------------------------------------------------------------------*/
+
+
+.testimonialcontainer {
+  border: 2px solid black;
+  background-color: white;
+  border-radius: 30px;
+  padding: 16px;
+  margin: 16px ;
+}
+
+/* .testimonialcontainer::after {
+  content: "";
+  clear: both;
+  display: table;
+} */
+
+.testimonialcontainer img {
+  border: 2px solid blue;
+  float: left;
+  margin-right: 20px;
+  border-radius: 50%;
+    border-top-left-radius: 50%;
+    border-top-right-radius: 1%;
+    border-bottom-right-radius: 50%;
+    border-bottom-left-radius: 50%;
+}
+
+.testimonialcontainer span {
+  font-size: 20px;
+  margin-right: 15px;
+  
+}
+
+@media (max-width: 500px) {
+  .testimonialcontainer {
+      text-align: center;
+  }
+  .testimonialcontainer img {
+      margin: auto;
+      float: none;
+      display: block;
+  }
+}
+
+
+
+
+
+
+
+/*--------------------------------css for change password--------------------------------------------------------------------------*/
+
+.Changepassword_password_form{
+  width:50%;
+  height:auto;
+  border:2px solid black;
+  margin-top:3%;
+  margin-left:25%;
+  
+}
+.Changepasswordformheader{
+	height: 55px;
+	    padding-top: 1px;
+background-color:#a2f3a2;
+
+}
+.Changepasswordformboby{
+ margin-left:2%;
+ 
+}
+
+.Changepasswordformfooter{
+ background-color:#a2f3a2;
+}
+
+
+.Changepassword_button_submit {
+  
+    border-radius: 30%;
+    border: none;
+    color: white;
+    padding: 14px 28px;
+    font-size: 16px;
+    cursor: pointer;
+	margin-left:1%;
+	
+}
+
+
+
+.submit {background-color: #7f7f7f;} /* Blue */
+.submit:hover {background: grey;}
+
+
+.Changepassword_form-control {
+    display: block;
+	/* margin-left:8%; */
+    width: 97%;
+    height: 50px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
+
+/*--------------------------------css for Quick help--------------------------------------------------------------------------*/
+
+/* .quickhelp_form{
+  width:50%;
+  height:auto;
+  border:2px solid black;
+  margin-top:3%;
+  margin-left:25%;
+  
+}
+.quickhelpformheader{
+background-color:#a2f3a2;
+
+}
+.quickhelpformheaderformboby{
+ margin-left:2%;
+ 
+}
+
+.Changepasswordformfooter{
+ background-color:#a2f3a2;
+}
+
+
+.Changepassword_button_submit {
+  
+    border-radius: 30%;
+    border: none;
+    color: white;
+    padding: 14px 28px;
+    font-size: 16px;
+    cursor: pointer;
+	margin-left:1%;
+	
+}
+
+
+
+.submit {background-color: #ff9800;} Blue
+.submit:hover {background: grey;}
+
+
+.Changepassword_form-control {
+    display: block;
+	margin-left:8%;
+    width: 80%;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
+
+
+
+
+ */
+ 
+ td,tr{
+   padding:10;
+ }
+ 

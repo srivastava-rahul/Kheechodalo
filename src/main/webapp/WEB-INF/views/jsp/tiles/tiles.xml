@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC  "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"  "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+<tiles-definitions>
+
+	<definition name="full-definition"
+		template="/WEB-INF/views/jsp/layouts/defaultClickLayout.jsp">
+		<put-attribute name="title" value="" />
+		<put-attribute name="header"
+			value="/WEB-INF/views/jsp/templates/defaultClicktHeader.jsp" />
+		<put-attribute name="menu"
+			value="/WEB-INF/views/jsp/templates/defaultClickMenu.jsp" />
+		<put-attribute name="body" value="" />
+		<put-attribute name="footer"
+			value="/WEB-INF/views/jsp/templates/defaultClickFooter.jsp" />
+	</definition>
+
+	<!--Blank Defination -->
+	<definition name="blank-definition"
+		template="/WEB-INF/views/jsp/layouts/blankLayout.jsp">
+		<put-attribute name="title" value="" />
+		<put-attribute name="body" value="" />
+	</definition>
+
+
+	<!-- <definition name="index" extends="blank-definition"> <put-attribute 
+		name="title" value="Index" /> <put-attribute name="body" value="/WEB-INF/jsp/index.jsp" 
+		/> </definition> -->
+
+	<definition name="login" extends="blank-definition">
+		<put-attribute name="title" value="Login" />
+		<put-attribute name="body" value="/WEB-INF/views/jsp/login.jsp" />
+	</definition>
+	
+	<definition name="forgetPassword" extends="blank-definition">
+		<put-attribute name="title" value="Forget password" />
+		<put-attribute name="body" value="/WEB-INF/views/jsp/forgetPassword.jsp" />
+	</definition>
+	
+	
+	<!-- ChangePassword pages -->
+    <definition name="changePassword" extends="blank-definition">
+		<put-attribute name="title" value="ChangePassword" />
+		<put-attribute name="body" value="/WEB-INF/views/jsp/changePassword.jsp" />
+	</definition>
+
+	<definition name="dashboard" extends="full-definition">
+		<put-attribute name="title" value="Dashboard" />
+		<put-attribute name="body" value="/WEB-INF/views/jsp/dashboard.jsp" />
+	</definition>
+	
+	<!-- aboutUs  pages -->
+	<definition name="aboutUs" extends="full-definition">
+		<put-attribute name="title" value="About Us" />
+		<put-attribute name="body" value="/WEB-INF/views/jsp/aboutus.jsp" />
+	</definition>
+	
+	<!-- Rules pages -->
+	<definition name="rules" extends="full-definition">
+		<put-attribute name="title" value="Rules" />
+		<put-attribute name="body" value="/WEB-INF/views/jsp/rules.jsp" />
+	</definition>
+
+    <!-- Settings pages -->
+    <definition name="settings" extends="full-definition">
+		<put-attribute name="title" value="Settings" />
+		<put-attribute name="body" value="/WEB-INF/views/jsp/settings.jsp" />
+	</definition>
+	
+	<!-- Testimonials pages -->
+    <definition name="testimonials" extends="full-definition">
+		<put-attribute name="title" value="Testimonials" />
+		<put-attribute name="body" value="/WEB-INF/views/jsp/testimonials.jsp" />
+	</definition>
+	
+	<!-- ChangePassword pages -->
+    <definition name="newUserPassword" extends="full-definition">
+		<put-attribute name="title" value="ChangePassword" />
+		<put-attribute name="body" value="/WEB-INF/views/jsp/newUserPassword.jsp" />
+	</definition>
+	
+	<!-- Contact  Us pages -->
+    <definition name="contactus" extends="full-definition">
+		<put-attribute name="title" value="ContactUs" />
+		<put-attribute name="body" value="/WEB-INF/views/jsp/contactus.jsp" />
+	</definition>
+
+   <!-- Prizes pages -->
+    <definition name="prizes" extends="full-definition">
+		<put-attribute name="title" value="Prizes" />
+		<put-attribute name="body" value="/WEB-INF/views/jsp/prizes.jsp" />
+	</definition>
+
+    <!-- Quick Help pages -->
+    <definition name="quickhelp" extends="full-definition">
+		<put-attribute name="title" value="QuickHelp" />
+		<put-attribute name="body" value="/WEB-INF/views/jsp/quickhelp.jsp" />
+	</definition>
+	
+	<!-- Profile pages -->
+    <definition name="profile" extends="full-definition">
+		<put-attribute name="title" value="Profile" />
+		<put-attribute name="body" value="/WEB-INF/views/jsp/profile.jsp" />
+	</definition>
+	
+	<!-- My-Own-Pic pages -->
+    <definition name="myownpic" extends="full-definition">
+		<put-attribute name="title" value="MyOwnPic" />
+		<put-attribute name="body" value="/WEB-INF/views/jsp/myownpic.jsp" />
+	</definition>
+	
+	 <!-- Winner pages -->
+    <definition name="winner" extends="full-definition">
+		<put-attribute name="title" value="Winner" />
+		<put-attribute name="body" value="/WEB-INF/views/jsp/winner.jsp" />
+	</definition>
+	
+	<!-- Search pages -->
+    <definition name="searchpage" extends="full-definition">
+		<put-attribute name="title" value="SearchPage" />
+		<put-attribute name="body" value="/WEB-INF/views/jsp/searchpage.jsp" />
+	</definition>
+
+	<!-- error pages -->
+	<definition name="400_error" extends="blank-definition">
+		<put-attribute name="title" value="Browser refresh not Allowed" />
+		<put-attribute name="body" value="/WEB-INF/views/jsp/400_error.jsp" />
+	</definition>
+	<definition name="404_error" extends="blank-definition">
+		<put-attribute name="title" value="Not Found" />
+		<put-attribute name="body" value="/WEB-INF/views/jsp/404_error.jsp" />
+	</definition>
+	<definition name="403_error" extends="blank-definition">
+		<put-attribute name="title" value="Not Authorized" />
+		<put-attribute name="body" value="/WEB-INF/views/jsp/403_error.jsp" />
+	</definition>
+	<definition name="500_error" extends="blank-definition">
+		<put-attribute name="title" value="Server Error" />
+		<put-attribute name="body" value="/WEB-INF/views/jsp/500_error.jsp" />
+	</definition>
+
+</tiles-definitions>

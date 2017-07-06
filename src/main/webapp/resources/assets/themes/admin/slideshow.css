@@ -1,0 +1,54 @@
+.kc-black,
+.kc-hover-black:hover {
+    color: #ddd!important;
+    background-color: #7f7f7f!important
+}
+.kc-display-left {
+    position: absolute;
+    top: 50%;
+    left: 0%;
+    transform: translate(0%, -50%);
+    -ms-transform: translate(-0%, -50%)
+}
+.kc-display-right {
+    position: absolute;
+    top: 50%;
+    right: 0%;
+    transform: translate(0%, -50%);
+    -ms-transform: translate(0%, -50%)
+}
+.kc-button {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none
+}
+.kc-button:hover {
+    color: #ddd!important;
+    background-color: #ccc!important
+}
+.kc-button {
+    border: none;
+    display: inline-block;
+    outline: 0;
+    padding: 8px 10px;
+    vertical-align: middle;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    background-color: inherit;
+    text-align: center;
+    cursor: pointer;
+    white-space: nowrap
+}
+/* 
+.kc-content {
+    max-width: 980px;
+    margin: auto
+}
+.kc-display-container {
+    position: relative
+}
+ */

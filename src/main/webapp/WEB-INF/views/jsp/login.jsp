@@ -155,7 +155,7 @@ body {
 						<div class="field-wrap">
 							<label>
 								First Name<span class="req">*</span>
-							</label>
+					</label>
 							<input type="text" id="firstName" name="firstName" />
 						</div>
 

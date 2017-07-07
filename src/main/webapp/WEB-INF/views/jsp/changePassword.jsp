@@ -5,13 +5,12 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
 <html>
-<head>
+
 <head>
   <meta charset="UTF-8">
   <title>Change Password</title>
   <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/css/style.css">
-  
-</head>
+ </head>
 
 <body> 
                      <div  class="Forgett_password_form" >

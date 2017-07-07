@@ -13,7 +13,7 @@
 						          <form>
 						                    <div class="Changepasswordformboby">
 										        <h2 style="color:red">Please enter Button name or screen which is not working</h2>
-										        <input type="text" class ="Changepassword_form-control"placeholder="Please Enter your old Password"/>
+										        <input type="text" class ="Changepassword_form-control"placeholder="Please Enter Page or button name"/>
 										    </div>
 										    	
 										    <div class="Changepasswordformboby">
@@ -26,9 +26,14 @@
 										    </div>
 										    
 									<br/>
-										<!-- footer -->
-										   <div class="Changepasswordformfooter">
-												<button class="Changepassword_button_submit  submit">Send</button>
+								<!-- footer -->
+									<div class="Changepasswordformfooter" align="right">
+									
+									<%-- <c:url value="" var="" /> --%>
+							             <a href="" class="button_submit  submit">
+								              Send
+							             </a>
+										<!-- <button class="Changepassword_button_submit  submit">Send</button> -->
 										   </div>
 													
 					              </form>

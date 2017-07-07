@@ -55,11 +55,17 @@
 			<br />
 
 			<!-- footer -->
-			<div class="Changepasswordformfooter" align="right">
-				<button type="submit" class="button_submit  submit">Reset</button>
+			 <div class="Changepasswordformfooter" align="right">
+			 
+			<!--<button type="submit" class="button_submit  submit">Reset</button> -->
+				<%-- <c:url value="" var="" /> --%>
+							<a href="" class="button_submit  submit">
+								Reset
+							</a> &nbsp;&nbsp; &nbsp;&nbsp;
+				
 				<c:url value="/user/dashboard" var="dashUrl" />
-							<a href="${dashUrl}" class="">
-								cancel
+							<a href="${dashUrl}" class="button_submit  submit">
+								Cancel
 							</a>
 				
 				<!-- <button class="button_submit  submit" style="width: 98px; margin-right: 12px">Cancel</button> -->

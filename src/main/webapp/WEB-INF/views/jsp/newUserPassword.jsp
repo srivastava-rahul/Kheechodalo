@@ -57,11 +57,11 @@
 			<!-- footer -->
 			 <div class="Changepasswordformfooter" align="right">
 			 
-			<!--<button type="submit" class="button_submit  submit">Reset</button> -->
+			<button type="submit" class="button_submit  submit">Reset</button>
 				<%-- <c:url value="" var="" /> --%>
-							<a href="" class="button_submit  submit">
+							<!-- <a href="" class="button_submit  submit">
 								Reset
-							</a> &nbsp;&nbsp; &nbsp;&nbsp;
+							</a>  -->&nbsp;&nbsp; &nbsp;&nbsp;
 				
 				<c:url value="/user/dashboard" var="dashUrl" />
 							<a href="${dashUrl}" class="button_submit  submit">

@@ -3,6 +3,7 @@ package com.click.entity;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -55,9 +56,13 @@ public class PictureUpload implements Serializable {
 	@Column(name = "PIC_UPLOAD_STATUS")
 	private boolean uploadStatus;
 
-	@ManyToOne(fetch = FetchType.LAZY, optional = true)
+	@ManyToOne(fetch = FetchType.LAZY, optional = true, cascade=CascadeType.ALL)
 	@JoinColumn(name = "PIC_DATA_ID", nullable = false, foreignKey = @ForeignKey(name = "FK_PIC_DATA_ID"))
 	private PicUploadData picUploadData;
+	
+	@ManyToOne(fetch = FetchType.LAZY, optional = false)
+	@JoinColumn(name = "USER_ID", nullable = false, foreignKey = @ForeignKey(name = "FK_PIC_USER_ID"))
+	private User user;
 
 	public PictureUpload() {
 		this.uploadStatus = false;
@@ -141,6 +146,14 @@ public class PictureUpload implements Serializable {
 
 	public void setPicUploadData(PicUploadData picUploadData) {
 		this.picUploadData = picUploadData;
+	}
+	
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
 	}
 	
 	@Override

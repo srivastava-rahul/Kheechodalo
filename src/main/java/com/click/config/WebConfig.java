@@ -10,6 +10,7 @@ import org.springframework.core.Ordered;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.ui.freemarker.FreeMarkerConfigurationFactoryBean;
+import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
@@ -91,4 +92,11 @@ public class WebConfig extends WebMvcConfigurerAdapter {
 		return bean;
 	}
 
+	@Bean(name = "multipartResolver")
+	public CommonsMultipartResolver getCommonsMultipartResolver() {
+		CommonsMultipartResolver multipartResolver = new CommonsMultipartResolver();
+		multipartResolver.setMaxUploadSize(1073741824); // 1 GB
+		multipartResolver.setMaxInMemorySize(1048576); // 1MB
+		return multipartResolver;
+	}
 }

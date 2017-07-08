@@ -139,4 +139,10 @@
 		<put-attribute name="body" value="/WEB-INF/views/jsp/500_error.jsp" />
 	</definition>
 
+	<definition name="uploadPic" extends="full-definition">
+		<put-attribute name="title" value="Winner" />
+		<put-attribute name="body" value="/WEB-INF/views/jsp/uploadPic.jsp" />
+	</definition>
+	
+	
 </tiles-definitions>

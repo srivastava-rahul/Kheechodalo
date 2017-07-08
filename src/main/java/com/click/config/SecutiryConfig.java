@@ -26,6 +26,7 @@ public class SecutiryConfig extends WebSecurityConfigurerAdapter {
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
+		http.csrf().disable();
 		http.authorizeRequests().antMatchers("/saveUser/**").permitAll()
 				
 		//OWNER
@@ -43,8 +44,8 @@ public class SecutiryConfig extends WebSecurityConfigurerAdapter {
 				.invalidateHttpSession(true)
 				.logoutSuccessUrl("/login?logout")
 				.and()
-				.csrf()
-				.and()
+				//.csrf()
+				//.and()
 				.exceptionHandling().accessDeniedPage("/invalid-access.jsp")
 		        .and().logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout")).logoutSuccessUrl("/login?logout=true").clearAuthentication(true).invalidateHttpSession(true).deleteCookies("JSESSIONID").and().sessionManagement().maximumSessions(1).expiredUrl("/login?expired=true");
 	} 

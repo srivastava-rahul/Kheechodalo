@@ -12,23 +12,6 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import com.click.entity.User;
 import com.click.pojo.AuthenticatedUser;
 
-/**
- * @author Nitin Otageri
- *         <p>
- *         Taglib to combine the Spring-Security Project with Facelets <br />
- *         This is the class responsible holding the logic for making the tags
- *         work. <br />
- *         The specified <code>public static</code> methods are also defined in
- *         the spring-security.taglib.xml in the META-INF folder to enable them
- *         for usage as expression-language element. <br />
- *         <br />
- *         e.g.<code><br />
- * &lt;ui:component rendered='#{sec:ifAllGranted(&quot;ROLE_USER&quot;)'&gt; blablabal &lt;/ui:component&gt;
- * 
- * &lt;sec:ifAnyGranted roles ="ROLE_ABCD,ROLE_XYZ"&gt;
- * &lt;/sec:ifAnyGranted&gt;
- * </code>
- */
 public class SecurityLibrary {
 
 	// static Logger log = Logger.getLogger(SecurityLibrary.class);

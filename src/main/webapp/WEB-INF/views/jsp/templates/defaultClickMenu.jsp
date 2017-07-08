@@ -41,7 +41,7 @@
 <div id="mySidenavRight" class="sidenavRight">
   <a href="${pageContext.request.contextPath}/user/profile" id="Profile">Profile &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-user" style="font-size:28px;color:white"></i></a>
    <a href="${pageContext.request.contextPath}/user/winner" id="Winner">Winner&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i class="fa fa-trophy" style="font-size:28px;color:red"></i></a>
-   <a href="#" id="Upload_pic">Upload_pic&nbsp;&nbsp;&nbsp;<i class="fa fa-camera" style="font-size:28px;color:white"></i></a>
+   <a href="${pageContext.request.contextPath}/user/uploadPic" id="Upload_pic">Upload_pic&nbsp;&nbsp;&nbsp;<i class="fa fa-camera" style="font-size:28px;color:white"></i></a>
   <a href="${pageContext.request.contextPath}/user/myownpic" id="My_own_pic">My_pic&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
    &nbsp;<i class="fa fa-photo"style="font-size:22px;color:red"></i></a>
  

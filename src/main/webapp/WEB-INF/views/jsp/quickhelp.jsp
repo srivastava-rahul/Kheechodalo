@@ -18,7 +18,7 @@
 										    	
 										    <div class="Changepasswordformboby">
 										        <h2 style="color:red">Please enter your Problem......!!! </h2>
-										        <div style="margin-left:8%">
+										        <div style="margin-left:0%">
 										         <textarea name="quickhelp"  rows="5" cols="78"
 						                           placeholder="Please provide a detailed description of your Problems or suggestions."
 						                           required="1" aria-required="true"></textarea>

@@ -22,6 +22,10 @@ public class StringUtils {
 		if (s == null) {
 			return "";
 		}
+		if (s.toLowerCase().contains("<script>")) {
+			System.out.println(" s :"+ s);
+			throw new NullPointerException("Invalid Data");
+		}
 		return s.trim();
 	}
 

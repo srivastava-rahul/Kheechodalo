@@ -55,6 +55,9 @@ public class PictureUpload implements Serializable {
 
 	@Column(name = "PIC_UPLOAD_STATUS")
 	private boolean uploadStatus;
+	
+	@Column(name = "PIC_VOTE")
+	private long picVote;
 
 	@ManyToOne(fetch = FetchType.LAZY, optional = true, cascade=CascadeType.ALL)
 	@JoinColumn(name = "PIC_DATA_ID", nullable = false, foreignKey = @ForeignKey(name = "FK_PIC_DATA_ID"))
@@ -156,6 +159,14 @@ public class PictureUpload implements Serializable {
 		this.user = user;
 	}
 	
+	public long getPicVote() {
+		return picVote;
+	}
+
+	public void setPicVote(long picVote) {
+		this.picVote = picVote;
+	}
+
 	@Override
 	public String toString() {
 		return "PictureUpload [id=" + id + ", picName=" + picName + ", description=" + description + ", picSize="

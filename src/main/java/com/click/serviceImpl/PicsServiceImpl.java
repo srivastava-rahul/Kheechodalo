@@ -20,8 +20,6 @@ public class PicsServiceImpl implements PicsService {
 
 	@Autowired
 	PicsDao picsDao;
-	
-	
 
 	@Override
 	@Transactional(readOnly = false)

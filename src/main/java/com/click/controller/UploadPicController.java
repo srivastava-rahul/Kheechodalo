@@ -1,5 +1,6 @@
 package com.click.controller;
 
+import org.apache.commons.codec.binary.Base64;
 import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,7 +30,7 @@ public class UploadPicController {
 	}
 
 	@RequestMapping(value = "/savePic", method = RequestMethod.POST)
-	public String savePic(@RequestParam("picImg") MultipartFile uploadPic, @RequestParam(required = false) String desc) {
+	public String savePic(@RequestParam("picImg") MultipartFile uploadPic, @RequestParam(required = false) String desc, Model model) {
 		System.out.println("save pic called");
 		String fileName = null;
 		if (!uploadPic.isEmpty()) {
@@ -49,6 +50,16 @@ public class UploadPicController {
 				pic.setUser(SecurityLibrary.getLoggedInUser());
 				picsService.savePic(pic);
 				System.out.println("uploaded");
+				try {
+					if(data.getFileData() !=null){
+					byte[] encodeBase64 = Base64.encodeBase64(data.getFileData());
+					String base64Encoded = new String(encodeBase64, "UTF-8");
+					model.addAttribute("picImg", base64Encoded);
+					}
+				} catch (Exception e) {
+					e.printStackTrace();
+					System.out.println("Error while encoded ");
+				}
 				return "uploadPic";
 			} catch (Exception e) {
 				System.out.println("Error :" + e.getMessage());

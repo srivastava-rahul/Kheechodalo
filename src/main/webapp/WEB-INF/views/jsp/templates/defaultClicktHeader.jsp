@@ -68,12 +68,12 @@
 			   <tr><td><span>&nbsp; &nbsp;<i class="fa fa-diamond" style="font-size:28px;color:red"></i><a href="${pageContext.request.contextPath}/user/rules">Rules</a></span></td></tr>
 			   <tr><td><span>&nbsp; &nbsp;<i class="fa fa-gift" style="font-size:28px;color:red"></i><a href="${pageContext.request.contextPath}/user/prizes">Prize</a></span></td></tr>
 			   <tr><td><span>&nbsp; &nbsp;<i class="fa fa-pencil-square-o" style="font-size:28px;color:red"></i><a href="${pageContext.request.contextPath}/user/testimonials">Testimonials</a></span></td></tr>
-              <tr><td><span>&nbsp; &nbsp;<i class="fa fa-envelope-o" style="font-size:28px;color:red"></i><a href="#" id="fdbckpopup">feedback</a></span></td></tr>
+              <tr><td><span>&nbsp; &nbsp;<i class="fa fa-envelope-o" style="font-size:28px;color:red"></i><a href="${pageContext.request.contextPath}/user/feedback">feedback</a></span></td></tr>
 
-		<!-- The Modal -->
+		<!-- <!-- The Modal -->
 		<div id="feedbackpopup" class="modal">
 			<!-- Modal content -->
-			<div class="modal-content-feedbackpopup">
+			<!-- <div class="modal-content-feedbackpopup">
 				<div class="modal-header">
 					<span class="close">&times;</span>
 					<h2>Please Share Your Rewiews</h2>
@@ -92,8 +92,8 @@
 					<button class="button_submit  submit">Cancel</button>
 				</div>
 			</div>
-		</div>
-		
+		</div> 
+		 -->
 		<tr><td><span>&nbsp; &nbsp;<i class="fa fa-info-circle" style="font-size:28px;color:red"></i><a href="${pageContext.request.contextPath}/user/aboutUs">About_Us</a></span></tr></td>
         <tr><td><span>&nbsp; &nbsp;<i class="fa fa-phone" style="font-size:28px;color:red"></i><a href="${pageContext.request.contextPath}/user/contactus">Contact_us</a></span></tr></td>
         <tr><td><span>&nbsp; &nbsp;<i class="fa fa-key" style="font-size:28px;color:red"><a href="${pageContext.request.contextPath}/user/newUserPassword">Change Password</a></span></tr></td>

@@ -55,6 +55,12 @@
 		<put-attribute name="body" value="/WEB-INF/views/jsp/aboutus.jsp" />
 	</definition>
 	
+	<!-- Feedback  pages -->
+	<definition name="feedback" extends="full-definition">
+		<put-attribute name="title" value="Feedback" />
+		<put-attribute name="body" value="/WEB-INF/views/jsp/feedback.jsp" />
+	</definition>
+	
 	<!-- Rules pages -->
 	<definition name="rules" extends="full-definition">
 		<put-attribute name="title" value="Rules" />

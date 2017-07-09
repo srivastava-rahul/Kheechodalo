@@ -75,7 +75,7 @@
 					<tr>
 						<td>email_id</td>
 						<td>
-							<form:input placeholder="email address" style="color:black" path="email_id" />
+							<form:input placeholder="email address" style="color:black" path="email_id" disabled="disabled"/>
 						</td>
 					</tr>
 					<tr>

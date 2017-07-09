@@ -22,7 +22,8 @@ public class StringUtils {
 		if (s == null) {
 			return "";
 		}
-		if (s.toLowerCase().contains("<script>")) {
+		if (s.toLowerCase().contains("<script>")||s.toLowerCase().contains("<?>")||s.toLowerCase().contains("<*>")||
+				s.toLowerCase().contains("</script>")||s.toLowerCase().contains("<>")) {
 			System.out.println(" s :"+ s);
 			throw new NullPointerException("Invalid Data");
 		}

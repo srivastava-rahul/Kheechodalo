@@ -13,7 +13,7 @@ import com.click.utils.SecurityLibrary;
 
 @Controller
 @RequestMapping(value = "/user")
-public class dashboardController {
+public class DashboardController {
 
 	@Autowired
 	UserService userService;

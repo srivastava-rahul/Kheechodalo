@@ -18,62 +18,11 @@ function carousel() {
     setTimeout(carousel, 2000); // Change image every 2 seconds
 }
 </script>
-<!-- 
-<script type="text/javascript">
-	var images = [ "1.jpg", "2.jpg", "3.jpg", "4.jpg", "5.jpg", "6.jpg",
-			"7.jpg" ];
-	$(function() {
-		var i = 0;
-		$(".dvImage").css(
-				"background",
-				"url(${pageContext.request.contextPath}/resources/images/bck/" + images[i]
-						+ ")no-repeat center center fixed");
-		$(".dvImage").css("background-size", "cover");
-		setInterval(function() {
-			i++;
-			if (i == images.length) {
-				i = 0;
-			}
-			$(".dvImage").fadeOut(
-					"slow",
-					function() {
-						$(this).css(
-								"background",
-								"url(${pageContext.request.contextPath}/resources/images/bck/" + images[i]
-										+ ")no-repeat center center fixed");
-						$(".dvImage").css("background-size", "cover");
-						$(this).fadeIn("slow");
-					});
-		}, 100000);
-	});
-</script>
- -->	<br>
+<br>
 
 <div class="body-area">
 
-<c:if test="${not empty success}">
-		<div class="alert alert-success" id="idGlobalSuccess">
-			<div class="">
-				<!-- <i class="fa fa-key" aria-hidden="true"></i> -->
-			</div>
-			<div class="alert-content" style="text-align: left; padding-bottom: 12px; font-size: 16px; color: blue">
-				<!-- <h4 class="alert-title">Success</h4> -->
-				<c:choose>
-					<c:when test="${!empty success && success.getClass().simpleName eq 'String'}">
-					${success}
-				</c:when>
-					<c:otherwise>
-						<c:forEach var="msg" items="${success}">
-						${msg}<br />
-						</c:forEach>
-					</c:otherwise>
-				</c:choose>
-			</div>
-		</div>
-	</c:if>
-
-
-
+<jsp:include page="/WEB-INF/views/jsp/message.jsp" />
 	<div >
 		<div class="row">
 			<div class="column">

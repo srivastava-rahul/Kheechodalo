@@ -1,6 +1,11 @@
 package com.click.controller;
 
+/**
+ * @author vipul
+ */
+
 import java.util.HashMap;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -24,57 +29,75 @@ public class QuickHelpController {
 
 	@Autowired
 	UserService userService;
-	
-	@Autowired	
+
+	@Autowired
 	QuickHelpService quickHelpService;
 
 	@Autowired
 	SendMailService sendMailService;
-	
+
 	@RequestMapping(value = "/quickHelp")
 	protected String getAboutUs(Model model) throws Exception {
 		System.out.println("In user QuickHelp controller");
 		return "quickhelp";
 	}
 
+	@RequestMapping(value = "/feedback")
+	protected String getFeedback(Model model) throws Exception {
+		System.out.println("In user QuickHelp controller With Feedback");
+		return "feedback";
+	}
+
 	@RequestMapping(value = "/quickHelpData", method = RequestMethod.POST)
-	public String quickHelpData(@RequestParam String problem, @RequestParam String quickDesc,Model model) throws Exception {
+	public String quickHelpData(@RequestParam String problem, @RequestParam String quickDesc, Model model)
+			throws Exception {
 		System.out.println("In user quickHelpData controller");
-		System.out.println("oldPassword : " + problem + " quickDesc : " + quickDesc);
-		User userDetails = userService.findUserById(SecurityLibrary.getLoggedInUser().getId());
-		System.out.println("User Password :" + userDetails.getFirstName());
-			
+		try {
+			System.out.println("oldPassword : " + problem + " quickDesc : " + quickDesc);
+			User userDetails = userService.findUserById(SecurityLibrary.getLoggedInUser().getId());
+			System.out.println("User Password :" + userDetails.getFirstName());
+
 			QuickHelp quickHelp = new QuickHelp();
 			quickHelp.setUser(userDetails);
 			quickHelp.setQuickProblem(problem);
 			quickHelp.setQuickDesc(quickDesc);
-			
-			sendRegistrationEmail(new String[] { "click8me@gmail.com" }, userDetails.getFirstName(), userDetails.getId(),"I "+userDetails.getEmailId() +" Want Some Help In "+problem+" And Short Description"+quickDesc);
+
+			sendProblemEmail(new String[] { "click8me@gmail.com" }, userDetails.getFirstName(), userDetails.getId(),
+					"I " + userDetails.getEmailId() + " Want Some Help In " + problem + " And Short Description"
+							+ quickDesc);
 			quickHelpService.saveQuickHelpData(quickHelp);
 			model.addAttribute("success", "Please Wait We Will Assist You Shortly .");
 			return "dashboard";
+		} catch (Exception e) {
+			e.printStackTrace();
+			model.addAttribute("error", "Error Occured Whie Sending Data .");
+			return "quickhelp";
+		}
 	}
-	
-	
+
 	@RequestMapping(value = "/feedbackData", method = RequestMethod.POST)
-	public String feedbackData(@RequestParam String feedback,Model model) throws Exception {
+	public String feedbackData(@RequestParam String feedback, Model model) throws Exception {
 		System.out.println("In user feedbackData controller");
-		System.out.println("feedbackData : " + feedback);
-		User userDetails = userService.findUserById(SecurityLibrary.getLoggedInUser().getId());
-		System.out.println("User Password :" + userDetails.getFirstName());
-			
+		try {
+			System.out.println("feedbackData : " + feedback);
+			User userDetails = userService.findUserById(SecurityLibrary.getLoggedInUser().getId());
+			System.out.println("User Password :" + userDetails.getFirstName());
+
 			UserFeedback feed = new UserFeedback();
 			feed.setUser(userDetails);
 			feed.setFeedDesc(feedback);
-			
-			sendRegistrationEmail(new String[] { "vipul061993@gmail.com" }, userDetails.getFirstName(), userDetails.getId(),"I "+userDetails.getEmailId() +" My Feedback "+feedback);
+
 			quickHelpService.saveFeedbackData(feed);
-			model.addAttribute("success", "Please Wait We Will Assist You Shortly .");
+			model.addAttribute("success", "Thank You For Providing Us Yours Views .");
 			return "dashboard";
+		} catch (Exception e) {
+			e.printStackTrace();
+			model.addAttribute("error", "Error Occured Whie Giving Feedback .");
+			return "feedback";
+		}
 	}
-	
-	
-	private void sendRegistrationEmail(String[] mailTo, String userName, String id, String message) {
+
+	private void sendProblemEmail(String[] mailTo, String userName, String id, String message) {
 		String subject = "Quick Help";
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		map.put("userName", userName);

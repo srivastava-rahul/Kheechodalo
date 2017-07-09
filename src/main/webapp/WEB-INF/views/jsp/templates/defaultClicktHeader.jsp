@@ -70,30 +70,7 @@
 			   <tr><td><span>&nbsp; &nbsp;<i class="fa fa-pencil-square-o" style="font-size:28px;color:red"></i><a href="${pageContext.request.contextPath}/user/testimonials">Testimonials</a></span></td></tr>
               <tr><td><span>&nbsp; &nbsp;<i class="fa fa-envelope-o" style="font-size:28px;color:red"></i><a href="${pageContext.request.contextPath}/user/feedback">feedback</a></span></td></tr>
 
-		<!-- <!-- The Modal -->
-		<div id="feedbackpopup" class="modal">
-			<!-- Modal content -->
-			<!-- <div class="modal-content-feedbackpopup">
-				<div class="modal-header">
-					<span class="close">&times;</span>
-					<h2>Please Share Your Rewiews</h2>
-				</div>
-				<br />
-				<br />
-				<div class="modal-body">
-					<textarea name="feedback" rows="5" cols="70"
-						placeholder="Please provide a detailed description of your ideas or suggestions."
-						required="1" aria-required="true"></textarea>
-				</div>
-				<br />
-				<br />
-				<div class="modal-footer" align="right">
-					<button class="button_submit  submit">Send</button>
-					<button class="button_submit  submit">Cancel</button>
-				</div>
-			</div>
-		</div> 
-		 -->
+		
 		<tr><td><span>&nbsp; &nbsp;<i class="fa fa-info-circle" style="font-size:28px;color:red"></i><a href="${pageContext.request.contextPath}/user/aboutUs">About_Us</a></span></tr></td>
         <tr><td><span>&nbsp; &nbsp;<i class="fa fa-phone" style="font-size:28px;color:red"></i><a href="${pageContext.request.contextPath}/user/contactus">Contact_us</a></span></tr></td>
         <tr><td><span>&nbsp; &nbsp;<i class="fa fa-key" style="font-size:28px;color:red"><a href="${pageContext.request.contextPath}/user/newUserPassword">Change Password</a></span></tr></td>
@@ -123,7 +100,7 @@
 						</p>
 					</div>
 
-					<div class="col-md-2" style="padding-left: 5px;">
+					<div class="col-md-2" style="padding-left: 5px;padding-top: 20px;height: 34px;">
 						<p align="left">
 							<button class="btn btn-default" style="border-radius: 0;" type="submit">
 								<span class="glyphicon glyphicon-search"></span>

@@ -5,26 +5,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <div class="body-area">
 
-	<c:if test="${not empty error}">
-		<div class="alert alert-danger" id="idGlobalError">
-			<div class="">
-				<!-- <i class="glyph-icon icon-times"></i> -->
-			</div>
-			<div class="alert-content">
-				<!-- <h4 class="alert-title">Error</h4> -->
-				<c:choose>
-					<c:when test="${!empty error && error.getClass().simpleName eq 'String'}">
-					${error}
-				</c:when>
-					<c:otherwise>
-						<c:forEach var="msg" items="${error}">
-						${msg}<br />
-						</c:forEach>
-					</c:otherwise>
-				</c:choose>
-			</div>
-		</div>
-	</c:if>
+	<jsp:include page="/WEB-INF/views/jsp/message.jsp" />
 	<div class="Changepassword_password_form">
 		<!-- header -->
 		<div class="Changepasswordformheader">

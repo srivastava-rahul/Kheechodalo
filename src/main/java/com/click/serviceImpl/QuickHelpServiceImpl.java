@@ -12,6 +12,10 @@ import com.click.entity.QuickHelp;
 import com.click.entity.UserFeedback;
 import com.click.service.QuickHelpService;
 
+/**
+ * @author vipul
+ */
+
 @Component
 @Transactional(readOnly = true)
 public class QuickHelpServiceImpl implements QuickHelpService {

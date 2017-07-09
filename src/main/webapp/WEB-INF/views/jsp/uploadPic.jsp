@@ -21,26 +21,27 @@
 
 		<div class="MyownpicBodyleft">
 			<%-- <img src="${pageContext.request.contextPath}/resources/images/itg.jpg" alt="Avatar" style="width: 304px; height: 320px; margin: 1px"> --%>
-			<form action="${pageContext.request.contextPath}/user/savePic" method="post" id="uploadPicForm" enctype="multipart/form-data">
-				<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
-				<c:if test="${empty picImg}">
-				<img id="picImageHolder" src="${pageContext.request.contextPath}/resources/images/logo-image.png" alt="Picture" style="width: 304px; height: 320px; margin: 1px" onclick="$('#picImg').click()" />
-				</c:if>
-				<c:if test="${not empty picImg}">
-					<img id="picImageHolder" src="data:image/jpeg;base64,${picImg}" alt="Picture" style="width: 304px; height: 320px; margin: 1px" onclick="$('#picImg').click()" />
-				</c:if>
-				<div class="row">
-					<div class="col-md-6">
-						<a href="javascript:" onclick="$('#picImg').click()" style="color: #eee;">Select Pic</a>
+			<c:if test="${empty picImg}">
+				<form action="${pageContext.request.contextPath}/user/savePic" method="post" id="uploadPicForm" enctype="multipart/form-data">
+					<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
+					<img id="picImageHolder" src="${pageContext.request.contextPath}/resources/images/logo-image.png" alt="Picture" style="width: 304px; height: 320px; margin: 1px" onclick="$('#picImg').click()" />
+					<div class="row">
+						<div class="col-md-6">
+							<a href="javascript:" onclick="$('#picImg').click()" style="color: #eee;">Select Pic</a>
+						</div>
+						<div class="col-md-6">
+							<a href="javascript:" id="removeLogo" style="float: right; color: #eee;">Remove Pic</a>
+						</div>
 					</div>
-					<div class="col-md-6">
-						<a href="javascript:" id="removeLogo" style="float: right; color: #eee;">Remove Pic</a>
-					</div>
-				</div>
-				<input type="file" accept="image/*" style="visibility: hidden" name="picImg" id="picImg">
-				<input type="hidden" id="removeFile" name="removeFile" value="false">
-				<input type="submit" id="uploadPicBtnId" class="btn success" value="Upload">
-			</form>
+					<input type="file" accept="image/*" style="visibility: hidden" name="picImg" id="picImg">
+					<input type="hidden" id="removeFile" name="removeFile" value="false">
+					<input type="submit" id="uploadPicBtnId" class="btn success" value="Upload">
+				</form>
+			</c:if>
+			<c:if test="${not empty picImg}">
+				<img id="picImageHolder" src="data:image/jpeg;base64,${picImg}" alt="Picture" style="width: 304px; height: 320px; margin: 1px" onclick="$('#picImg').click()" />
+			</c:if>
+
 		</div>
 
 
@@ -71,9 +72,12 @@
 
 
 		<div class="MyownpicBodyright">
+			<span style="color: #eee;">
 			<h2>Description</h2>
 			<h5>Today 12:00</h5>
 			<h3>Its a aswome view that i click Its a aswome view that i click Its a aswome view that i click</h3>
+			</span>
+			<c:if test="${not empty picImg}">
 			<p style="color: red; font-size: 25px">Remaning vote to win</p>
 			<img src="${pageContext.request.contextPath}/resources/images/arrow.gif" style="margin-top: 1%;" src="arrow.gif" width="12%" height="5%" />
 			100
@@ -85,6 +89,7 @@
 				</p>
 
 			</div>
+			</c:if>
 			<%-- <div class="fileinput fileinput-new input-group"
 				data-provides="fileinput">
 				<form action="" method="post" id="uploadPicForm">

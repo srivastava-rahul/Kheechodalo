@@ -42,7 +42,7 @@ public class ProfileSettingServiceImpl implements ProfileSettingService {
 
 			}
 
-			if (userprofiledata.getPhone() == 0) {
+			if (userprofiledata.getPhone() >0 ) {
 				dbProfiledetails.setPhone(userprofiledata.getPhone());
 				dbProfiledetails.setPhone_flage(userprofiledata.isPhone_flage());
 

@@ -36,7 +36,7 @@ public class ProfileSetting {
 	private long  phone;
 	
 	@Column(name = "USER_PHONE_FLAGE")
-	private boolean phone_flage;
+	private boolean phone_flage=false;
 	
 	@Column(name = "USER_GENDER")
 	private String  gender;
@@ -87,13 +87,13 @@ public class ProfileSetting {
 	private String paytm;
 	
 	@Column(name = "USER_PAYTM_FLAGE")
-	private boolean paytm_flage;
+	private boolean paytm_flage=false;
 
 	@Column(name = "USER_ADDRESS")
 	private String address;
 	
 	@Column(name = "USER_ADDRESS_FLAGE")
-	private boolean address_flage;
+	private boolean address_flage =false;
 	
 	@Column(name = "USER_HOBBIES")
 	private String hobbies;

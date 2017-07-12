@@ -9,7 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class AboutUsController {
 	
 
-	
+	 
+			 
 	@RequestMapping(value = "/aboutUs")
 	protected String getAboutUs(Model model) throws Exception {
 		System.out.println("In user aboutus controller");

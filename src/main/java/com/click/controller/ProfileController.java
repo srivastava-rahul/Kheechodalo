@@ -66,7 +66,11 @@ public class ProfileController {
 		        	profileSetting.setAddress("Hidden");
 		        }
 		        
-		        
+		        System.out.println(profileSetting);
+		        System.out.println(profileSetting.getId());
+		        System.out.println(profileSetting.getPaytm());
+		        System.out.println(profileSetting.getPhone());
+		        System.out.println(profileSetting.getAddress());
 		        model.addAttribute("profileSetting", profileSetting);
 			
 			 }

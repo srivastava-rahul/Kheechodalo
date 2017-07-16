@@ -6,28 +6,7 @@
 	src="${pageContext.request.contextPath}/resources/js/jquery-1.4.2.min.js"></script>
 
 <div class="body-area">
-	<c:if test="${not empty error}">
-		<div class="alert alert-danger" id="idGlobalError">
-			<div class="">
-				<!-- <i class="glyph-icon icon-times"></i> -->
-			</div>
-			<div class="alert-content">
-				<!-- <h4 class="alert-title">Error</h4> -->
-				<c:choose>
-					<c:when
-						test="${!empty error && error.getClass().simpleName eq 'String'}">
-					${error}
-				</c:when>
-					<c:otherwise>
-						<c:forEach var="msg" items="${error}">
-						${msg}<br />
-						</c:forEach>
-					</c:otherwise>
-				</c:choose>
-			</div>
-		</div>
-	</c:if>
-
+		<jsp:include page="/WEB-INF/views/jsp/message.jsp" />
 	<div class="Changepassword_password_form">
 		<!-- header -->
 		<div class="Changepasswordformheader">
@@ -38,18 +17,16 @@
 		</div>
 
 		<form name="quickhelpForm" action="quickHelpData" method="post">
-			<input type="hidden" name="${_csrf.parameterName}"
-				value="${_csrf.token}">>
+			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
 			<div class="Changepasswordformboby">
-				<h2 style="color: red">Please enter Button name or screen which
-					is not working</h2>
+				<h3 style="color: yellow">Please tell Problem you A are facing... </h3>
 				<input type="text" class="Changepassword_form-control" name="problem" id="problem"
 					placeholder="Please Enter Page or button name" />
 			</div>
 
 			<div class="Changepasswordformboby">
-				<h2 style="color: red">Please enter your Problem......!!!</h2>
-				<div style="margin-left: 8%">
+				<h3 style="color: yellow">Please Provide Some Problem Decsription...</h3>
+				<div style="margin-left: 1%">
 					<textarea name= "quickDesc" id="quickDesc" rows="5" cols="62" style="color: black"
 						placeholder="Please provide a detailed description of your Problems or suggestions."
 						 aria-required="true"></textarea>
@@ -64,8 +41,7 @@
 				&nbsp;&nbsp;
 
 				<c:url value="/user/dashboard" var="dashUrl" />
-				<a href="${dashUrl}" class="button_submit  submit"> Cancel </a>
-				<!-- <button class="Changepassword_button_submit  submit">Send</button> -->
+				<a href="${dashUrl}" class="button_submit  submit"  style="margin-right: 12px;"> Cancel </a>
 			</div>
 		</form>
 	</div>

@@ -4,21 +4,23 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
+import org.apache.log4j.Logger;
 import org.springframework.stereotype.Repository;
 
 import com.click.dao.UserDao;
 import com.click.entity.User;
-import com.click.enums.Status;
 
 @Repository
 public class UserDaoImpl implements UserDao {
+
+	private static final Logger LOG = Logger.getLogger(UserDaoImpl.class);
 
 	@PersistenceContext(unitName = "entityManagerFactory")
 	EntityManager entityManager;
 
 	@Override
 	public User findById(String userId) {
-		System.out.println("user dao :" + userId);
+		LOG.info("user dao :" + userId);
 		Query query = entityManager.createQuery("from User u where u.id = :Id").setParameter("Id", userId);
 		return (User) query.getSingleResult();
 	}
@@ -32,7 +34,8 @@ public class UserDaoImpl implements UserDao {
 	@Override
 	public User findUserByName(String emailId) {
 		System.out.println("user dao :" + emailId);
-		Query query = entityManager.createQuery("from User u where upper(u.emailId) = :emailId").setParameter("emailId", emailId);
+		Query query = entityManager.createQuery("from User u where upper(u.emailId) = :emailId").setParameter("emailId",
+				emailId);
 		return (User) query.getSingleResult();
 	}
 
@@ -46,7 +49,8 @@ public class UserDaoImpl implements UserDao {
 
 	@Override
 	public User findByEmailId(String email) {
-		Query query = entityManager.createQuery("from User u where upper(u.emailId) = :emailId").setParameter("emailId", email);
+		Query query = entityManager.createQuery("from User u where upper(u.emailId) = :emailId").setParameter("emailId",
+				email);
 		return (User) query.getSingleResult();
 	}
 

@@ -11,9 +11,7 @@ import com.click.entity.User;
 import com.click.pojo.AuthenticatedUser;
 import com.click.utils.SecurityLibrary;
 
-/**
- * @author parveen
- */
+
 @Controller
 public class LoginController {
 

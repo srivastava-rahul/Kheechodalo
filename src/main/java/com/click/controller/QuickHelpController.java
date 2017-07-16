@@ -6,7 +6,7 @@ package com.click.controller;
 
 import java.util.HashMap;
 
-
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -26,6 +26,8 @@ import com.click.utils.SecurityLibrary;
 @Controller
 @RequestMapping(value = "/user")
 public class QuickHelpController {
+	
+	private static final Logger LOG = Logger.getLogger(QuickHelpController.class);
 
 	@Autowired
 	UserService userService;
@@ -38,24 +40,24 @@ public class QuickHelpController {
 
 	@RequestMapping(value = "/quickHelp")
 	protected String getAboutUs(Model model) throws Exception {
-		System.out.println("In user QuickHelp controller");
+		LOG.info("In user QuickHelp controller");
 		return "quickhelp";
 	}
 
 	@RequestMapping(value = "/feedback")
 	protected String getFeedback(Model model) throws Exception {
-		System.out.println("In user QuickHelp controller With Feedback");
+		LOG.info("In user QuickHelp controller With Feedback");
 		return "feedback";
 	}
 
 	@RequestMapping(value = "/quickHelpData", method = RequestMethod.POST)
 	public String quickHelpData(@RequestParam String problem, @RequestParam String quickDesc, Model model)
 			throws Exception {
-		System.out.println("In user quickHelpData controller");
+		LOG.info("In user quickHelpData controller");
 		try {
-			System.out.println("oldPassword : " + problem + " quickDesc : " + quickDesc);
+			LOG.info("oldPassword : " + problem + " quickDesc : " + quickDesc);
 			User userDetails = userService.findUserById(SecurityLibrary.getLoggedInUser().getId());
-			System.out.println("User Password :" + userDetails.getFirstName());
+			LOG.info("User Password :" + userDetails.getFirstName());
 
 			QuickHelp quickHelp = new QuickHelp();
 			quickHelp.setUser(userDetails);
@@ -77,11 +79,11 @@ public class QuickHelpController {
 
 	@RequestMapping(value = "/feedbackData", method = RequestMethod.POST)
 	public String feedbackData(@RequestParam String feedback, Model model) throws Exception {
-		System.out.println("In user feedbackData controller");
+		LOG.info("In user feedbackData controller");
 		try {
-			System.out.println("feedbackData : " + feedback);
+			LOG.info("feedbackData : " + feedback);
 			User userDetails = userService.findUserById(SecurityLibrary.getLoggedInUser().getId());
-			System.out.println("User Password :" + userDetails.getFirstName());
+			LOG.info("User Password :" + userDetails.getFirstName());
 
 			UserFeedback feed = new UserFeedback();
 			feed.setUser(userDetails);

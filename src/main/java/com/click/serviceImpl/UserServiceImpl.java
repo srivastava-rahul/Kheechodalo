@@ -3,6 +3,7 @@
  */
 package com.click.serviceImpl;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
@@ -15,12 +16,14 @@ import com.click.service.UserService;
 @Transactional(readOnly = true)
 public class UserServiceImpl implements UserService {
 
+	private static final Logger LOG = Logger.getLogger(UserServiceImpl.class);
+	
 	@Autowired
 	UserDao userDao;
 
 	@Override
 	public User findUserById(String userId) {
-		System.out.println("user service :" + userId);
+		LOG.info("user service :" + userId);
 		return userDao.findById(userId);
 	}
 

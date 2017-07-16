@@ -2,6 +2,7 @@ package com.click.controller;
 
 import java.util.HashMap;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
@@ -19,7 +20,9 @@ import com.click.utils.Global;
 
 @Controller
 public class UserController {
-
+	
+	private static final Logger LOG = Logger.getLogger(UserController.class);
+	
 	@Value("${app.url}")
 	String APP_URL;
 
@@ -45,6 +48,7 @@ public class UserController {
 	@RequestMapping(value = "/user", method = RequestMethod.GET)
 	public String viewUser(Model model) {
 		try {
+            LOG.info("view user");
 			System.out.println("view user");
 			User user = new User();
 			model.addAttribute("user", user);
@@ -59,8 +63,8 @@ public class UserController {
 	public String saveUser(@RequestParam String firstName, @RequestParam String lastName, @RequestParam String email,
 			@RequestParam String password) {
 		try {
-			System.out.println(
-					"first name -" + firstName + "lastName- " + lastName + "email -" + email + "password -" + password);
+			System.out.println("first name -" + firstName + "lastName- " + lastName + "email -" + email + "password -" + password);
+			
 			User user = new User();
 			user.setFirstName(firstName);
 			user.setLastName(lastName);
@@ -70,8 +74,7 @@ public class UserController {
 			role.setId("111");
 			user.setUserRole(role);
 			user = userService.saveUser(user);
-			sendRegistrationEmail(new String[] { user.getEmailId() }, user.getFirstName(), user.getId(),
-					"Thanks For Registration");
+			sendRegistrationEmail(new String[] { user.getEmailId() }, user.getFirstName(), user.getId(),"Thanks For Registration");
 			System.out.println("user object :" + user.toLogString());
 		} catch (Exception e) {
 			System.out.println("Error saveUser");
@@ -95,13 +98,16 @@ public class UserController {
 	
 	@RequestMapping(value = "/forgetPassword", method = RequestMethod.GET)
 	public String forgetPassword() {
+		LOG.info("view user");
 		System.out.println(" forgetPassword() ");
 		return "forgetPassword";
 	}
 
 	@RequestMapping(value = "/changePassword/{id}", method = RequestMethod.GET)
 	public String changePassword() {
+	    LOG.info(" changePassword() LOGGER");
 		System.out.println(" changePassword() ");
+		
 		return "changePassword";
 	}
 

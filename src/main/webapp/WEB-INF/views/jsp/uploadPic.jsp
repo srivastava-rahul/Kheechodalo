@@ -129,9 +129,9 @@
 							} else if (typeof (FileReader) != "undefined") {
 								$("#removeFile").val(false);
 								var image_holder = $("#picImageHolder");
-								image_holder.empty();
 								var reader = new FileReader();
 								reader.onload = function(e) {
+								image_holder.empty();
 									image_holder.attr('src', e.target.result);
 								}
 								//console.log("=====");

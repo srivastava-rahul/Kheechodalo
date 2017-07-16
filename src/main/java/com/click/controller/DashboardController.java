@@ -1,5 +1,6 @@
 package com.click.controller;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,13 +15,15 @@ import com.click.utils.SecurityLibrary;
 @Controller
 @RequestMapping(value = "/user")
 public class DashboardController {
+	
+	private static final Logger LOG = Logger.getLogger(DashboardController.class);
 
 	@Autowired
 	UserService userService;
 
 	@RequestMapping(value = "/dashboard")
 	protected String getAllCourses(Model model) throws Exception {
-		System.out.println("In user dashborad controller");
+		LOG.info(" LOG User Dashboard ");
 		User u = SecurityLibrary.getLoggedInUser();
 		System.out.println(u.getEmailId());
 		return "dashboard";
@@ -35,15 +38,15 @@ public class DashboardController {
 	public String changeNewPassword(@RequestParam String oldPassword, @RequestParam String newPassword,
 			@RequestParam String confirmPassword, Model model) {
 		try {
-			System.out.println("changeNewPassword : " + SecurityLibrary.getLoggedInUser().getId());
-			System.out.println("oldPassword : " + oldPassword + " newPassword : " + oldPassword + " confirmPassword :"
+			LOG.info("changeNewPassword : " + SecurityLibrary.getLoggedInUser().getId());
+			LOG.info("oldPassword : " + oldPassword + " newPassword : " + oldPassword + " confirmPassword :"
 					+ confirmPassword);
 			User userDetails = userService.findUserById(SecurityLibrary.getLoggedInUser().getId());
-			System.out.println("User Password :"+userDetails.getPassword());
+			LOG.info("User Password :"+userDetails.getPassword());
 			if (userDetails.getPassword().trim().equals(oldPassword.trim())) {
-				System.out.println("  Both Equal ");
+				LOG.info("  Both Equal ");
 			if (!(newPassword.trim().equals(confirmPassword.trim()))) {
-				System.out.println(" Same Password ");
+				LOG.info(" Same Password ");
 				model.addAttribute("error", "New password And Confirm Password Must Be Same");
 				return "newUserPassword";
 			}else{
@@ -54,7 +57,7 @@ public class DashboardController {
 			}
 			}
 		} catch (Exception e) {
-			System.out.println("Error Changing user Password");
+			LOG.error("Error Changing user Password");
 			e.printStackTrace();
 		}
 		model.addAttribute("error", "Your entered Old Password Is Incorrect");

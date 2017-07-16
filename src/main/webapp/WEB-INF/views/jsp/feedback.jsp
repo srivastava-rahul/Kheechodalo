@@ -17,11 +17,11 @@
 		</div>
 
 		<form name="feedbackForm" action="feedbackData" method="post">
-			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">>
+			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
 			<div class="Changepasswordformboby">
-				<h2 style="color: red">Please enter your Feedback......!!!</h2>
-				<div style="margin-left: 8%">
-					<textarea name= "feedback" id="feedback" rows="5" cols="62" style="color: black"
+				<h2 style="color: red">Please Provide your Feedback......!!!</h2>
+				<div style="margin-left: 1%">
+					<textarea name= "feedback" id="feedback" rows="5" cols="66" style="color: black"
 						placeholder="Please provide a detailed description of your Problems or suggestions."
 						 aria-required="true"></textarea>
 				</div>
@@ -32,8 +32,15 @@
 				<button type="submit" class="button_submit  submit">Send</button>&nbsp;&nbsp;
 
 				<c:url value="/user/dashboard" var="dashUrl" />
-				<a href="${dashUrl}" class="button_submit  submit"> Cancel </a>
+				<a href="${dashUrl}" class="button_submit  submit" style="margin-right: 12px;" style="margin-right: 12px;"> Cancel </a>
 			</div>
 		</form>
 	</div>
 </div>
+
+<style>
+.Changepassword_password_form{
+margin-bottom: auto; !important;
+}
+
+</style>

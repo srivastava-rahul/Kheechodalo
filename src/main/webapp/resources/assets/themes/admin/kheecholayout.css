@@ -177,27 +177,36 @@ float:right;
 .Changepassword_password_form{
   width:50%;
   height:auto;
-  border:2px solid black;
+  border:2px solid #f5f3f3;
   margin-top:3%;
   margin-left:25%;
   
 }
+
+.Changepasswordformfooter {
+    height: 60px;
+    padding-top: 6px;
+    background-color: rgba(83, 220, 100, 0.88);
+}
+
+
 .Changepasswordformheader{
-	height: 55px;
-	    padding-top: 1px;
-background-color:#a2f3a2;
+	height: 71px;
+	 padding-top: 1px;
+background-color:rgba(83, 220, 100, 0.88);
 
 }
-.Changepasswordformboby{
- margin-left:2%;
+
+ .Changepasswordformboby{
+ margin-left:3%;
  
 }
 
-.Changepasswordformfooter{
+/* .Changepasswordformfooter{
  background-color:#a2f3a2;
    height:3%;
 }
-
+ */
 
 .Changepassword_button_submit {
   

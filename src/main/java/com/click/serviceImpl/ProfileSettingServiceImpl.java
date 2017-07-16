@@ -187,4 +187,10 @@ public class ProfileSettingServiceImpl implements ProfileSettingService {
 		return profileSettingDao.findByEmailId(emailId);
 	}
 
+	@Override
+	@Transactional(readOnly = false)
+	public void updateProfile(ProfileSetting profileSetting) {
+		profileSettingDao.updateUserProfile(profileSetting);
+	}
+
 }

@@ -2,9 +2,14 @@ package com.click.controller;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
+import org.apache.commons.codec.binary.Base64;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.WebDataBinder;
@@ -12,7 +17,12 @@ import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
+import com.click.entity.PicUploadData;
+import com.click.entity.PictureUpload;
 import com.click.entity.ProfileSetting;
 import com.click.service.ProfileSettingService;
 import com.click.service.UserService;
@@ -44,6 +54,17 @@ public class ProfileSettingsController {
 					.findByEmailId(SecurityLibrary.getLoggedInUser().getEmailId());
 			if (profileSetting == null) {
 				profileSetting = new ProfileSetting();
+			}else{
+				try {
+					if(profileSetting.getFileData() !=null){
+					byte[] encodeBase64 = Base64.encodeBase64(profileSetting.getFileData());
+					String base64Encoded = new String(encodeBase64, "UTF-8");
+					model.addAttribute("picImg", base64Encoded);
+					}
+				} catch (Exception e) {
+					e.printStackTrace();
+					System.out.println("Error while encoded ");
+				}
 			}
 			model.addAttribute("profileSetting", profileSetting);
 
@@ -78,5 +99,36 @@ public class ProfileSettingsController {
 		}
 		return "settings";
 	}
-
+	
+	@RequestMapping(value = "/uploadprofilepic", method = RequestMethod.GET)
+	public String uploadprofilepic() {
+		
+		return "UploadProfilePic";
+	}
+	
+	@RequestMapping(value = "/saveProfilePic", method = RequestMethod.POST)
+	public String savePic(@RequestParam("picImg") MultipartFile uploadPic,Model model) {
+		System.out.println("save pic called");
+		String fileName = null;
+		if (!uploadPic.isEmpty()) {
+			try {
+				ProfileSetting profileSetting = profileSettingService.findByEmailId(SecurityLibrary.getLoggedInUser().getEmailId());
+				byte[] bytes = uploadPic.getBytes();
+				profileSetting.setFileData(bytes);
+				profileSettingService.updateProfile(profileSetting);
+				System.out.println("uploaded");
+				byte[] encodeBase64 = Base64.encodeBase64(profileSetting.getFileData());
+				String base64Encoded = new String(encodeBase64, "UTF-8");
+				model.addAttribute("picImg", base64Encoded);
+				
+				return "UploadProfilePic";
+			} catch (Exception e) {
+				System.out.println("Error :" + e.getMessage());
+				e.printStackTrace();
+				return "UploadProfilePic";
+			}
+		} else {
+			return "UploadProfilePic";
+		}
+	}
 }

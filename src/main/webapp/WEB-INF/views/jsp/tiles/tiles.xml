@@ -126,6 +126,12 @@
 		<put-attribute name="title" value="SearchPage" />
 		<put-attribute name="body" value="/WEB-INF/views/jsp/searchpage.jsp" />
 	</definition>
+	
+		<!-- UploadProfilePic pages -->
+    <definition name="UploadProfilePic" extends="full-definition">
+		<put-attribute name="title" value="UploadProfilePic" />
+		<put-attribute name="body" value="/WEB-INF/views/jsp/UploadProfilePic.jsp" />
+	</definition>
 
 	<!-- error pages -->
 	<definition name="400_error" extends="blank-definition">

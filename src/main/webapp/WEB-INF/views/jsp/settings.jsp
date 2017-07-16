@@ -5,7 +5,14 @@
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/jquery-1.4.2.min.js"></script>
 <div class="body-area">
 	<div>
-		<img src="${pageContext.request.contextPath}/resources/images/itg.jpg" alt="Avatar" class="page_pic">
+		<a href="${pageContext.request.contextPath}/user/uploadprofilepic">
+		<c:if test="${not empty picImg}">
+				<img id="picImageHolder" src="data:image/jpeg;base64,${picImg}" alt="Picture"  class="page_pic"/>
+			</c:if>
+			<c:if test="${empty picImg}">
+			<img src="${pageContext.request.contextPath}/resources/images/itg.jpg" alt="Avatar" class="page_pic">
+			</c:if></a>
+	
 	</div>
 	<div class="information">
 		<p class="header_information">

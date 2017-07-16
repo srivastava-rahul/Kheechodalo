@@ -6,6 +6,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
@@ -104,6 +105,14 @@ public class ProfileSetting {
 	@Column(name = "USER_FAVOURITE_SINGER")
 	private String favourite_singer;
 	
+	public byte[] getFileData() {
+		return fileData;
+	}
+
+	public void setFileData(byte[] fileData) {
+		this.fileData = fileData;
+	}
+
 	@Column(name = "USER_FAVOURITE_MOVIES")
 	private String favourite_movies;
 	
@@ -112,6 +121,10 @@ public class ProfileSetting {
 	
 	@Column(name = "USER_FAVOURITE_AUTHOR")
 	private String favourite_author;
+	
+	@Lob
+	@Column(name = "FILE_DATA")
+	private byte[] fileData;
 
 
 	public ProfileSetting(){}

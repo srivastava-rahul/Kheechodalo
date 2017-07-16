@@ -40,7 +40,7 @@ public class SecurityLibrary {
 	private static GrantedAuthority[] getUserAuthorities() {
 		System.out.println(" GrantedAuthority[] getUserAuthorities() ");
 		if (SecurityContextHolder.getContext() == null) {
-			// log.error("security context is empty, this seems to be a
+			// //LOG.error("security context is empty, this seems to be a
 			// bug/misconfiguration!");
 			return new GrantedAuthority[0];
 		}
@@ -153,7 +153,7 @@ public class SecurityLibrary {
 	public static String getLoggedInUserLoginId() {
 		System.out.println(" getLoggedInUserLoginId() ");
 		if (SecurityContextHolder.getContext() == null) {
-			// log.error("security context is empty, this seems to be a
+			// //LOG.error("security context is empty, this seems to be a
 			// bug/misconfiguration!");
 			return "";
 		}
@@ -182,7 +182,7 @@ public class SecurityLibrary {
 	 */
 	public static User getLoggedInUser() throws Exception {
 		if (SecurityContextHolder.getContext() == null) {
-			// log.error("security context is empty, this seems to be a
+			// //LOG.error("security context is empty, this seems to be a
 			// bug/misconfiguration!");
 			System.out.println("security context is empty, this seems to be a bug/misconfiguration!");
 			// throw new SecurityRuntimeException();

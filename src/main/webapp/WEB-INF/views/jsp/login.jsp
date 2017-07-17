@@ -39,6 +39,8 @@ body {
 
 	</div>
 
+   <i style="color:yellow">Sign-Up is free and always will be.</br></i>
+   <i style="color:red">In-Order to win Prize (Please Complete your profile as soon as you create account).</i>
 	<!-- The Modal -->
 	<div id="myModal" class="modal">
 
@@ -179,8 +181,8 @@ body {
 							Set A Password<span class="req">*</span>
 						</label>
 						<input type="password" id="password" name="password" />
-					</div>
-
+					</div>	
+										
 					<button type="submit" class="button button-block">Get Started</button>
 
 				</form>

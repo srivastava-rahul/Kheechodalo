@@ -10,7 +10,7 @@
 				<img id="picImageHolder" src="data:image/jpeg;base64,${picImg}" alt="Picture"  class="page_pic"/>
 			</c:if>
 			<c:if test="${empty picImg}">
-			<img src="${pageContext.request.contextPath}/resources/images/itg.jpg" alt="Avatar" class="page_pic">
+			<img src="${pageContext.request.contextPath}/resources/images/profileupload.png" alt="Avatar" class="page_pic">
 			</c:if></a>
 	
 	</div>

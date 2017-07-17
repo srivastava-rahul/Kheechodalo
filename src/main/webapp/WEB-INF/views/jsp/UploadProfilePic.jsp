@@ -13,7 +13,7 @@
 				<img id="picImageHolder" src="data:image/jpeg;base64,${picImg}" alt="Picture"  class="page_pic"/>
 			</c:if>
 			<c:if test="${empty picImg}">
-			<img src="${pageContext.request.contextPath}/resources/images/itg.jpg" alt="Avatar" class="page_pic">
+			<img src="${pageContext.request.contextPath}/resources/images/profile.jpg" alt="Avatar" class="page_pic">
 			</c:if>
 			
 	<div class="information">
@@ -59,8 +59,24 @@
 		
 	</div>
 	
-	 <a href="${pageContext.request.contextPath}/user/getProfileSettings" >BACK</a>
+	 <%-- <div >	
+	 <a href="${pageContext.request.contextPath}/user/getProfileSettings"  style="margin-top:10%; ">BACK</a>
+     </div> --%>
+     
+     <div class="MyownpicBodyright">
+     
+     
+			<h1><a href="${pageContext.request.contextPath}/user/getProfileSettings"  style="margin-top:10%;color:red "><span><img src="${pageContext.request.contextPath}/resources/images/download.jpg" style="margin-top: 1%; background-color: transparent;" src="arrow.gif" width="5%" height="4%"/>&nbsp;BACK</span></a></h1>
 
+			</div>
+			
+			
+			<br /> <br /> <br /> <br /> <br /> <br />
+
+
+		</div>
+     
+     
 </div>
 
 

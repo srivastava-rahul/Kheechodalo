@@ -102,6 +102,8 @@ public class UserController {
 		System.out.println(" forgetPassword() ");
 		return "forgetPassword";
 	}
+	
+	
 
 	@RequestMapping(value = "/changePassword/{id}", method = RequestMethod.GET)
 	public String changePassword() {

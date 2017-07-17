@@ -13,4 +13,7 @@ public class RulesController {
 		System.out.println("In user rules controller");
 		return "rules";
 	}
+	
+	
+	
 }

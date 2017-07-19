@@ -22,8 +22,7 @@
 			<div class="Changepasswordformboby">
 				<h2 style="color: red">Please Contact Us</h2>
 				<font style="font-size: 20px"><b><i>kheechodalo@gmail.com</i></b></font><br />
-				<font style="font-size: 20px"><b><i>kheechodalo@gmail.com</i></b></font><br/>
-				<font style="font-size: 20px"><b><i>kheechodalo@gmail.com</i></b></font>
+				<font style="font-size: 20px"><b><i>kheechodalo@yahoo.com</i></b></font><br/>				
 			</div>
             <br/><br/>
 			<!-- footer -->

@@ -66,6 +66,12 @@
 		<put-attribute name="title" value="Rules" />
 		<put-attribute name="body" value="/WEB-INF/views/jsp/rules.jsp" />
 	</definition>
+	
+	<!-- Terms & Condition pages -->
+	<definition name="termsandcondition" extends="full-definition">
+		<put-attribute name="title" value="Rules" />
+		<put-attribute name="body" value="/WEB-INF/views/jsp/termsCondition.jsp" />
+	</definition>
 
     <!-- Settings pages -->
     <definition name="settings" extends="full-definition">

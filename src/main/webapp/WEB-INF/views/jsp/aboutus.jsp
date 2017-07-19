@@ -10,9 +10,17 @@
 	</div>
 		<p>	
 	
-	This is idea I got in my final year B.Tech. And I was unable to apply it. After two incident that happened in my life which again bring this idea into focus
-    This website will provide you the best journey to the fun and entertainment. This site provide you the platform to upload your pics as well selfies for one day. And To share across your friend, family and relatives .The viewer has the facility to view and vote  for you on your pics and selfies .Vote is nothing it just equal to like it only represent how many  viewer like you pics or interested in your pics.
-     It also provide a way to earn some prize by taking part in the competition. The prize will be delivered to your home address or money will be transfer to you paytm number. That is why it important to complete your profile information (basic and advance information) as soon as you create your account.
-    This provide you the stage to show your talent in clicking the pic and sharing it. It will connect you to the world. This website goal is not to hurt anybody sentiment or emotion it’s just a competition.  
+<h2 style="color:white">Welcome to the world of fun and frolic. Welcome to Kheecho-Daalo! </br>
+
+A platform to showcase your amazing pictures and swaggy selfies. Your uploaded pictures will be available on the website for a day which you can share with your friends, family and the likeminded audience of the website. 
+
+</br></br>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Registered website users can vote for the pictures they like. A vote is a way to represent your liking and appreciation for the picture. The picture with the highest number of votes will be chosen as the 'Pic Of The Day!'.
+
+With daily competitions running on the website you can win some exciting prizes. The prizes will be delivered to your registered address OR the prize amount will be transferred to your Paytm account. Make sure to complete your profile information (both Basic & Advance) as soon as you sign-up on the website.
+
+</br></br>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;The sole intention of the website is to promote your photography talent and provide genuine feedback. The website provides a platform to showcase your talent along with learning, sharing and winning amazing prizes. It connects you to the world of like minded.
+
+	</h2>
+	
 	</p>
 </div>

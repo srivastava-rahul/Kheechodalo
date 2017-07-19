@@ -11,7 +11,7 @@
 		<!-- header -->
 		<div class="Changepasswordformheader">
 			<center>
-				<b><h1>Feedback Form</h1>
+				<b><h1>Admin Send Testimonial Form</h1>
 					<b>
 			</center>
 		</div>
@@ -21,7 +21,7 @@
 			<div class="Changepasswordformboby">
 				<h2 style="color: red">Please Provide your Feedback......!!!</h2>
 				<div style="margin-left: 1%">
-					<textarea name= "feedback" id="feedback" name="feedback" rows="5" cols="66" style="color: black"
+					<textarea name= "feedback" id="feedback" rows="5" cols="66" style="color: black"
 						placeholder="Please provide a detailed description of your Problems or suggestions."
 						 aria-required="true"></textarea>
 				</div>

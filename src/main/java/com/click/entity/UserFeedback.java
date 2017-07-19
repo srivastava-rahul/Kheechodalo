@@ -27,7 +27,7 @@ public class UserFeedback implements Serializable {
 	@Column(name = "ID")
 	@GenericGenerator(name = "idGen", strategy = "uuid.hex")
 	@GeneratedValue(generator = "idGen")
-	private String id;
+	private String id;	
 
 	@Column(name = "FEED_DESCRIPTION", length = 500)
 	private String feedDesc;

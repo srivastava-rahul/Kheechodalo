@@ -11,7 +11,7 @@
 		<!-- header -->
 		<div class="Changepasswordformheader">
 			<center>
-				<b><h1>Feedback Form</h1>
+				<b><h1>Admin Notification Form</h1>
 					<b>
 			</center>
 		</div>
@@ -19,10 +19,10 @@
 		<form name="feedbackForm" action="feedbackData" method="post">
 			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
 			<div class="Changepasswordformboby">
-				<h2 style="color: red">Please Provide your Feedback......!!!</h2>
+				<h2 style="color: red">Please Provide your Notification......!!!</h2>
 				<div style="margin-left: 1%">
-					<textarea name= "feedback" id="feedback" name="feedback" rows="5" cols="66" style="color: black"
-						placeholder="Please provide a detailed description of your Problems or suggestions."
+					<textarea name= "feedback" id="feedback" rows="5" cols="66" style="color: black"
+						placeholder="Please provide a detailed description of your notification."
 						 aria-required="true"></textarea>
 				</div>
 			</div>

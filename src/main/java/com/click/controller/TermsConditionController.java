@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class TermsConditionController {
 
 	@RequestMapping(value = "/termsandcondition")
-	protected String getAllRules(Model model) throws Exception {
+	protected String getTermAndCondition(Model model) throws Exception {
 		System.out.println("In termsandcondition controller");
 		return "termsandcondition";
 	}

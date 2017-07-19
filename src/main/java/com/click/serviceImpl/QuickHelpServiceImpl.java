@@ -3,6 +3,8 @@
  */
 package com.click.serviceImpl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
@@ -35,6 +37,20 @@ public class QuickHelpServiceImpl implements QuickHelpService {
 		quickHelpDao.saveFeedback(feed);
 		
 	}
+
+	@Override
+	public List<QuickHelp> getQuickHelpData() {
+		List<QuickHelp> quickhelp=quickHelpDao.getQuickHelpData();
+		return quickhelp;
+	}
+
+	@Override
+	public List<UserFeedback> getFeedbackData() {
+		List<UserFeedback> quickhelp=quickHelpDao.getFeedbackData();
+		return null;
+	}
+
+
 
 	
 

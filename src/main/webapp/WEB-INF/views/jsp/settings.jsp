@@ -7,10 +7,10 @@
 	<div>
 		<a href="${pageContext.request.contextPath}/user/uploadprofilepic">
 		<c:if test="${not empty picImg}">
-				<img id="picImageHolder" src="data:image/jpeg;base64,${picImg}" alt="Picture"  class="page_pic"/>
+				<img id="picImageHolder" src="data:image/jpeg;base64,${picImg}" alt="Picture"  class="page_pic"  data-tooltip="Click Here"     />
 			</c:if>
 			<c:if test="${empty picImg}">
-			<img src="${pageContext.request.contextPath}/resources/images/profileupload.png" alt="Avatar" class="page_pic">
+			<img src="${pageContext.request.contextPath}/resources/images/profileupload.png" alt="Avatar" class="page_pic" data-tooltip="Click here">
 			</c:if></a>
 	
 	</div>

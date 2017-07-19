@@ -138,6 +138,52 @@
 		<put-attribute name="title" value="UploadProfilePic" />
 		<put-attribute name="body" value="/WEB-INF/views/jsp/UploadProfilePic.jsp" />
 	</definition>
+	
+	<!-- Admin  pages button  start  from  here -->
+    <!-- User Information by Admin pages -->
+    <definition name="adminDashboard" extends="full-definition">
+		<put-attribute name="title" value="UploadProfilePic" />
+		<put-attribute name="body" value="/WEB-INF/views/jsp/adminDashboard.jsp" />
+	</definition>
+	
+	<!-- Pics Information by Admin pages -->
+    <definition name="adminpicinfo" extends="full-definition">
+		<put-attribute name="title" value="UploadProfilePic" />
+		<put-attribute name="body" value="/WEB-INF/views/jsp/adminpicinfo.jsp" />
+	</definition>
+	
+	<!-- Feedback Information by Admin pages -->
+    <definition name="adminfeedbackinfo" extends="full-definition">
+		<put-attribute name="title" value="UploadProfilePic" />
+		<put-attribute name="body" value="/WEB-INF/views/jsp/adminfeedbackinfo.jsp" />
+	</definition>
+	
+	<!-- Quick Help Information by Admin pages -->
+    <definition name="adminquickhelpinfo" extends="full-definition">
+		<put-attribute name="title" value="UploadProfilePic" />
+		<put-attribute name="body" value="/WEB-INF/views/jsp/adminquickhelpinfo.jsp" />
+	</definition>
+	
+	
+	<!-- Send Notification by Admin pages -->
+    <definition name="adminsendnotification" extends="full-definition">
+		<put-attribute name="title" value="UploadProfilePic" />
+		<put-attribute name="body" value="/WEB-INF/views/jsp/adminsendnotification.jsp" />
+	</definition>
+	
+	
+	<!-- Send Testimonial by Admin pages -->
+    <definition name="adminsendtestimonial" extends="full-definition">
+		<put-attribute name="title" value="UploadProfilePic" />
+		<put-attribute name="body" value="/WEB-INF/views/jsp/adminsendtestimonial.jsp" />
+	</definition>
+	
+	<!-- Send Testimonial by Admin pages -->
+    <definition name="adminsendprize" extends="full-definition">
+		<put-attribute name="title" value="UploadProfilePic" />
+		<put-attribute name="body" value="/WEB-INF/views/jsp/adminsendprize.jsp" />
+	</definition>
+	
 
 	<!-- error pages -->
 	<definition name="400_error" extends="blank-definition">

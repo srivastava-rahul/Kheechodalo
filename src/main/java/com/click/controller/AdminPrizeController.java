@@ -10,14 +10,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.click.entity.Notification;
-import com.click.entity.User;
-import com.click.entity.UserFeedback;
 import com.click.entity.UserPrize;
-import com.click.service.NotificationService;
 import com.click.service.PrizeService;
 import com.click.service.UserService;
-import com.click.utils.SecurityLibrary;
 
 @Controller
 @RequestMapping(value = "/user")
@@ -39,8 +34,8 @@ public class AdminPrizeController {
 		LOG.info("Admin adding prize controller");
 		try {
 			LOG.info("Notification :- " + prize);
-			User userDetails = userService.findUserById(SecurityLibrary.getLoggedInUser().getEmailId());
-			LOG.info("Admin Email - Id :" + userDetails.getEmailId());
+			/*User userDetails = userService.findUserById(SecurityLibrary.getLoggedInUser().getEmailId());*/
+			/*LOG.info("Admin Email - Id :" + userDetails.getEmailId());*/
 			
 			UserPrize prizedata=new UserPrize();
 			prizedata.setPrizeDate(prize.getPrizeDate());			
@@ -71,7 +66,7 @@ public class AdminPrizeController {
 		return "adminsendprize";
 	}
 	
-	@RequestMapping(value = "/admindeletenotification")
+	@RequestMapping(value = "/admindeleteprize")
 	protected String deleteNotificationInfo(@RequestParam String id,Model model) throws Exception {
 		System.out.println("Admin removing prize based on id controller");
 		try {
@@ -81,7 +76,7 @@ public class AdminPrizeController {
 			prizeService.deletePrizeRecord(prizedata);
 			
 			List<UserPrize>  listofprize=prizeService.getAllPrizeRecord();
-			model.addAttribute("prize",listofprize);
+			 model.addAttribute("prize",listofprize);
 			 model.addAttribute("success", " Data Deleted Successfully .");
 			return "adminsendprize";
 		} catch (Exception e) {

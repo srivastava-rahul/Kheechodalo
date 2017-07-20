@@ -2,7 +2,6 @@ package com.click.controller;
 
 import java.util.List;
 
-import org.apache.commons.codec.binary.Base64;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,14 +11,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.click.entity.Notification;
-import com.click.entity.User;
-import com.click.entity.UserFeedback;
 import com.click.entity.UserTestimonial;
-import com.click.service.NotificationService;
 import com.click.service.TestimonialService;
 import com.click.service.UserService;
-import com.click.utils.SecurityLibrary;
 
 @Controller
 @RequestMapping(value = "/user")
@@ -41,11 +35,11 @@ public class AdminTestimonialController {
 		LOG.info("Admin adding Testimonial information controller");
 		try {
 			LOG.info("Notification :- " + testimonial);
-			User userDetails = userService.findUserById(SecurityLibrary.getLoggedInUser().getEmailId());
-			LOG.info("Admin Email - Id :" + userDetails.getEmailId());
+			/*User userDetails = userService.findUserById(SecurityLibrary.getLoggedInUser().getEmailId());
+			LOG.info("Admin Email - Id :" + userDetails.getEmailId());*/
 			
 			UserTestimonial testimonialdata=new UserTestimonial();
-			testimonialdata.setEmail_id(userDetails.getEmailId());
+			//testimonialdata.setEmail_id(userDetails.getEmailId());
 			testimonialdata.setTestimonial_desc(testimonial.getTestimonial_desc());
 			
 			byte[] bytes = uploadPic.getBytes();

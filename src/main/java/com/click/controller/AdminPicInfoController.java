@@ -9,14 +9,16 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.click.entity.PicUploadData;
+import com.click.entity.PictureUpload;
 import com.click.entity.ProfileSetting;
 import com.click.entity.User;
-import com.click.service.AdminGetUserInfoService;
+import com.click.service.PicsService;
 import com.click.service.UserService;
 
 @Controller
 @RequestMapping(value = "/user")
-public class AdminController {
+public class AdminPicInfoController {
 	
 	private static final Logger LOG = Logger.getLogger(QuickHelpController.class);
 	
@@ -24,28 +26,35 @@ public class AdminController {
 	UserService userService;
 	
 	@Autowired
-	AdminGetUserInfoService adminGetUserInfoService;
+	PicsService picsService;
 	
 			 
-	@RequestMapping(value = "/adminDashboard")
-	protected String getUserInfo(Model model) throws Exception {
-    System.out.println("Admin getting user information controller");
+/*	@RequestMapping(value = "/adminpicinfo")
+	protected String getPicInfo(Model model) throws Exception {
+		System.out.println("In user aboutus controller");
+		
+		return "adminpicinfo";
+	}*/
+	
+	
+	@RequestMapping(value = "/adminpicinfo")
+	protected String getpicInfo(Model model) throws Exception {
+    System.out.println("Admin getting pic information controller");
     
     try {
-		List<User> userInfo = adminGetUserInfoService.getAllUserInfo();
-		
-		System.out.println(userInfo.get(0).getEmailId());
-		System.out.println(userInfo.get(0).getFirstName()+""+userInfo.get(0).getLastName());
-		System.out.println(userInfo.get(0).getId());
-		
-		model.addAttribute("user",userInfo);
+    	
+    	List<PicUploadData> picInfo=picsService.getPic();
+    	List<PictureUpload> picInfodetails=picsService.getPicDetails();
+    	
+    	model.addAttribute("picinfo",picInfo);
+		model.addAttribute("picinfodetails",picInfodetails);
 	   } catch (Exception e) {
 		e.printStackTrace();
 	}
-		return "adminDashboard";
+		return "adminpicinfo";
 	}
 	
-	
+	/*
 	@RequestMapping(value = "/adminSingleUserInfo")
 	protected String searchUserbyEmailId(Model model ,@RequestParam String email_id) throws Exception {
     System.out.println("Admin searching user information based on email id controller");
@@ -81,6 +90,13 @@ public class AdminController {
 	}
 	
 	
+	@RequestMapping(value = "/adminpicinfo")
+	protected String getPicInfo(Model model) throws Exception {
+		System.out.println("In user aboutus controller");
+		
+		return "adminpicinfo";
+	}
+	*/
 	
 		
 	

@@ -35,18 +35,18 @@ public class Notification implements Serializable {
 	@Column(name = "NOTIFICATION_DESCRIPTION", length = 500)
 	private String notification_desc;
 
-	@ManyToOne(fetch = FetchType.LAZY, optional = false)
+	/*@ManyToOne(fetch = FetchType.LAZY, optional = false)
 	@JoinColumn(name = "USER_ID", nullable = false, foreignKey = @ForeignKey(name = "FK1_USER_USER"))
 	private User user;
-
+*/
 	
 	public Notification(){}
-	public Notification(String id, String email_id, String notification_desc, User user) {
+	public Notification(String id, String email_id, String notification_desc) {
 		super();
 		this.id = id;
 		this.email_id = email_id;
 		this.notification_desc = notification_desc;
-		this.user = user;
+		
 	}
 
 	public String getId() {
@@ -73,22 +73,15 @@ public class Notification implements Serializable {
 		this.notification_desc = notification_desc;
 	}
 
-	public User getUser() {
-		return user;
-	}
-
-	public void setUser(User user) {
-		this.user = user;
-	}
-
+	
+	
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
 	
 	
 	public String toLogString() {
-		return "Notification [id=" + id + ", email_id=" + email_id + ", notification_desc=" + notification_desc
-				+ ", user=" + user + "]";
+		return "Notification [id=" + id + ", email_id=" + email_id + ", notification_desc=" + notification_desc + "]";
 	}
 	
 

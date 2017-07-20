@@ -197,7 +197,6 @@
 		<put-attribute name="body" value="/WEB-INF/views/jsp/adminViewProfileSetting.jsp" />
 	</definition>
 	
-	adminViewProfileSetting
 
 	<!-- error pages -->
 	<definition name="400_error" extends="blank-definition">

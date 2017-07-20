@@ -11,9 +11,7 @@ import javax.persistence.Query;
 
 import org.springframework.stereotype.Repository;
 
-import com.click.dao.TestimonialDao;
 import com.click.dao.WinnerDao;
-import com.click.entity.UserTestimonial;
 import com.click.entity.Winner;
 
 /**

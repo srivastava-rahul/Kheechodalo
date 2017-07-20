@@ -42,20 +42,20 @@ public class UserTestimonial implements Serializable {
 	@Column(name = "FILE_DATA")
 	private byte[] fileData;
 
-	@ManyToOne(fetch = FetchType.LAZY, optional = false)
+	/*@ManyToOne(fetch = FetchType.LAZY, optional = false)
 	@JoinColumn(name = "USER_ID", nullable = false, foreignKey = @ForeignKey(name = "FK1_USER_USER"))
-	private User user;
+	private User user;*/
 	
 	
 	
 	public UserTestimonial(){}
-	public UserTestimonial(String id, String email_id, String testimonial_desc, byte[] fileData, User user) {
+	public UserTestimonial(String id, String email_id, String testimonial_desc, byte[] fileData) {
 		super();
 		this.id = id;
 		this.email_id = email_id;
 		this.testimonial_desc = testimonial_desc;
 		this.fileData = fileData;
-		this.user = user;
+		
 	}
 
 	public String getId() {
@@ -90,13 +90,7 @@ public class UserTestimonial implements Serializable {
 		this.fileData = fileData;
 	}
 
-	public User getUser() {
-		return user;
-	}
-
-	public void setUser(User user) {
-		this.user = user;
-	}
+	
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;
@@ -105,8 +99,9 @@ public class UserTestimonial implements Serializable {
 	
 	public String toLogString() {
 		return "UserTestimonial [id=" + id + ", email_id=" + email_id + ", testimonial_desc=" + testimonial_desc
-				+ ", fileData=" + Arrays.toString(fileData) + ", user=" + user + "]";
+				+ ", fileData=" + Arrays.toString(fileData) + "]";
 	}
+
 
 	
 	

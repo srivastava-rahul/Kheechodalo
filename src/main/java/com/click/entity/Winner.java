@@ -5,13 +5,9 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.ForeignKey;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
@@ -51,14 +47,14 @@ public class Winner implements Serializable {
 	@Column(name = "PIC_VOTE")
 	private long picVote;
 
-	@ManyToOne(fetch = FetchType.LAZY, optional = false)
+	/*@ManyToOne(fetch = FetchType.LAZY, optional = false)
 	@JoinColumn(name = "USER_ID", nullable = false, foreignKey = @ForeignKey(name = "FK1_USER_USER"))
-	private User user;
+	private User user;*/
 
 	
 	public Winner(){}
 	public Winner(String id, String email_id, String winner_desc, byte[] fileData, Date createdDate, String prize_desc,
-			long picVote, User user) {
+			long picVote) {
 		super();
 		this.id = id;
 		this.email_id = email_id;
@@ -67,8 +63,7 @@ public class Winner implements Serializable {
 		this.createdDate = createdDate;
 		this.prize_desc = prize_desc;
 		this.picVote = picVote;
-		this.user = user;
-	}
+			}
 	public String getId() {
 		return id;
 	}
@@ -111,12 +106,7 @@ public class Winner implements Serializable {
 	public void setPicVote(long picVote) {
 		this.picVote = picVote;
 	}
-	public User getUser() {
-		return user;
-	}
-	public void setUser(User user) {
-		this.user = user;
-	}
+	
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}

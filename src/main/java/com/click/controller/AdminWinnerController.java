@@ -7,17 +7,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.click.entity.Notification;
-import com.click.entity.User;
-import com.click.entity.UserFeedback;
 import com.click.entity.Winner;
-import com.click.service.NotificationService;
 import com.click.service.UserService;
 import com.click.service.WinnerService;
-import com.click.utils.SecurityLibrary;
 
 @Controller
 @RequestMapping(value = "/user")
@@ -47,7 +41,7 @@ public class AdminWinnerController {
 		return "adminViewWinner";
 	}
 	
-	@RequestMapping(value = "/admindeletenotification")
+	@RequestMapping(value = "/admindeletewinner")
 	protected String deleteNotificationInfo(@RequestParam String id,Model model) throws Exception {
 		System.out.println("Admin removing notification based on id controller");
 		try {

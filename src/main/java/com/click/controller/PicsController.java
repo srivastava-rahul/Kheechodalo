@@ -16,7 +16,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.click.entity.PicUploadData;
 import com.click.entity.PictureUpload;
-import com.click.serviceImpl.PicsService;
+import com.click.service.PicsService;
 
 @Controller
 public class PicsController {

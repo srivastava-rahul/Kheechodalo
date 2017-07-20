@@ -52,4 +52,18 @@ public class QuickHelpDaoImpl implements QuickHelpDao {
 		return (List<UserFeedback>) query.getResultList();
 	}
 
+	@Override
+	public void deleteQuickHelpData(QuickHelp quickhelp) {
+		entityManager.remove(quickhelp.getId());
+		
+	}
+
+	@Override
+	public void deleteFeedbackData(UserFeedback userfeedback) {
+		entityManager.remove(userfeedback.getId());
+		
+	}
+
+	
+
 }

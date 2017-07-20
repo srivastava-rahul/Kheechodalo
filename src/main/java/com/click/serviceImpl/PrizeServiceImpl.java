@@ -14,7 +14,7 @@ import com.click.entity.UserPrize;
 import com.click.service.PrizeService;
 
 /**
- * @author vipul
+ * @author rahul
  */
 
 @Component
@@ -28,6 +28,18 @@ public class PrizeServiceImpl implements PrizeService {
 	public List<UserPrize> getAllPrizeRecord() {
 		List<UserPrize> userPrize = prizeDao.getAllPrizeRecord();
 		return userPrize;
+	}
+
+	@Override
+	public void savePrizeRecord(UserPrize prizedata) {
+		prizeDao.savePrizeRecord(prizedata);
+		
+	}
+
+	@Override
+	public void deletePrizeRecord(UserPrize prizedata) {
+		prizeDao.deletePrizeRecord(prizedata);
+		
 	}
 
 }

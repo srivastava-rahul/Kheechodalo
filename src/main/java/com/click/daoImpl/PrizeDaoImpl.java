@@ -12,7 +12,7 @@ import com.click.dao.PrizeDao;
 import com.click.entity.UserPrize;
 
 /**
- * @author vipul
+ * @author rahul
  */
 @Repository
 public class PrizeDaoImpl implements PrizeDao {
@@ -26,5 +26,19 @@ public class PrizeDaoImpl implements PrizeDao {
 		System.out.println(" GetAllPrizeRecord ");
 		Query query = entityManager.createQuery("from UserPrize");
 		return (List<UserPrize>) query.getResultList();
+	}
+
+	@Override
+	public void savePrizeRecord(UserPrize prizedata) {
+		System.out.println("Prize dao :" + prizedata.toLogString());
+		entityManager.merge(prizedata);
+		
+	}
+
+	@Override
+	public void deletePrizeRecord(UserPrize prizedata) {
+		System.out.println("Prize dao :" + prizedata.toLogString());
+		entityManager.remove(prizedata.getId());
+		
 	}
 }

@@ -37,5 +37,17 @@ public interface QuickHelpService {
 	 * @param quickHelp
 	 */
 	List<UserFeedback> getFeedbackData();
+	
+	/**
+	 * Delete the quick help (problem) data by Admin based on id
+	 * @param quickHelp
+	 */
+	public void deleteQuickHelpData(QuickHelp quickhelp);
+	
+	/**
+	 * Delete the feedback data by Admin based on id
+	 * @param quickHelp
+	 */
+	public void deleteFeedbackData(UserFeedback userfeedback);
 
 }

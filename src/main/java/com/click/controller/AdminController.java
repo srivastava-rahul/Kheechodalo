@@ -2,34 +2,41 @@ package com.click.controller;
 
 import java.util.List;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.click.entity.Notification;
 import com.click.entity.ProfileSetting;
 import com.click.entity.QuickHelp;
 import com.click.entity.User;
 import com.click.entity.UserFeedback;
 import com.click.service.AdminGetUserInfoService;
+import com.click.service.NotificationService;
 import com.click.service.QuickHelpService;
+import com.click.service.UserService;
+import com.click.utils.SecurityLibrary;
 
 @Controller
 @RequestMapping(value = "/user")
 public class AdminController {
 	
+	private static final Logger LOG = Logger.getLogger(QuickHelpController.class);
+	
+	@Autowired
+	UserService userService;
+	
 	@Autowired
 	AdminGetUserInfoService adminGetUserInfoService;
 	
-	
-	@Autowired
-	QuickHelpService quickHelpsrv;
-	 
 			 
 	@RequestMapping(value = "/adminDashboard")
 	protected String getUserInfo(Model model) throws Exception {
-    System.out.println("In user aboutus controller");
+    System.out.println("Admin getting user information controller");
     
     try {
 		List<User> userInfo = adminGetUserInfoService.getAllUserInfo();
@@ -48,7 +55,7 @@ public class AdminController {
 	
 	@RequestMapping(value = "/adminSingleUserInfo")
 	protected String searchUserbyEmailId(Model model ,@RequestParam String email_id) throws Exception {
-    System.out.println("In user aboutus controller");
+    System.out.println("Admin searching user information based on email id controller");
      try {
 		User userInfo = adminGetUserInfoService.getUserInfoByEmailId(email_id);
 		
@@ -65,7 +72,7 @@ public class AdminController {
 	
 	@RequestMapping(value = "/adminSingleProfileInfo")
 	protected String searchProfilebyEmailId(Model model ,@RequestParam String email_id) throws Exception {
-    System.out.println("In user aboutus controller");
+    System.out.println("Admin getting profile information based on email-id controller");
      try {
 		ProfileSetting profileInfo = adminGetUserInfoService.getProfileInfoByEmailId(email_id);
 		
@@ -77,7 +84,7 @@ public class AdminController {
 	   } catch (Exception e) {
 		e.printStackTrace();
 	}
-		return "adminDashboard";
+		return "adminViewProfileSetting";
 	}
 	
 	
@@ -88,53 +95,8 @@ public class AdminController {
 		return "adminpicinfo";
 	}
 	
-	@RequestMapping(value = "/adminfeedbackinfo")
-	protected String getFeedbackInfo(Model model) throws Exception {
-		System.out.println("In user aboutus controller");
-		try {
-			 List<UserFeedback>  feedbacklist = quickHelpsrv.getFeedbackData();			
-			model.addAttribute("feedback",feedbacklist);
-		   } catch (Exception e) {
-			e.printStackTrace();
-		}
+	
 		
-		return "adminfeedbackinfo";
-	}
-	
-	@RequestMapping(value = "/adminquickhelpinfo")
-	protected String getQuickHelpInfo(Model model) throws Exception {
-		System.out.println("In user aboutus controller");
-		try {
-			
-			 List<QuickHelp>  quickhelplist = quickHelpsrv.getQuickHelpData();
-			
-			model.addAttribute("quickhelp",quickhelplist);
-		   } catch (Exception e) {
-			e.printStackTrace();
-		}
-		return "adminquickhelpinfo";
-	}
-	
-	
-	@RequestMapping(value = "/adminsendnotification")
-	protected String sendNotificationbyAdmin(Model model) throws Exception {
-		System.out.println("In user aboutus controller");
-		return "adminsendnotification";
-	}
-	
-	@RequestMapping(value = "/adminsendtestimonial")
-	protected String sendtestimonialbyAdmin(Model model) throws Exception {
-		System.out.println("In user aboutus controller");
-		return "adminsendtestimonial";
-	}
-
-	
-	@RequestMapping(value = "/adminsendprize")
-	protected String sendprizebyAdmin(Model model) throws Exception {
-		System.out.println("In user aboutus controller");
-		return "adminsendprize";
-	}
-	
-	
 	
 }
+

@@ -1,0 +1,114 @@
+package com.click.controller;
+
+import java.util.List;
+
+import org.apache.commons.codec.binary.Base64;
+import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
+
+import com.click.entity.Notification;
+import com.click.entity.User;
+import com.click.entity.UserFeedback;
+import com.click.entity.UserTestimonial;
+import com.click.service.NotificationService;
+import com.click.service.TestimonialService;
+import com.click.service.UserService;
+import com.click.utils.SecurityLibrary;
+
+@Controller
+@RequestMapping(value = "/user")
+public class AdminTestimonialController {
+	
+
+	private static final Logger LOG = Logger.getLogger(QuickHelpController.class);
+	
+	@Autowired
+	UserService userService;
+	
+	@Autowired
+	TestimonialService testimonialService;  
+			 
+	
+	@RequestMapping(value = "/adminsavetestimonial", method = RequestMethod.POST)
+	public String savetestimonialData(@RequestParam UserTestimonial testimonial ,@RequestParam("picImg") MultipartFile uploadPic, Model model)
+			throws Exception {
+		LOG.info("Admin adding Testimonial information controller");
+		try {
+			LOG.info("Notification :- " + testimonial);
+			User userDetails = userService.findUserById(SecurityLibrary.getLoggedInUser().getEmailId());
+			LOG.info("Admin Email - Id :" + userDetails.getEmailId());
+			
+			UserTestimonial testimonialdata=new UserTestimonial();
+			testimonialdata.setEmail_id(userDetails.getEmailId());
+			testimonialdata.setTestimonial_desc(testimonial.getTestimonial_desc());
+			
+			byte[] bytes = uploadPic.getBytes();
+			testimonialdata.setFileData(bytes);
+			testimonialService.savetestimonial(testimonialdata);;	
+			
+			 List<UserTestimonial>  listoftestimonial = testimonialService.gettestimonial();
+			    /*byte[] encodeBase64 = Base64.encodeBase64(listoftestimonial.getFileData());
+				String base64Encoded = new String(encodeBase64, "UTF-8");
+				model.addAttribute("picImg", base64Encoded);*/
+			 
+			 model.addAttribute("testimonial",listoftestimonial);
+			 model.addAttribute("success", " Data Entered Successfully .");			
+			return "adminsendtestimonial";
+		} catch (Exception e) {
+			e.printStackTrace();
+			model.addAttribute("error", "Error Occured While Sending Data .");
+			return "adminsendtestimonial";
+		}
+	}
+
+	@RequestMapping(value = "/admingetTestimonial")
+	protected String getTestimonialInfo(Model model) throws Exception {
+		System.out.println("Admin getting list of Testimonial data controller");
+		try {
+			 List<UserTestimonial>  listoftestimonial = testimonialService.gettestimonial();
+			    /*byte[] encodeBase64 = Base64.encodeBase64(listoftestimonial.getFileData());
+				String base64Encoded = new String(encodeBase64, "UTF-8");
+				model.addAttribute("picImg", base64Encoded);*/
+			 
+			 model.addAttribute("testimonial",listoftestimonial);
+		   } catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return "adminsendtestimonial";
+	}
+	
+	@RequestMapping(value = "/admindeletetestimonial")
+	protected String deleteTesrimonialInfo(@RequestParam String id,Model model) throws Exception {
+		System.out.println("Admin removing Testimonial  data based on id controller");
+		try {
+			UserTestimonial testimonialdata=new UserTestimonial();
+			testimonialdata.setId(id);;
+			 
+			testimonialService.deletetestimonial(testimonialdata);;
+			 
+			
+			List<UserTestimonial>  listoftestimonial = testimonialService.gettestimonial();
+		    /*byte[] encodeBase64 = Base64.encodeBase64(listoftestimonial.getFileData());
+			String base64Encoded = new String(encodeBase64, "UTF-8");
+			model.addAttribute("picImg", base64Encoded);*/
+		 
+		 model.addAttribute("testimonial",listoftestimonial);
+		 model.addAttribute("success", " Data Entered Successfully .");
+			return "adminsendtestimonial";
+		} catch (Exception e) {
+			e.printStackTrace();
+			model.addAttribute("error", "Error Occured While deleting Data .");
+			return "adminsendtestimonial";
+		}
+	}
+	
+
+	
+}

@@ -178,12 +178,26 @@
 		<put-attribute name="body" value="/WEB-INF/views/jsp/adminsendtestimonial.jsp" />
 	</definition>
 	
-	<!-- Send Testimonial by Admin pages -->
+	<!-- Send Prize by Admin pages -->
     <definition name="adminsendprize" extends="full-definition">
 		<put-attribute name="title" value="UploadProfilePic" />
 		<put-attribute name="body" value="/WEB-INF/views/jsp/adminsendprize.jsp" />
 	</definition>
 	
+	<!-- Get Winner Data by Admin pages -->
+    <definition name="adminViewWinner" extends="full-definition">
+		<put-attribute name="title" value="adminViewWinner" />
+		<put-attribute name="body" value="/WEB-INF/views/jsp/adminViewWinner.jsp" />
+	</definition>
+	
+	
+	<!-- Get profile Data of User by Admin pages -->
+    <definition name="adminViewProfileSetting" extends="full-definition">
+		<put-attribute name="title" value="adminViewProfileSetting" />
+		<put-attribute name="body" value="/WEB-INF/views/jsp/adminViewProfileSetting.jsp" />
+	</definition>
+	
+	adminViewProfileSetting
 
 	<!-- error pages -->
 	<definition name="400_error" extends="blank-definition">

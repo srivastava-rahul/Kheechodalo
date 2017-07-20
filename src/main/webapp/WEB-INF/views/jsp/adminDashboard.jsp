@@ -10,7 +10,7 @@
 	</div>
 	
 	
-	
+	<a href="${pageContext.request.contextPath}/user/adminSingleProfileInfo">View profile Info</a>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
 	<div style="margin-left: 20%; margin-top: 5%;">
 		<table style="">
              <tr>

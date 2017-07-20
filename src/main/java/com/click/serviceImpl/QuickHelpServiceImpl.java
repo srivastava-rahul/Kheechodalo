@@ -50,6 +50,18 @@ public class QuickHelpServiceImpl implements QuickHelpService {
 		return null;
 	}
 
+	@Override
+	public void deleteQuickHelpData(QuickHelp quickhelp) {
+		quickHelpDao.deleteQuickHelpData(quickhelp);
+		
+	}
+
+	@Override
+	public void deleteFeedbackData(UserFeedback userfeedback) {
+		quickHelpDao.deleteFeedbackData(userfeedback);
+		
+	}
+
 
 
 	

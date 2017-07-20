@@ -4,17 +4,30 @@
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/jquery-1.4.2.min.js"></script>
 
 <div class="body-area">
-	<img src="${pageContext.request.contextPath}/resources/images/aboutUs.jpg" alt="Avatar" class="page_pic">
+	<img src="${pageContext.request.contextPath}/resources/images/Adminimg.png" alt="Avatar" class="page_pic">
 	<div class="information">
-		<p class="header_information">Get User Information for Admin</p>
+		<p class="header_information">User Information for Admin</p>
 	</div>
+		<p>	
 	
-	
-	<a href="${pageContext.request.contextPath}/user/adminSingleProfileInfo">View profile Info</a>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
-	<div style="margin-left: 20%; margin-top: 5%;">
-		<table style="">
-             <tr>
-			    <th height="40"><center>ID</center></th>
+	         <form name="deleteForm" action="" method="post">
+			   <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
+			
+			<div class="Changepasswordformboby">
+				<h3 style="color: yellow">Please tell What you want to search enter the id... </h3>
+				<input type="text"  name="problem" id="problem" style="width:30% "
+					placeholder="Please Enter id or email-id" />
+					
+					<button type="submit" class="button_submit  submit">Search</button>
+				
+				    <c:url value="/user/dashboard" var="dashUrl" />
+			</div>
+		</form>
+		</br></br>
+		
+		<table style="margin-left: 5%;width:90%;padding: 5%;">
+		<tr>
+		 <th height="40"><center>ID</center></th>
 			    <th height="40"><center>Name</center></th>
 			    <th height="40"><center>Email-Id</center></th>
 			    <th height="40"><center>Gender</center></th>
@@ -24,28 +37,27 @@
 				<th height="40"><center>Modified Date</center></th>
 				<th height="40"><center>status</center></th>
 				<th height="40"><center>User Role</center></th>
-			</tr>
+				<th height="40"><center>Action Button</center></th>
+				
+		</tr>
+		
+		<tr>
+		<td>111</td>
+		<td>Name</td>
+		<td>r@gmail.com</td>
+		<td>Male</td>
+		<td>999999999</td>
+		<td>18-12-1991</td>
+		<td>11-july-2017</td>
+		<td>12-july-2017</td>
+		<td>1</td>
+		<td>111</td>
+		<td><a href="${pageContext.request.contextPath}/user/adminSingleProfileInfo">View profile Info</a></td>		
+		</tr>
+		
+		
+		</table>
 			
-			<%-- <c:forEach var="userinfo" items="${user}">
-			<tr>
-			    <td><center>${userinfo.id}</center></td>   
-				<td><center>${userinfo.firstName} &nbsp; &nbsp; </center></td>
-				<td><center>${userinfo.emailId}</center></td>
-				<td><center>${userinfo.gender}</center></td>
-				<td><center>${userinfo.phone}</center></td>
-				<td><center>${userinfo.dob}</center></td>
-				<td><center>${userinfo.createdDate}</center></td>
-				<td><center>${userinfo.modifiedDate}</center></td>
-				<td><center>${userinfo.status}</center></td>
-				<td><center>${userinfo.userRole}</center></td>				
-			</tr>
-          </c:forEach> --%>
-					</table>
-
-	</div>
-		<p>	
 	
-          Get the user  info
-	
-	</p>
+		
 </div>

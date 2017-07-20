@@ -37,12 +37,12 @@ public class AdminNotificationController {
 		LOG.info("Admin adding notification controller");
 		try {
 			LOG.info("Notification :- " + notification);
-			User userDetails = userService.findUserById(SecurityLibrary.getLoggedInUser().getEmailId());
-			LOG.info("Admin Email - Id :" + userDetails.getEmailId());
+			/*User userDetails = userService.findUserById(SecurityLibrary.getLoggedInUser().getEmailId());
+			LOG.info("Admin Email - Id :" + userDetails.getEmailId());*/
 			
 			Notification notify=new Notification();
 			notify.setNotification_desc(notification);
-			notify.setEmail_id(userDetails.getEmailId());	
+			//notify.setEmail_id(userDetails.getEmailId());	
 			
 			notificationService.saveNotification(notify);	
 			

@@ -18,95 +18,64 @@
 				<b><h1>Find Your Todays Photo</h1> <b>
 			</center>
 		</div>
-
-		<div class="MyownpicBodyleft">
-			<%-- <img src="${pageContext.request.contextPath}/resources/images/itg.jpg" alt="Avatar" style="width: 304px; height: 320px; margin: 1px"> --%>
-			<c:if test="${empty picImg}">
-				<form action="${pageContext.request.contextPath}/user/savePic" method="post" id="uploadPicForm" enctype="multipart/form-data">
+		<form action="${pageContext.request.contextPath}/user/savePic" method="post" id="uploadPicForm" enctype="multipart/form-data">
+			<div class="MyownpicBodyleft">
+				<%-- <img src="${pageContext.request.contextPath}/resources/images/itg.jpg" alt="Avatar" style="width: 304px; height: 320px; margin: 1px"> --%>
+				<c:if test="${empty picImg}">
 					<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
 					<img id="picImageHolder" src="${pageContext.request.contextPath}/resources/images/logo-image.png" alt="Picture" style="width: 304px; height: 320px; margin: 1px" onclick="$('#picImg').click()" />
 					<div class="row">
-						<div class="col-md-6">
+						<div class="col-md-12">
 							<a href="javascript:" onclick="$('#picImg').click()" style="color: #eee;">Select Pic</a>
 						</div>
-						<div class="col-md-6">
+						<!-- <div class="col-md-6">
 							<a href="javascript:" id="removeLogo" style="float: right; color: #eee;">Remove Pic</a>
-						</div>
+						</div> -->
 					</div>
 					<input type="file" accept="image/*" style="visibility: hidden" name="picImg" id="picImg">
-					<input type="hidden" id="removeFile" name="removeFile" value="false">
-					<input type="submit" id="uploadPicBtnId" class="btn success" value="Upload">
-				</form>
-			</c:if>
-			<c:if test="${not empty picImg}">
-				<img id="picImageHolder" src="data:image/jpeg;base64,${picImg}" alt="Picture" style="width: 304px; height: 320px; margin: 1px" onclick="$('#picImg').click()" />
-			</c:if>
 
-		</div>
-
-
-
-		<%-- <form action="${pageContext.request.contextPath}/user/savePic" method="post" id="uploadPicForm" enctype="multipart/form-data">
-				<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
-					<img id="picImageHolder" src="${pageContext.request.contextPath}/resources/images/logo-image.png" alt="Picture" style="width: 304px; height: 320px; margin: 1px" onclick="$('#picImg').click()" />
-					<div class="col-md-8">
-						<a href="javascript:" onclick="$('#picImg').click()">Upload Pic</a>
-					</div>
-					<div class="col-md-4">
-						<a href="javascript:" id="removeLogo">Remove Pic</a>
-					</div>
-					<c:if test="${not empty picImg}">
-						<img id="picImageHolder" src="data:image/jpeg;base64,${picImg}" alt="Logo" onclick="$('#picImg').click()" />
-						<div class="col-md-8">
-							<a href="javascript:" onclick="$('#picImg').click()" >Upload Logo</a>
-						</div>
-						<div class="col-md-4">
-							<a href="javascript:" id="removeLogo" >Remove Logo</a>
-						</div>
-						</c:if>
-					<input type="file" accept="image/*" style="visibility: hidden" name="picImg" id="picImg">
-					<input type="hidden" id="removeFile" name="removeFile" value="false">
-					<input type="submit" id="uploadPicBtnId" value="Apply">
-			</form> --%>
-
-
-
-		<div class="MyownpicBodyright">
-			<span style="color: #eee;">
-			<h2>Description</h2>
-			<h5>Today 12:00</h5>
-			<h3>Its a aswome view that i click Its a aswome view that i click Its a aswome view that i click</h3>
-			</span>
-			<c:if test="${not empty picImg}">
-			<p style="color: red; font-size: 25px">Remaning vote to win</p>
-			<img src="${pageContext.request.contextPath}/resources/images/arrow.gif" style="margin-top: 1%;" src="arrow.gif" width="12%" height="5%" />
-			100
-
-			<div style="margin-top: 20%">
-
-				<p class="btn success">
-					<i class="glyphicon glyphicon-thumbs-up" style="font-size: 28px; color: blue"></i> 10000000000000000000
-				</p>
+				</c:if>
+				<c:if test="${not empty picImg}">
+					<img id="picImageHolder" src="data:image/jpeg;base64,${picImg}" alt="Picture" style="width: 304px; height: 320px; margin: 1px" onclick="$('#picImg').click()" />
+				</c:if>
 
 			</div>
-			</c:if>
-			<%-- <div class="fileinput fileinput-new input-group"
-				data-provides="fileinput">
-				<form action="" method="post" id="uploadPicForm">
-					<input type="hidden" name="${_csrf.parameterName}"
-						value="${_csrf.token}">
-					<div data-trigger="fileinput" class="form-control">
-						<span class="fileinput-filename show_name"></span>
+
+			<div class="MyownpicBodyright">
+				<span style="color: #eee;">
+					<h2>Description</h2>
+					<h5>Today 12:00</h5>
+					<c:if test="${empty picImg}">
+						<textarea name="desc" id="desc" rows="6" cols="35" style="color: black" placeholder="Please provide a detailed description of your Pic." aria-required="true"></textarea>
+					</c:if>
+					<c:if test="${not empty picImg}">
+						<h3>${picData.description}</h3>
+					</c:if>
+				</span>
+				<c:if test="${not empty picImg}">
+					<p style="color: red; font-size: 25px">Remaning vote to win(${maxVoteCount})</p>
+					<img src="${pageContext.request.contextPath}/resources/images/arrow.gif" style="margin-top: 1%;" src="arrow.gif" width="12%" height="5%" />
+					<span style="color: red; font-size: 25px">${maxVoteCount - picData.picVote}</span>
+					<div style="margin-top: 19%">
+
+						<p class="btn success">
+							<i class="glyphicon glyphicon-thumbs-up" style="font-size: 28px; color: blue"></i> &nbsp;
+							<span>${picData.picVote}</span>
+						</p>
 					</div>
-					<input name="uploadPic" id="uploadPic" type="file"> <input
-						type="button" id="uploadPicBtnId" value="Apply">
-				</form>
-			</div> --%>
-			<br /> <br /> <br /> <br /> <br /> <br />
+				</c:if>
+				<c:if test="${empty picImg}">
+
+					<div style="margin-top: 24%">
+						<input type="submit" id="uploadPicBtnId" class="btn success" value="Upload">
+					</div>
+				</c:if>
+				<br /> <br /> <br /> <br /> <br /> <br />
 
 
-		</div>
+			</div>
 
+		</form>
 
 	</div>
 
@@ -131,7 +100,7 @@
 								var image_holder = $("#picImageHolder");
 								var reader = new FileReader();
 								reader.onload = function(e) {
-								image_holder.empty();
+									image_holder.empty();
 									image_holder.attr('src', e.target.result);
 								}
 								//console.log("=====");
@@ -192,6 +161,3 @@
 	 });
 	 }); */
 </script>
-<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script> -->
-
-<%-- <script type="text/javascript"	src="${pageContext.request.contextPath}/resources/js/view/file-input/file-input.js"></script> --%>

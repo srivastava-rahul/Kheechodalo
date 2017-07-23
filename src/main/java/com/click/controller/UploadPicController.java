@@ -3,6 +3,7 @@ package com.click.controller;
 import java.util.Date;
 
 import org.apache.commons.codec.binary.Base64;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,17 +21,34 @@ import com.click.utils.SecurityLibrary;
 @RequestMapping(value = "/user")
 public class UploadPicController {
 
+	public static final Logger LOG = Logger.getLogger(UploadPicController.class);
+
 	@Autowired
 	PicsService picsService;
 
 	@RequestMapping(value = "/uploadPic", method = RequestMethod.GET)
-	protected String getAboutUs(Model model) throws Exception {
-		System.out.println("In user uploadPic controller");
+	protected String getMyPic(Model model) throws Exception {
+		LOG.info("In user uploadPic controller");
+		long maxVoteCount = picsService.findPicMaxVoteCount();
+		PictureUpload pictureUpload = picsService.findPicByUserId(SecurityLibrary.getLoggedInUser().getId());
+		model.addAttribute("maxVoteCount", maxVoteCount);
+		model.addAttribute("picData", pictureUpload);
+		try {
+			if (pictureUpload != null && pictureUpload.getPicUploadData() != null
+					&& pictureUpload.getPicUploadData().getFileData() != null) {
+				byte[] encodeBase64 = Base64.encodeBase64(pictureUpload.getPicUploadData().getFileData());
+				String base64Encoded = new String(encodeBase64, "UTF-8");
+				model.addAttribute("picImg", base64Encoded);
+			}
+		} catch (Exception e) {
+			LOG.error("Error while fetching pic data :" + e.getMessage(), e);
+		}
 		return "uploadPic";
 	}
 
 	@RequestMapping(value = "/savePic", method = RequestMethod.POST)
-	public String savePic(@RequestParam("picImg") MultipartFile uploadPic, @RequestParam(required = false) String desc, Model model) {
+	public String savePic(@RequestParam("picImg") MultipartFile uploadPic, @RequestParam(required = false) String desc,
+			Model model) {
 		System.out.println("save pic called");
 		String fileName = null;
 		if (!uploadPic.isEmpty()) {
@@ -50,24 +68,25 @@ public class UploadPicController {
 				pic.setUser(SecurityLibrary.getLoggedInUser());
 				picsService.savePic(pic);
 				System.out.println("uploaded");
-				try {
-					if(data.getFileData() !=null){
-					byte[] encodeBase64 = Base64.encodeBase64(data.getFileData());
-					String base64Encoded = new String(encodeBase64, "UTF-8");
-					model.addAttribute("picImg", base64Encoded);
-					}
-				} catch (Exception e) {
-					e.printStackTrace();
-					System.out.println("Error while encoded ");
-				}
-				return "uploadPic";
+				// try {
+				// if (data.getFileData() != null) {
+				// byte[] encodeBase64 =
+				// Base64.encodeBase64(data.getFileData());
+				// String base64Encoded = new String(encodeBase64, "UTF-8");
+				// model.addAttribute("picImg", base64Encoded);
+				// }
+				// } catch (Exception e) {
+				// e.printStackTrace();
+				// System.out.println("Error while encoded ");
+				// }
+				return "redirect:uploadPic";
 			} catch (Exception e) {
 				System.out.println("Error :" + e.getMessage());
 				e.printStackTrace();
-				return "uploadPic";
+				return "redirect:uploadPic";
 			}
 		} else {
-			return "uploadPic";
+			return "redirect:uploadPic";
 		}
 	}
 }

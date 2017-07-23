@@ -2,9 +2,12 @@ package com.click.entity;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.CollectionTable;
 import javax.persistence.Column;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.ForeignKey;
@@ -66,6 +69,11 @@ public class PictureUpload implements Serializable {
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
 	@JoinColumn(name = "USER_ID", nullable = false, foreignKey = @ForeignKey(name = "FK_PIC_USER_ID"))
 	private User user;
+	
+	@CollectionTable(name="KD_PIC_FRIEND_LIST", joinColumns=@JoinColumn(name="PIC_ID"))
+	@Column(name = "FRIEND_EMAIL")
+	@ElementCollection(fetch = FetchType.LAZY, targetClass = java.lang.String.class)
+	private List<String> friendEmail;
 
 	public PictureUpload() {
 		this.uploadStatus = false;
@@ -165,6 +173,14 @@ public class PictureUpload implements Serializable {
 
 	public void setPicVote(long picVote) {
 		this.picVote = picVote;
+	}
+
+	public List<String> getFriendEmail() {
+		return friendEmail;
+	}
+
+	public void setFriendEmail(List<String> friendEmail) {
+		this.friendEmail = friendEmail;
 	}
 
 	@Override

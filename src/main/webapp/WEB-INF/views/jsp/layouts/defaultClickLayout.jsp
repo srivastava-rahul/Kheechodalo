@@ -17,7 +17,7 @@
 <style>
     body { 
 		  background: url(${pageContext.request.contextPath}/resources/images/login_bck.jpg);
-		  color: white; 
+		  /* color: white;  */
         }
 </style>
 

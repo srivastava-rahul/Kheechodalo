@@ -25,123 +25,25 @@ function carousel() {
 <jsp:include page="/WEB-INF/views/jsp/message.jsp" />
 	<div >
 		<div class="row">
+			<c:forEach var="pic" items="${picsList}">
 			<div class="column">
 				<div class="card">
 					<img
-						src="${pageContext.request.contextPath}/resources/images/earth.jpg"
-						alt="Picture" style="width: 291px; height: 320px;">
+						src="${pageContext.request.contextPath}/resources/images/earth.jpg"	alt="Picture" style="width: 291px; height: 320px;">
+					<span style="margin-left: 50%;">${pic.picVote}</span>
 					<div class="">
-						<h2>Jane Doe</h2>
-						<p class="title">CEO & Founder</p>
-						<p>Some text that describes me lorem ipsum ipsum lorem.</p>
-						<p>example@example.com</p>
+						<h2>${pic.userName}</h2>
+						<p>${pic.picDescription}</p>
 						<p align="center">
-							<button class=" marg-bottom-10 button_submit  submit">Contact</button>
+							<button class=" marg-bottom-10 button_submit  submit">Vote</button>
 						</p>
 					</div>
 				</div>
 			</div>
+			</c:forEach>
 			<div class="column">
 				<div class="card">
-					<img
-						src="${pageContext.request.contextPath}/resources/images/earth.jpg"
-						alt="Picture" style="width: 291px; height: 320px;">
-					<div class="">
-						<h2>Jane Doe</h2>
-						<p class="title">CEO & Founder</p>
-						<p>Some text that describes me lorem ipsum ipsum lorem.</p>
-						<p>example@example.com</p>
-						<p align="center">
-							<button class=" marg-bottom-10 button_submit  submit">Contact</button>
-						</p>
-					</div>
-				</div>
-			</div>
-			<div class="column">
-				<div class="card">
-					<img
-						src="${pageContext.request.contextPath}/resources/images/earth.jpg"
-						alt="Picture" style="width: 291px; height: 320px;">
-					<div class="">
-						<h2>Jane Doe</h2>
-						<p class="title">CEO & Founder</p>
-						<p>Some text that describes me lorem ipsum ipsum lorem.</p>
-						<p>example@example.com</p>
-						<p align="center">
-							<button class=" marg-bottom-10 button_submit  submit">Contact</button>
-						</p>
-					</div>
-				</div>
-			</div>
-			<div class="column">
-				<div class="card">
-					<img
-						src="${pageContext.request.contextPath}/resources/images/itg.jpg"
-						alt="Picture" style="width: 291px; height: 320px;">
-					<div class="">
-						<h2>Jane Doe</h2>
-						<p class="title">CEO & Founder</p>
-						<p>Some text that describes me lorem ipsum ipsum lorem.</p>
-						<p>example@example.com</p>
-						<p align="center">
-							<button class=" marg-bottom-10 button_submit  submit">Contact</button>
-						</p>
-					</div>
-				</div>
-			</div>
-			<div class="column">
-				<div class="card">
-					<img
-						src="${pageContext.request.contextPath}/resources/images/earth.jpg"
-						alt="Picture" style="width: 291px; height: 320px;">
-					<div class="">
-						<h2>Jane Doe</h2>
-						<p class="title">CEO & Founder</p>
-						<p>Some text that describes me lorem ipsum ipsum lorem.</p>
-						<p>example@example.com</p>
-						<p align="center">
-							<button class=" marg-bottom-10 button_submit  submit">Contact</button>
-						</p>
-					</div>
-				</div>
-			</div>
-		<div class="column">
-				<div class="card">
-					<img
-						src="${pageContext.request.contextPath}/resources/images/screen.png"
-						alt="Picture" style="width: 291px; height: 320px;">
-					<div class="">
-						<h2>Jane Doe</h2>
-						<p class="title">CEO & Founder</p>
-						<p>Some text that describes me lorem ipsum ipsum lorem.</p>
-						<p>example@example.com</p>
-						<p align="center">
-							<button class=" marg-bottom-10 button_submit  submit">Contact</button>
-						</p>
-					</div>
-				</div>
-			</div>
-			<div class="column">
-				<div class="card">
-					<img
-						src="${pageContext.request.contextPath}/resources/images/earth.jpg"
-						alt="Picture" style="width: 291px; height: 320px;">
-					<div class="">
-						<h2>Jane Doe</h2>
-						<p class="title">CEO & Founder</p>
-						<p>Some text that describes me lorem ipsum ipsum lorem.</p>
-						<p>example@example.com</p>
-						<p align="center">
-							<button class=" marg-bottom-10 button_submit  submit">Contact</button>
-						</p>
-					</div>
-				</div>
-			</div>
-			<div class="column">
-				<div class="card">
-					<img
-						src="${pageContext.request.contextPath}/resources/images/earth.jpg"
-						alt="Picture" style="width: 291px; height: 320px;">
+					<img src="${pageContext.request.contextPath}/resources/images/earth.jpg" alt="Picture" style="width: 291px; height: 320px;">
 					<div class="">
 						<h2>Jane Doe</h2>
 						<p class="title">CEO & Founder</p>
@@ -156,4 +58,3 @@ function carousel() {
 		</div>
 	</div>
 </div>
-

@@ -9,9 +9,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.click.daoImpl.PicsDao;
+import com.click.dao.PicsDao;
 import com.click.entity.PicUploadData;
 import com.click.entity.PictureUpload;
+import com.click.pojo.PictureUploadPojo;
 import com.click.service.PicsService;
 
 /**
@@ -33,14 +34,30 @@ public class PicsServiceImpl implements PicsService {
 	}
 
 	@Override
+	public PictureUpload findPicByUserId(String userId) {
+		return picsDao.findPicByUserId(userId);
+	}
+
+	@Override
+	public long findPicMaxVoteCount() {
+		return picsDao.findPicMaxVoteCount();
+	}
+
+	@Override
+	public List<PictureUploadPojo> findAllPics() {
+
+		return picsDao.findAllPics();
+	}
+
+	@Override
 	public List<PicUploadData> getPic() {
-		List<PicUploadData> listofpics=picsDao.getPic();
+		List<PicUploadData> listofpics = picsDao.getPic();
 		return listofpics;
 	}
 
 	@Override
 	public List<PictureUpload> getPicDetails() {
-		List<PictureUpload> listofpicsdetails=picsDao.getPicDetails();
+		List<PictureUpload> listofpicsdetails = picsDao.getPicDetails();
 		return listofpicsdetails;
 	}
 }

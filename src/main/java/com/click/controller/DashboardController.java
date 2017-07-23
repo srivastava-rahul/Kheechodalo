@@ -1,5 +1,7 @@
 package com.click.controller;
 
+import java.util.List;
+
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -9,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.click.entity.User;
+import com.click.pojo.PictureUploadPojo;
+import com.click.service.PicsService;
 import com.click.service.UserService;
 import com.click.utils.SecurityLibrary;
 
@@ -21,11 +25,16 @@ public class DashboardController {
 	@Autowired
 	UserService userService;
 
+	@Autowired
+	PicsService picsService;
+	
 	@RequestMapping(value = "/dashboard")
 	protected String getAllCourses(Model model) throws Exception {
 		LOG.info(" LOG User Dashboard ");
 		User u = SecurityLibrary.getLoggedInUser();
-		System.out.println(u.getEmailId());
+		LOG.info("Email Id :" + u.getEmailId());
+		List<PictureUploadPojo> picsList = picsService.findAllPics();
+		model.addAttribute("picsList", picsList);
 		return "dashboard";
 	}
 

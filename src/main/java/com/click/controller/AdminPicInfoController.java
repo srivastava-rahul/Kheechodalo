@@ -7,12 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import com.click.entity.PicUploadData;
 import com.click.entity.PictureUpload;
-import com.click.entity.ProfileSetting;
-import com.click.entity.User;
 import com.click.service.PicsService;
 import com.click.service.UserService;
 
@@ -44,7 +41,7 @@ public class AdminPicInfoController {
     try {
     	
     	List<PicUploadData> picInfo=picsService.getPic();
-    	List<PictureUpload> picInfodetails=picsService.getPicDetails();
+			List<PictureUpload> picInfodetails = picsService.getPicDetails();
     	
     	model.addAttribute("picinfo",picInfo);
 		model.addAttribute("picinfodetails",picInfodetails);

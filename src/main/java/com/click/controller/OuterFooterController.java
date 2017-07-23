@@ -16,6 +16,22 @@ public class OuterFooterController {
 		System.out.println("In outer rule  controller");
 		return "rulesouter";
 	}
+	
+	
+	@RequestMapping(value = "/contactusOuter")
+	protected String getcontactusOuter(Model model) throws Exception {
+		System.out.println("In outer contactus  controller");
+		return "contactusOuter";
+	}
+	
+	@RequestMapping(value = "/termsConditionOuter")
+	protected String gettermsConditionOuter(Model model) throws Exception {
+		System.out.println("In outer terms  And Condition  controller");
+		return "termsConditionOuter";
+	}
+	
+	
+	
 
 	
 }

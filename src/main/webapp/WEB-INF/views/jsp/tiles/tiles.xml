@@ -232,10 +232,22 @@
 			value="/WEB-INF/views/jsp/adminViewProfileSetting.jsp" />
 	</definition>
 
-<!-- Outer Rules pages -->
+   <!-- Outer Rules pages -->
     <definition name="rulesouter" extends="blank-definition">
 		<put-attribute name="title" value="Rules" />
-		<put-attribute name="body" value="/WEB-INF/views/jsp/rules.jsp" />
+		<put-attribute name="body" value="/WEB-INF/views/jsp/rulesOuter.jsp" />
+	</definition>
+	
+	<!-- Outer ContactUs pages -->
+    <definition name="contactusOuter" extends="blank-definition">
+		<put-attribute name="title" value="ContactUs" />
+		<put-attribute name="body" value="/WEB-INF/views/jsp/contactusOuter.jsp" />
+	</definition>
+	
+	<!-- Outer Terms  And Condition pages -->
+    <definition name="termsConditionOuter" extends="blank-definition">
+		<put-attribute name="title" value="TermsAndCondition" />
+		<put-attribute name="body" value="/WEB-INF/views/jsp/termsConditionOuter.jsp" />
 	</definition>
 
 

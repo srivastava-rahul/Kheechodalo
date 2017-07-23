@@ -186,13 +186,13 @@ body {
 			
 			
 			
-			<a href="">Terms & Condition</a>
+			<a href="${pageContext.request.contextPath}/user/termsConditionOuter">Terms & Condition</a>
 			&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
 			<a href="">Cookies</a>
 			&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
 			<a href="${pageContext.request.contextPath}/user/rulesouter">Rules</a>
 			&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
-			<a href="">Contact</a>
+			<a href="${pageContext.request.contextPath}/user/contactusOuter">Contact</a>
 			&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
  
       

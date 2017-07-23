@@ -28,8 +28,7 @@ function carousel() {
 			<c:forEach var="pic" items="${picsList}">
 			<div class="column">
 				<div class="card">
-					<img
-						src="${pageContext.request.contextPath}/resources/images/earth.jpg"	alt="Picture" style="width: 291px; height: 320px;">
+					<img src="data:image/jpeg;base64,${pic.base64Encoded}"	alt="Picture" style="width: 291px; height: 320px;">
 					<span style="margin-left: 50%;">${pic.picVote}</span>
 					<div class="">
 						<h2>${pic.userName}</h2>
@@ -41,20 +40,6 @@ function carousel() {
 				</div>
 			</div>
 			</c:forEach>
-			<div class="column">
-				<div class="card">
-					<img src="${pageContext.request.contextPath}/resources/images/earth.jpg" alt="Picture" style="width: 291px; height: 320px;">
-					<div class="">
-						<h2>Jane Doe</h2>
-						<p class="title">CEO & Founder</p>
-						<p>Some text that describes me lorem ipsum ipsum lorem.</p>
-						<p>example@example.com</p>
-						<p align="center">
-							<button class=" marg-bottom-10 button_submit  submit">Contact</button>
-						</p>
-					</div>
-				</div>
-			</div>
 		</div>
 	</div>
 </div>

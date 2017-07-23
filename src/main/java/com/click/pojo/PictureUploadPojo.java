@@ -3,6 +3,8 @@ package com.click.pojo;
 import java.io.Serializable;
 import java.util.List;
 
+import org.apache.commons.codec.binary.Base64;
+
 /**
  * @author parveen
  */
@@ -18,7 +20,7 @@ public class PictureUploadPojo implements Serializable {
 
 	private String userName;
 
-	private byte picData[];
+	private String base64Encoded;
 
 	private boolean allowToVote;
 
@@ -28,21 +30,29 @@ public class PictureUploadPojo implements Serializable {
 
 	}
 
-	/*public PictureUploadPojo(String id, String picDescription, long picVote, String userName, byte picData[],List<String> friendEmail) {
-		this.id = id;
-		this.picDescription = picDescription;
-		this.picVote = picVote;
-		this.userName = userName;
-		this.picData = picData;
-		this.friendEmail = friendEmail;
-	}*/
-	
+	/*
+	 * public PictureUploadPojo(String id, String picDescription, long picVote,
+	 * String userName, byte picData[],List<String> friendEmail) { this.id = id;
+	 * this.picDescription = picDescription; this.picVote = picVote;
+	 * this.userName = userName; this.picData = picData; this.friendEmail =
+	 * friendEmail; }
+	 */
+
 	public PictureUploadPojo(String id, String picDescription, long picVote, String userName, byte picData[]) {
 		this.id = id;
 		this.picDescription = picDescription;
 		this.picVote = picVote;
 		this.userName = userName;
-		this.picData = picData;
+		// this.picData = picData;
+
+		try {
+			if (picData != null) {
+				byte[] encodeBase64 = Base64.encodeBase64(picData);
+				this.base64Encoded = new String(encodeBase64, "UTF-8");
+			} 
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	public String getId() {
@@ -77,12 +87,13 @@ public class PictureUploadPojo implements Serializable {
 		this.picVote = picVote;
 	}
 
-	public byte[] getPicData() {
-		return picData;
+	
+	public String getBase64Encoded() {
+		return base64Encoded;
 	}
 
-	public void setPicData(byte[] picData) {
-		this.picData = picData;
+	public void setBase64Encoded(String base64Encoded) {
+		this.base64Encoded = base64Encoded;
 	}
 
 	public boolean isAllowToVote() {

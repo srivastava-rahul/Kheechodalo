@@ -44,7 +44,8 @@ public class PicsDaoImpl implements PicsDao {
 	@Override
 	public long findPicMaxVoteCount() {
 		Query query = entityManager.createQuery("select max(pu.picVote) from PictureUpload pu");
-		return ((Number) query.getSingleResult()).longValue();
+		Object obj =(Number) query.getSingleResult(); 
+		return obj != null ? ((Number)obj).longValue() : 0;
 	}
 
 	@Override

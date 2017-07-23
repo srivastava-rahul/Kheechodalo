@@ -50,9 +50,12 @@ public class PicsDaoImpl implements PicsDao {
 
 	@Override
 	@SuppressWarnings("unchecked")
-	public List<PictureUploadPojo> findAllPics() {
+	public List<PictureUploadPojo> findAllPics(int pageNo) {
 		Query query = entityManager.createQuery("Select new com.click.pojo.PictureUploadPojo(pu.id, pu.description, pu.picVote, u.firstName, pd.fileData) from PictureUpload pu left outer join pu.picUploadData pd left outer join pu.user u order by pu.picVote DESC");
+		query.setFirstResult(pageNo == 1 ? 0 : (pageNo*8));
+		query.setMaxResults(8);
 		List<PictureUploadPojo> dataList = query.getResultList();
+		
 		return dataList;
 	}
 

@@ -130,12 +130,14 @@
 		<!-- *************************** -->
 		<!-- External Dependencies -->
 		<!-- *************************** -->
-		<dependency>
-			<groupId>log4j</groupId>
-			<artifactId>log4j</artifactId>
-			<version>1.2.17</version>
-			<type>jar</type>
-		</dependency>
+		<!-- https://mvnrepository.com/artifact/log4j/log4j -->
+<dependency>
+    <groupId>log4j</groupId>
+    <artifactId>log4j</artifactId>
+    <version>1.2.17</version>
+    
+</dependency>
+
 		
 
 		<!-- HIBENATE DEPENDENCIES -->
@@ -374,7 +376,7 @@
 		<db.driver>com.mysql.jdbc.Driver</db.driver>
 		<db.url>jdbc:mysql://localhost:3306/KHEECHODALO</db.url>
 		<db.username>root</db.username>
-		<db.password>root</db.password>
+		<db.password>1812</db.password>
 		<db.dialect>org.hibernate.dialect.MySQLDialect</db.dialect>
 		<db.connection.timeout>10000</db.connection.timeout>
 		<log.path>${user.home}/logs/</log.path>

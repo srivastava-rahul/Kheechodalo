@@ -34,9 +34,10 @@ public interface PicsDao {
 
 	/**
 	 * 
+	 * @param pageNo TODO
 	 * @return
 	 */
-	List<PictureUploadPojo> findAllPics();
+	List<PictureUploadPojo> findAllPics(int pageNo);
 
 	/**
 	 * 

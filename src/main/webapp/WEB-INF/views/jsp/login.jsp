@@ -12,7 +12,7 @@
 <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,300,600' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/css/style.css">
-
+ 
 <style>
 body {
 	background:
@@ -226,15 +226,20 @@ body {
 			 </table>    -->
 			<a href="">Privacy</a>
 			&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
+			<%-- <div onclick="openInNewTab('${pageContext.request.contextPath}/user/changePassword');">Something To Click On</div> --%>
+			
+			
+			
 			<a href="">Terms & Condition</a>
 			&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
 			<a href="">Cookies</a>
 			&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
-			<a href="">Rules</a>
+			<a href="${pageContext.request.contextPath}/user/rulesouter">Rules</a>
 			&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
 			<a href="">Contact</a>
 			&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
-
+ 
+      
 		</div>
 	</div>
 

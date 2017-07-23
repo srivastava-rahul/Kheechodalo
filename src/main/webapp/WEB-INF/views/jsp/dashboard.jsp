@@ -17,10 +17,70 @@ function carousel() {
     x[myIndex-1].style.display = "block";  
     setTimeout(carousel, 2000); // Change image every 2 seconds
 }
+
+$(document).ready(function() {
+	var num2 = 4;
+	<c:if test="${not empty pageNo}">
+	num2 = parseInt('${pageNo}');
+	</c:if>
+	var html2 = "";
+	console.log("num  :"+ num2);
+	html2 += '<li><a href="#" class="previous">«</a></li>';
+	html2 += '<li><a href="${pageContext.request.contextPath}/user/dashboardPagination/'+(num2 - 3)+ '" >'+(num2 - 3)+ '</a></li>';
+	html2 += '<li><a href="${pageContext.request.contextPath}/user/dashboardPagination/'+(num2 - 2)+ '">'+(num2 - 2)+ '</a></li>';
+	html2 += '<li><a href="${pageContext.request.contextPath}/user/dashboardPagination/'+(num2 - 1)+ '">'+(num2 - 1)+ '</a></li>';
+	html2 += '<li><a href="${pageContext.request.contextPath}/user/dashboardPagination/'+(num2)+ '">'+(num2)+ '</a></li>';
+	html2 += '<li><a href="#" class="next">»</a></li>';
+	$('.pagination').html(html2);
+	
+	
+	
+			$("body").delegate(	".previous",	"click",	function() {
+							var num = parseInt($('.pagination li:nth-last-child(2)').text())-3;
+						if (num >= 5) {
+							var html1 = "";
+							console.log("num  :"+ num);
+							html1 += '<li><a href="#" class="previous">«</a></li>';
+							html1 += '<li><a href="${pageContext.request.contextPath}/user/dashboardPagination/'+(num - 4)+ '" >'+(num - 4)+ '</a></li>';
+							html1 += '<li><a href="${pageContext.request.contextPath}/user/dashboardPagination/'+(num - 3)+ '">'+(num - 3)+ '</a></li>';
+							html1 += '<li><a href="${pageContext.request.contextPath}/user/dashboardPagination/'+(num - 2)+ '">'+(num - 2)+ '</a></li>';
+							html1 += '<li><a href="${pageContext.request.contextPath}/user/dashboardPagination/'+(num - 1)+ '">'+(num - 1)+ '</a></li>';
+							html1 += '<li><a href="#" class="next">»</a></li>';
+							$('.pagination').html(html1);
+							console.log(html1);
+						}
+						
+						
+			});
+			
+			$("body").delegate(	".next",	"click",	function() {
+				var number = parseInt($('.pagination li:nth-last-child(2)').text());
+				var html = "";
+				html += '<li><a href="#" class="previous">«</a></li>';
+				html += '<li><a href="${pageContext.request.contextPath}/user/dashboardPagination/'+(number + 1)+ '" >'+(number + 1)+ '</a></li>';
+				html += '<li><a href="${pageContext.request.contextPath}/user/dashboardPagination/'+(number + 2)+ '">'+(number + 2)+ '</a></li>';
+				html += '<li><a href="${pageContext.request.contextPath}/user/dashboardPagination/'+(number + 3)+ '">'+(number + 3)+ '</a></li>';
+				html += '<li><a href="${pageContext.request.contextPath}/user/dashboardPagination/'+(number + 4)+ '">'+(number + 4)+ '</a></li>';
+				html += '<li><a href="#" class="next">»</a></li>';
+				$('.pagination').html(html)
+	});
+						
+					});
+
+
 </script>
 <br>
 
 <div class="body-area">
+
+
+
+<div class="">
+  <ul class="pagination">
+  </ul>
+</div>
+
+
 
 <jsp:include page="/WEB-INF/views/jsp/message.jsp" />
 	<div >

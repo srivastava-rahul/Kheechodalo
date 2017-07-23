@@ -44,8 +44,8 @@ public class PicsServiceImpl implements PicsService {
 	}
 
 	@Override
-	public List<PictureUploadPojo> findAllPics() {
-		return picsDao.findAllPics();
+	public List<PictureUploadPojo> findAllPics(int pageNo) {
+		return picsDao.findAllPics(pageNo);
 	}
 
 	@Override

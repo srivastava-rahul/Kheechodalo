@@ -34,9 +34,10 @@ public interface PicsService {
 
 	/**
 	 * 
+	 * @param pageNo TODO
 	 * @return
 	 */
-	List<PictureUploadPojo> findAllPics();
+	List<PictureUploadPojo> findAllPics(int pageNo);
 
 	/**
 	 * 

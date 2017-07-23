@@ -8,7 +8,7 @@ Welcome to Admin home page : ${pageContext.request.userPrincipal.name}
 </sec:authorize>
 	<br />
 
-	<sec:authorize access="hasRole('SUPPLIER')">
+	<sec:authorize access="hasRole('USER_ADMIN')">
 Welcome to Supplier home page : ${pageContext.request.userPrincipal.name}
 </sec:authorize>
 	<br />
@@ -18,12 +18,12 @@ Welcome to Buyer home page : ${pageContext.request.userPrincipal.name}
 </sec:authorize>
 	<br />
 
-	<sec:authentication var="userName" property="principal.userName" />
+	<%-- <sec:authentication var="userName" property="principal.userName" />
 	User Name : ${userName}
 	<br />
 	<sec:authentication var="password" property="principal.password" />
 	password : ${password}
-
+ --%>
 	<form action="logout" method="post">
 		<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"> <input type="submit" value="LOGOUT">
 	</form>

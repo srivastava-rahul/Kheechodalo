@@ -33,10 +33,11 @@ public class UserDaoImpl implements UserDao {
 
 	@Override
 	public User findUserByName(String emailId) {
-		System.out.println("user dao :" + emailId);
-		Query query = entityManager.createQuery("from User u where upper(u.emailId) = :emailId").setParameter("emailId",
-				emailId);
-		return (User) query.getSingleResult();
+		LOG.info("user dao email :" + emailId);
+		Query query = entityManager.createQuery("from User u where upper(u.emailId) = :emailId").setParameter("emailId",emailId);
+		User user = (User) query.getSingleResult();
+		LOG.info("user :" + user.toLogString());
+		return user;
 	}
 
 	@Override

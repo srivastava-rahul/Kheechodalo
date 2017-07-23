@@ -44,7 +44,7 @@ $(document).ready(function(){
 
 			<div class="Changepasswordformboby">
 				<h3 style="color: yellow">Please Enter old Password</h3>
-				<input type="password" id="oldPassword" name="oldPassword" class="Changepassword_form-control" placeholder="Enter your old Password" />
+				<input type="password" id="oldPassword" name="oldPassword" class="Changepassword_form-control" placeholder="Enter your old Password" required="true"/>
 		       <div align="right" style ="margin-right: 18px;">
 		        <input type="checkbox" id="pwcheck" />Show Password
 	</div>
@@ -52,12 +52,12 @@ $(document).ready(function(){
 
 			<div class="Changepasswordformboby">
 				<h3 style="color: yellow">Enter new Password</h3>
-				<input type="password" id="newPassword" name="newPassword" class="Changepassword_form-control" placeholder="Enter new Password" />
+				<input type="password" id="newPassword" name="newPassword" class="Changepassword_form-control" placeholder="Enter new Password" required="true" />
 			</div>
 
 			<div class="Changepasswordformboby">
 				<h3 style="color: yellow">Confirm new Password</h3>
-				<input type="password" id="confirmPassword" name="confirmPassword" class="Changepassword_form-control" placeholder="Confirm new Password" />
+				<input type="password" id="confirmPassword" name="confirmPassword" class="Changepassword_form-control" placeholder="Confirm new Password" required="true"/>
 			</div>
 
 

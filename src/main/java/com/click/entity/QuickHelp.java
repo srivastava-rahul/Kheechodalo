@@ -1,6 +1,7 @@
 package com.click.entity;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -34,6 +35,9 @@ public class QuickHelp implements Serializable {
 
 	@Column(name = "QUICK_DESCRIPTION", length = 500)
 	private String quickDesc;
+
+	@Column(name = "CTREATED_DATE", length = 500)
+	private Date createdDate;
 
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
 	@JoinColumn(name = "USER_ID", nullable = false, foreignKey = @ForeignKey(name = "FK1_USER_USER"))
@@ -69,6 +73,14 @@ public class QuickHelp implements Serializable {
 
 	public void setQuickProblem(String quickProblem) {
 		this.quickProblem = quickProblem;
+	}
+
+	public Date getCreatedDate() {
+		return createdDate;
+	}
+
+	public void setCreatedDate(Date createdDate) {
+		this.createdDate = createdDate;
 	}
 
 	public String toLogString() {

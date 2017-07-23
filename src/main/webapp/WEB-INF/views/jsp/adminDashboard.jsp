@@ -1,12 +1,21 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@ page isELIgnored="false"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
+<sec:authentication property="principal.isAdmin" var = "isAdmin"/>
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/jquery-1.4.2.min.js"></script>
 
 <div class="body-area">
 	<img src="${pageContext.request.contextPath}/resources/images/Adminimg.png" alt="Avatar" class="page_pic">
 	<div class="information">
-		<p class="header_information">User Information for Admin</p>
+		<p class="header_information">
+
+
+
+User Information for Admin
+		
+		
+		</p>
 	</div>
 		<p>	
 	

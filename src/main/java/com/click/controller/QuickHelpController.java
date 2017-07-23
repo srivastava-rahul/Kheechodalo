@@ -1,5 +1,7 @@
 package com.click.controller;
 
+import java.util.Date;
+
 /**
  * @author vipul
  */
@@ -63,6 +65,7 @@ public class QuickHelpController {
 			quickHelp.setUser(userDetails);
 			quickHelp.setQuickProblem(problem);
 			quickHelp.setQuickDesc(quickDesc);
+			quickHelp.setCreatedDate(new Date());
 
 			sendProblemEmail(new String[] { "click8me@gmail.com" }, userDetails.getFirstName(), userDetails.getId(),
 					"I " + userDetails.getEmailId() + " Want Some Help In " + problem + " And Short Description"
@@ -88,6 +91,7 @@ public class QuickHelpController {
 			UserFeedback feed = new UserFeedback();
 			feed.setUser(userDetails);
 			feed.setFeedDesc(feedback);
+			feed.setCreatedDate(new Date());
 
 			quickHelpService.saveFeedbackData(feed);
 			model.addAttribute("success", "Thank You For Providing Us Yours Views .");

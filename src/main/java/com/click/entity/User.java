@@ -13,6 +13,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.apache.commons.codec.binary.Base64;
 import org.hibernate.annotations.GenericGenerator;
 
 /**
@@ -70,9 +71,29 @@ public class User implements Serializable {
 	@JoinColumn(name = "ROLE_ID", nullable = false, foreignKey = @ForeignKey(name = "FK1_USER_USER_ROLE"))
 	private UserRole userRole;
 
+	@ManyToOne(fetch = FetchType.LAZY, optional = true)
+	@JoinColumn(name = "ADMIN_ID", nullable = true, foreignKey = @ForeignKey(name = "FK_USER_ADMIN_ID"))
+	private Admin admin;
+
+	@ManyToOne(fetch = FetchType.LAZY, optional = true)
+	@JoinColumn(name = "PROF_ID", nullable = true, foreignKey = @ForeignKey(name = "FK2_USER_PROFILE_SETTING"))
+	private ProfileSetting profileSetting;
+
 	public User() {
 		this.status = false;
 		this.deleted = false;
+	}
+
+	public String getProfilePicture() {
+		String base64Encoded = null;
+		if (profileSetting.getFileData() != null) {
+			byte[] encodeBase64 = Base64.encodeBase64(profileSetting.getFileData());
+			try {
+				base64Encoded = new String(encodeBase64, "UTF-8");
+			} catch (Exception e) {
+			}
+		}
+		return base64Encoded;
 	}
 
 	public String getId() {
@@ -177,6 +198,22 @@ public class User implements Serializable {
 
 	public void setUserRole(UserRole userRole) {
 		this.userRole = userRole;
+	}
+
+	public Admin getAdmin() {
+		return admin;
+	}
+
+	public void setAdmin(Admin admin) {
+		this.admin = admin;
+	}
+
+	public ProfileSetting getProfileSetting() {
+		return profileSetting;
+	}
+
+	public void setProfileSetting(ProfileSetting profileSetting) {
+		this.profileSetting = profileSetting;
 	}
 
 	public String toLogString() {

@@ -13,7 +13,6 @@ import org.springframework.stereotype.Repository;
 
 import com.click.dao.QuickHelpDao;
 import com.click.entity.QuickHelp;
-import com.click.entity.User;
 import com.click.entity.UserFeedback;
 
 /**
@@ -38,6 +37,7 @@ public class QuickHelpDaoImpl implements QuickHelpDao {
 		entityManager.merge(feed);
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<QuickHelp> getQuickHelpData() {
 		System.out.println("get Quick help data ");
@@ -45,6 +45,7 @@ public class QuickHelpDaoImpl implements QuickHelpDao {
 		return (List<QuickHelp>) query.getResultList();
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<UserFeedback> getFeedbackData() {
 		System.out.println("get Quick help data ");

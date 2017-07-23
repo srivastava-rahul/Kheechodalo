@@ -1,6 +1,7 @@
 package com.click.entity;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -27,10 +28,13 @@ public class UserFeedback implements Serializable {
 	@Column(name = "ID")
 	@GenericGenerator(name = "idGen", strategy = "uuid.hex")
 	@GeneratedValue(generator = "idGen")
-	private String id;	
+	private String id;
 
 	@Column(name = "FEED_DESCRIPTION", length = 500)
 	private String feedDesc;
+
+	@Column(name = "CTREATED_DATE", length = 500)
+	private Date createdDate;
 
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
 	@JoinColumn(name = "USER_ID", nullable = false, foreignKey = @ForeignKey(name = "FK1_USER_USER_FEED"))
@@ -60,10 +64,16 @@ public class UserFeedback implements Serializable {
 		this.feedDesc = feedDesc;
 	}
 
+	public Date getCreatedDate() {
+		return createdDate;
+	}
+
+	public void setCreatedDate(Date createdDate) {
+		this.createdDate = createdDate;
+	}
+
 	public String toLogString() {
 		return "UserFeedback [id=" + id + ", feedDesc=" + feedDesc + ", user=" + user + "]";
 	}
-
-	
 
 }

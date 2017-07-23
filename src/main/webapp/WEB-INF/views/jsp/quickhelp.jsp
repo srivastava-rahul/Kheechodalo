@@ -20,7 +20,7 @@
 			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
 			<div class="Changepasswordformboby">
 				<h3 style="color: yellow">Please tell Problem you A are facing... </h3>
-				<input type="text" class="Changepassword_form-control" name="problem" id="problem"
+				<input type="text" class="Changepassword_form-control" name="problem" id="problem" required="true"
 					placeholder="Please Enter Page or button name" />
 			</div>
 

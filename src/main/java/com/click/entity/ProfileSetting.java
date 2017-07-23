@@ -16,6 +16,7 @@ import org.hibernate.annotations.GenericGenerator;
 
 public class ProfileSetting {
 	
+	@SuppressWarnings("unused")
 	private static final long serialVersionUID = -6598843564851420989L;
 
 	@Id

@@ -24,6 +24,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.click.entity.PicUploadData;
 import com.click.entity.PictureUpload;
 import com.click.entity.ProfileSetting;
+import com.click.entity.User;
 import com.click.service.ProfileSettingService;
 import com.click.service.UserService;
 import com.click.utils.SecurityLibrary;
@@ -115,6 +116,7 @@ public class ProfileSettingsController {
 				ProfileSetting profileSetting = profileSettingService.findByEmailId(SecurityLibrary.getLoggedInUser().getEmailId());
 				byte[] bytes = uploadPic.getBytes();
 				profileSetting.setFileData(bytes);
+				User user = new User();
 				profileSettingService.updateProfile(profileSetting);
 				System.out.println("uploaded");
 				byte[] encodeBase64 = Base64.encodeBase64(profileSetting.getFileData());

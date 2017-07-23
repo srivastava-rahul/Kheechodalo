@@ -24,47 +24,43 @@ public class QuickHelpServiceImpl implements QuickHelpService {
 
 	@Autowired
 	QuickHelpDao quickHelpDao;
-	
+
 	@Override
 	@Transactional(readOnly = false)
 	public void saveQuickHelpData(QuickHelp quickHelp) {
 		quickHelpDao.saveQuickHelp(quickHelp);
-		
+
 	}
 
 	@Override
+	@Transactional(readOnly = false)
 	public void saveFeedbackData(UserFeedback feed) {
 		quickHelpDao.saveFeedback(feed);
-		
+
 	}
 
 	@Override
 	public List<QuickHelp> getQuickHelpData() {
-		List<QuickHelp> quickhelp=quickHelpDao.getQuickHelpData();
+		List<QuickHelp> quickhelp = quickHelpDao.getQuickHelpData();
 		return quickhelp;
 	}
 
 	@Override
 	public List<UserFeedback> getFeedbackData() {
-		List<UserFeedback> quickhelp=quickHelpDao.getFeedbackData();
-		return null;
+		List<UserFeedback> quickhelp = quickHelpDao.getFeedbackData();
+		return quickhelp;
 	}
 
 	@Override
 	public void deleteQuickHelpData(QuickHelp quickhelp) {
 		quickHelpDao.deleteQuickHelpData(quickhelp);
-		
+
 	}
 
 	@Override
 	public void deleteFeedbackData(UserFeedback userfeedback) {
 		quickHelpDao.deleteFeedbackData(userfeedback);
-		
+
 	}
-
-
-
-	
-
 
 }

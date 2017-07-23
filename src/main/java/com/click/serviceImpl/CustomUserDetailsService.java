@@ -3,6 +3,7 @@
  */
 package com.click.serviceImpl;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -22,6 +23,8 @@ import com.click.pojo.AuthenticatedUser;
 @Transactional(readOnly = true)
 public class CustomUserDetailsService implements UserDetailsService {
 
+	private static Logger LOG = Logger.getLogger(CustomUserDetailsService.class);
+
 	@Autowired
 	UserDao userDao;
 
@@ -31,16 +34,22 @@ public class CustomUserDetailsService implements UserDetailsService {
 			throw new UsernameNotFoundException("Invalid username of password specified. Bad credentials.");
 
 		AuthenticatedUser authenticatedUser = null;
+		System.out.println("0");
 		User user = userDao.findUserByName(userName.toUpperCase());
-
-		if (user == null)
+		LOG.info(" authenticatedUser dsadawd:" + user);
+		System.out.println("1");
+		if (user == null) {
+			LOG.info(" dadsdsasdad dsadad authenticatedUser :" + user);
+			System.out.println("fdsfdsfs");
 			throw new UsernameNotFoundException("Invalid username of password specified. Bad credentials.");
+		}
+		LOG.info(" authenticatedUser :" + user.toLogString());
 		user = userDao.findById(user.getId());
+		LOG.info(" user===== :" + user.toLogString());
 		if (user != null) {
 			authenticatedUser = new AuthenticatedUser(user);
 		}
 		return authenticatedUser;
 	}
-	
 
 }

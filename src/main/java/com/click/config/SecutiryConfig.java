@@ -13,6 +13,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
+import com.click.handler.AppAuthenticationSuccessHandler;
+
 @Configuration
 @EnableWebSecurity
 public class SecutiryConfig extends WebSecurityConfigurerAdapter {
@@ -20,6 +22,9 @@ public class SecutiryConfig extends WebSecurityConfigurerAdapter {
 	@Autowired
 	@Qualifier("customUserDetailsService")
 	UserDetailsService userDetailsService;
+
+	@Autowired
+	AppAuthenticationSuccessHandler authenticationSuccessHandler;
 
 	@Autowired
 	public void configureGlobalSecurity(AuthenticationManagerBuilder auth) throws Exception {
@@ -40,16 +45,14 @@ public class SecutiryConfig extends WebSecurityConfigurerAdapter {
 				// OWNER
 				.antMatchers("/user**").hasAnyRole("USER_ROLE")
 				// ADMIN
-				.antMatchers("/admin**").hasAnyRole("ADMIN").and().formLogin().loginPage("/login")
-				.usernameParameter("userName").passwordParameter("password").defaultSuccessUrl("/user/dashboard")
-				.failureUrl("/login?error=true").and().logout().invalidateHttpSession(true)
-				.logoutSuccessUrl("/login?logout").and()
-				// .csrf()
-				// .and()
-				.exceptionHandling().accessDeniedPage("/invalid-access.jsp").and().logout()
-				.logoutRequestMatcher(new AntPathRequestMatcher("/logout")).logoutSuccessUrl("/login?logout=true")
-				.clearAuthentication(true).invalidateHttpSession(true).deleteCookies("JSESSIONID").and()
-				.sessionManagement().maximumSessions(1).expiredUrl("/login?expired=true");
+				.antMatchers("/admin**").hasAnyRole("USER_ADMIN").and().formLogin().loginPage("/login").permitAll()
+				.usernameParameter("userName").passwordParameter("password").failureUrl("/login?error=true")
+				.successHandler(authenticationSuccessHandler).and().logout().invalidateHttpSession(true)
+				.logoutSuccessUrl("/login?logout").and().exceptionHandling().accessDeniedPage("/invalid-access.jsp")
+				.and().logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+				.logoutSuccessUrl("/login?logout=true").clearAuthentication(true).invalidateHttpSession(true)
+				.deleteCookies("JSESSIONID").and().sessionManagement().maximumSessions(1)
+				.expiredUrl("/login?expired=true");
 	}
 
 }

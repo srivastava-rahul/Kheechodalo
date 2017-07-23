@@ -16,6 +16,11 @@ import com.click.service.PicsService;
 import com.click.service.UserService;
 import com.click.utils.SecurityLibrary;
 
+/**
+ * 
+ * @author Vipul
+ *
+ */
 @Controller
 @RequestMapping(value = "/user")
 public class DashboardController {

@@ -1,5 +1,6 @@
 package com.click.controller;
 
+import java.util.Date;
 import java.util.HashMap;
 
 import org.apache.log4j.Logger;
@@ -61,7 +62,7 @@ public class UserController {
 
 	@RequestMapping(value = "/saveUser", method = RequestMethod.POST)
 	public String saveUser(@RequestParam String firstName, @RequestParam String lastName, @RequestParam String email,
-			@RequestParam String password) {
+			@RequestParam String password ,Model model) {
 		try {
 			System.out.println("first name -" + firstName + "lastName- " + lastName + "email -" + email + "password -" + password);
 			
@@ -70,26 +71,30 @@ public class UserController {
 			user.setLastName(lastName);
 			user.setEmailId(email);
 			user.setPassword(password);
+			user.setCreatedDate(new Date());
 			UserRole role = new UserRole();
 			role.setId("111");
 			user.setUserRole(role);
 			user = userService.saveUser(user);
 			sendRegistrationEmail(new String[] { user.getEmailId() }, user.getFirstName(), user.getId(),"Thanks For Registration");
-			System.out.println("user object :" + user.toLogString());
+			model.addAttribute("success", "Please Visit Your Email Id For Activation .");
+			LOG.info("user object :" + user.toLogString());
 		} catch (Exception e) {
-			System.out.println("Error saveUser");
-			e.printStackTrace();
+      		LOG.info("Error saveUser"+e.getMessage(),e);
+      		model.addAttribute("error", "Error Sending Mail.");
 		}
 		return "WEB-INF/views/jsp/login";
 	}
 
 	@RequestMapping(value = "/activateUser/{id}", method = RequestMethod.GET)
-	public String activateUser(@PathVariable String id) {
+	public String activateUser(@PathVariable String id,Model model) {
 		try {
 			userService.activateUser(id);
-			System.out.println("user activated successfully");
+			model.addAttribute("success", "Your Account Activated Successfully .");
+			LOG.info("user activated successfully");
 		} catch (Exception e) {
-			System.out.println("Error activate user");
+			LOG.error("Error activate user");
+			model.addAttribute("error", "Error While Activation.");
 			e.printStackTrace();
 		}
 		return "WEB-INF/views/jsp/login";

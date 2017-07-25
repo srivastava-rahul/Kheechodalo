@@ -20,7 +20,7 @@ import com.click.service.UserService;
 public class AdminTestimonialController {
 	
 
-	private static final Logger LOG = Logger.getLogger(QuickHelpController.class);
+	private static final Logger LOG = Logger.getLogger(AdminTestimonialController.class);
 	
 	@Autowired
 	UserService userService;
@@ -32,9 +32,9 @@ public class AdminTestimonialController {
 	@RequestMapping(value = "/adminsavetestimonial", method = RequestMethod.POST)
 	public String savetestimonialData(@RequestParam UserTestimonial testimonial ,@RequestParam("picImg") MultipartFile uploadPic, Model model)
 			throws Exception {
-		LOG.info("Admin adding Testimonial information controller");
+		LOG.info("Admin adding Testimonial information from savetestimonialData controller");
 		try {
-			LOG.info("Notification :- " + testimonial);
+			
 			/*User userDetails = userService.findUserById(SecurityLibrary.getLoggedInUser().getEmailId());
 			LOG.info("Admin Email - Id :" + userDetails.getEmailId());*/
 			
@@ -55,6 +55,7 @@ public class AdminTestimonialController {
 			 model.addAttribute("success", " Data Entered Successfully .");			
 			return "adminsendtestimonial";
 		} catch (Exception e) {
+			LOG.error(e.getMessage(),e);
 			e.printStackTrace();
 			model.addAttribute("error", "Error Occured While Sending Data .");
 			return "adminsendtestimonial";
@@ -63,7 +64,7 @@ public class AdminTestimonialController {
 
 	@RequestMapping(value = "/admingetTestimonial")
 	protected String getTestimonialInfo(Model model) throws Exception {
-		System.out.println("Admin getting list of Testimonial data controller");
+		LOG.info("Admin getting list of Testimonial data from getTestimonialInfo controller");
 		try {
 			 List<UserTestimonial>  listoftestimonial = testimonialService.gettestimonial();
 			    /*byte[] encodeBase64 = Base64.encodeBase64(listoftestimonial.getFileData());
@@ -72,7 +73,8 @@ public class AdminTestimonialController {
 			 
 			 model.addAttribute("testimonial",listoftestimonial);
 		   } catch (Exception e) {
-			e.printStackTrace();
+			   LOG.error(e.getMessage(),e);
+				e.printStackTrace();
 		}
 		
 		return "adminsendtestimonial";
@@ -80,23 +82,20 @@ public class AdminTestimonialController {
 	
 	@RequestMapping(value = "/admindeletetestimonial")
 	protected String deleteTesrimonialInfo(@RequestParam String id,Model model) throws Exception {
-		System.out.println("Admin removing Testimonial  data based on id controller");
+		LOG.info("Admin removing Testimonial  data based on id from deleteTesrimonialInfo controller");
 		try {
 			UserTestimonial testimonialdata=new UserTestimonial();
-			testimonialdata.setId(id);;
-			 
-			testimonialService.deletetestimonial(testimonialdata);;
-			 
-			
+			testimonialdata.setId(id);
+			testimonialService.deletetestimonial(testimonialdata);
 			List<UserTestimonial>  listoftestimonial = testimonialService.gettestimonial();
 		    /*byte[] encodeBase64 = Base64.encodeBase64(listoftestimonial.getFileData());
 			String base64Encoded = new String(encodeBase64, "UTF-8");
 			model.addAttribute("picImg", base64Encoded);*/
-		 
 		 model.addAttribute("testimonial",listoftestimonial);
 		 model.addAttribute("success", " Data Entered Successfully .");
 			return "adminsendtestimonial";
 		} catch (Exception e) {
+			LOG.error(e.getMessage(),e);
 			e.printStackTrace();
 			model.addAttribute("error", "Error Occured While deleting Data .");
 			return "adminsendtestimonial";

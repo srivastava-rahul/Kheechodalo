@@ -20,45 +20,76 @@ public class UserDaoImpl implements UserDao {
 
 	@Override
 	public User findById(String userId) {
-		LOG.info("user dao :" + userId);
-		Query query = entityManager.createQuery("from User u where u.id = :Id").setParameter("Id", userId);
+		LOG.info("Inside findById() DaoImpl user dao ");
+		Query query =null;
+		try{
+		     query = entityManager.createQuery("from User u where u.id = :Id").setParameter("Id", userId);
+		}catch(Exception e){
+			LOG.error(e.getMessage(),e);
+			e.printStackTrace();
+		}
 		return (User) query.getSingleResult();
 	}
 
 	@Override
 	public User saveUser(User user) {
-		System.out.println("user dao :" + user.toLogString());
+		System.out.println("Inside saveUser() DaoImpl user dao ");
 		return entityManager.merge(user);
 	}
 
 	@Override
 	public User findUserByName(String emailId) {
-		LOG.info("user dao email :" + emailId);
-		Query query = entityManager.createQuery("from User u where upper(u.emailId) = :emailId").setParameter("emailId",emailId);
-		User user = (User) query.getSingleResult();
+		LOG.info("Inside findUserByName() DaoImpl user dao email ");
+		Query query=null;
+		User user=null;
+		try{
+		    query = entityManager.createQuery("from User u where upper(u.emailId) = :emailId").setParameter("emailId",emailId);
+		    user = (User) query.getSingleResult();
 		LOG.info("user :" + user.toLogString());
+		}catch(Exception e){
+			LOG.error(e.getMessage(),e);
+			e.printStackTrace();
+		}
 		return user;
 	}
 
 	@Override
 	public void activateUser(String id) {
+		LOG.info("Inside activateUser() DaoImpl user dao email ");
+		try{
 		Query query = entityManager.createQuery("update User u set u.status = :status where u.id = :id");
 		query.setParameter("status", true);
 		query.setParameter("id", id);
 		query.executeUpdate();
+		}catch(Exception e){
+			LOG.error(e.getMessage(),e);
+			e.printStackTrace();
+		}
 	}
 
 	@Override
 	public User findByEmailId(String email) {
-		Query query = entityManager.createQuery("from User u where upper(u.emailId) = :emailId").setParameter("emailId",
+		LOG.info("Inside findByEmailId() DaoImpl user dao email ");
+		Query query=null;
+		try{
+		    query = entityManager.createQuery("from User u where upper(u.emailId) = :emailId").setParameter("emailId",
 				email);
+		}catch(Exception e){
+			LOG.error(e.getMessage(),e);
+			e.printStackTrace();
+		}
 		return (User) query.getSingleResult();
 	}
 
 	@Override
 	public void updateUser(User userDetails) {
-		System.out.println("user dao :" + userDetails.toLogString());
-		entityManager.merge(userDetails);
+		LOG.info("Inside updateUser() DaoImpl user dao email ");
+		try{
+	           entityManager.merge(userDetails);
+		   }catch(Exception e){
+			   LOG.error(e.getMessage(),e);
+				e.printStackTrace();
+		   }
 	}
 
 }

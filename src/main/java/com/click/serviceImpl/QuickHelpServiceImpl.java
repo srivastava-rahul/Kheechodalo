@@ -5,6 +5,7 @@ package com.click.serviceImpl;
 
 import java.util.List;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
@@ -21,6 +22,8 @@ import com.click.service.QuickHelpService;
 @Component
 @Transactional(readOnly = true)
 public class QuickHelpServiceImpl implements QuickHelpService {
+	
+	private static final Logger LOG = Logger.getLogger(QuickHelpServiceImpl.class);
 
 	@Autowired
 	QuickHelpDao quickHelpDao;
@@ -28,38 +31,78 @@ public class QuickHelpServiceImpl implements QuickHelpService {
 	@Override
 	@Transactional(readOnly = false)
 	public void saveQuickHelpData(QuickHelp quickHelp) {
+		LOG.info("Inside saveQuickHelpData() serviceImpl"); 
+		try{
 		quickHelpDao.saveQuickHelp(quickHelp);
+		}catch(Exception e){
+			LOG.error(e.getMessage(),e);
+			e.printStackTrace();
+		}
 
 	}
 
 	@Override
 	@Transactional(readOnly = false)
 	public void saveFeedbackData(UserFeedback feed) {
+		LOG.info("Inside saveFeedbackData() serviceImpl");
+		try{
 		quickHelpDao.saveFeedback(feed);
+		}catch(Exception e){
+			LOG.error(e.getMessage(),e);
+			e.printStackTrace();	
+		}
 
 	}
 
 	@Override
 	public List<QuickHelp> getQuickHelpData() {
-		List<QuickHelp> quickhelp = quickHelpDao.getQuickHelpData();
+		LOG.info("Inside getQuickHelpData() service");
+		List<QuickHelp> quickhelp=null;
+		try{
+		quickhelp = quickHelpDao.getQuickHelpData();
+		}catch(Exception e){
+			LOG.error(e.getMessage(),e);
+			e.printStackTrace();	
+		}
 		return quickhelp;
 	}
 
 	@Override
 	public List<UserFeedback> getFeedbackData() {
-		List<UserFeedback> quickhelp = quickHelpDao.getFeedbackData();
+		LOG.info("Inside getFeedbackData() serviceImpl");
+		List<UserFeedback> quickhelp=null;
+		try{
+		      quickhelp = quickHelpDao.getFeedbackData();
+	       }catch(Exception e){
+		   LOG.error(e.getMessage(),e);
+			e.printStackTrace();	
+	   }
 		return quickhelp;
 	}
 
 	@Override
+	@Transactional(readOnly = false)
 	public void deleteQuickHelpData(QuickHelp quickhelp) {
+		LOG.info("Inside deleteQuickHelpData() serviceImpl");
+		try{
 		quickHelpDao.deleteQuickHelpData(quickhelp);
+		}catch(Exception e){
+			 LOG.error(e.getMessage(),e);
+				e.printStackTrace();	
+		}
 
 	}
 
 	@Override
+	@Transactional(readOnly = false)
 	public void deleteFeedbackData(UserFeedback userfeedback) {
+		LOG.info("Inside deleteFeedbackData() serviceImpl");
+		try{
 		quickHelpDao.deleteFeedbackData(userfeedback);
+		}catch(Exception e){
+			 LOG.error(e.getMessage(),e);
+				e.printStackTrace();	
+		}
 
 	}
 

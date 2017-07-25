@@ -42,31 +42,27 @@ public class QuickHelpController {
 
 	@RequestMapping(value = "/quickHelp")
 	protected String getAboutUs(Model model) throws Exception {
-		LOG.info("In user QuickHelp controller");
+		LOG.info("Fetching the Quick Help Form  from getAboutUs controller");
 		return "quickhelp";
 	}
 
 	@RequestMapping(value = "/feedback")
 	protected String getFeedback(Model model) throws Exception {
-		LOG.info("In user QuickHelp controller With Feedback");
+		LOG.info("Fetching the Feedback Form");
 		return "feedback";
 	}
 
 	@RequestMapping(value = "/quickHelpData", method = RequestMethod.POST)
 	public String quickHelpData(@RequestParam String problem, @RequestParam String quickDesc, Model model)
 			throws Exception {
-		LOG.info("In user quickHelpData controller");
-		try {
-			LOG.info("oldPassword : " + problem + " quickDesc : " + quickDesc);
+		LOG.info("In-side QuickHelp controller to save data of  quickHelp from quickHelpData controller");
+		try {			
 			User userDetails = userService.findUserById(SecurityLibrary.getLoggedInUser().getId());
-			LOG.info("User Password :" + userDetails.getFirstName());
-
 			QuickHelp quickHelp = new QuickHelp();
 			quickHelp.setUser(userDetails);
 			quickHelp.setQuickProblem(problem);
 			quickHelp.setQuickDesc(quickDesc);
 			quickHelp.setCreatedDate(new Date());
-
 			sendProblemEmail(new String[] { "click8me@gmail.com" }, userDetails.getFirstName(), userDetails.getId(),
 					"I " + userDetails.getEmailId() + " Want Some Help In " + problem + " And Short Description"
 							+ quickDesc);
@@ -74,6 +70,7 @@ public class QuickHelpController {
 			model.addAttribute("success", "Please Wait We Will Assist You Shortly .");
 			return "dashboard";
 		} catch (Exception e) {
+			LOG.error(e.getMessage(),e);
 			e.printStackTrace();
 			model.addAttribute("error", "Error Occured Whie Sending Data .");
 			return "quickhelp";
@@ -82,21 +79,18 @@ public class QuickHelpController {
 
 	@RequestMapping(value = "/feedbackData", method = RequestMethod.POST)
 	public String feedbackData(@RequestParam String feedback, Model model) throws Exception {
-		LOG.info("In user feedbackData controller");
+		LOG.info("In-side Feedback controller to save data of  feedback form by  feedbackData data");
 		try {
-			LOG.info("feedbackData : " + feedback);
 			User userDetails = userService.findUserById(SecurityLibrary.getLoggedInUser().getId());
-			LOG.info("User Password :" + userDetails.getFirstName());
-
 			UserFeedback feed = new UserFeedback();
 			feed.setUser(userDetails);
 			feed.setFeedDesc(feedback);
 			feed.setCreatedDate(new Date());
-
 			quickHelpService.saveFeedbackData(feed);
 			model.addAttribute("success", "Thank You For Providing Us Yours Views .");
 			return "dashboard";
 		} catch (Exception e) {
+			LOG.error(e.getMessage(),e);
 			e.printStackTrace();
 			model.addAttribute("error", "Error Occured Whie Giving Feedback .");
 			return "feedback";

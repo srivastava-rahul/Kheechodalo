@@ -32,12 +32,9 @@ public class CustomUserDetailsService implements UserDetailsService {
 	public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
 		if (userName.length() == 0)
 			throw new UsernameNotFoundException("Invalid username of password specified. Bad credentials.");
-
 		AuthenticatedUser authenticatedUser = null;
-		System.out.println("0");
 		User user = userDao.findUserByName(userName.toUpperCase());
 		LOG.info(" authenticatedUser dsadawd:" + user);
-		System.out.println("1");
 		if (user == null) {
 			LOG.info(" dadsdsasdad dsadad authenticatedUser :" + user);
 			System.out.println("fdsfdsfs");

@@ -3,6 +3,7 @@
  */
 package com.click.serviceImpl;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
@@ -17,6 +18,8 @@ import com.click.utils.StringUtils;
 @Transactional(readOnly = true)
 public class ProfileSettingServiceImpl implements ProfileSettingService {
 
+	private static final Logger LOG = Logger.getLogger(ProfileSettingServiceImpl.class);
+	
 	@Autowired
 	ProfileSettingDao profileSettingDao;
 
@@ -26,7 +29,7 @@ public class ProfileSettingServiceImpl implements ProfileSettingService {
 	@Override
 	@Transactional(readOnly = false)
 	public ProfileSetting adduserprofiledata(ProfileSetting userprofiledata) {
-		System.out.println("user profile save service");
+		LOG.info("Inside  profile adduserprofiledata()  serviceImpl");
 		ProfileSetting dbProfiledetails = null;
 
 		if (StringUtils.checkString(userprofiledata.getId()).length() > 0) {
@@ -184,12 +187,14 @@ public class ProfileSettingServiceImpl implements ProfileSettingService {
 
 	@Override
 	public ProfileSetting findByEmailId(String emailId) {
+		LOG.info("Inside  profile findByEmailId()  serviceImpl");
 		return profileSettingDao.findByEmailId(emailId);
 	}
 
 	@Override
 	@Transactional(readOnly = false)
 	public void updateProfile(ProfileSetting profileSetting) {
+		LOG.info("Inside  profile updateProfile()  serviceImpl");
 		profileSettingDao.updateUserProfile(profileSetting);
 	}
 

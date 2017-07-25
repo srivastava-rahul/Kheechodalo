@@ -9,6 +9,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
+import org.apache.log4j.Logger;
 import org.springframework.stereotype.Repository;
 
 import com.click.dao.TestimonialDao;
@@ -19,6 +20,8 @@ import com.click.entity.UserTestimonial;
  */
 @Repository
 public class TestimonialDaoImpl implements TestimonialDao {
+	
+	private static final Logger LOG = Logger.getLogger(TestimonialDaoImpl.class);
 
 	@PersistenceContext(unitName = "entityManagerFactory")
 	EntityManager entityManager;
@@ -26,20 +29,38 @@ public class TestimonialDaoImpl implements TestimonialDao {
 
 	@Override
 	public void savetestimonial(UserTestimonial testimonialdata) {
-		System.out.println("Testimonial dao :" + testimonialdata.toLogString());
-		entityManager.merge(testimonialdata);
+		LOG.info("Inside savetestimonial() DaoImpl"); 
+		try{
+		      entityManager.merge(testimonialdata);
+		   }catch(Exception e){
+			   LOG.error(e.getMessage(),e);
+				e.printStackTrace();
+		   }   
 	}
 
 	@Override
 	public List<UserTestimonial> gettestimonial() {
-		Query query = entityManager.createQuery("from UserTestimonial");
+		LOG.info("Inside gettestimonial() DaoImpl");
+		Query query=null;
+		try{
+			 query = entityManager.createQuery("from UserTestimonial");
+		}catch(Exception e){
+			LOG.error(e.getMessage(),e);
+			e.printStackTrace();
+		}
+		
 		return (List<UserTestimonial> ) query.getResultList();
 	}
 
 	@Override
 	public void deletetestimonial(UserTestimonial testimonialdata) {
-		System.out.println("Notification dao :" + testimonialdata.toLogString());
-		entityManager.remove(testimonialdata.getId());
+		LOG.info("Inside deletetestimonial() DaoImpl");
+		 try{
+		       entityManager.remove(testimonialdata.getId());
+		    }catch(Exception e){
+		    	LOG.error(e.getMessage(),e);
+				e.printStackTrace();
+		    }
 		
 	}
 

@@ -18,7 +18,7 @@ import com.click.service.WinnerService;
 public class AdminWinnerController {
 	
 
-	private static final Logger LOG = Logger.getLogger(QuickHelpController.class);
+	private static final Logger LOG = Logger.getLogger(AdminWinnerController.class);
 	
 	@Autowired
 	UserService userService;
@@ -29,31 +29,30 @@ public class AdminWinnerController {
 	
 	@RequestMapping(value = "/admingetwinner")
 	protected String getWinnerInfo(Model model) throws Exception {
-		System.out.println("Admin getting list of Winner controller");
+		LOG.info("Admin getting list of Winner from getWinnerInfo controller");
 		try {
-			
 			 List<Winner>  listofWinner = winnerService.getWinner();			
 			 model.addAttribute("winner",listofWinner);
 		   } catch (Exception e) {
-			e.printStackTrace();
+			   LOG.error(e.getMessage(),e);
+				e.printStackTrace();
 		}
-		
 		return "adminViewWinner";
 	}
 	
 	@RequestMapping(value = "/admindeletewinner")
-	protected String deleteNotificationInfo(@RequestParam String id,Model model) throws Exception {
-		System.out.println("Admin removing notification based on id controller");
+	protected String deleteWinnerInfo(@RequestParam String id,Model model) throws Exception {
+		LOG.info("Admin removing notification based on id from deleteWinnerInfo controller");
 		try {
 			 Winner  winnerdata=new Winner();
 			 winnerdata.setId(id);
-			 winnerService.deleteWinner(winnerdata);  
-			 
+			 winnerService.deleteWinner(winnerdata); 
 			 List<Winner>  listofWinner = winnerService.getWinner();			
 			 model.addAttribute("winner",listofWinner);
 			 model.addAttribute("success", " Data Deleted Successfully .");
 			return "adminViewWinner";
 		} catch (Exception e) {
+			LOG.error(e.getMessage(),e);
 			e.printStackTrace();
 			model.addAttribute("error", "Error Occured While deleting Data .");
 			return "adminViewWinner";

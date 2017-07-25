@@ -30,25 +30,38 @@ public class UserServiceImpl implements UserService {
 	@Override
 	@Transactional(readOnly = false)
 	public User saveUser(User user) {
-		System.out.println("save user service");
+		LOG.info("Inside saveUser() serviceImpl");
 		return userDao.saveUser(user);
 	}
 
 	@Override
 	@Transactional(readOnly = false)
 	public void activateUser(String id) {
+		LOG.info("Inside activateUser() serviceImpl");
+		try{
 		userDao.activateUser(id);
+		}catch(Exception e){
+            LOG.error(e.getMessage(),e);
+			e.printStackTrace();
+		}
 	}
 
 	@Override
 	public User getUserDeatilsByEmailId(String email) {
+		LOG.info("Inside getUserDeatilsByEmailId() serviceImpl");
 		return userDao.findByEmailId(email);
 	}
 
 	@Override
 	@Transactional(readOnly = false)
 	public void updateUserDetails(User userDetails) {
+		LOG.info("Inside updateUserDetails() serviceImpl");
+		try{
 		userDao.updateUser(userDetails);
+		}catch(Exception e){
+			LOG.error(e.getMessage(),e);
+			e.printStackTrace();
+		}
 
 	}
 

@@ -36,9 +36,8 @@ public class DashboardController {
 
 	@RequestMapping(value = "/dashboard")
 	protected String getAllPics(Model model) throws Exception {
-		LOG.info(" LOG User Dashboard ");
+		LOG.info(" LOG User Dashboard from getAllPics controlller ");
 		User u = SecurityLibrary.getLoggedInUser();
-		LOG.info("Email Id :" + u.getEmailId());
 		List<PictureUploadPojo> picsList = picsService.findAllPics(1);
 		model.addAttribute("picsList", picsList);
 		return "dashboard";
@@ -46,9 +45,8 @@ public class DashboardController {
 
 	@RequestMapping(value = "/dashboardPagination/{page}")
 	protected String getAllPicsPagination(@PathVariable("page") int pageNo, Model model) throws Exception {
-		LOG.info(" LOG User Dashboard ");
+		LOG.info(" LOG User Dashboard from getAllPicsPagination controller");
 		User u = SecurityLibrary.getLoggedInUser();
-		LOG.info("Email Id :" + u.getEmailId());
 		List<PictureUploadPojo> picsList = picsService.findAllPics(pageNo);
 		model.addAttribute("picsList", picsList);
 
@@ -69,16 +67,14 @@ public class DashboardController {
 	@RequestMapping(value = "/changeNewPassword", method = RequestMethod.POST)
 	public String changeNewPassword(@RequestParam String oldPassword, @RequestParam String newPassword,
 			@RequestParam String confirmPassword, Model model) {
+		LOG.info("Inside changeNewPassword controller");
 		try {
-			LOG.info("changeNewPassword : " + SecurityLibrary.getLoggedInUser().getId());
-			LOG.info("oldPassword : " + oldPassword + " newPassword : " + oldPassword + " confirmPassword :"
-					+ confirmPassword);
 			User userDetails = userService.findUserById(SecurityLibrary.getLoggedInUser().getId());
-			LOG.info("User Password :" + userDetails.getPassword());
+			
 			if (userDetails.getPassword().trim().equals(oldPassword.trim())) {
-				LOG.info("  Both Equal ");
+				LOG.debug("  Both Equal ");
 				if (!(newPassword.trim().equals(confirmPassword.trim()))) {
-					LOG.info(" Same Password ");
+					LOG.debug(" Same Password ");
 					model.addAttribute("error", "New password And Confirm Password Must Be Same");
 					return "newUserPassword";
 				} else {
@@ -89,7 +85,7 @@ public class DashboardController {
 				}
 			}
 		} catch (Exception e) {
-			LOG.error("Error Changing user Password");
+			LOG.error(e.getMessage(),e);
 			e.printStackTrace();
 		}
 		model.addAttribute("error", "Your entered Old Password Is Incorrect");

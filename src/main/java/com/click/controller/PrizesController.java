@@ -2,6 +2,7 @@ package com.click.controller;
 
 import java.util.List;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,16 +15,19 @@ import com.click.service.PrizeService;
 @RequestMapping(value = "/user")
 public class PrizesController {
 
+	private static final Logger LOG = Logger.getLogger(PrizesController.class);
+	
 	@Autowired
 	PrizeService prizeService;
 
 	@RequestMapping(value = "/prizes")
 	protected String getPrizeRecord(Model model) throws Exception {
-		System.out.println("In user getPrizeRecord controller");
+		LOG.info("Fetching the prize information from getPrizeRecord controller ");
 		try {
 			List<UserPrize> userPrize = prizeService.getAllPrizeRecord();
 			model.addAttribute("prize",userPrize);
 		} catch (Exception e) {
+			LOG.error(e.getMessage(),e);
 			e.printStackTrace();
 		}
 		return "prizes";

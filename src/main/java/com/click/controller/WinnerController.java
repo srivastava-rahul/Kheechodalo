@@ -1,5 +1,6 @@
 package com.click.controller;
 
+import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -8,10 +9,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping(value = "/user")
 public class WinnerController {
 
+	private static final Logger LOG = Logger.getLogger(WinnerController.class);
 	
 	@RequestMapping(value = "/winner")
-	protected String getAboutUs(Model model) throws Exception {
-		System.out.println("In user aboutus controller");
+	protected String getWinners(Model model) throws Exception {
+		LOG.info("Fetching winner page from  getWinners controller");
 		return "winner";
 	}
 

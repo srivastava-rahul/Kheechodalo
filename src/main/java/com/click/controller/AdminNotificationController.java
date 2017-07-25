@@ -11,18 +11,15 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.click.entity.Notification;
-import com.click.entity.User;
-import com.click.entity.UserFeedback;
 import com.click.service.NotificationService;
 import com.click.service.UserService;
-import com.click.utils.SecurityLibrary;
 
 @Controller
 @RequestMapping(value = "/user")
 public class AdminNotificationController {
 	
 
-	private static final Logger LOG = Logger.getLogger(QuickHelpController.class);
+	private static final Logger LOG = Logger.getLogger(AdminNotificationController.class);
 	
 	@Autowired
 	UserService userService;
@@ -34,9 +31,9 @@ public class AdminNotificationController {
 	@RequestMapping(value = "/adminsendnotification", method = RequestMethod.POST)
 	public String saveNotificationData(@RequestParam String notification , Model model)
 			throws Exception {
-		LOG.info("Admin adding notification controller");
+		LOG.info("Admin adding notification from saveNotificationData controller");
 		try {
-			LOG.info("Notification :- " + notification);
+			
 			/*User userDetails = userService.findUserById(SecurityLibrary.getLoggedInUser().getEmailId());
 			LOG.info("Admin Email - Id :" + userDetails.getEmailId());*/
 			
@@ -51,6 +48,7 @@ public class AdminNotificationController {
 			 model.addAttribute("success", " Data Entered Successfully .");			
 			return "adminsendnotification";
 		} catch (Exception e) {
+			LOG.error(e.getMessage(),e);
 			e.printStackTrace();
 			model.addAttribute("error", "Error Occured While Sending Data .");
 			return "adminsendnotification";
@@ -59,12 +57,13 @@ public class AdminNotificationController {
 
 	@RequestMapping(value = "/admingetnotification")
 	protected String getNotificationInfo(Model model) throws Exception {
-		System.out.println("Admin getting list of notification controller");
+		LOG.info("Admin getting list of notification from getNotificationInfo controller");
 		try {
 			 List<Notification>  listofNotification = notificationService.getNotification();			
 			 model.addAttribute("notification",listofNotification);
 		   } catch (Exception e) {
-			e.printStackTrace();
+			   LOG.error(e.getMessage(),e);
+				e.printStackTrace();
 		}
 		
 		return "adminsendnotification";
@@ -72,16 +71,17 @@ public class AdminNotificationController {
 	
 	@RequestMapping(value = "/admindeletenotification")
 	protected String deleteNotificationInfo(@RequestParam String id,Model model) throws Exception {
-		System.out.println("Admin removing notification based on id controller");
+		LOG.info("Admin removing notification based on id from deleteNotificationInfo controller");
 		try {
 			Notification notify=new Notification();
 			 notify.setId(id);
 			 notificationService.deleteNotification(notify);
 			 List<Notification>  listofNotification = notificationService.getNotification();			
-		    model.addAttribute("notification",listofNotification);
+		     model.addAttribute("notification",listofNotification);
 			 model.addAttribute("success", " Data Deleted Successfully .");
 			return "adminsendnotification";
 		} catch (Exception e) {
+			LOG.error(e.getMessage(),e);
 			e.printStackTrace();
 			model.addAttribute("error", "Error Occured While deleting Data .");
 			return "adminsendnotification";

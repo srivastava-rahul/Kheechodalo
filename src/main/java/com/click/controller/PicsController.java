@@ -3,6 +3,7 @@ package com.click.controller;
 import java.util.Date;
 import java.util.List;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -21,18 +22,20 @@ import com.click.service.PicsService;
 @Controller
 public class PicsController {
 
+	private static final Logger LOG = Logger.getLogger(PicsController.class);
+	
 	@Autowired
 	PicsService picsService;
 
 	@RequestMapping(value = "/savePic", method = RequestMethod.POST)
 	public @ResponseBody ResponseEntity<List<PictureUpload>> uploadprDocuments(@RequestParam("file") MultipartFile file, @RequestParam("desc") String desc) {
-		System.out.println("save pic called");
+		LOG.info(" Inside uploadprDocuments controller save pic called");
 		String fileName = null;
 		HttpHeaders headers = new HttpHeaders();
 		if (!file.isEmpty()) {
 			try {
 				fileName = file.getOriginalFilename();
-				System.out.println("file name :" + fileName);
+				LOG.debug("file name :" + fileName);
 				byte[] bytes = file.getBytes();
 				PictureUpload pic = new PictureUpload();
 				pic.setPicName(fileName);
@@ -44,19 +47,14 @@ public class PicsController {
 				data.setFileData(bytes);
 				pic.setPicUploadData(data);
 				picsService.savePic(pic);
-				System.out.println("uploaded");
-				// headers.add("success", messageSource.getMessage("pr.fileUpload.success", new Object[] { fileName },
-				// Global.LOCALE));
+				LOG.debug("uploaded");
 				return new ResponseEntity<List<PictureUpload>>(null, headers, HttpStatus.OK);
 			} catch (Exception e) {
-				// headers.add("error", messageSource.getMessage("pr.fileUpload.error", new Object[] { fileName },
-				// Global.LOCALE));
-				System.out.println("Error :"+ e.getMessage());
+				LOG.error(e.getMessage(),e);
 				e.printStackTrace();
 				return new ResponseEntity<List<PictureUpload>>(null, headers, HttpStatus.BAD_REQUEST);
 			}
 		} else {
-			// headers.add("error", messageSource.getMessage("pr.fileUpload.empty", new Object[] {}, Global.LOCALE));
 			return new ResponseEntity<List<PictureUpload>>(null, headers, HttpStatus.BAD_REQUEST);
 		}
 	}

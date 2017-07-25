@@ -28,7 +28,7 @@ public class UploadPicController {
 
 	@RequestMapping(value = "/uploadPic", method = RequestMethod.GET)
 	protected String getMyPic(Model model) throws Exception {
-		LOG.info("In user uploadPic controller");
+		LOG.info("In user uploadPic from getMyPic controller");
 		long maxVoteCount = picsService.findPicMaxVoteCount();
 		PictureUpload pictureUpload = picsService.findPicByUserId(SecurityLibrary.getLoggedInUser().getId());
 		model.addAttribute("maxVoteCount", maxVoteCount);
@@ -41,7 +41,8 @@ public class UploadPicController {
 				model.addAttribute("picImg", base64Encoded);
 			}
 		} catch (Exception e) {
-			LOG.error("Error while fetching pic data :" + e.getMessage(), e);
+            LOG.error(e.getMessage(),e);
+			e.printStackTrace();
 		}
 		return "uploadPic";
 	}
@@ -49,7 +50,7 @@ public class UploadPicController {
 	@RequestMapping(value = "/savePic", method = RequestMethod.POST)
 	public String savePic(@RequestParam("picImg") MultipartFile uploadPic, @RequestParam(required = false) String desc,
 			Model model) {
-		System.out.println("save pic called");
+		LOG.info("save pic Inside savePic controller");
 		String fileName = null;
 		if (!uploadPic.isEmpty()) {
 			try {

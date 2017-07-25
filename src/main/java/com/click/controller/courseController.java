@@ -1,5 +1,6 @@
 package com.click.controller;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,19 +12,21 @@ import com.click.service.courseService;
 @RequestMapping(value = "/rest")
 public class courseController {
 
+	private static final Logger LOG = Logger.getLogger(courseController.class);
+	
 	@Autowired
 	courseService courseService;
 
 	@RequestMapping(value = "/course")
 	protected String getAllCourses(Model model) {
-		System.out.println("In controller getAllCourses");
+		LOG.info("In controller getAllCourses from getAllCourses controller");
 		model.addAttribute("courseList", courseService.getAllCourses());
 		return "index";
 	}
 
 	@RequestMapping(value = "/courseList")
 	protected String getAllCourse() {
-		System.out.println("In controller getAllCourses");
+		LOG.info("In controller getAllCourses from getAllCourse controller");
 		return "hlknj";
 	}
 	

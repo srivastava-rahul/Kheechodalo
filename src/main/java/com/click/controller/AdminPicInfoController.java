@@ -36,17 +36,15 @@ public class AdminPicInfoController {
 	
 	@RequestMapping(value = "/adminpicinfo")
 	protected String getpicInfo(Model model) throws Exception {
-    System.out.println("Admin getting pic information controller");
-    
+    LOG.info("Admin getting pic information from getpicInfo controller");
     try {
-    	
     	List<PicUploadData> picInfo=picsService.getPic();
-			List<PictureUpload> picInfodetails = picsService.getPicDetails();
-    	
+		List<PictureUpload> picInfodetails = picsService.getPicDetails();
     	model.addAttribute("picinfo",picInfo);
 		model.addAttribute("picinfodetails",picInfodetails);
 	   } catch (Exception e) {
-		e.printStackTrace();
+		   LOG.error(e.getMessage(),e);
+			e.printStackTrace();
 	}
 		return "adminpicinfo";
 	}
@@ -54,34 +52,36 @@ public class AdminPicInfoController {
 	/*
 	@RequestMapping(value = "/adminSingleUserInfo")
 	protected String searchUserbyEmailId(Model model ,@RequestParam String email_id) throws Exception {
-    System.out.println("Admin searching user information based on email id controller");
+    LOG.info("Admin searching user information based on email id controller");
      try {
 		User userInfo = adminGetUserInfoService.getUserInfoByEmailId(email_id);
 		
-		System.out.println(userInfo.getEmailId());
-		System.out.println(userInfo.getFirstName()+""+userInfo.getLastName());
-		System.out.println(userInfo.getId());
+		LOG.info(userInfo.getEmailId());
+		LOG.info(userInfo.getFirstName()+""+userInfo.getLastName());
+		LOG.info(userInfo.getId());
 		
 		model.addAttribute("user",userInfo);
 	   } catch (Exception e) {
-		e.printStackTrace();
+		LOG.error(e.getMessage(),e);
+			e.printStackTrace();
 	}
 		return "adminDashboard";
 	}
 	
 	@RequestMapping(value = "/adminSingleProfileInfo")
 	protected String searchProfilebyEmailId(Model model ,@RequestParam String email_id) throws Exception {
-    System.out.println("Admin getting profile information based on email-id controller");
+    LOG.info("Admin getting profile information based on email-id controller");
      try {
 		ProfileSetting profileInfo = adminGetUserInfoService.getProfileInfoByEmailId(email_id);
 		
-		System.out.println(profileInfo.getEmail_id());
-		System.out.println(profileInfo.getGender());
-		System.out.println(profileInfo.getId());
+		LOG.info(profileInfo.getEmail_id());
+		LOG.info(profileInfo.getGender());
+		LOG.info(profileInfo.getId());
 		
 		model.addAttribute("profile",profileInfo);
 	   } catch (Exception e) {
-		e.printStackTrace();
+		LOG.error(e.getMessage(),e);
+			e.printStackTrace();
 	}
 		return "adminViewProfileSetting";
 	}
@@ -89,7 +89,7 @@ public class AdminPicInfoController {
 	
 	@RequestMapping(value = "/adminpicinfo")
 	protected String getPicInfo(Model model) throws Exception {
-		System.out.println("In user aboutus controller");
+		LOG.info("In user aboutus controller");
 		
 		return "adminpicinfo";
 	}

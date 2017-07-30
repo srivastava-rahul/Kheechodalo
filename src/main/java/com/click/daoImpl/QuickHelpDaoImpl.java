@@ -93,7 +93,10 @@ public class QuickHelpDaoImpl implements QuickHelpDao {
 	public void deleteFeedbackData(UserFeedback userfeedback) {
 		LOG.info("Inside deleteFeedbackData() DaoImpl");
 		try{
-		     entityManager.remove(userfeedback.getId());
+			 entityManager.getTransaction().begin();
+			 entityManager.remove(userfeedback.getId());
+			 entityManager.getTransaction().commit();
+		    
 		   }catch(Exception e){
 			   LOG.error(e.getMessage(),e);
 				e.printStackTrace();  

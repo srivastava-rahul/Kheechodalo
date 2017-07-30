@@ -28,7 +28,8 @@ public class AdminQuickHelpAndFeedbackController {
 	protected String getFeedbackInfo(Model model) throws Exception {
 		LOG.info("Admin fetching  feedback information from getFeedbackInfo controller");
 		try {
-			 List<UserFeedback>  feedbacklist = quickHelpsrv.getFeedbackData();			
+			 List<UserFeedback>  feedbacklist = quickHelpsrv.getFeedbackData();	
+			 
 			 model.addAttribute("feedback",feedbacklist);
 		   } catch (Exception e) {
 			   LOG.error(e.getMessage(),e);
@@ -74,6 +75,7 @@ public class AdminQuickHelpAndFeedbackController {
 	@RequestMapping(value = "/admindeletefeedback")
 	protected String deletefeedback(@RequestParam String id,Model model) throws Exception {
 		LOG.info("Admin delete Feedback information based on id from deletefeedback controller");
+		
 		try {
 			UserFeedback fedback=new UserFeedback();
 			fedback.setId(id);

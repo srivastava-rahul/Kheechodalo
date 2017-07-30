@@ -23,7 +23,6 @@
 	3. Inappropriate images all totally discouraged on the website and the user uploading such images will be barred from the website.</br></br>
 
 	4. If there is conflict between than whoever uploaded first will be the winner.</br></br>
-
 	
 	5. The prize will be delivered to the winner within 7 working days.</br></br>
 
@@ -37,19 +36,17 @@
 
 	11. The decision of the organizer will be FINAL & no communication in this regard shall be entertained by the organizer and cannot </br>&nbsp; &nbsp;&nbsp; &nbsp; be questioned.</br></br>
 
-	
-
-	12. Cash will be transferred through paytm account only and for other things we must require customer address to deliver the prize.</br> &nbsp; &nbsp;&nbsp; &nbsp;(Note fill your basicand advance information as soon as you create account)</br></br>
+	12. Cash will be transferred through paytm account only and for other things we must require customer address to deliver the prize.</br> &nbsp; &nbsp;&nbsp; &nbsp;(Note fill your basic and advance information as soon as you create account)</br></br>
 
 	13. If case  user does not provide there paytm number or address  the prize will be cancelled we think that customer is not interested </br>&nbsp; &nbsp;&nbsp; &nbsp;in gift.</br></br>
 
-	14. As soon as userselected as winner he/she will be communicated by the organizer by mean of phone call and  email. The winning</br> &nbsp; &nbsp;&nbsp; picture will be showcased on the home page of the website for a day.</br></br>
+	14. As soon as user selected as winner he/she will be communicated by the organizer by mean of phone call and  email. The winning</br> &nbsp; &nbsp;&nbsp; picture will be show-cased on the home page of the website for a day.</br></br>
 
 	15. We never ask for any sensitive information (like paytm number ,account number your phone number ,address , etc.) on phone </br> &nbsp; &nbsp;&nbsp; &nbsp; or mail you have to update these information on.
 
-	   Our site www.picClick.com account.(if anybody asking on phone or mail it is</br> &nbsp; &nbsp;&nbsp; &nbsp; fake and spam ).</br></br>
+	   Our site www.kheechoDalo.com account.(if anybody asking on phone or mail it is</br> &nbsp; &nbsp;&nbsp; &nbsp; fake and spam ).</br></br>
 
-	16. For customer to fill phone number address and paytm account is mandatory during the creation of account.
+	16. For User to fill phone number address and paytm account is mandatory during the creation of account.
 
         This competition is</br>&nbsp; &nbsp;&nbsp; &nbsp; only for fun and entertainment and to encourage photographic talent.
 </h3>	</p>

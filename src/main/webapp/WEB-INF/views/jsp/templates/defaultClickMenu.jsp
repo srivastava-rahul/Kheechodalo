@@ -79,7 +79,7 @@
 
 
 <script>
-	var slideIndex = 1;
+	/* var slideIndex = 1;
 	showDivs(slideIndex);
 
 	function plusDivs(n) {
@@ -100,5 +100,5 @@
 			x[i].style.display = "none";
 		}
 		x[slideIndex - 1].style.display = "block";
-	}
+	} */
 </script>

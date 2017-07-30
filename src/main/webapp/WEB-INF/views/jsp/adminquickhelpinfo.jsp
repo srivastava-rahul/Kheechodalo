@@ -34,15 +34,14 @@
 		<th> Quick Help Description</th>
 				
 		</tr>
-		
+		<c:forEach var="quckhlp" items="${quickhelp}">
 		<tr>
-		<td>111</td>
-		<td>11-jul-2017</td>
-		<td>Hinenccwjcjbjcbbcbhbchhcb</td>
-		<td>Hinenccwjcjbjcbbcbhbchhcb</td>
-				
+		<td>${quckhlp.id}</td>
+		<td>${quckhlp.createdDate}</td>
+		<td>${quckhlp.quickProblem}</td>
+		<td>${quckhlp.quickDesc}</td>
 		</tr>
-		
+		</c:forEach>
 		
 		</table>
 		

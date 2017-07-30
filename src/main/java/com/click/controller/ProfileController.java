@@ -4,9 +4,9 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import com.click.entity.ProfileSetting;
 import com.click.service.ProfileSettingService;
@@ -39,9 +39,10 @@ public class ProfileController {
 		return "profile";
 	}
 	
-	@RequestMapping(value = "/viewProfile", method = RequestMethod.GET)
-	public String viewOtherProfile( @RequestParam String email_id ,Model model) {
+	@RequestMapping(value = "/viewProfile/{emailid}", method = RequestMethod.GET)
+	public String viewOtherProfile(@PathVariable("emailid") String email_id ,Model model) {
 		LOG.info("Fetching the profile data on the basis of email_id from viewOtherProfile controller");
+		System.out.println("********************"+email_id);
 		 try{
 			 if(StringUtils.checkString(email_id).length() > 0)
 			 {

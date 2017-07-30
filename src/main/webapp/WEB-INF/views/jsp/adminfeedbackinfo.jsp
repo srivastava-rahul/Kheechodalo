@@ -10,12 +10,12 @@
 	</div>
 		
 	
-	         <form name="deleteForm" action="" method="post">
+	         <form name="deleteForm" action="admindeletefeedback" method="post">
 			   <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
 			
 			<div class="Changepasswordformboby">
 				<h3 style="color: yellow">Please tell What to be deleted enter the id... </h3>
-				<input type="text"  name="problem" id="problem" style="width:30% "
+				<input type="text"  name="id" id="problem" style="width:30% "
 					placeholder="Please Enter id" />
 					
 					<button type="submit" class="button_submit  submit" style="background-color:red">Delete</button>
@@ -33,13 +33,13 @@
 		<th> Message</th>
 				
 		</tr>
-		
+		<c:forEach var="fdbk" items="${feedback}">
 		<tr>
-		<td>111</td>
-		<td>11-jul-2017</td>
-		<td>Hinenccwjcjbjcbbcbhbchhcb</td>
-				
+		<td>${fdbk.id}<td>
+		<td>${fdbk.createdDate}</td>
+		<td>${fdbk.feedDesc}</td>
 		</tr>
+		</c:forEach>
 		
 		
 		</table>

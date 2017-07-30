@@ -20,10 +20,36 @@ body {
 	color: white;
 }
 </style>
+
+<script type="text/javascript">
+$(document).ready(function(){
+	alert("hi");
+    /* Get iframe src attribute value i.e. YouTube video url and store it in a variable */
+    var url = $("#cartoonVideo").attr('src');
+    
+    /* Assign empty url value to the iframe src attribute when
+    modal hide, which stop the video playing */
+    $("#myModal").on('hide.bs.modal', function(){
+    	alert("hello");
+        $("#cartoonVideo").attr('src', '');
+    });
+    
+    /* Assign the initially stored url back to the iframe src
+    attribute when modal is displayed again */
+    $("#myModal").on('show.bs.modal', function(){
+    	alert("bye");
+        $("#cartoonVideo").attr('src', url);
+    });
+});
+
+</script>
 </head>
+
 <body>
 
-	<div style="margin-top: 1%; width: 30%; height: 50%; background-color: grey">
+<jsp:include page="/WEB-INF/views/jsp/message.jsp" />
+
+<div style="margin-top: 1%; width: 30%; height: 50%; background-color: grey">
 
 		<center>
 			<p>
@@ -41,18 +67,20 @@ body {
 
    <i style="color:yellow">Sign-Up is free and always will be.</br></i>
    <i style="color:red">In-Order to win Prize (Please Complete your profile as soon as you create account).</i>
+	
 	<!-- The Modal -->
 	<div id="myModal" class="modal">
 
 		<!-- Modal content -->
 		<div class="modal-content" style="display: block;">
 			<div class="modal-header">
-				<span class="close">&times;</span>
+			 <button type="button" class="close" data-dismiss="modal" aria-l >×</button>
+				<!-- <span class="close" data-dismiss="modal">&times;</span> -->
 				<h2>Modal Header</h2>
 			</div>
 			<div class="modal-body" data-reveal data-reset-on-close="true">
 				<%-- <iframe  width="700" height="450"  src="${pageContext.request.contextPath}/resources/mtr.mp4" frameborder="0" allowfullscreen></iframe> --%>
-				<iframe id="myVideoPlay" width="740" height="450" src="https://www.youtube.com/embed/Ood3teygwh8?" frameborder="0" allowfullscreen> </iframe>
+				<iframe  id="cartoonVideo" width="740" height="450" src="https://www.youtube.com/embed/Ood3teygwh8?" frameborder="0" allowfullscreen> </iframe>
 				<%--          <video width="700" height="450" controls id="myVideoPlay" >
                  <source src="${pageContext.request.contextPath}/resources/mtr.mp4" type="video/mp4"  >
                  </video> --%>

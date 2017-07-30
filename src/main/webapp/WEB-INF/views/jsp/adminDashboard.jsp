@@ -44,26 +44,28 @@ User Information for Admin
 			    <th height="40"><center>Dob</center></th>
 				<th height="40"><center>Created Date</center></th>
 				<th height="40"><center>Modified Date</center></th>
+				<th height="40"><center>Deleted Status</center></th>
 				<th height="40"><center>status</center></th>
-				<th height="40"><center>User Role</center></th>
+				<%-- <th height="40"><center>User Role</center></th> --%>
 				<th height="40"><center>Action Button</center></th>
 				
 		</tr>
-		
+		<c:forEach var="userinfo" items="${user}">
 		<tr>
-		<td>111</td>
-		<td>Name</td>
-		<td>r@gmail.com</td>
-		<td>Male</td>
-		<td>999999999</td>
-		<td>18-12-1991</td>
-		<td>11-july-2017</td>
-		<td>12-july-2017</td>
-		<td>1</td>
-		<td>111</td>
-		<td><a href="${pageContext.request.contextPath}/user/adminSingleProfileInfo">View profile Info</a></td>		
+		<td>${userinfo.id}</td>
+		<td>${userinfo.firstName}${userinfo.lastName}</td>
+		<td>${userinfo.emailId}</td>
+		<td>${userinfo.gender}</td>
+		<td>${userinfo.phone}</td>
+		<td>${userinfo.dob}</td>
+		<td>${userinfo.createdDate}</td>
+		<td>${userinfo.modifiedDate}</td>
+		<td>${userinfo.deleted}</td>
+		<td>${userinfo.status}</td>
+		<%-- <td>${userinfo.userRole.roleName}</td> --%>
+		<td><a href="${pageContext.request.contextPath}/admin/adminSingleProfileInfo">View profile Info</a></td>		
 		</tr>
-		
+		</c:forEach>
 		
 		</table>
 			

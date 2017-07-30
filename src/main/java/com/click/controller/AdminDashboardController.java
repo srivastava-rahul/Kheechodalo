@@ -2,10 +2,12 @@ package com.click.controller;
 
 import java.util.List;
 
+import org.apache.commons.codec.binary.Base64;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -62,10 +64,14 @@ public class AdminDashboardController {
 	}
 
 	@RequestMapping(value = "/adminSingleProfileInfo")
-	protected String searchProfilebyEmailId(Model model, @RequestParam String email_id) throws Exception {
+	protected String searchProfilebyEmailId(Model model) throws Exception {
 		LOG.info("Admin getting profile information based on email-id from searchProfilebyEmailId controller");
+		String email_id="r1812srivastava@gmail.com";
 		try {
 			ProfileSetting profileInfo = adminGetUserInfoService.getProfileInfoByEmailId(email_id);
+			byte[] encodeBase64 = Base64.encodeBase64(profileInfo.getFileData());
+			String base64Encoded = new String(encodeBase64, "UTF-8");
+			model.addAttribute("picImg", base64Encoded);
 			model.addAttribute("profile", profileInfo);
 		} catch (Exception e) {
 			LOG.error(e.getMessage(),e);

@@ -110,8 +110,8 @@
 				<table width="96%" border="0" cellspacing="0" cellpadding="0" style="margin: 0 2%">
 					<tr>
 						<td style="font-size: 15px; color: #525252; line-height: 21px; text-align: left;">
-							Welcome to Click 8 pic.<br />
-							<br /> All the best,<br /> Click Pic Team
+							Welcome to KheechoDalo.<br />
+							<br /> All the best,<br />KheechoDalo Team
 						</td>
 					</tr>
 				</table>
@@ -136,7 +136,7 @@
 				<table width="96%" border="0" cellspacing="0" cellpadding="0" style="margin: 0 2%">
 					<tr>
 						<td class="footer">
-							&copy; 2017 Click At Pic, India
+							&copy; 2017 KheechoDalo, India
 						</td>
 					</tr>
 				</table>

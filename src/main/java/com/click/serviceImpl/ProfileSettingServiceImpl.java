@@ -3,6 +3,8 @@
  */
 package com.click.serviceImpl;
 
+import java.util.List;
+
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -10,7 +12,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.click.dao.ProfileSettingDao;
 import com.click.entity.ProfileSetting;
-import com.click.entity.User;
 import com.click.service.ProfileSettingService;
 import com.click.service.UserService;
 import com.click.utils.StringUtils;
@@ -197,5 +198,17 @@ public class ProfileSettingServiceImpl implements ProfileSettingService {
 		LOG.info("Inside  profile updateProfile()  serviceImpl");
 		profileSettingDao.updateUserProfile(profileSetting);
 	}
+	
+	@Override
+	public List<ProfileSetting> findByEmailAndName(String emailIdAndName) {
+		LOG.info("Inside  profile findByEmailAndName()  serviceImpl"+emailIdAndName);
+		List<ProfileSetting> profilelist=profileSettingDao.findByEmailAndName(emailIdAndName);
+		return profilelist;
+	}
 
+	@Override
+	public ProfileSetting findProfileByEmailId(String emailId) {
+		LOG.info("Inside  profile findProfileByEmailId()  serviceImpl"+emailId);
+		return profileSettingDao.findUserProfileByEmailId(emailId);
+	}
 }

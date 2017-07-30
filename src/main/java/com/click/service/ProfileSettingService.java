@@ -1,5 +1,7 @@
 package com.click.service;
 
+import java.util.List;
+
 import com.click.entity.ProfileSetting;
 
 public interface ProfileSettingService {
@@ -17,12 +19,26 @@ public interface ProfileSettingService {
 	 * @param emailId
 	 * @return
 	 */
-	public ProfileSetting findByEmailId(String emailId);
+	public ProfileSetting findByEmailId(String emailIdAndName);
+	
+	
+	/**
+	 * @param emailId
+	 * @return
+	 */
+	public List<ProfileSetting> findByEmailAndName(String emailId);
 
 	/**
 	 * 
 	 * @param profileSetting
 	 */
 	public void updateProfile(ProfileSetting profileSetting);
+
+	/**
+	 * 
+	 * @param emailId
+	 * @return
+	 */
+	ProfileSetting findProfileByEmailId(String emailId);
 
 }

@@ -1,5 +1,7 @@
 package com.click.daoImpl;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
@@ -60,5 +62,44 @@ public class ProfileSettingDaoImpl implements ProfileSettingDao {
 		return profSet;
 }
 
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<ProfileSetting> findByEmailAndName(String emailIdAndName) {
+		LOG.info("Inside findByEmailAndName() DaoImpl"+emailIdAndName);
+		Query query=null;
+	/*	try{*/
+		     query = entityManager.createQuery("from ProfileSetting p where (upper(p.email_id) like :emailIdAndName) or (upper(p.name_surname) like :emailIdAndName)");
+		     query.setParameter("emailIdAndName","%"+emailIdAndName.toUpperCase()+"%" );
+		 //  }
+		     /*catch(Exception e){
+           LOG.error(e.getMessage(),e);
+			  e.printStackTrace();
+		   }*/
+        
+        List<ProfileSetting> list = query.getResultList();
+        LOG.info(" REsult :"+list.size());
+		return  list;
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public ProfileSetting findUserProfileByEmailId(String emailId) {
+		LOG.info("Inside findUserProfileByEmailId() DaoImpl");
+		ProfileSetting profSet = null;
+		try {
+			Query query = entityManager.createQuery("from ProfileSetting p where (upper(p.email_id) like  :emailId)");
+			query.setParameter("emailId","%"+ emailId+"%");
+			List<ProfileSetting> list = query.getResultList();
+			if(list.isEmpty()){
+				return null;
+			}else{
+				return list.get(0);
+			}
+		} catch (NoResultException e) {
+			 LOG.error(e.getMessage(),e);
+			  e.printStackTrace();
+		}
+		return profSet;
+}
 
 }

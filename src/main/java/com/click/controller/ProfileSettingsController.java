@@ -45,8 +45,7 @@ public class ProfileSettingsController {
 	public String getProfile(Model model) {
 		LOG.info("Inside getProfile controller where user set  profile data Or user information");
 		try {
-			ProfileSetting profileSetting = profileSettingService
-					.findByEmailId(SecurityLibrary.getLoggedInUser().getEmailId());
+			ProfileSetting profileSetting = profileSettingService.findByEmailId(SecurityLibrary.getLoggedInUser().getEmailId());
 			if (profileSetting == null) {
 				profileSetting = new ProfileSetting();
 			} else {

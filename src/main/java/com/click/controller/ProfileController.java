@@ -40,13 +40,12 @@ public class ProfileController {
 	}
 	
 	@RequestMapping(value = "/viewProfile/{emailid}", method = RequestMethod.GET)
-	public String viewOtherProfile(@PathVariable("emailid") String email_id ,Model model) {
-		LOG.info("Fetching the profile data on the basis of email_id from viewOtherProfile controller");
-		System.out.println("********************"+email_id);
+	public String viewOtherProfile(@PathVariable(name="emailid") String email_id ,Model model) {
+		LOG.info("Fetching the profile data on the basis of email_id from viewOtherProfile controller"+email_id);
 		 try{
 			 if(StringUtils.checkString(email_id).length() > 0)
 			 {
-		        ProfileSetting profileSetting =  profileSettingService.findByEmailId(email_id);
+		        ProfileSetting profileSetting =  profileSettingService.findProfileByEmailId(email_id);
 		        
 		        if(profileSetting.isPhone_flage()==true)
 		        {

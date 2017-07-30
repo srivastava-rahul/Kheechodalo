@@ -49,8 +49,8 @@ public class User implements Serializable {
 	@Column(name = "USER_GENDER", length = 1)
 	private String gender;
 
-	@Column(name = "USER_PHONE", length = 18)
-	private long phone;
+//	@Column(name = "USER_PHONE", length = 18)
+//	private long phone;
 
 	@Column(name = "USER_DOB")
 	private Date dob;
@@ -147,13 +147,13 @@ public class User implements Serializable {
 		this.gender = gender;
 	}
 
-	public long getPhone() {
-		return phone;
-	}
-
-	public void setPhone(long phone) {
-		this.phone = phone;
-	}
+//	public long getPhone() {
+//		return phone;
+//	}
+//
+//	public void setPhone(long phone) {
+//		this.phone = phone;
+//	}
 
 	public Date getDob() {
 		return dob;
@@ -222,7 +222,7 @@ public class User implements Serializable {
 
 	public String toLogString() {
 		return "User [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", emailId=" + emailId
-				+ ", password=" + password + ", gender=" + gender + ", phone=" + phone + ", dob=" + dob
+				+ ", password=" + password + ", gender=" + gender + ",  dob=" + dob
 				+ ", createdDate=" + createdDate + ", modifiedDate=" + modifiedDate + ", deleted=" + deleted
 				+ ", status=" + status + "]";
 	}

@@ -7,7 +7,6 @@ import java.util.List;
 
 import com.click.entity.PicUploadData;
 import com.click.entity.PictureUpload;
-import com.click.pojo.PictureUploadPojo;
 
 /**
  * @author parveen
@@ -34,10 +33,10 @@ public interface PicsDao {
 
 	/**
 	 * 
-	 * @param pageNo TODO
+	 * @param pageNo
 	 * @return
 	 */
-	List<PictureUploadPojo> findAllPics(int pageNo);
+	List<PictureUpload> findAllPics(int pageNo);
 
 	/**
 	 * 
@@ -50,5 +49,13 @@ public interface PicsDao {
 	 * @return
 	 */
 	List<PictureUpload> getPicDetails();
+
+	/**
+	 * 
+	 * @param picId
+	 * @param userEmailId
+	 * @return 
+	 */
+	long updateVoteCount(String picId, String userEmailId);
 
 }

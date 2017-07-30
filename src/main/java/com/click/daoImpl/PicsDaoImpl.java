@@ -8,11 +8,12 @@ import javax.persistence.Query;
 
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.click.dao.PicsDao;
 import com.click.entity.PicUploadData;
 import com.click.entity.PictureUpload;
-import com.click.pojo.PictureUploadPojo;
 import com.click.utils.CollectionUtil;
 
 /**
@@ -57,12 +58,12 @@ public class PicsDaoImpl implements PicsDao {
 
 	@Override
 	@SuppressWarnings("unchecked")
-	public List<PictureUploadPojo> findAllPics(int pageNo) {
+	public List<PictureUpload> findAllPics(int pageNo) {
 		LOG.info("Inside findAllPics() DaoImpl ");
-		Query query = entityManager.createQuery("Select new com.click.pojo.PictureUploadPojo(pu.id, pu.description, pu.picVote, u.firstName, pd.fileData) from PictureUpload pu left outer join pu.picUploadData pd left outer join pu.user u order by pu.picVote DESC");
+		Query query = entityManager.createQuery("Select distinct pu from PictureUpload pu left outer join pu.picUploadData pd left outer join pu.user left outer join pu.friendEmail u order by pu.picVote DESC");
 		query.setFirstResult(pageNo == 1 ? 0 : (pageNo*8));
 		query.setMaxResults(8);
-		List<PictureUploadPojo> dataList = query.getResultList();
+		List<PictureUpload> dataList = query.getResultList();
 		
 		return dataList;
 	}
@@ -93,5 +94,24 @@ public class PicsDaoImpl implements PicsDao {
 			e.printStackTrace();
 		}
 		return (List<PictureUpload>) query.getResultList();
+	}
+
+	@Override
+	@Transactional(readOnly = false, propagation = Propagation.REQUIRES_NEW, rollbackFor =  Exception.class)
+	public long updateVoteCount(String picId, String userEmailId) {
+		LOG.info("Inside updateVoteCount() DaoImpl ");
+		Query query= entityManager.createQuery("update PictureUpload pu set pu.picVote = (pu.picVote + 1) where id = :id");
+		query.setParameter("id", picId);
+		int voteUpdate = query.executeUpdate();
+		LOG.info("vote update : "+ voteUpdate);
+		query = entityManager.createNativeQuery("INSERT INTO KD_PIC_FRIEND_LIST(PIC_ID, FRIEND_EMAIL) VALUES(:picId, :friendEmail) ");
+		query.setParameter("picId", picId);	
+		query.setParameter("friendEmail", userEmailId.toUpperCase());	
+		int friendListInsert = query.executeUpdate();
+		LOG.info("friendList Insert : "+ friendListInsert);
+		
+		 query= entityManager.createQuery("select pu.picVote from PictureUpload pu where pu.id = :picId");
+		 query.setParameter("picId", picId);
+		 return ((Number) query.getSingleResult()).longValue();
 	}
 }

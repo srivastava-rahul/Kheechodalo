@@ -251,13 +251,16 @@ function showSlides(n) {
 			<div class="column">
 				<div class="card">
 					<img src="data:image/jpeg;base64,${pic.base64Encoded}"	alt="Picture" style="width: 291px; height: 320px;" onclick="openModal();currentSlide(1)" class="hover-shadow cursor">
-					<a href="#"><span style="margin-left: 50%;color: red">${pic.picVote}</span></a>
+					<a href="#"><span style="margin-left: 50%;color: red" class="voteCount${pic.id}">${pic.picVote}</span></a>
 					<div class="">
 						<b><h2 style="color:blue">${pic.userName}</h2></b>
 						<p>${pic.picDescription}</p>
-						<p align="center">
-							<button class=" marg-bottom-10 button_submit  submit">Vote</button>
+					 <c:if test="${pic.allowToVote}"> 
+						<p align="center" class="hideVote${pic.id}">
+							<button class="marg-bottom-10 button_submit  submit votePic">Vote</button>
+							<input type="hidden" id="picId" name="picId" value="${pic.id}">
 						</p>
+					</c:if>
 					</div>
 				</div>
 			</div>
@@ -298,3 +301,37 @@ function showSlides(n) {
 	
 	
 </div>
+
+
+<script>
+ // Ajax for Vote 
+		$('.votePic').click(function(e) {
+			e.preventDefault();
+		//	alert("aa gaya");
+			var header = $("meta[name='_csrf_header']").attr("content");
+			var token = $("meta[name='_csrf']").attr("content");
+			var picId = $(this).closest("div.card").find("input[name='picId']").val();
+			console.log("Pic Id :" + picId);
+
+			var voteUrl = '${pageContext.request.contextPath}/user/saveVote';
+			$.ajax({
+				url : voteUrl,
+				data : {'picId' : picId},
+				type : "POST",
+				beforeSend : function(xhr) {
+					xhr.setRequestHeader(header, token);
+					$('#loading').show();
+				},
+				success : function(data, textStatus, request) {
+					console.log("Success  : " + data);
+					$('.voteCount'+picId).html(data);
+					$('.hideVote'+picId).addClass().hide();
+				},
+				error : function(request, textStatus, errorThrown) {
+					var error = request.getResponseHeader('error');
+				},
+				complete : function() {
+				}
+			}); 
+		});
+</script>

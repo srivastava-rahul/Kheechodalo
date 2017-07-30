@@ -4,12 +4,15 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.click.entity.User;
 import com.click.pojo.PictureUploadPojo;
@@ -70,7 +73,7 @@ public class DashboardController {
 		LOG.info("Inside changeNewPassword controller");
 		try {
 			User userDetails = userService.findUserById(SecurityLibrary.getLoggedInUser().getId());
-			
+
 			if (userDetails.getPassword().trim().equals(oldPassword.trim())) {
 				LOG.debug("  Both Equal ");
 				if (!(newPassword.trim().equals(confirmPassword.trim()))) {
@@ -85,11 +88,23 @@ public class DashboardController {
 				}
 			}
 		} catch (Exception e) {
-			LOG.error(e.getMessage(),e);
+			LOG.error(e.getMessage(), e);
 			e.printStackTrace();
 		}
 		model.addAttribute("error", "Your entered Old Password Is Incorrect");
 		return "newUserPassword";
+	}
+
+	@RequestMapping(value = "/saveVote", method = RequestMethod.POST)
+	public @ResponseBody ResponseEntity<Long> saveUserVote(@RequestParam("picId") String picId) {
+		LOG.info(" Inside save vote called pic Id : " + picId);
+		long voteCount = 0;
+		try {
+			voteCount = picsService.updateVoteCount(picId, SecurityLibrary.getLoggedInUserLoginEmailId());
+		} catch (Exception e) {
+			LOG.error("Error While save Vote :" + e.getMessage(), e);
+		}
+		return new ResponseEntity<Long>(voteCount, HttpStatus.OK);
 	}
 
 }

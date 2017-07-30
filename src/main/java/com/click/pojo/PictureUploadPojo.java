@@ -1,9 +1,11 @@
 package com.click.pojo;
 
 import java.io.Serializable;
-import java.util.List;
 
 import org.apache.commons.codec.binary.Base64;
+import org.apache.log4j.Logger;
+
+import com.click.entity.PictureUpload;
 
 /**
  * @author parveen
@@ -11,6 +13,8 @@ import org.apache.commons.codec.binary.Base64;
 public class PictureUploadPojo implements Serializable {
 
 	private static final long serialVersionUID = -1443331105430165564L;
+
+	public static final Logger LOG = Logger.getLogger(PictureUploadPojo.class);
 
 	private String id;
 
@@ -22,21 +26,11 @@ public class PictureUploadPojo implements Serializable {
 
 	private String base64Encoded;
 
-	private boolean allowToVote;
-
-	List<String> friendEmail;
+	private boolean allowToVote = true;
 
 	public PictureUploadPojo() {
 
 	}
-
-	/*
-	 * public PictureUploadPojo(String id, String picDescription, long picVote,
-	 * String userName, byte picData[],List<String> friendEmail) { this.id = id;
-	 * this.picDescription = picDescription; this.picVote = picVote;
-	 * this.userName = userName; this.picData = picData; this.friendEmail =
-	 * friendEmail; }
-	 */
 
 	public PictureUploadPojo(String id, String picDescription, long picVote, String userName, byte picData[]) {
 		this.id = id;
@@ -49,7 +43,24 @@ public class PictureUploadPojo implements Serializable {
 			if (picData != null) {
 				byte[] encodeBase64 = Base64.encodeBase64(picData);
 				this.base64Encoded = new String(encodeBase64, "UTF-8");
-			} 
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	public PictureUploadPojo(PictureUpload pictureUpload) {
+		this.id = pictureUpload.getId();
+		this.picDescription = pictureUpload.getDescription();
+		this.picVote = pictureUpload.getPicVote();
+		this.userName = pictureUpload.getUser() != null ? pictureUpload.getUser().getFirstName() : null;
+		// this.picData = picData;
+
+		try {
+			if (pictureUpload.getPicUploadData() != null && pictureUpload.getPicUploadData().getFileData() != null) {
+				byte[] encodeBase64 = Base64.encodeBase64(pictureUpload.getPicUploadData().getFileData());
+				this.base64Encoded = new String(encodeBase64, "UTF-8");
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -87,7 +98,6 @@ public class PictureUploadPojo implements Serializable {
 		this.picVote = picVote;
 	}
 
-	
 	public String getBase64Encoded() {
 		return base64Encoded;
 	}
@@ -102,14 +112,6 @@ public class PictureUploadPojo implements Serializable {
 
 	public void setAllowToVote(boolean allowToVote) {
 		this.allowToVote = allowToVote;
-	}
-
-	public List<String> getFriendEmail() {
-		return friendEmail;
-	}
-
-	public void setFriendEmail(List<String> friendEmail) {
-		this.friendEmail = friendEmail;
 	}
 
 }

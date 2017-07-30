@@ -172,6 +172,29 @@ public class SecurityLibrary {
 			return "";
 
 	}
+	
+	public static String getLoggedInUserLoginEmailId() {
+		System.out.println(" getLoggedInUserLoginEmailId() called ");
+		if (SecurityContextHolder.getContext() == null) {
+			// //LOG.error("security context is empty, this seems to be a
+			// bug/misconfiguration!");
+			return "";
+		}
+		Authentication currentUser = SecurityContextHolder.getContext().getAuthentication();
+		if (currentUser == null)
+			return "";
+
+		if (currentUser instanceof UsernamePasswordAuthenticationToken) {
+			AuthenticatedUser user = (AuthenticatedUser) currentUser.getPrincipal();
+			if (user != null) {
+				System.out.println("Logged In User : " + currentUser.getName() + "   -> " + user.getUsername());
+				return user.getEmailId();
+			} else
+				return "";
+		} else
+			return "";
+
+	}
 
 	/**
 	 * This method returns the {@link User} instance of the logged-in user

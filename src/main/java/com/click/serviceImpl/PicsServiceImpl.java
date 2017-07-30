@@ -3,6 +3,7 @@
  */
 package com.click.serviceImpl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.log4j.Logger;
@@ -15,6 +16,8 @@ import com.click.entity.PicUploadData;
 import com.click.entity.PictureUpload;
 import com.click.pojo.PictureUploadPojo;
 import com.click.service.PicsService;
+import com.click.utils.CollectionUtil;
+import com.click.utils.SecurityLibrary;
 
 /**
  * @author parveen
@@ -25,7 +28,7 @@ import com.click.service.PicsService;
 public class PicsServiceImpl implements PicsService {
 
 	private static final Logger LOG = Logger.getLogger(PicsServiceImpl.class);
-	
+
 	@Autowired
 	PicsDao picsDao;
 
@@ -51,7 +54,20 @@ public class PicsServiceImpl implements PicsService {
 	@Override
 	public List<PictureUploadPojo> findAllPics(int pageNo) {
 		LOG.info("Inside findAllPics() serviceImpl");
-		return picsDao.findAllPics(pageNo);
+		List<PictureUpload> list = picsDao.findAllPics(pageNo);
+		List<PictureUploadPojo> pojoList = new ArrayList<>();
+		if (CollectionUtil.isNotEmpty(list)) {
+			for (PictureUpload pictureUpload : list) {
+				PictureUploadPojo pu = new PictureUploadPojo(pictureUpload);
+			//	LOG.info("friend Email list :" + pictureUpload.getFriendEmail().toString() + " SecurityLibrary.getLoggedInUserLoginEmailId() :" + SecurityLibrary.getLoggedInUserLoginEmailId());
+				if (pictureUpload.getFriendEmail().contains(SecurityLibrary.getLoggedInUserLoginEmailId().toUpperCase())) {
+					pu.setAllowToVote(false);
+				}
+				pojoList.add(pu);
+			}
+		}
+
+		return pojoList;
 	}
 
 	@Override
@@ -66,5 +82,11 @@ public class PicsServiceImpl implements PicsService {
 		LOG.info("Inside getPicDetails() serviceImpl");
 		List<PictureUpload> listofpicsdetails = picsDao.getPicDetails();
 		return listofpicsdetails;
+	}
+
+	@Override
+	@Transactional(readOnly = false)
+	public long updateVoteCount(String picId, String userEmailId) {
+		return picsDao.updateVoteCount(picId, userEmailId);
 	}
 }

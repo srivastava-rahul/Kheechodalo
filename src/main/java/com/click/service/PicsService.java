@@ -34,7 +34,8 @@ public interface PicsService {
 
 	/**
 	 * 
-	 * @param pageNo TODO
+	 * @param pageNo
+	 *            TODO
 	 * @return
 	 */
 	List<PictureUploadPojo> findAllPics(int pageNo);
@@ -50,5 +51,13 @@ public interface PicsService {
 	 * @return
 	 */
 	List<PictureUpload> getPicDetails();
+
+	/**
+	 * 
+	 * @param picId
+	 * @param loggedInUserLoginEmailId
+	 * @return 
+	 */
+	long updateVoteCount(String picId, String loggedInUserLoginEmailId);
 
 }

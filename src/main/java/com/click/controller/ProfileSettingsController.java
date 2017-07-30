@@ -26,7 +26,7 @@ import com.click.utils.SecurityLibrary;
 @Controller
 @RequestMapping(path = "/user")
 public class ProfileSettingsController {
-	
+
 	private static final Logger LOG = Logger.getLogger(ProfileSettingsController.class);
 
 	@InitBinder
@@ -43,21 +43,21 @@ public class ProfileSettingsController {
 
 	@RequestMapping(value = "/getProfileSettings", method = RequestMethod.GET)
 	public String getProfile(Model model) {
-        LOG.info("Inside getProfile controller where user set  profile data Or user information");
+		LOG.info("Inside getProfile controller where user set  profile data Or user information");
 		try {
 			ProfileSetting profileSetting = profileSettingService
 					.findByEmailId(SecurityLibrary.getLoggedInUser().getEmailId());
 			if (profileSetting == null) {
 				profileSetting = new ProfileSetting();
-			}else{
+			} else {
 				try {
-					if(profileSetting.getFileData() !=null){
-					byte[] encodeBase64 = Base64.encodeBase64(profileSetting.getFileData());
-					String base64Encoded = new String(encodeBase64, "UTF-8");
-					model.addAttribute("picImg", base64Encoded);
+					if (profileSetting.getFileData() != null) {
+						byte[] encodeBase64 = Base64.encodeBase64(profileSetting.getFileData());
+						String base64Encoded = new String(encodeBase64, "UTF-8");
+						model.addAttribute("picImg", base64Encoded);
 					}
 				} catch (Exception e) {
-					LOG.error(e.getMessage(),e);
+					LOG.error(e.getMessage(), e);
 					e.printStackTrace();
 					System.out.println("Error while encoded ");
 				}
@@ -79,30 +79,31 @@ public class ProfileSettingsController {
 			model.addAttribute("profileSetting", userprofiledata);
 			model.addAttribute("success", "Data  SuccessFully Updated");
 		} catch (NullPointerException e) {
-			LOG.error(e.getMessage(),e);
+			LOG.error(e.getMessage(), e);
 			e.printStackTrace();
 			model.addAttribute("error", "Error " + e.getMessage());
 		} catch (Exception e) {
-			LOG.error(e.getMessage(),e);
+			LOG.error(e.getMessage(), e);
 			e.printStackTrace();
 			model.addAttribute("error", "Error " + e.getMessage());
 		}
 		return "settings";
 	}
-	
+
 	@RequestMapping(value = "/uploadprofilepic", method = RequestMethod.GET)
 	public String uploadprofilepic() {
 		LOG.info("Inside uploadprofilepic controller to Fetch the upload pic page");
 		return "UploadProfilePic";
 	}
-	
+
 	@RequestMapping(value = "/saveProfilePic", method = RequestMethod.POST)
-	public String savePic(@RequestParam("picImg") MultipartFile uploadPic,Model model) {
+	public String savePic(@RequestParam("picImg") MultipartFile uploadPic, Model model) {
 		LOG.info("Inside savepic controller to save the pic ");
 		String fileName = null;
 		if (!uploadPic.isEmpty()) {
 			try {
-				ProfileSetting profileSetting = profileSettingService.findByEmailId(SecurityLibrary.getLoggedInUser().getEmailId());
+				ProfileSetting profileSetting = profileSettingService
+						.findByEmailId(SecurityLibrary.getLoggedInUser().getEmailId());
 				byte[] bytes = uploadPic.getBytes();
 				profileSetting.setFileData(bytes);
 				User user = new User();
@@ -113,7 +114,7 @@ public class ProfileSettingsController {
 				model.addAttribute("picImg", base64Encoded);
 				return "UploadProfilePic";
 			} catch (Exception e) {
-				LOG.error(e.getMessage(),e);
+				LOG.error(e.getMessage(), e);
 				e.printStackTrace();
 				return "UploadProfilePic";
 			}

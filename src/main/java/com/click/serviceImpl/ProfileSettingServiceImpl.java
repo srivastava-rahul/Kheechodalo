@@ -32,7 +32,6 @@ public class ProfileSettingServiceImpl implements ProfileSettingService {
 	public ProfileSetting adduserprofiledata(ProfileSetting userprofiledata) {
 		LOG.info("Inside  profile adduserprofiledata()  serviceImpl");
 		ProfileSetting dbProfiledetails = null;
-		User user = new User();
 
 		if (StringUtils.checkString(userprofiledata.getId()).length() > 0) {
 
@@ -50,7 +49,6 @@ public class ProfileSettingServiceImpl implements ProfileSettingService {
 			if (userprofiledata.getPhone() >0 ) {
 				dbProfiledetails.setPhone(userprofiledata.getPhone());
 				dbProfiledetails.setPhone_flage(userprofiledata.isPhone_flage());
-				user.setPhone(userprofiledata.getPhone());
 
 			}
 
@@ -157,7 +155,6 @@ public class ProfileSettingServiceImpl implements ProfileSettingService {
 			dbProfiledetails = profileSettingDao.updateUserProfile(dbProfiledetails);
 
 		} else {
-
 			StringUtils.checkString(userprofiledata.getName_surname());
 			StringUtils.checkString(userprofiledata.getGender());
 			StringUtils.checkString(userprofiledata.getDaily_status());

@@ -2,6 +2,7 @@ package com.click.daoImpl;
 
 import java.util.List;
 
+import javax.naming.spi.DirStateFactory.Result;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
@@ -38,9 +39,10 @@ public class PicsDaoImpl implements PicsDao {
 	public PictureUpload findPicByUserId(String userId) {
 		LOG.info("Inside findPicByUserId() DaoImpl ");
 		Query query = entityManager
-				.createQuery("from PictureUpload pu left outer join fetch pu.picUploadData where pu.user.id = :userId");
-		query.setParameter("userId", userId);
+				.createQuery("from PictureUpload pu left outer join fetch pu.picUploadData where (upper(pu.user.emailId) like :userId)");
+		query.setParameter("userId", "%"+userId +"%");
 		List<PictureUpload> dataList = query.getResultList();
+		LOG.info("Result: "+dataList.size());
 		if (CollectionUtil.isNotEmpty(dataList)) {
 			return dataList.get(0);
 		}

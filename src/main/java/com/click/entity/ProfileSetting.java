@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import org.hibernate.annotations.GenericGenerator;
 
@@ -106,14 +107,6 @@ public class ProfileSetting {
 	@Column(name = "USER_FAVOURITE_SINGER")
 	private String favourite_singer;
 	
-	public byte[] getFileData() {
-		return fileData;
-	}
-
-	public void setFileData(byte[] fileData) {
-		this.fileData = fileData;
-	}
-
 	@Column(name = "USER_FAVOURITE_MOVIES")
 	private String favourite_movies;
 	
@@ -127,6 +120,8 @@ public class ProfileSetting {
 	@Column(name = "FILE_DATA")
 	private byte[] fileData;
 
+	@Transient
+	String picImg;
 
 	public ProfileSetting(){}
 
@@ -168,7 +163,15 @@ public class ProfileSetting {
 		this.favourite_daily_soap = favourite_daily_soap;
 		this.favourite_author = favourite_author;
 	}
+	
+	public byte[] getFileData() {
+		return fileData;
+	}
 
+	public void setFileData(byte[] fileData) {
+		this.fileData = fileData;
+	}
+	
 	public String getId() {
 		return id;
 	}
@@ -415,6 +418,14 @@ public class ProfileSetting {
 
 	public void setFavourite_author(String favourite_author) {
 		this.favourite_author = favourite_author;
+	}
+
+	public String getPicImg() {
+		return picImg;
+	}
+
+	public void setPicImg(String picImg) {
+		this.picImg = picImg;
 	}
 
 	public String toLogString() {

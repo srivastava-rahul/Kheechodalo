@@ -50,7 +50,7 @@ public class User implements Serializable {
 	private String gender;
 
 	@Column(name = "USER_PHONE", length = 18)
-	private Integer phone;
+	private long phone;
 
 	@Column(name = "USER_DOB")
 	private Date dob;
@@ -67,6 +67,9 @@ public class User implements Serializable {
 	@Column(name = "USER_STATUS")
 	private boolean status;
 
+	@Column(name = "IS_ADMIN")
+	private boolean isAdmin;
+
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
 	@JoinColumn(name = "ROLE_ID", nullable = false, foreignKey = @ForeignKey(name = "FK1_USER_USER_ROLE"))
 	private UserRole userRole;
@@ -75,26 +78,26 @@ public class User implements Serializable {
 	@JoinColumn(name = "ADMIN_ID", nullable = true, foreignKey = @ForeignKey(name = "FK_USER_ADMIN_ID"))
 	private Admin admin;
 
-	@ManyToOne(fetch = FetchType.LAZY, optional = true)
-	@JoinColumn(name = "PROF_ID", nullable = true, foreignKey = @ForeignKey(name = "FK2_USER_PROFILE_SETTING"))
-	private ProfileSetting profileSetting;
+//	@ManyToOne(fetch = FetchType.LAZY, optional = true)
+//	@JoinColumn(name = "PROF_ID", nullable = true, foreignKey = @ForeignKey(name = "FK2_USER_PROFILE_SETTING"))
+//	private ProfileSetting profileSetting;
 
 	public User() {
 		this.status = false;
 		this.deleted = false;
 	}
 
-	public String getProfilePicture() {
-		String base64Encoded = null;
-		if (profileSetting.getFileData() != null) {
-			byte[] encodeBase64 = Base64.encodeBase64(profileSetting.getFileData());
-			try {
-				base64Encoded = new String(encodeBase64, "UTF-8");
-			} catch (Exception e) {
-			}
-		}
-		return base64Encoded;
-	}
+//	public String getProfilePicture() {
+//		String base64Encoded = null;
+//		if (profileSetting.getFileData() != null) {
+//			byte[] encodeBase64 = Base64.encodeBase64(profileSetting.getFileData());
+//			try {
+//				base64Encoded = new String(encodeBase64, "UTF-8");
+//			} catch (Exception e) {
+//			}
+//		}
+//		return base64Encoded;
+//	}
 
 	public String getId() {
 		return id;
@@ -144,11 +147,11 @@ public class User implements Serializable {
 		this.gender = gender;
 	}
 
-	public Integer getPhone() {
+	public long getPhone() {
 		return phone;
 	}
 
-	public void setPhone(Integer phone) {
+	public void setPhone(long phone) {
 		this.phone = phone;
 	}
 
@@ -208,12 +211,13 @@ public class User implements Serializable {
 		this.admin = admin;
 	}
 
-	public ProfileSetting getProfileSetting() {
-		return profileSetting;
+	
+	public boolean isAdmin() {
+		return isAdmin;
 	}
 
-	public void setProfileSetting(ProfileSetting profileSetting) {
-		this.profileSetting = profileSetting;
+	public void setAdmin(boolean isAdmin) {
+		this.isAdmin = isAdmin;
 	}
 
 	public String toLogString() {

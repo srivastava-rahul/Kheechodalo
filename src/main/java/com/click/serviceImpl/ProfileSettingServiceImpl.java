@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.click.dao.ProfileSettingDao;
 import com.click.entity.ProfileSetting;
+import com.click.entity.User;
 import com.click.service.ProfileSettingService;
 import com.click.service.UserService;
 import com.click.utils.StringUtils;
@@ -31,6 +32,7 @@ public class ProfileSettingServiceImpl implements ProfileSettingService {
 	public ProfileSetting adduserprofiledata(ProfileSetting userprofiledata) {
 		LOG.info("Inside  profile adduserprofiledata()  serviceImpl");
 		ProfileSetting dbProfiledetails = null;
+		User user = new User();
 
 		if (StringUtils.checkString(userprofiledata.getId()).length() > 0) {
 
@@ -48,6 +50,7 @@ public class ProfileSettingServiceImpl implements ProfileSettingService {
 			if (userprofiledata.getPhone() >0 ) {
 				dbProfiledetails.setPhone(userprofiledata.getPhone());
 				dbProfiledetails.setPhone_flage(userprofiledata.isPhone_flage());
+				user.setPhone(userprofiledata.getPhone());
 
 			}
 

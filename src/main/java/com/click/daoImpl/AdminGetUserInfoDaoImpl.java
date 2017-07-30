@@ -30,7 +30,7 @@ public class AdminGetUserInfoDaoImpl implements AdminGetUserInfoDao{
 		LOG.info(" Inside Get getAllUserInfo() DaoImpl All User Infomation ");
 		Query query=null;
 		try{
-		 query = entityManager.createQuery("from User");
+		 query = entityManager.createQuery("from User where isAdmin = 0");
 		}catch(Exception e){
 			LOG.error(e.getMessage(),e);
 			e.printStackTrace();

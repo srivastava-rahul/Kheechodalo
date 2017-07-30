@@ -72,6 +72,7 @@ public class UserController {
 			user.setEmailId(email);
 			user.setPassword(password);
 			user.setCreatedDate(new Date());
+			user.setAdmin(false);
 			UserRole role = new UserRole();
 			role.setId("111");
 			user.setUserRole(role);

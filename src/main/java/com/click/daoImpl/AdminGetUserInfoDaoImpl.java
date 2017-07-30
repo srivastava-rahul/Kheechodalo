@@ -51,17 +51,25 @@ public class AdminGetUserInfoDaoImpl implements AdminGetUserInfoDao{
 		return (User) query.getSingleResult();
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public ProfileSetting getProfileInfoByEmailId(String email_id) {
-		LOG.info("Inside getProfileInfoByEmailId() DaoImpl Get   User profile Infomation by Email-Id");
+		LOG.info("Inside DaoImpl User profile Infomation by Email-Id :" +email_id);
 		Query query=null;
 		try{
-		 query = entityManager.createQuery("from ProfileSetting  p where p.email_id = :EMAIL_Id").setParameter("EMAIL_Id", email_id);
+		 query = entityManager.createQuery("from ProfileSetting  p where (upper(p.email_id) like :EMAIL_Id)");
+		 query.setParameter("EMAIL_Id","%"+ email_id +"%");
 		}catch(Exception e){
 			LOG.error(e.getMessage(),e);
 			e.printStackTrace();
 		}
-		return (ProfileSetting ) query.getSingleResult();
+		LOG.info(" ProfileSetting Size For Admin : "+query.getResultList().size());
+		List<ProfileSetting> list = query.getResultList();
+		if(list.isEmpty()){
+			return null;
+		}else{
+			return list.get(0);
+		}
 	}
 	
 

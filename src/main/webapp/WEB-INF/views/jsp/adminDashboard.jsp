@@ -14,14 +14,14 @@ table, th, td {
 </style>
 
 <div class="body-area">
-	<img
+<%-- 	<img
 		src="${pageContext.request.contextPath}/resources/images/Adminimg.png"
-		alt="Avatar" class="page_pic">
+		alt="Avatar" class="page_pic"> --%>
 	<div class="information">
 		<p class="header_information">User Information for Admin</p>
 	</div>
 	<p>
-	<form name="deleteForm" action="" method="post">
+	<%-- <form name="deleteForm" action="" method="post">
 		<input type="hidden" name="${_csrf.parameterName}"
 			value="${_csrf.token}">
 
@@ -35,13 +35,17 @@ table, th, td {
 
 			<c:url value="/user/dashboard" var="dashUrl" />
 		</div>
-	</form>
+	</form> --%>
+	
+	<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search By Email..." title="Type in Email" style = "width: 452px; height: 38px;">
+	
 	</br>
 	</br>
+	
 
-	<table style="margin-left: 5%; width: 90%; padding: 5%; color: white"
+	<table id="myTable" style="margin-left: 5%; width: 90%; padding: 5%; color: white"
 		border="1">
-		<tr>
+		<tr class="header">
 			<th height="40"><center>Name</center></th>
 			<th height="40"><center>Email-Id</center></th>
 			<th height="40"><center>Created Date</center></th>
@@ -53,7 +57,7 @@ table, th, td {
 		</tr>
 		<c:forEach var="userinfo" items="${user}">
 			<tr>
-				<td><center>${userinfo.firstName}${userinfo.lastName}</center></td>
+				<td><center>${userinfo.firstName} ${userinfo.lastName}</center></td>
 				<td><center>${userinfo.emailId}</center></td>
 				<td><center>${userinfo.createdDate}</center></td>
 				<td><center>${userinfo.modifiedDate}</center></td>
@@ -72,3 +76,24 @@ table, th, td {
 
 
 </div>
+
+<script>
+function myFunction() {
+  var input, filter, table, tr, td, i;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+  console.log("tr : "+tr)
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[1];
+    if (td) {
+      if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }       
+  }
+}
+</script>

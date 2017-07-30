@@ -63,15 +63,18 @@ public class AdminDashboardController {
 		return "adminDashboard";
 	}
 
-	@RequestMapping(value = "/adminSingleProfileInfo")
-	protected String searchProfilebyEmailId(Model model) throws Exception {
-		LOG.info("Admin getting profile information based on email-id from searchProfilebyEmailId controller");
-		String email_id="r1812srivastava@gmail.com";
+	@RequestMapping(value = "/adminSingleProfileInfo/{email_id}")
+	public String searchProfilebyEmailId(Model model, @PathVariable(name ="email_id") String email_id) throws Exception {
+		LOG.info("Admin getting profile information based on email-id from searchProfilebyEmailId controller"+email_id);
 		try {
 			ProfileSetting profileInfo = adminGetUserInfoService.getProfileInfoByEmailId(email_id);
-			byte[] encodeBase64 = Base64.encodeBase64(profileInfo.getFileData());
-			String base64Encoded = new String(encodeBase64, "UTF-8");
-			model.addAttribute("picImg", base64Encoded);
+			LOG.info("File Data :" + profileInfo.getFileData());
+			if(profileInfo.getFileData() !=null){
+				byte[] encodeBase64 = Base64.encodeBase64(profileInfo.getFileData());
+				String base64Encoded = new String(encodeBase64, "UTF-8");
+				model.addAttribute("picImg", base64Encoded);
+			}
+
 			model.addAttribute("profile", profileInfo);
 		} catch (Exception e) {
 			LOG.error(e.getMessage(),e);

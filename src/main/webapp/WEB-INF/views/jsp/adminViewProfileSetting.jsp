@@ -4,18 +4,21 @@
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/jquery-1.4.2.min.js"></script>
 
 <div class="body-area">
-	<img src="${pageContext.request.contextPath}/resources/images/Adminimg.png" alt="Avatar" class="page_pic">
+		<c:if test="${not empty picImg}">
+	<img id="picImageHolder" src="data:image/jpeg;base64,${picImg}" alt="Picture"  style="width: 180px;height:180px;border-radius: 20%; " class="page_pic">
+	</c:if>
 	<div class="information">
 		<p class="header_information">Profile Information for Admin</p>
 	</div>
 		
 		
-<a href="${pageContext.request.contextPath}/user/adminDashboard"><img src="${pageContext.request.contextPath}/resources/images/download.jpg" style="margin-top: 1%;margin-left:2% ;background-color: transparent;" src="arrow.gif" width="5%" height="4%"/>&nbsp;Back to User Info</a>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
+<a href="${pageContext.request.contextPath}/admin/adminDashboard"><img src="${pageContext.request.contextPath}/resources/images/download.jpg" style="margin-top: 1%;margin-left:2% ;background-color: transparent;" src="arrow.gif" width="5%" height="4%"/>&nbsp;Back to User Info</a>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
 	
-        <table style="margin-left: 5%;width:90%;padding: 5%;">
+        <table style="margin-left: 5%;width:90%;padding: 5%;color:white;">
 		<%-- <c:forEach var="profileinfo" items="${profile}"> --%>
+		<%-- <c:if test="${not empty picImg}">
 		<tr><td>Profile Pic</td><td><img id="picImageHolder" src="data:image/jpeg;base64,${picImg}" alt="Picture"  style="width: 180px;height:180px;border-radius: 20%; " /></td></tr>
-		<tr><td>Id</td><td>${profile.id}</td></tr>
+		</c:if> --%>
         <tr><td>Name</td><td>${profile.name_surname}</td></tr>
         <tr><td>Date-of-birth</td><td>${profile.dob}</td></tr>
        <tr> <td>Emai_id</td><td>${profile.email_id}</td></tr>

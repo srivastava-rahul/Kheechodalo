@@ -5,7 +5,7 @@
 
 <div class="clearfix"></div>
 <div class="main-footer" style="margin-bottom: 0px;" align="center">&copy; 2018 All rights reserved</div>
-          
+          &nbsp;
           <div>
              <a href="">Privacy</a> &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
 			<a href="${pageContext.request.contextPath}/user/termsandcondition">Terms & Condition</a>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;

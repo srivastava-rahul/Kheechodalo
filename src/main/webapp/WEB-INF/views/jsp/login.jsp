@@ -49,7 +49,7 @@ $(document).ready(function(){
 
 <jsp:include page="/WEB-INF/views/jsp/message.jsp" />
 
-<div style="margin-top: 1%; width: 30%; height: 50%; background-color: grey">
+<div style="margin-top: 0.5%; width: 30%; height: 50%; background-color: grey">
 
 		<center>
 			<p>
@@ -194,26 +194,12 @@ $(document).ready(function(){
 	</div>
 
 
-	<div style="margin-top: 10%; width: 100%; height: auto; background-color:">
+	<div style="margin-top: 7%; width: 100%; height: auto; background-color:">
 		<div style="margin-bottom: 0px; background-color: #06ccb3;" align="center">&copy; 2018 All rights reserved</div>
-		&nbsp; &nbsp;
+		&nbsp;
 		<div style="color: black">
-			<!-- <table cellspacing="10" cellpadding="10">
-                  <tr>
-				     <td><a href="">Privacy</a></td>
-				     <td><a href="">Terms & Condition</a></td>
-				     <td><a href="">Cookies</a></td>
-				     <td><a href="">Rules</a></td>
-				     <td><a href="">Prize</a></td>
-				     <td><a href="">Contact</a></td>
-				  </tr>
-			 </table>    -->
 			<a href="">Privacy</a>
 			&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
-			<%-- <div onclick="openInNewTab('${pageContext.request.contextPath}/user/changePassword');">Something To Click On</div> --%>
-			
-			
-			
 			<a href="${pageContext.request.contextPath}/user/termsConditionOuter">Terms & Condition</a>
 			&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
 			<a href="">Cookies</a>
@@ -222,8 +208,6 @@ $(document).ready(function(){
 			&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
 			<a href="${pageContext.request.contextPath}/user/contactusOuter">Contact</a>
 			&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
- 
-      
 		</div>
 	</div>
 

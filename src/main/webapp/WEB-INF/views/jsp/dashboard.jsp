@@ -249,7 +249,7 @@ function showSlides(n) {
 			<div class="column">
 				<div class="card">
 					<img src="data:image/jpeg;base64,${pic.base64Encoded}"	alt="Picture" style="width: 291px; height: 320px;" onclick="openModal();currentSlide(${index.index +1})" class="hover-shadow cursor">
-					<a href="#"><span style="margin-left: 50%;color: red" class="voteCount${pic.id}">${pic.picVote}</span></a>
+					<h2><span style="margin-left: 50%;color: red" class="voteCount${pic.id}">${pic.picVote}</span></h2>
 					<div class="">
 						<b><h2 style="color:blue">${pic.userName}</h2></b>
 						<p>${pic.picDescription}</p>
@@ -284,7 +284,7 @@ function showSlides(n) {
 					</div> --%>
 					<div class="card">
 					<img src="data:image/jpeg;base64,${pic.base64Encoded}"	style="width:100%;height:90%">
-					<a href="#"><span style="margin-left: 50%;color: red" class="voteCount${pic.id}">${pic.picVote}</span></a>
+					<h2><span style="margin-left: 50%;color: red; " class="voteCount${pic.id}">${pic.picVote}</span></h2>
 					<div class="">
 						<b><h2 style="color:blue">${pic.userName}</h2></b>
 						<p>${pic.picDescription}</p>

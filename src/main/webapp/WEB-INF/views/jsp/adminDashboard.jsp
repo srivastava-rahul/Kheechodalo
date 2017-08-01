@@ -14,9 +14,7 @@ table, th, td {
 </style>
 
 <div class="body-area">
-<%-- 	<img
-		src="${pageContext.request.contextPath}/resources/images/Adminimg.png"
-		alt="Avatar" class="page_pic"> --%>
+
 	<div class="information">
 		<p class="header_information">User Information for Admin</p>
 	</div>
@@ -36,9 +34,10 @@ table, th, td {
 			<c:url value="/user/dashboard" var="dashUrl" />
 		</div>
 	</form> --%>
-	
+	<div style="margin-left:25%">
+	<h3 style="color: yellow">Please tell What to be search enter here... </h3>
 	<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search By Email..." title="Type in Email" style = "width: 452px; height: 38px;">
-	
+	</div>
 	</br>
 	</br>
 	

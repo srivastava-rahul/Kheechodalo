@@ -14,7 +14,7 @@ import com.click.entity.UserFeedback;
 import com.click.service.QuickHelpService;
 
 @Controller
-@RequestMapping(value = "/user")
+@RequestMapping(value = "/admin")
 public class AdminQuickHelpAndFeedbackController {
 	
 

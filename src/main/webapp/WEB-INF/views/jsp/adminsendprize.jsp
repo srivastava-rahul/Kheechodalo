@@ -6,6 +6,15 @@
 	src="${pageContext.request.contextPath}/resources/js/jquery-1.4.2.min.js"></script>
 
 <div class="body-area">
+
+<div style="margin-left: 25%">
+<h3 style="color: yellow">Please tell What to be search enter here... </h3>
+<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search By Email..." title="Type in Email" style = "width: 452px; height: 38px;">
+	</div>
+	</br>
+	
+
+
 	<jsp:include page="/WEB-INF/views/jsp/message.jsp" />
 	<div class="Changepassword_password_form">
 		<!-- header -->
@@ -78,3 +87,24 @@ margin-bottom: auto; !important;
 }
 
 </style>
+
+<script>
+function myFunction() {
+  var input, filter, table, tr, td, i;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+  console.log("tr : "+tr)
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[1];
+    if (td) {
+      if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }       
+  }
+}
+</script>

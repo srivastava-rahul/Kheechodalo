@@ -1,15 +1,12 @@
 package com.click.entity;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.ForeignKey;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
@@ -29,6 +26,9 @@ public class Notification implements Serializable {
 	@GeneratedValue(generator = "idGen")
 	private String id;
 
+	@Column(name = "USER_CREATED_DATE", nullable = true, length = 20)
+	private Date createdDate;
+	
 	@Column(name = "EMAIL_ID", length = 500)
 	private String email_id;
 
@@ -72,9 +72,13 @@ public class Notification implements Serializable {
 	public void setNotification_desc(String notification_desc) {
 		this.notification_desc = notification_desc;
 	}
-
 	
-	
+	public Date getCreatedDate() {
+		return createdDate;
+	}
+	public void setCreatedDate(Date createdDate) {
+		this.createdDate = createdDate;
+	}
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}

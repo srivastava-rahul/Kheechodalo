@@ -14,7 +14,7 @@ import com.click.service.PicsService;
 import com.click.service.UserService;
 
 @Controller
-@RequestMapping(value = "/user")
+@RequestMapping(value = "/admin")
 public class AdminPicInfoController {
 	
 	private static final Logger LOG = Logger.getLogger(QuickHelpController.class);

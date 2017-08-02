@@ -6,6 +6,7 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -53,8 +54,8 @@ public class AdminQuickHelpAndFeedbackController {
 		return "adminquickhelpinfo";
 	}
 	
-	@RequestMapping(value = "/admindeleteQuickhelp")
-	protected String deleteQuickHelp(@RequestParam String id,Model model) throws Exception {
+	@RequestMapping(value = "/admindeleteQuickhelp/{id}")
+	protected String deleteQuickHelp(@PathVariable(name ="id")  String id,Model model) throws Exception {
 		LOG.info("Admin delete QuickHelp information based on id from deleteQuickHelp controller");
 		try {
 			QuickHelp quickhelp=new QuickHelp();
@@ -72,8 +73,8 @@ public class AdminQuickHelpAndFeedbackController {
 		}
 	}
 	
-	@RequestMapping(value = "/admindeletefeedback")
-	protected String deletefeedback(@RequestParam String id,Model model) throws Exception {
+	@RequestMapping(value = "/admindeletefeedback/{id}")
+	protected String deletefeedback(@PathVariable(name ="id")  String id,Model model) throws Exception {
 		LOG.info("Admin delete Feedback information based on id from deletefeedback controller");
 		
 		try {

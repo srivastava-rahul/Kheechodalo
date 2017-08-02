@@ -16,12 +16,12 @@
 			</center>
 		</div>
 
-		<form name="feedbackForm" action="feedbackData" method="post">
+		<form name="prizeform" action="adminsaveprize" method="post">
 			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
 			<div class="Changepasswordformboby">
 				<h2 style="color: red">Please Provide Date......!!!</h2>
 				<div style="margin-left: 1%">
-					<textarea name= "feedback" id="feedback" rows="5" cols="66" style="color: black"
+					<textarea name= "createddate" id="createddate" rows="5" cols="66" style="color: black"
 						placeholder="Please provide a date."
 						 aria-required="true"></textarea>
 				</div>
@@ -30,7 +30,7 @@
 			<div class="Changepasswordformboby">
 				<h2 style="color: red">Please Provide Prize......!!!</h2>
 				<div style="margin-left: 1%">
-					<textarea name= "feedback" id="feedback" rows="5" cols="66" style="color: black"
+					<textarea name= "prizevalue" id="prizevalue" rows="5" cols="66" style="color: black"
 						placeholder="Please provide a detailed description prize."
 						 aria-required="true"></textarea>
 				</div>
@@ -46,6 +46,30 @@
 			</div>
 		</form>
 	</div>
+		
+	<br/><br/><br/><br/>
+	
+	<table id="myTable" style="margin-left: 5%; width: 90%; padding: 5%; color: white" border="1">
+		<tr class="header">
+			<th height="40"><center>Date</center></th>
+			<th height="40"><center>Prize</center></th>
+			<th height="40"><center>Action Button</center></th>
+			
+		</tr>
+		<c:forEach var="prz" items="${prize}">
+			<tr>
+				<td><center>${prz.prizeDate}</center></td>
+				<td><center>${prz.prizeAmount}</center></td>
+				<td><center>
+						<a href="${pageContext.request.contextPath}/admin/admindeleteprize/${prz.id}">Delete</a>
+					</center></td>
+			</tr>
+		</c:forEach>
+
+	</table>
+	
+	
+	
 </div>
 
 <style>

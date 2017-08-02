@@ -30,7 +30,7 @@ public class UserPrize implements Serializable {
 	private Date prizeDate;
 
 	@Column(name = "PRIZE_AMOUNT", length = 500)
-	private Double prizeAmount;
+	private String prizeAmount;
 
 	public String getId() {
 		return id;
@@ -47,12 +47,12 @@ public class UserPrize implements Serializable {
 	public void setPrizeDate(Date prizeDate) {
 		this.prizeDate = prizeDate;
 	}
-
-	public Double getPrizeAmount() {
+	
+	public String getPrizeAmount() {
 		return prizeAmount;
 	}
 
-	public void setPrizeAmount(Double prizeAmount) {
+	public void setPrizeAmount(String prizeAmount) {
 		this.prizeAmount = prizeAmount;
 	}
 

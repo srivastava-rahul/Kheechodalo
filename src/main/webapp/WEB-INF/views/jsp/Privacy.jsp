@@ -30,7 +30,9 @@
 	&nbsp; &nbsp;&nbsp;&nbsp;b) Your imagew will be used on your website for sharing purpose.<br/>
 	&nbsp; &nbsp;&nbsp;&nbsp;c) Your comments and votes help to choose the winning images.<br/>
 	&nbsp; &nbsp;&nbsp;&nbsp;d) Your contact information will be used to send winning prizes.<br/>
-	&nbsp; &nbsp;&nbsp;&nbsp;e) Your device information is used to provide you better service on our website.<br/>
+	&nbsp; &nbsp;&nbsp;&nbsp;e) Your device information is used to provide you better service on our website.<br/><br/>
+	
+3) This site uses cookies to track your information.It is needed to provide better user experience
 	</h3>	
     
 </div>

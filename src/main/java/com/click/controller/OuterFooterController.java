@@ -30,4 +30,18 @@ public class OuterFooterController {
 		LOG.info("Fetching  terms  And Condition page  from  gettermsConditionOuter controller");
 		return "termsConditionOuter";
 	}	
+	
+	
+	@RequestMapping(value = "/signupdataOuter")
+	protected String getsignupdataOuter(Model model) throws Exception {
+		LOG.info("Fetching sign-up  data page from getsignupdataOuter() controller");
+		return "signupdataOuter";
+	}
+	
+	@RequestMapping(value = "/privacyOuter")
+	protected String getPrivacyOuter(Model model) throws Exception {
+		LOG.info("Fetching Privacy page from getPrivacyOuter() controller");
+		return "privacyOuter";
+	}
+	
 }

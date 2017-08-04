@@ -198,16 +198,17 @@ $(document).ready(function(){
 		<div style="margin-bottom: 0px; background-color: #06ccb3;" align="center">&copy; 2018 All rights reserved</div>
 		&nbsp;
 		<div style="color: black">
-			<a href="">Privacy</a>
+			<a href="${pageContext.request.contextPath}/user/privacyOuter">Privacy</a>
 			&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
 			<a href="${pageContext.request.contextPath}/user/termsConditionOuter">Terms & Condition</a>
 			&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
-			<a href="">Cookies</a>
+			<a href="${pageContext.request.contextPath}/user/signupdataOuter">Signup -Data</a>
 			&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
 			<a href="${pageContext.request.contextPath}/user/rulesouter">Rules</a>
 			&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
 			<a href="${pageContext.request.contextPath}/user/contactusOuter">Contact</a>
 			&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
+			<%-- <a href="">Cookies</a> --%>
 		</div>
 	</div>
 

@@ -281,6 +281,18 @@
 		<put-attribute name="title" value="TermsAndCondition" />
 		<put-attribute name="body" value="/WEB-INF/views/jsp/termsConditionOuter.jsp" />
 	</definition>
+	
+	<!-- Outer Privacy pages -->
+    <definition name="privacyOuter" extends="blank-definition">
+		<put-attribute name="title" value="Privacy" />
+		<put-attribute name="body" value="/WEB-INF/views/jsp/PrivacyOuter.jsp" />
+	</definition>
+	
+	<!-- Outer Signup Data pages -->
+    <definition name="signupdataOuter" extends="blank-definition">
+		<put-attribute name="title" value="Sign-up Data" />
+		<put-attribute name="body" value="/WEB-INF/views/jsp/SignupDataOuter.jsp" />
+	</definition>
 
 
 	<!-- error pages -->

@@ -6,7 +6,7 @@
 	<img style="float:right"src="${pageContext.request.contextPath}/resources/images/rules.jpg" alt="Avatar" class="page_pic">
 	<br/>
 	<div class="information">
-		<p style="background-color: black;color:white;font-size: 25px">Why we need Your Information for Sign Up</p>
+		<p style="background-color: black;color:white;font-size: 25px;margin-left: 2%">Why we need Your Information for Sign Up</p>
 	</div>
 		
 		<h2 style="margin-left: 2%">Related to Signup form</h2><br/> 

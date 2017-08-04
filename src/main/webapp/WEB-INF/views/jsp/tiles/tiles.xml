@@ -95,6 +95,21 @@
 		<put-attribute name="body"
 			value="/WEB-INF/views/jsp/termsCondition.jsp" />
 	</definition>
+	
+	
+	<!-- Privacy Page pages -->
+	<definition name="privacy" extends="full-definition">
+		<put-attribute name="title" value="Privacy" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/Privacy.jsp" />
+	</definition>
+	
+	<!-- Sign up  Data Page pages -->
+	<definition name="signupdata" extends="full-definition">
+		<put-attribute name="title" value="Sign-up  Data" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/SignupData.jsp" />
+	</definition>
 
 	<!-- Settings pages -->
 	<definition name="settings" extends="full-definition">

@@ -4,7 +4,7 @@
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/jquery-1.4.2.min.js"></script>
 
 <div class="body-area">
-	<img src="${pageContext.request.contextPath}/resources/images/aboutUs.jpg" alt="Avatar" class="page_pic" style="float:right">
+	<img src="${pageContext.request.contextPath}/resources/images/terms&Condition.png" alt="Avatar" class="page_pic" style="float:right">
 	<div >
 		<h2><b><p style="margin-left:2%;background-color: black;color:white;"> Terms  &  Condition</p></b></h2>
 	</div><br/><br/><br/>

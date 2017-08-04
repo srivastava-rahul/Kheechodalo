@@ -42,7 +42,7 @@ public interface PicsDao {
 	 * 
 	 * @return
 	 */
-	List<PicUploadData> getPic();
+	PictureUpload getSinglepicInfo(String picid);
 
 	/**
 	 * 
@@ -57,5 +57,14 @@ public interface PicsDao {
 	 * @return 
 	 */
 	long updateVoteCount(String picId, String userEmailId);
+
+	
+	/**
+	 * Get all the pic information for Admin
+	 * @param picId
+	 * @param userEmailId
+	 * @return 
+	 */
+	List<PictureUpload> findAllPicsbyAdmin();
 
 }

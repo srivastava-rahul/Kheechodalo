@@ -44,7 +44,7 @@ public interface PicsService {
 	 * 
 	 * @return
 	 */
-	List<PicUploadData> getPic();
+	PictureUpload getSinglepicInfo( String picid);
 
 	/**
 	 * 
@@ -59,5 +59,13 @@ public interface PicsService {
 	 * @return 
 	 */
 	long updateVoteCount(String picId, String loggedInUserLoginEmailId);
+
+	/**
+	 * getting all the pic information for admin 
+	 * @param 
+	 * @param loggedInUserLoginEmailId
+	 * @return 
+	 */
+	List<PictureUploadPojo> findAllPicsbyAdmin();
 
 }

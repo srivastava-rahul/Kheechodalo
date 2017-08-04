@@ -8,7 +8,7 @@
 		<p class="header_information">Rules for participants</p>
 	</div>
 		<p>	
-	<h2><b style="margin-left:2%">Related to competition</b></h2> </br>
+	<h2><b style="margin-left:2%;color:white">Related to competition</b></h2> </br>
 
 <h3 style="margin-left:2%; color:white;">
      1. To participate in the competitions on the website the participant has to upload a picture clicked by them.</br>

@@ -72,16 +72,17 @@ public class PicsDaoImpl implements PicsDao {
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<PicUploadData> getPic() {
-		LOG.info("Inside getPic() DaoImpl ");
+	public PictureUpload getSinglepicInfo(String picid) {
+		LOG.info("Inside getSinglepicInfo() DaoImpl ");
 		Query query =null;
 		try{
-		 query = entityManager.createQuery("from PicUploadData");
+		// query = entityManager.createQuery("from PictureUpload");
+		 query = entityManager.createQuery("from PictureUpload pi where pi.id = :Id").setParameter("Id", picid);
 		}catch(Exception e){
             LOG.error(e.getMessage(),e);
 			e.printStackTrace();
 		}
-		return (List<PicUploadData>) query.getResultList();
+		return (PictureUpload) query.getSingleResult();
 	}
 
 	@SuppressWarnings("unchecked")
@@ -95,7 +96,7 @@ public class PicsDaoImpl implements PicsDao {
             LOG.error(e.getMessage(),e);
 			e.printStackTrace();
 		}
-		return (List<PictureUpload>) query.getResultList();
+		return (List<PictureUpload>) query.getSingleResult();
 	}
 
 	@Override
@@ -115,5 +116,15 @@ public class PicsDaoImpl implements PicsDao {
 		 query= entityManager.createQuery("select pu.picVote from PictureUpload pu where pu.id = :picId");
 		 query.setParameter("picId", picId);
 		 return ((Number) query.getSingleResult()).longValue();
+	}
+
+	@Override
+	public List<PictureUpload> findAllPicsbyAdmin() {
+		LOG.info("Inside findAllPicsbyAdmin() DaoImpl ");
+		Query query = entityManager.createQuery("Select distinct pu from PictureUpload pu left outer join pu.picUploadData pd left outer join pu.user left outer join pu.friendEmail u order by pu.picVote DESC");
+		//query.setFirstResult(pageNo == 1 ? 0 : (pageNo*8));
+		//query.setMaxResults(8);
+		List<PictureUpload> dataList = query.getResultList();
+		return dataList;
 	}
 }

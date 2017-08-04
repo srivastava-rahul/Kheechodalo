@@ -9,11 +9,12 @@
           <div>
              <a href="">Privacy</a> &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
 			<a href="${pageContext.request.contextPath}/user/termsandcondition">Terms & Condition</a>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
-			<a href="">Cookies</a>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
+			<a href="">Signup -Data</a>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
 			<a href="${pageContext.request.contextPath}/user/rules">Rules</a>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
-			<a href="${pageContext.request.contextPath}/user/contactus">Contact</a>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;                   
+			<a href="${pageContext.request.contextPath}/user/contactus">Contact</a>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; 
+			<!-- <a href="">Cookies</a>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; -->                  
 			
-			&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
+			<%-- &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
 			
 			<a href="${pageContext.request.contextPath}/user/adminDashboard">Get User Info</a>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
 			<a href="${pageContext.request.contextPath}/user/adminpicinfo">Get Pics Info </a>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
@@ -21,7 +22,7 @@
 			<a href="${pageContext.request.contextPath}/user/adminquickhelpinfo">Get QuickHelp Info </a>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
 			<a href="${pageContext.request.contextPath}/user/adminsendnotification">Send Notification by Admin </a>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
 			<a href="${pageContext.request.contextPath}/user/adminsendtestimonial">Send Testimonial by Admin </a>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
-			<a href="${pageContext.request.contextPath}/user/adminsendprize">Send Prize by Admin </a>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
+			<a href="${pageContext.request.contextPath}/user/adminsendprize">Send Prize by Admin </a>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; --%>
          </div>
          <br/>
          

@@ -1,5 +1,6 @@
 package com.click.controller;
 
+import org.apache.commons.codec.binary.Base64;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -30,7 +31,13 @@ public class ProfileController {
 			 if (profileSetting == null) {
 				profileSetting = new ProfileSetting();
 			}
-			model.addAttribute("profileSetting", profileSetting);
+			 if (profileSetting.getFileData() != null) {
+				 LOG.info("rahl***************"+profileSetting.getFileData());
+					byte[] encodeBase64 = Base64.encodeBase64(profileSetting.getFileData());
+					String base64Encoded = new String(encodeBase64, "UTF-8");
+					model.addAttribute("picImg", base64Encoded);
+			 }
+			       model.addAttribute("profileSetting", profileSetting);
 		 }catch( Exception e){
 			 LOG.error(e.getMessage(),e);
 				e.printStackTrace();

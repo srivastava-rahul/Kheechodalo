@@ -4,7 +4,7 @@
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/jquery-1.4.2.min.js"></script>
 
 <div class="body-area">
-	<img src="${pageContext.request.contextPath}/resources/images/aboutUs.jpg" alt="Avatar" class="page_pic">
+	<img src="${pageContext.request.contextPath}/resources/images/terms&Condition.png" alt="Avatar" class="page_pic">
 	<div class="information">
 		<p class="header_information">Terms  &  Condition</p>
 	</div>

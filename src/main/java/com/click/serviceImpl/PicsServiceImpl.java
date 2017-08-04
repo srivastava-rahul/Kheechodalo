@@ -12,7 +12,6 @@ import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.click.dao.PicsDao;
-import com.click.entity.PicUploadData;
 import com.click.entity.PictureUpload;
 import com.click.pojo.PictureUploadPojo;
 import com.click.service.PicsService;
@@ -71,10 +70,10 @@ public class PicsServiceImpl implements PicsService {
 	}
 
 	@Override
-	public List<PicUploadData> getPic() {
-		LOG.info("Inside getPic() serviceImpl");
-		List<PicUploadData> listofpics = picsDao.getPic();
-		return listofpics;
+	public PictureUpload getSinglepicInfo(String picid) {
+		LOG.info("Inside getSinglepicInfo() serviceImpl");
+		PictureUpload fullpicsinfo = picsDao.getSinglepicInfo(picid);
+		return fullpicsinfo;
 	}
 
 	@Override
@@ -88,5 +87,25 @@ public class PicsServiceImpl implements PicsService {
 	@Transactional(readOnly = false)
 	public long updateVoteCount(String picId, String userEmailId) {
 		return picsDao.updateVoteCount(picId, userEmailId);
+	}
+	
+	
+	@Override
+	public List<PictureUploadPojo> findAllPicsbyAdmin() {
+		LOG.info("Inside findAllPicsbyAdmin() serviceImpl");
+		List<PictureUpload> list = picsDao.findAllPicsbyAdmin();
+		List<PictureUploadPojo> pojoList = new ArrayList<>();
+		if (CollectionUtil.isNotEmpty(list)) {
+			for (PictureUpload pictureUpload : list) {
+				PictureUploadPojo pu = new PictureUploadPojo(pictureUpload);
+			//	LOG.info("friend Email list :" + pictureUpload.getFriendEmail().toString() + " SecurityLibrary.getLoggedInUserLoginEmailId() :" + SecurityLibrary.getLoggedInUserLoginEmailId());
+				if (pictureUpload.getFriendEmail().contains(SecurityLibrary.getLoggedInUserLoginEmailId().toUpperCase())) {
+					pu.setAllowToVote(false);
+				}
+				pojoList.add(pu);
+			}
+		}
+
+		return pojoList;
 	}
 }

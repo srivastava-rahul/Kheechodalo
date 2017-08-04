@@ -5,28 +5,17 @@
 
 <div class="body-area">
 	
-	<form name="deleteForm" action="" method="post">
-			   <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
-			
-			<div class="Changepasswordformboby">
-				<h3 style="color: yellow">Please tell What to be deleted enter the id... </h3>
-				<input type="text"  name="pic_id" id="pic_id" style="width:30% "
-					placeholder="Please Enter id" />
-					
-					<button type="submit" class="button_submit  submit" style="background-color:red">Delete</button>
-				
-				    <c:url value="/user/dashboard" var="dashUrl" />
-			</div>
-		</form>
-		</br></br>
+
 	<div class="information">
 		<p class="header_information">Pics Information for Admin</p>
 	</div>
 		<p>	
 	
-           Admin Pic info
+           Admin View Full Information of Photos
 	
 	</p>
+	<a href="${pageContext.request.contextPath}/admin/adminpicinfo"><img src="${pageContext.request.contextPath}/resources/images/download.jpg" style="margin-top: 1%;margin-left:2% ;background-color: transparent;" src="arrow.gif" width="5%" height="4%"/>&nbsp;Back to Pics Info Page</a>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
+	
 	<div style="margin-left:25%">
 
 <h3 style="color: yellow">Please tell What to be search enter here... </h3>
@@ -39,25 +28,14 @@
 	<table id="myTable" style="margin-left: 5%; width: 90%; padding: 5%; color: white"
 		border="1">
 		<tr class="header">
-			<th height="40"><center>Pic Id</center></th>
-			<th height="40"><center>Email_id</center></th>
-			<th height="40"><center>Pic description</center></th>
-			<th height="40"><center>Pic</center></th>
-			<th height="40"><center>Vote</center></th>
-			<th height="40"><center>Action Button</center></th>
+			<th height="40"><center>Voter List of Particular Pic</center></th>
+			
 			
 		</tr>
-		<c:forEach var="pic" items="${picsList}">
+		  <c:forEach var="voter" items="${picsList}">
 			<tr>
-				<td><center>${pic.id}</center></td>
-				<td><center>${pic.userName}</center></td>
-				<td><center>${pic.picDescription}</center></td>
-				<td><center><img src="data:image/jpeg;base64,${pic.base64Encoded}"	style="width:30%;height:30%"></center></td>
-				<td><center>${pic.picVote}</center></td>
-				<td><center>
-						<a
-							href="${pageContext.request.contextPath}/admin/adminpicinfofull/${pic.id}">View More Info</a>
-					</center></td>
+				<td><center>${voter.friendEmail}</center></td>
+				
 			</tr>
 		</c:forEach>
 

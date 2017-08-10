@@ -43,7 +43,7 @@ public class AdminPrizeController {
 	
 	
 	@RequestMapping(value = "/adminsaveprize", method = RequestMethod.POST)
-	public String saveNotificationData(@RequestParam Date createddate,@RequestParam String prizevalue, Model model)
+	public String saveNotificationData(@RequestParam Date createddate,@RequestParam String prizevalue,@RequestParam String sponsorby, Model model)
 			throws Exception {
 		LOG.info("Admin adding prize from saveNotificationData controller");
 		try {
@@ -54,7 +54,7 @@ public class AdminPrizeController {
 			UserPrize prizedata=new UserPrize();
 			prizedata.setPrizeDate(createddate);			
 			prizedata.setPrizeAmount(prizevalue);
-			
+			prizedata.setSponsor(sponsorby);
 			prizeService.savePrizeRecord(prizedata);
 			List<UserPrize>  listofprize=prizeService.getAllPrizeRecord();
 			model.addAttribute("prize",listofprize);

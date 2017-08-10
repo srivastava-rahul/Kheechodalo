@@ -48,8 +48,12 @@
 
 	16. For User to fill phone number address and paytm account is mandatory during the creation of account.
 
-        This competition is</br>&nbsp; &nbsp;&nbsp; &nbsp; only for fun and entertainment and to encourage photographic talent.
+        This competition is</br>&nbsp; &nbsp;&nbsp; &nbsp; only for fun and entertainment and to encourage photographic talent.<br/><br/>
+        
+    17. All the pics automatically get deleted from the site at the end of the day.</br></br>
 </h3>	</p>
+
+<span style="color:red;margin-left: 5%"> * condition apply</span></br></br>
 </div>
 
 </Body>

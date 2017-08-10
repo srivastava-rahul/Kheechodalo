@@ -31,24 +31,24 @@ public class AdminNotificationController {
 			 
 	
 	@RequestMapping(value = "/adminsendnotification", method = RequestMethod.POST)
-	public String saveNotificationData(@RequestParam String notification , Model model)
+	public String saveNotificationData(@RequestParam String noty , Model model)
 			throws Exception {
 		LOG.info("Admin adding notification from saveNotificationData controller");
 		try {
-			
+			  System.out.println("rahul================="+noty);
 			/*User userDetails = userService.findUserById(SecurityLibrary.getLoggedInUser().getEmailId());
 			LOG.info("Admin Email - Id :" + userDetails.getEmailId());*/
-			
+			if(noty!=null && !noty.equals("")){
 			Notification notify=new Notification();
 			notify.setCreatedDate(new Date());
-			notify.setNotification_desc(notification);
+			notify.setNotification_desc(noty);
 			//notify.setEmail_id(userDetails.getEmailId());	
 			
 			notificationService.saveNotification(notify);	
-			
+			}
+			System.out.println("bye");
 			 List<Notification>  listofNotification = notificationService.getNotification();
 			 model.addAttribute("notification",listofNotification);
-			 model.addAttribute("success", " Data Entered Successfully .");			
 			return "adminsendnotification";
 		} catch (Exception e) {
 			LOG.error(e.getMessage(),e);

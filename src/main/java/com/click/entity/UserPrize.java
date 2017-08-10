@@ -28,6 +28,9 @@ public class UserPrize implements Serializable {
 
 	@Column(name = "PRIZE_DATE")
 	private Date prizeDate;
+	
+	@Column(name = "SPONSOR_BY")
+	private String sponsor;
 
 	@Column(name = "PRIZE_AMOUNT", length = 500)
 	private String prizeAmount;
@@ -55,9 +58,19 @@ public class UserPrize implements Serializable {
 	public void setPrizeAmount(String prizeAmount) {
 		this.prizeAmount = prizeAmount;
 	}
+	
+	public String getSponsor() {
+		return sponsor;
+	}
+
+	public void setSponsor(String sponsor) {
+		this.sponsor = sponsor;
+	}
 
 	public String toLogString() {
 		return "UserPrize [id=" + id + ", prizeDate=" + prizeDate + ", prizeAmount=" + prizeAmount + "]";
 	}
+	
+	
 
 }

@@ -26,12 +26,14 @@ table, th, td {
           <col width="300">
 			<tr>
 				<th height="40"><center>Date</center></th>
+				<th height="40"><center>Sponsor-By</center></th>
 				<th height="40"><center>Prize</center></th>
 			</tr>
 			
 			<c:forEach var="prize" items="${prize}">
 			<tr>
 				<td><center>${prize.prizeDate}</center></td>
+				<td><center>${prize.sponsor}</center></td>
 				<td><center>${prize.prizeAmount}</center></td>
 			</tr>
           </c:forEach>

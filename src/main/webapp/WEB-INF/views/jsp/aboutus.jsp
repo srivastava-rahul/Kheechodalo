@@ -10,7 +10,7 @@
 	</div>
 		<p>	
 	
-<h2 style="color:white">Welcome to the world of fun and frolic. Welcome to Kheecho-Daalo! </br>
+<h2 style="color:white">Welcome to the world of fun and frolic. Welcome to Kheecho-Daalo....! </br>
 
 A platform to showcase your amazing pictures and swaggy selfies. Your uploaded pictures will be available on the website for a day which you can share with your friends, family and the likeminded audience of the website. 
 

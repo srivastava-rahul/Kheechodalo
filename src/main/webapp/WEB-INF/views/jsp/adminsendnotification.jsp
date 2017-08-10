@@ -30,7 +30,7 @@
 			<div class="Changepasswordformboby">
 				<h2 style="color: red">Please Provide your Notification......!!!</h2>
 				<div style="margin-left: 1%">
-					<textarea name= "notification" id="notification" rows="5" cols="66" style="color: black"
+					<textarea name= "noty" id="noty" rows="5" cols="66" style="color: black"
 						placeholder="Please provide a detailed description of your notification."
 						 aria-required="true"></textarea>
 				</div>

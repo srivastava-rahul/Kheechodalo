@@ -30,7 +30,7 @@
 			<div class="Changepasswordformboby">
 				<h2 style="color: red">Please Provide Date......!!!</h2>
 				<div style="margin-left: 1%">
-					<textarea name= "createddate" id="createddate" rows="5" cols="66" style="color: black"
+					<textarea name= "createddate" id="createddate" rows="1" cols="30" style="color: black"
 						placeholder="Please provide a date."
 						 aria-required="true"></textarea>
 				</div>
@@ -39,8 +39,17 @@
 			<div class="Changepasswordformboby">
 				<h2 style="color: red">Please Provide Prize......!!!</h2>
 				<div style="margin-left: 1%">
-					<textarea name= "prizevalue" id="prizevalue" rows="5" cols="66" style="color: black"
+					<textarea name= "prizevalue" id="prizevalue" rows="2" cols="50" style="color: black"
 						placeholder="Please provide a detailed description prize."
+						 aria-required="true"></textarea>
+				</div>
+			</div>	
+			
+			<div class="Changepasswordformboby">
+				<h2 style="color: red">Please Provide Sponsor Name.....!!!</h2>
+				<div style="margin-left: 1%">
+					<textarea name= "sponsorby" id="sponsorby" rows="2" cols="50" style="color: black"
+						placeholder="Please Provide Sponsor Name."
 						 aria-required="true"></textarea>
 				</div>
 			</div>	
@@ -51,7 +60,7 @@
 				<button type="submit" class="button_submit  submit">Send</button>&nbsp;&nbsp;
 
 				<c:url value="/user/dashboard" var="dashUrl" />
-				<a href="${dashUrl}" class="button_submit  submit" style="margin-right: 12px;" style="margin-right: 12px;"> Cancel </a>
+				<a href="${pageContext.request.contextPath}/admin/admingetAllPrize" class="button_submit  submit" style="margin-right: 12px;" style="margin-right: 12px;"> Cancel </a>
 			</div>
 		</form>
 	</div>
@@ -61,6 +70,7 @@
 	<table id="myTable" style="margin-left: 5%; width: 90%; padding: 5%; color: white" border="1">
 		<tr class="header">
 			<th height="40"><center>Date</center></th>
+			<th height="40"><center>Sponsor-By</center></th>
 			<th height="40"><center>Prize</center></th>
 			<th height="40"><center>Action Button</center></th>
 			
@@ -68,6 +78,7 @@
 		<c:forEach var="prz" items="${prize}">
 			<tr>
 				<td><center>${prz.prizeDate}</center></td>
+				<td><center>${prz.sponsor}</center></td>
 				<td><center>${prz.prizeAmount}</center></td>
 				<td><center>
 						<a href="${pageContext.request.contextPath}/admin/admindeleteprize/${prz.id}">Delete</a>

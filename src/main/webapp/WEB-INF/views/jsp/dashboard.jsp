@@ -91,7 +91,7 @@ $(document).ready(function() {
 
 .column {
   float: left;
-  width: 25%;
+  width: auto;
 }
 
 /* The Modal (background) */

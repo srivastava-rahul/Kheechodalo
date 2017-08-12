@@ -51,9 +51,15 @@ $(document).ready(function(){
 
 <div style="margin-top: 0.5%; width: 30%; height: 50%; background-color: grey">
 
-		<center>
+	<%-- 	<center>
 			<p>
 				<span style="font-size: 50px; font-family: Parchment;">kheecho Dalo</span>
+			</p>
+		</center> --%>
+		
+			<center>
+			<p>
+				<img src="${pageContext.request.contextPath}/resources/images/101.png" alt="Avatar" class="page_pic">
 			</p>
 		</center>
 

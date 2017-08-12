@@ -44,7 +44,7 @@
 			<div class="MyownpicBodyright">
 				<span style="color: #eee;">
 					<h2>Description</h2>
-					<h5>Today 12:00</h5>
+					<!-- <h5>Today 12:00</h5> -->
 					<c:if test="${empty picImg}">
 						<textarea name="desc" id="desc" rows="6" cols="35" style="color: black" placeholder="Please provide a detailed description of your Pic." aria-required="true"></textarea>
 					</c:if>

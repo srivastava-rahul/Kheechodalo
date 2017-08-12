@@ -129,9 +129,7 @@
 			</div>
 			
 			
-			<div class="col-md-5 row">
-
-       
+			<div class="col-md-5 row">       
 
 				<form id="search" method="post" action="${pageContext.request.contextPath}/user/search">
 					<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">

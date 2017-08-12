@@ -59,7 +59,7 @@ $(document).ready(function(){
 		
 			<center>
 			<p>
-				<img src="${pageContext.request.contextPath}/resources/images/101.png" alt="Avatar" class="page_pic">
+				<img src="${pageContext.request.contextPath}/resources/images/logo.png" alt="Avatar" class="page_pic">
 			</p>
 		</center>
 

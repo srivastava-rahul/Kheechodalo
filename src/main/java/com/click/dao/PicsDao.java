@@ -71,4 +71,10 @@ public interface PicsDao {
 	 */
 	void deleteAllPics();
 
+	/**
+	 * 
+	 * @return
+	 */
+	PictureUpload findWinnerPicBymaxVoteCount();
+
 }

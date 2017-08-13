@@ -28,6 +28,8 @@ public class PictureUploadPojo implements Serializable {
 
 	private boolean allowToVote = true;
 
+	private String userEmailId;
+	
 	public PictureUploadPojo() {
 
 	}
@@ -54,6 +56,7 @@ public class PictureUploadPojo implements Serializable {
 		this.picDescription = pictureUpload.getDescription();
 		this.picVote = pictureUpload.getPicVote();
 		this.userName = pictureUpload.getUser() != null ? pictureUpload.getUser().getFirstName() : null;
+		this.userEmailId = pictureUpload.getUser() != null ? pictureUpload.getUser().getEmailId() : null;
 		// this.picData = picData;
 
 		try {
@@ -112,6 +115,14 @@ public class PictureUploadPojo implements Serializable {
 
 	public void setAllowToVote(boolean allowToVote) {
 		this.allowToVote = allowToVote;
+	}
+
+	public String getUserEmailId() {
+		return userEmailId;
+	}
+
+	public void setUserEmailId(String userEmailId) {
+		this.userEmailId = userEmailId;
 	}
 
 }

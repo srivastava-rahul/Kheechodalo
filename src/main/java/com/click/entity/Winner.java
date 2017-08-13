@@ -53,10 +53,8 @@ public class Winner implements Serializable {
 
 	
 	public Winner(){}
-	public Winner(String id, String email_id, String winner_desc, byte[] fileData, Date createdDate, String prize_desc,
-			long picVote) {
+	public Winner(String email_id, String winner_desc, byte[] fileData, Date createdDate, String prize_desc,long picVote) {
 		super();
-		this.id = id;
 		this.email_id = email_id;
 		this.winner_desc = winner_desc;
 		this.fileData = fileData;

@@ -60,7 +60,7 @@ public class PicsDaoImpl implements PicsDao {
 	@SuppressWarnings("unchecked")
 	public List<PictureUpload> findAllPics(int pageNo) {
 		LOG.info("Inside findAllPics() DaoImpl ");
-		Query query = entityManager.createQuery("Select distinct pu from PictureUpload pu left outer join pu.picUploadData pd left outer join pu.user left outer join pu.friendEmail u order by pu.picVote DESC");
+		Query query = entityManager.createQuery("Select distinct pu from PictureUpload pu left outer join pu.picUploadData pd left outer join pu.user left outer join pu.friendEmail u order by pu.picVote DESC, pu.uploadDate ASC ");
 		query.setFirstResult(pageNo == 1 ? 0 : (pageNo*8));
 		query.setMaxResults(8);
 		List<PictureUpload> dataList = query.getResultList();
@@ -141,5 +141,18 @@ public class PicsDaoImpl implements PicsDao {
 		int deletedData = query.executeUpdate();
 		LOG.info("Deleted data Result :" + deletedData);
 		
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public PictureUpload findWinnerPicBymaxVoteCount() {
+		Query query = entityManager.createQuery("Select distinct pu from PictureUpload pu left outer join pu.picUploadData pd left outer join pu.user left outer join pu.friendEmail u order by pu.picVote DESC, pu.uploadDate ASC ");
+		query.setFirstResult(0);
+		query.setMaxResults(1);
+		List<PictureUpload> dataList = query.getResultList();
+		if(CollectionUtil.isNotEmpty(dataList)){
+			return dataList.get(0);
+		}
+		return null;
 	}
 }

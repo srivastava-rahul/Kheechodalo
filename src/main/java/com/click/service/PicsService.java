@@ -73,4 +73,10 @@ public interface PicsService {
 	 */
 	void deleteAllPics();
 
+	/**
+	 * 
+	 * @return
+	 */
+	PictureUpload findWinnerPicByMaxVoteCount();
+
 }

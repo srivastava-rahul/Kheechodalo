@@ -20,21 +20,20 @@ import com.click.entity.Winner;
  */
 @Repository
 public class WinnerDaoImpl implements WinnerDao {
-	
+
 	private static final Logger LOG = Logger.getLogger(WinnerDaoImpl.class);
 
 	@PersistenceContext(unitName = "entityManagerFactory")
 	EntityManager entityManager;
-	
 
 	@Override
 	public List<Winner> getWinner() {
-		LOG.info("Inside getWinner() DaoImpl"); 
-		Query query=null;
-		try{
-		    query = entityManager.createQuery("from Winner");
-		}catch(Exception e){
-			LOG.error(e.getMessage(),e);
+		LOG.info("Inside getWinner() DaoImpl");
+		Query query = null;
+		try {
+			query = entityManager.createQuery("from Winner");
+		} catch (Exception e) {
+			LOG.error(e.getMessage(), e);
 			e.printStackTrace();
 		}
 		return (List<Winner>) query.getResultList();
@@ -43,14 +42,18 @@ public class WinnerDaoImpl implements WinnerDao {
 	@Override
 	public void deleteWinner(Winner winnerdata) {
 		LOG.info("Inside getWinner() DaoImpl");
-		try{
-		entityManager.remove(winnerdata.getId());
-		}catch(Exception e){
-			LOG.error(e.getMessage(),e);
+		try {
+			entityManager.remove(winnerdata.getId());
+		} catch (Exception e) {
+			LOG.error(e.getMessage(), e);
 			e.printStackTrace();
 		}
-		
+
 	}
 
+	@Override
+	public void saveWinner(Winner winner) {
+		entityManager.merge(winner);
+	}
 
 }

@@ -252,6 +252,7 @@ function showSlides(n) {
 					<h2><span style="margin-left: 50%;color: red" class="voteCount${pic.id}">${pic.picVote}</span></h2>
 					<div class="">
 						<b><h2 style="color:blue">${pic.userName}</h2></b>
+						<b><h2 style="color:blue">${pic.userEmailId}</h2></b>
 						<p>${pic.picDescription}</p>
 					 <c:if test="${pic.allowToVote}"> 
 						<p align="center" class="hideVote${pic.id}">
@@ -287,6 +288,7 @@ function showSlides(n) {
 					<h2><span style="margin-left: 50%;color: red; " class="voteCount${pic.id}">${pic.picVote}</span></h2>
 					<div class="">
 						<b><h2 style="color:blue">${pic.userName}</h2></b>
+						<b><h2 style="color:blue">${pic.userEmailId}</h2></b>
 						<p>${pic.picDescription}</p>
 					 <c:if test="${pic.allowToVote}"> 
 						<p align="center" class="hideVote${pic.id}">

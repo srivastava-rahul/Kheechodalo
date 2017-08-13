@@ -18,6 +18,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.click.entity.PicUploadData;
 import com.click.entity.PictureUpload;
 import com.click.service.PicsService;
+import com.click.utils.SecurityLibrary;
 
 @Controller
 public class PicsController {
@@ -40,6 +41,7 @@ public class PicsController {
 				PictureUpload pic = new PictureUpload();
 				pic.setPicName(fileName);
 				pic.setUploadDate(new Date());
+				pic.setEmailId(SecurityLibrary.getLoggedInUserLoginEmailId());
 				pic.setContentType(file.getContentType());
 				pic.setPicSize(bytes.length > 0 ? bytes.length / 1024 : 0);
 				pic.setDescription(desc);

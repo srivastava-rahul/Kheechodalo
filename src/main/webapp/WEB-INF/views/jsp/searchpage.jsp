@@ -23,11 +23,11 @@
 			<c:if test="${empty prof.picImg}">
 			<img src="${pageContext.request.contextPath}/resources/images/profileupload.png" alt="Avatar" style="width:90px">
 			</c:if>
-						  <p><span><a href="#">${prof.name_surname}</a></span></p>
-						  <p style="margin-left:10%;color:black">${prof.daily_status}${prof.email_id}
+						  <p><span><a href="${pageContext.request.contextPath}/user/viewProfile/${prof.email_id}">${prof.name_surname}</a></span></p>
+						  <p style="margin-left:10%;color:black">${prof.daily_status}
 						  </p>
 						 <!--  <button class="view_today_pic">View--Profile</button>&nbsp;&nbsp;&nbsp;&nbsp; -->
-		 <a class="view_today_pic"  href="${pageContext.request.contextPath}/user/viewProfile/${prof.email_id}">View--Profile</a>	  &nbsp;&nbsp;&nbsp;&nbsp;
+		 <a class="view_today_pic"  href="${pageContext.request.contextPath}/user/viewProfile/${prof.email_id}">View--Profile</a>&nbsp;&nbsp;&nbsp;&nbsp;
 						 <!--  <button class="view_profile" style="margin-right:2%">Today--Pic</button> -->
 		 <a class="view_profile" style="margin-right:2%" href="${pageContext.request.contextPath}/user/searchpicbyemailId/${prof.email_id}" >Today--Pic</a>
 						 </div>

@@ -172,6 +172,13 @@
 		<put-attribute name="title" value="SearchPage" />
 		<put-attribute name="body" value="/WEB-INF/views/jsp/searchpage.jsp" />
 	</definition>
+	
+	
+	<!-- Notification pages -->
+	<definition name="notification" extends="full-definition">
+		<put-attribute name="title" value="Notification" />
+		<put-attribute name="body" value="/WEB-INF/views/jsp/notification.jsp" />
+	</definition>
 
 	<!-- UploadProfilePic pages -->
 	<definition name="UploadProfilePic" extends="full-definition">

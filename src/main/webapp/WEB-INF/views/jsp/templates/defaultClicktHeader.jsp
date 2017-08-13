@@ -67,7 +67,7 @@
 			  <table>
 			  <tr><td><span>&nbsp; &nbsp;<i class="fa fa-home" style="font-size:28px;color:red"></i><a href="${pageContext.request.contextPath}/user/dashboard">Home</a></span></td></tr>
 			  <tr><td><span>&nbsp; &nbsp;<i class="fa fa-gear fa-spin" style="font-size:24px;color:red"></i><a href="${pageContext.request.contextPath}/user/getProfileSettings">Settings</a></span></td></tr>
-			   <!-- <tr><td><span>&nbsp; &nbsp;<i class="material-icons" style="font-size:28px;color:red">add_alert</i><a href="#">Notifications</a></span></td></tr> -->
+			   <tr><td><span>&nbsp; &nbsp;<i class="fa fa-bell" style="font-size:28px;color:red"></i><a href="${pageContext.request.contextPath}/user/notification">Notifications</a></span></td></tr>
 			   <tr><td><span>&nbsp; &nbsp;<i class="fa fa-diamond" style="font-size:28px;color:red"></i><a href="${pageContext.request.contextPath}/user/rules">Rules</a></span></td></tr>
 			   <tr><td><span>&nbsp; &nbsp;<i class="fa fa-gift" style="font-size:28px;color:red"></i><a href="${pageContext.request.contextPath}/user/prizes">Prize</a></span></td></tr>
 			   <tr><td><span>&nbsp; &nbsp;<i class="fa fa-pencil-square-o" style="font-size:28px;color:red"></i><a href="${pageContext.request.contextPath}/user/testimonials">Testimonials</a></span></td></tr>

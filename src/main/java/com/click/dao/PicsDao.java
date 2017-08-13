@@ -36,6 +36,14 @@ public interface PicsDao {
 	 * @return
 	 */
 	List<PictureUpload> findAllPics(int pageNo);
+	
+	
+	/**
+	 * 
+	 * @param get user pic based on email_id
+	 * @return
+	 */
+	 PictureUpload  findPicsbyemail(String email_id);
 
 	/**
 	 * 

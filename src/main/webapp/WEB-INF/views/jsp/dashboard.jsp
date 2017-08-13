@@ -241,9 +241,17 @@ function showSlides(n) {
 <div class="">
   <ul class="pagination">
   </ul>
-  
-  <h3 style="color: yellow">Please tell What to be search enter here... </h3>
-<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search By Email..." title="Type in Email" style = "width: 452px; height: 38px;">
+  	<form name="searchFormuser" action="searchUserPicbyemailid" method="post">
+			   <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
+			
+			<div class="Changepasswordformboby">
+				<h3 style="color: yellow">Please Search your loved one Here enter the id... </h3>
+				<input type="text"  name="email_id" id="email_id" style="width:30% "
+					placeholder="Please Enter id" />
+					<button type="submit" class="button_submit  submit" style="background-color:red">Search</button>
+				    <c:url value="/user/dashboard" var="dashUrl" />
+			</div>
+		</form>
 	</div>
 </div>
 
@@ -251,6 +259,7 @@ function showSlides(n) {
 <jsp:include page="/WEB-INF/views/jsp/message.jsp" />
 	<div >
 		<div class="row">
+		<c:if test="${empty searchPic}">
 			<c:forEach var="pic" items="${picsList}" varStatus="index">
 			<div class="column">
 				<div class="card">
@@ -270,6 +279,26 @@ function showSlides(n) {
 				</div>
 			</div>
 			</c:forEach>
+			</c:if>
+			<c:if test="${not empty searchPic}">
+			<div class="column">
+				<div class="card">
+					<img src="data:image/jpeg;base64,${searchPic.base64Encoded}"	alt="Picture" style="width: 291px; height: 320px;" onclick="openModal();currentSlide(${index.index +1})" class="hover-shadow cursor">
+					<h2><span style="margin-left: 50%;color: red" class="voteCount${searchPic.id}">${searchPic.picVote}</span></h2>
+					<div class="">
+						<b><h2 style="color:blue"><a href="${pageContext.request.contextPath}/user/viewProfile/${searchPic.userEmailId}">${searchPic.userName}</a></h2></b>
+						<%-- <b><h2 style="color:blue">${pic.userEmailId}</h2></b> --%>
+						<p>${searchPic.picDescription}</p>
+					 <c:if test="${searchPic.allowToVote}"> 
+						<p align="center" class="hideVote${searchPic.id}">
+							<button class="marg-bottom-10 button_submit  submit votePic">Vote</button>
+							<input type="hidden" id="picId" name="picId" value="${searchPic.id}">
+						</p>
+					</c:if>
+					</div>
+				</div>
+			</div>
+			</c:if>
 		</div>
 	</div>
 	
@@ -277,7 +306,7 @@ function showSlides(n) {
 <div id="myModal" class="modal">
   <span class="close cursor" onclick="closeModal()">&times;</span>
   <div class="modal-content">
-
+<c:if test="${empty searchPic}">
        <c:forEach var="pic" items="${picsList}">
 			<div class="mySlides">
 					<%-- <img src="data:image/jpeg;base64,${pic.base64Encoded}"	style="width:100%;height:90%">
@@ -307,6 +336,35 @@ function showSlides(n) {
 				</div>
 			
 			</c:forEach>
+			</c:if>
+			<c:if test="${not empty searchPic}">
+				<div class="mySlides">
+					<%-- <img src="data:image/jpeg;base64,${pic.base64Encoded}"	style="width:100%;height:90%">
+					<span style="margin-left: 50%;color: red">${pic.picVote}</span>
+					<div class="">
+						<b><h2 style="color:blue">${pic.userName}</h2></b>
+						<p>${pic.picDescription}</p>
+						<p align="center">
+							<button class=" marg-bottom-10 button_submit  submit">Vote</button>
+						</p>
+					</div> --%>
+					<div class="card">
+					<img src="data:image/jpeg;base64,${searchPic.base64Encoded}"	style="width:100%;height:90%">
+					<h2><span style="margin-left: 50%;color: red; " class="voteCount${searchPic.id}">${searchPic.picVote}</span></h2>
+					<div class="">
+						<b><h2 style="color:blue">${searchPic.userName}</h2></b>
+						<b><h2 style="color:blue">${searchPic.userEmailId}</h2></b>
+						<p>${searchPic.picDescription}</p>
+					 <c:if test="${searchPic.allowToVote}"> 
+						<p align="center" class="hideVote${searchPic.id}">
+							<button class="marg-bottom-10 button_submit  submit votePic">Vote</button>
+							<input type="hidden" id="picId" name="picId" value="${searchPic.id}">
+						</p>
+					</c:if>
+					</div>
+				</div>
+				</div>
+			</c:if>
     
       
 

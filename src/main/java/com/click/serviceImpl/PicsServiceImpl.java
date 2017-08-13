@@ -70,6 +70,15 @@ public class PicsServiceImpl implements PicsService {
 
 		return pojoList;
 	}
+	
+	
+	@Override
+	public PictureUploadPojo findPicsbyemail(String email_id) {
+		LOG.info("Inside findPicsbyemail_id() serviceImpl");
+		PictureUpload singledata = picsDao.findPicsbyemail(email_id);
+		PictureUploadPojo pj=new PictureUploadPojo(singledata);
+		return pj;
+	}
 
 	@Override
 	public PictureUpload getSinglepicInfo(String picid) {

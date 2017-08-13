@@ -34,10 +34,19 @@ public interface PicsService {
 	/**
 	 * 
 	 * @param pageNo
-	 *            TODO
+	 *            
 	 * @return
 	 */
 	List<PictureUploadPojo> findAllPics(int pageNo);
+	
+	
+	/**
+	 * 
+	 * @param get pic based on emailid
+	 *            
+	 * @return
+	 */
+	PictureUploadPojo findPicsbyemail(String email_id);
 
 	/**
 	 * 

@@ -64,6 +64,17 @@ public class DashboardController {
 		return "dashboard";
 	}
 
+	
+	
+	@RequestMapping(value = "/searchUserPicbyemailid")
+	protected String getPicsbyemail_id(String email_id,Model model) throws Exception {
+		LOG.info(" LOG User Dashboard from getPicsbyemail_id controlller==>"+email_id);
+		User u = SecurityLibrary.getLoggedInUser();
+		PictureUploadPojo searchPic = picsService.findPicsbyemail(email_id);
+		model.addAttribute("searchPic", searchPic);
+		return "dashboard";
+	}
+	
 	@RequestMapping(value = "/newUserPassword", method = RequestMethod.GET)
 	public String forgetPassword() {
 		return "newUserPassword";

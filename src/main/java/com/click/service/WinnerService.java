@@ -15,8 +15,9 @@ public interface WinnerService {
 
 	/**
 	 * Get List of the Winner data by Admin
+	 * @param pageNo TODO
 	 */
-	public List<Winner> getAllWinner();
+	public List<Winner> getAllWinner(int pageNo);
 
 	/**
 	 * Delete Single Winner data by Admin based on id

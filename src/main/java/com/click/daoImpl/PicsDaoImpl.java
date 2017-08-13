@@ -61,7 +61,7 @@ public class PicsDaoImpl implements PicsDao {
 	public List<PictureUpload> findAllPics(int pageNo) {
 		LOG.info("Inside findAllPics() DaoImpl ");
 		Query query = entityManager.createQuery("Select distinct pu from PictureUpload pu left outer join pu.picUploadData pd left outer join pu.user left outer join pu.friendEmail u order by pu.picVote DESC, pu.uploadDate ASC ");
-		query.setFirstResult(pageNo == 1 ? 0 : (pageNo*8));
+		query.setFirstResult(pageNo == 1 ? 0 : ((pageNo -1)*8));
 		query.setMaxResults(8);
 		List<PictureUpload> dataList = query.getResultList();
 		

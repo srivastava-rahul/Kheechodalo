@@ -11,8 +11,9 @@ public interface WinnerDao {
 
 	/**
 	 * Get List of the Winner data by Admin
+	 * @param pageNo TODO
 	 */
-	public List<Winner> getWinner();
+	public List<Winner> getWinner(int pageNo);
 
 	/**
 	 * Delete Single Winner data by Admin based on id

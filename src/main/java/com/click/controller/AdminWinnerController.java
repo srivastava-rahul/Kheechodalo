@@ -31,7 +31,7 @@ public class AdminWinnerController {
 	protected String getWinnerInfo(Model model) throws Exception {
 		LOG.info("Admin getting list of Winner from getWinnerInfo controller");
 		try {
-			 List<Winner>  listofWinner = winnerService.getAllWinner();			
+			 List<Winner>  listofWinner = winnerService.getAllWinner(1);			
 			 model.addAttribute("winner",listofWinner);
 		   } catch (Exception e) {
 			   LOG.error(e.getMessage(),e);
@@ -47,7 +47,7 @@ public class AdminWinnerController {
 			 Winner  winnerdata=new Winner();
 			 winnerdata.setId(id);
 			 winnerService.deleteWinner(winnerdata); 
-			 List<Winner>  listofWinner = winnerService.getAllWinner();			
+			 List<Winner>  listofWinner = winnerService.getAllWinner(1);			
 			 model.addAttribute("winner",listofWinner);
 			 model.addAttribute("success", " Data Deleted Successfully .");
 			return "adminViewWinner";

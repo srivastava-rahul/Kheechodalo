@@ -2,6 +2,56 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@ page isELIgnored="false"%>
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/jquery-1.4.2.min.js"></script>
+<script>
+$(document).ready(function() {
+	var num2 = 4;
+	<c:if test="${not empty pageNo}">
+	num2 = parseInt('${pageNo}');
+	</c:if>
+	var html2 = "";
+	html2 += '<li><a href="#" class="previousPage">«</a></li>';
+	html2 += '<li><a href="${pageContext.request.contextPath}/user/winnerPagination/'+(num2 - 3)+ '" >'+(num2 - 3)+ '</a></li>';
+	html2 += '<li><a href="${pageContext.request.contextPath}/user/winnerPagination/'+(num2 - 2)+ '">'+(num2 - 2)+ '</a></li>';
+	html2 += '<li><a href="${pageContext.request.contextPath}/user/winnerPagination/'+(num2 - 1)+ '">'+(num2 - 1)+ '</a></li>';
+	html2 += '<li><a href="${pageContext.request.contextPath}/user/winnerPagination/'+(num2)+ '">'+(num2)+ '</a></li>';
+	html2 += '<li><a href="#" class="nextPage">»</a></li>';
+	$('.pagination').html(html2);
+	
+	
+	
+			$("body").delegate(	".previousPage",	"click",	function() {
+							var num = parseInt($('.pagination li:nth-last-child(2)').text())-3;
+						if (num >= 5) {
+							var html1 = "";
+							console.log("num  :"+ num);
+							html1 += '<li><a href="#" class="previousPage">«</a></li>';
+							html1 += '<li><a href="${pageContext.request.contextPath}/user/winnerPagination/'+(num - 4)+ '" >'+(num - 4)+ '</a></li>';
+							html1 += '<li><a href="${pageContext.request.contextPath}/user/winnerPagination/'+(num - 3)+ '">'+(num - 3)+ '</a></li>';
+							html1 += '<li><a href="${pageContext.request.contextPath}/user/winnerPagination/'+(num - 2)+ '">'+(num - 2)+ '</a></li>';
+							html1 += '<li><a href="${pageContext.request.contextPath}/user/winnerPagination/'+(num - 1)+ '">'+(num - 1)+ '</a></li>';
+							html1 += '<li><a href="#" class="nextPage">»</a></li>';
+							$('.pagination').html(html1);
+						}
+						
+						
+			});
+			
+			$("body").delegate(	".nextPage",	"click",	function() {
+				var number = parseInt($('.pagination li:nth-last-child(2)').text());
+				var html = "";
+				html += '<li><a href="#" class="previousPage">«</a></li>';
+				html += '<li><a href="${pageContext.request.contextPath}/user/winnerPagination/'+(number + 1)+ '" >'+(number + 1)+ '</a></li>';
+				html += '<li><a href="${pageContext.request.contextPath}/user/winnerPagination/'+(number + 2)+ '">'+(number + 2)+ '</a></li>';
+				html += '<li><a href="${pageContext.request.contextPath}/user/winnerPagination/'+(number + 3)+ '">'+(number + 3)+ '</a></li>';
+				html += '<li><a href="${pageContext.request.contextPath}/user/winnerPagination/'+(number + 4)+ '">'+(number + 4)+ '</a></li>';
+				html += '<li><a href="#" class="nextPage">»</a></li>';
+				$('.pagination').html(html)
+	});
+						
+					});
+
+
+</script>
 <div class="body-area">
 
 	<img src="${pageContext.request.contextPath}/resources/images/winner.jpg" alt="Avatar" class="page_pic">
@@ -11,6 +61,9 @@
 		</p>
 	</div>
 	<center>
+	 <ul class="pagination">
+  </ul>
+	
 		<c:forEach items="${winnerList}" var="winner">
 			<div class="containerwinner">
 				<div class="container_img_header">
@@ -33,7 +86,6 @@
 			</div>
 		</c:forEach>
 	</center>
-
 
 
 </div>

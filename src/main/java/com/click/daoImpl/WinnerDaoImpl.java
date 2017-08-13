@@ -29,11 +29,13 @@ public class WinnerDaoImpl implements WinnerDao {
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Winner> getWinner() {
+	public List<Winner> getWinner(int pageNo) {
 		LOG.info("Inside getWinner() DaoImpl");
 		Query query = null;
 		try {
 			query = entityManager.createQuery("from Winner w order by w.createdDate DESC");
+			query.setFirstResult(pageNo == 1 ? 0 : ((pageNo-1)*5));
+			query.setMaxResults(5);
 		} catch (Exception e) {
 			LOG.error(e.getMessage(), e);
 			e.printStackTrace();

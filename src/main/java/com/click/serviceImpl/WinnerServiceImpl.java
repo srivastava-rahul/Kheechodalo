@@ -35,9 +35,9 @@ public class WinnerServiceImpl implements WinnerService {
 	PicsService picsService;
 
 	@Override
-	public List<Winner> getAllWinner() {
+	public List<Winner> getAllWinner(int pageNo) {
 		LOG.info("Inside getWinner() serviceImpl");
-		List<Winner> listofwinner = winnerDao.getWinner();
+		List<Winner> listofwinner = winnerDao.getWinner(pageNo);
 		if (CollectionUtil.isNotEmpty(listofwinner)) {
 			for (Winner winner : listofwinner) {
 				try {

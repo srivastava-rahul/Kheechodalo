@@ -77,7 +77,7 @@ $(document).ready(function() {
 				<div style="background: black;">
 					<span>
 						<center>
-							<a href="#">${winner.winner_name}</a>
+							<a href="${pageContext.request.contextPath}/user/viewProfile/${winner.email_id}">${winner.winner_name}</a>
 						</center>
 					</span>
 					<br />

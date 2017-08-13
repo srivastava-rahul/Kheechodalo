@@ -7,40 +7,24 @@
 
 <div class="body-area">
 	<jsp:include page="/WEB-INF/views/jsp/message.jsp" />
-	<div class="Changepassword_password_form">
-		<!-- header -->
-		<div class="Changepasswordformheader">
-			<center>
-				<b><h1>Admin Send Testimonial Form</h1>
-					<b>
-			</center>
-		</div>
-
-		<form name="feedbackForm" action="feedbackData" method="post">
-			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
-			<div class="Changepasswordformboby">
-				<h2 style="color: red">Please Provide your Feedback......!!!</h2>
-				<div style="margin-left: 1%">
-					<textarea name= "feedback" id="feedback" rows="5" cols="66" style="color: black"
-						placeholder="Please provide a detailed description of your Problems or suggestions."
-						 aria-required="true"></textarea>
-				</div>
-			</div>
-
-			<br />
-			<div class="Changepasswordformfooter" align="right">
-				<button type="submit" class="button_submit  submit">Send</button>&nbsp;&nbsp;
-
-				<c:url value="/user/dashboard" var="dashUrl" />
-				<a href="${dashUrl}" class="button_submit  submit" style="margin-right: 12px;" style="margin-right: 12px;"> Cancel </a>
-			</div>
-		</form>
+	
+	<div class="information">
+		<p class="header_information">Testimonials Information for Admin</p>
 	</div>
-</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	</div>
 
-<style>
-.Changepassword_password_form{
-margin-bottom: auto; !important;
-}
-
-</style>

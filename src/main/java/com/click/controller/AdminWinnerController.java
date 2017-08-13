@@ -14,7 +14,7 @@ import com.click.service.UserService;
 import com.click.service.WinnerService;
 
 @Controller
-@RequestMapping(value = "/user")
+@RequestMapping(value = "/admin")
 public class AdminWinnerController {
 	
 

@@ -16,7 +16,7 @@ import com.click.service.TestimonialService;
 import com.click.service.UserService;
 
 @Controller
-@RequestMapping(value = "/user")
+@RequestMapping(value = "/admin")
 public class AdminTestimonialController {
 	
 

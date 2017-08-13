@@ -4,13 +4,13 @@
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/jquery-1.4.2.min.js"></script>
 
 <div class="body-area">
-		<img src="${pageContext.request.contextPath}/resources/images/Adminimg.png" alt="Avatar" class="page_pic">
+		
 	<div class="information">
 		<p class="header_information">Winner Information for Admin</p>
 	</div>
 		
 	
-	         <form name="deleteForm" action="" method="post">
+	        <%--  <form name="deleteForm" action="" method="post">
 			   <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
 			
 			<div class="Changepasswordformboby">
@@ -22,31 +22,46 @@
 				
 				    <c:url value="/user/dashboard" var="dashUrl" />
 			</div>
-		</form>
+		</form> --%>
 		</br></br>
 		
 		
-		<table style="margin-left: 5%;width:90%;padding: 5%;">
-		<tr>
-		<th> Id</th>
-		<th> Date</th>
-		<th> prize</th>
-		<th> Description</th>
-		<th> Pic</th>
-		<th> Vote</th>
+		<h3 style="color: yellow;margin-left: 25%">Please tell What to be search enter here... </h3>
+    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search By Email..." title="Type in Email" style = "width: 452px; height: 38px;;margin-left: 25%"/>
+	</br></br>
+	
+		
+		
+		
+		<table id="myTable" style="margin-left: 5%; width: 90%; padding: 5%; color: white"
+		border="1">
+		<tr class="header">
+			<th height="40"><center>Id</center></th>
+			<th height="40"><center>Created Date</center></th>
+			<th height="40"><center>prize</center></th>
+			<th height="40"><center>Description</center></th>
+			<th height="40"><center>Pic</center></th>
+			<th height="40"><center>Vote</center></th>
+			<th height="40"><center>email-id</center></th>
+			<th height="40"><center>Action Button</center></th>
+			
 		</tr>
 		
-		<tr>
-		<td>111</td>
-		<td>11-jul-2017</td>
-		<td>Rs200</td>
-		<td>Hinenccwjcjbjcbbcbhbchhcb</td>
-		<td>pic</td>
-		<td>4000000</td>
-				
-		</tr>
-		
-		
-		</table>
-		
+		<%-- <c:forEach var="winner" items="${winners}">
+			<tr>
+				<td><center>${winner.id}</center></td>
+				<td><center>${winner.createdDate}</center></td>
+				<td><center>${winner.prize}</center></td>
+				<td><center>${winner.description}</center></td>
+				<td><center>${winner.pic}</center></td>
+				<td><center>${winner.vote}</center></td>
+				<td><center>${winner.email_id}</center></td>
+				<td><center>
+						<a
+							href="${pageContext.request.contextPath}/admin/admindeletefeedback/${fdbk.id}">Delete</a>
+					</center></td>
+			</tr>
+		</c:forEach>
+ --%>
+	</table>
 </div>

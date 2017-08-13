@@ -8,7 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.click.dao.ProfileSettingDao;
 import com.click.dao.UserDao;
+import com.click.entity.ProfileSetting;
 import com.click.entity.User;
 import com.click.service.UserService;
 
@@ -17,9 +19,12 @@ import com.click.service.UserService;
 public class UserServiceImpl implements UserService {
 
 	private static final Logger LOG = Logger.getLogger(UserServiceImpl.class);
-	
+
 	@Autowired
 	UserDao userDao;
+
+	@Autowired
+	ProfileSettingDao profileSettingDao;
 
 	@Override
 	public User findUserById(String userId) {
@@ -31,6 +36,11 @@ public class UserServiceImpl implements UserService {
 	@Transactional(readOnly = false)
 	public User saveUser(User user) {
 		LOG.info("Inside saveUser() serviceImpl");
+		ProfileSetting pf = new ProfileSetting();
+		pf.setName_surname(user.getFirstName());
+		pf.setEmail_id(user.getEmailId());
+		profileSettingDao.updateUserProfile(pf);
+
 		return userDao.saveUser(user);
 	}
 
@@ -38,10 +48,10 @@ public class UserServiceImpl implements UserService {
 	@Transactional(readOnly = false)
 	public void activateUser(String id) {
 		LOG.info("Inside activateUser() serviceImpl");
-		try{
-		userDao.activateUser(id);
-		}catch(Exception e){
-            LOG.error(e.getMessage(),e);
+		try {
+			userDao.activateUser(id);
+		} catch (Exception e) {
+			LOG.error(e.getMessage(), e);
 			e.printStackTrace();
 		}
 	}
@@ -56,10 +66,10 @@ public class UserServiceImpl implements UserService {
 	@Transactional(readOnly = false)
 	public void updateUserDetails(User userDetails) {
 		LOG.info("Inside updateUserDetails() serviceImpl");
-		try{
-		userDao.updateUser(userDetails);
-		}catch(Exception e){
-			LOG.error(e.getMessage(),e);
+		try {
+			userDao.updateUser(userDetails);
+		} catch (Exception e) {
+			LOG.error(e.getMessage(), e);
 			e.printStackTrace();
 		}
 

@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.click.entity.ProfileSetting;
 import com.click.entity.User;
 import com.click.entity.UserRole;
 import com.click.service.SendMailService;
@@ -77,6 +78,7 @@ public class UserController {
 			role.setId("111");
 			user.setUserRole(role);
 			user = userService.saveUser(user);
+			
 			sendRegistrationEmail(new String[] { user.getEmailId() }, user.getFirstName(), user.getId(),"Thanks For Registration");
 			model.addAttribute("success", "Please Visit Your Email Id For Activation .");
 			LOG.info("user object :" + user.toLogString());

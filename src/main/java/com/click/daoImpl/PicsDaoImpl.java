@@ -2,7 +2,6 @@ package com.click.daoImpl;
 
 import java.util.List;
 
-import javax.naming.spi.DirStateFactory.Result;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
@@ -13,7 +12,6 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.click.dao.PicsDao;
-import com.click.entity.PicUploadData;
 import com.click.entity.PictureUpload;
 import com.click.utils.CollectionUtil;
 
@@ -70,7 +68,6 @@ public class PicsDaoImpl implements PicsDao {
 		return dataList;
 	}
 
-	@SuppressWarnings("unchecked")
 	@Override
 	public PictureUpload getSinglepicInfo(String picid) {
 		LOG.info("Inside getSinglepicInfo() DaoImpl ");
@@ -126,5 +123,23 @@ public class PicsDaoImpl implements PicsDao {
 		//query.setMaxResults(8);
 		List<PictureUpload> dataList = query.getResultList();
 		return dataList;
+	}
+	
+
+	@Override
+	@Transactional(propagation = Propagation.REQUIRES_NEW, rollbackFor = Exception.class)
+	public void deleteAllPics() {
+		Query query = entityManager.createNativeQuery("DELETE FROM KD_PIC_FRIEND_LIST");
+		int deletedFriend = query.executeUpdate();
+		LOG.info("Deleted friend Result :" + deletedFriend);
+		
+		query = entityManager.createNativeQuery("DELETE FROM KD_PICS_UPLOAD");
+		int picUplaod = query.executeUpdate();
+		LOG.info("Deleted picUplaod Result :" + picUplaod);
+		
+		query = entityManager.createNativeQuery("DELETE FROM KD_PIC_DATA");
+		int deletedData = query.executeUpdate();
+		LOG.info("Deleted data Result :" + deletedData);
+		
 	}
 }

@@ -108,4 +108,10 @@ public class PicsServiceImpl implements PicsService {
 
 		return pojoList;
 	}
+
+	@Override
+	@Transactional(readOnly = false)
+	public void deleteAllPics() {
+		picsDao.deleteAllPics();
+	}
 }

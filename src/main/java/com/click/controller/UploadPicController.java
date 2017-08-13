@@ -30,7 +30,7 @@ public class UploadPicController {
 	protected String getMyPic(Model model) throws Exception {
 		LOG.info("In user uploadPic from getMyPic controller");
 		long maxVoteCount = picsService.findPicMaxVoteCount();
-		PictureUpload pictureUpload = picsService.findPicByUserId(SecurityLibrary.getLoggedInUser().getId());
+		PictureUpload pictureUpload = picsService.findPicByUserId(SecurityLibrary.getLoggedInUserLoginEmailId());
 		model.addAttribute("maxVoteCount", maxVoteCount);
 		model.addAttribute("picData", pictureUpload);
 		try {

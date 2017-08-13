@@ -2,6 +2,7 @@ package com.click.controller;
 
 import java.util.List;
 
+import org.apache.commons.codec.binary.Base64;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.click.entity.ProfileSetting;
 import com.click.entity.User;
 import com.click.pojo.PictureUploadPojo;
 import com.click.service.PicsService;
@@ -106,5 +108,5 @@ public class DashboardController {
 		}
 		return new ResponseEntity<Long>(voteCount, HttpStatus.OK);
 	}
-
+	
 }

@@ -5,7 +5,6 @@ package com.click.dao;
 
 import java.util.List;
 
-import com.click.entity.PicUploadData;
 import com.click.entity.PictureUpload;
 
 /**
@@ -54,17 +53,22 @@ public interface PicsDao {
 	 * 
 	 * @param picId
 	 * @param userEmailId
-	 * @return 
+	 * @return
 	 */
 	long updateVoteCount(String picId, String userEmailId);
 
-	
 	/**
 	 * Get all the pic information for Admin
+	 * 
 	 * @param picId
 	 * @param userEmailId
-	 * @return 
+	 * @return
 	 */
 	List<PictureUpload> findAllPicsbyAdmin();
+
+	/**
+	 * 
+	 */
+	void deleteAllPics();
 
 }

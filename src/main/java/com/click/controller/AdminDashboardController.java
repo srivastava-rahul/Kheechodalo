@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.click.entity.ProfileSetting;
 import com.click.entity.User;
 import com.click.service.AdminGetUserInfoService;
+import com.click.service.PicsService;
 import com.click.service.UserService;
 
 /**
@@ -30,6 +31,9 @@ public class AdminDashboardController {
 
 	@Autowired
 	AdminGetUserInfoService adminGetUserInfoService;
+	
+	@Autowired
+	PicsService picsService;
 
 	/*
 	 * @RequestMapping(value = "/adminDashboard") protected String
@@ -81,6 +85,19 @@ public class AdminDashboardController {
 			e.printStackTrace();
 		}
 		return "adminViewProfileSetting";
+	}
+
+
+	@RequestMapping(value = "/deleteAllPics")
+	protected String deleteAllPics(Model model) throws Exception {
+		LOG.info("deleteAllPics called");
+		try {
+			picsService.deleteAllPics();
+		} catch (Exception e) {
+			LOG.error(e.getMessage(),e);
+			e.printStackTrace();
+		}
+		return "dashboard";
 	}
 
 }

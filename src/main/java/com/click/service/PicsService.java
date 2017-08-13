@@ -5,7 +5,6 @@ package com.click.service;
 
 import java.util.List;
 
-import com.click.entity.PicUploadData;
 import com.click.entity.PictureUpload;
 import com.click.pojo.PictureUploadPojo;
 
@@ -44,7 +43,7 @@ public interface PicsService {
 	 * 
 	 * @return
 	 */
-	PictureUpload getSinglepicInfo( String picid);
+	PictureUpload getSinglepicInfo(String picid);
 
 	/**
 	 * 
@@ -56,16 +55,22 @@ public interface PicsService {
 	 * 
 	 * @param picId
 	 * @param loggedInUserLoginEmailId
-	 * @return 
+	 * @return
 	 */
 	long updateVoteCount(String picId, String loggedInUserLoginEmailId);
 
 	/**
-	 * getting all the pic information for admin 
-	 * @param 
+	 * getting all the pic information for admin
+	 * 
+	 * @param
 	 * @param loggedInUserLoginEmailId
-	 * @return 
+	 * @return
 	 */
 	List<PictureUploadPojo> findAllPicsbyAdmin();
+
+	/**
+	 * 
+	 */
+	void deleteAllPics();
 
 }

@@ -331,7 +331,7 @@ function showSlides(n) {
 				data : {'picId' : picId},
 				type : "POST",
 				beforeSend : function(xhr) {
-					xhr.setRequestHeader(header, token);
+				//	xhr.setRequestHeader(header, token);
 					$('#loading').show();
 				},
 				success : function(data, textStatus, request) {

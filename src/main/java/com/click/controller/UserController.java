@@ -67,6 +67,11 @@ public class UserController {
 			@RequestParam String password ,Model model) {
 		    LOG.info("Inside saveUser controller");
 		try {
+			User userexit=userService.getUserDeatilsByEmailId(email);
+			if(userexit!=null){
+				model.addAttribute("error", "Email-id Already Exit...!");
+				return "WEB-INF/views/jsp/login";
+			}
 			User user = new User();
 			user.setFirstName(firstName);
 			user.setLastName(lastName);

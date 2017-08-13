@@ -46,9 +46,6 @@ $(document).ready(function(){
 </head>
 
 <body>
-
-<jsp:include page="/WEB-INF/views/jsp/message.jsp" />
-
 <div style="margin-top: 0.5%; width: 30%; height: 50%; background-color: grey">
 
 	<%-- 	<center>
@@ -96,8 +93,8 @@ $(document).ready(function(){
 				<h3>Modal Footer</h3>
 			</div>
 		</div>
-	</div>
-		<jsp:include page="/WEB-INF/views/jsp/message.jsp" />
+	</div><br/>
+		<div style="color:red;margin-left:50%;background:white; width:10%; "><jsp:include page="/WEB-INF/views/jsp/message.jsp" /></div>
 	<div class="form">
 
 		<ul class="tab-group">

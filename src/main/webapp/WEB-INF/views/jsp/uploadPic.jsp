@@ -53,7 +53,8 @@
 					</c:if>
 				</span>
 				<c:if test="${not empty picImg}">
-					<p style="color: red; font-size: 25px">Remaning vote to win(${maxVoteCount})</p>
+				    <p style="color: green; font-size: 25px">Winner vote (${maxVoteCount})</p>
+					<p style="color: red; font-size: 25px">Remaning vote to win</p>
 					<img src="${pageContext.request.contextPath}/resources/images/arrow.gif" style="margin-top: 1%;" src="arrow.gif" width="12%" height="5%" />
 					<span style="color: red; font-size: 25px">${maxVoteCount - picData.picVote}</span>
 					<div style="margin-top: 19%">

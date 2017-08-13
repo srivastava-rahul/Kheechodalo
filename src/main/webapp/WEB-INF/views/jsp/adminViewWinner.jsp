@@ -47,21 +47,22 @@
 			
 		</tr>
 		
-		<%-- <c:forEach var="winner" items="${winners}">
+		<c:forEach var="win" items="${winner}">
 			<tr>
-				<td><center>${winner.id}</center></td>
-				<td><center>${winner.createdDate}</center></td>
-				<td><center>${winner.prize}</center></td>
-				<td><center>${winner.description}</center></td>
-				<td><center>${winner.pic}</center></td>
-				<td><center>${winner.vote}</center></td>
-				<td><center>${winner.email_id}</center></td>
+				<td><center>${win.id}</center></td>
+				<td><center>${win.createdDate}</center></td>
+				<td><center>${win.prize_desc}</center></td>
+				<td><center>${win.winner_desc}</center></td>
+				<td><center><img src="data:image/jpeg;base64,${win.base64Encoded}" alt="Avatar" style="width: 250px"></center>
+				</td>
+				<td><center>${win.picVote}</center></td>
+				<td><center>${win.email_id}</center></td>
 				<td><center>
 						<a
-							href="${pageContext.request.contextPath}/admin/admindeletefeedback/${fdbk.id}">Delete</a>
+							href="${pageContext.request.contextPath}/admin/admindeletefeedback/${win.id}">Delete</a>
 					</center></td>
 			</tr>
 		</c:forEach>
- --%>
+
 	</table>
 </div>

@@ -10,10 +10,16 @@ import com.click.entity.Winner;
 public interface WinnerDao {
 
 	/**
-	 * Get List of the Winner data by Admin
+	 * Get List of the Winner data for User
 	 * @param pageNo TODO
 	 */
 	public List<Winner> getWinner(int pageNo);
+	
+	/**
+	 * Get List of the Winner data by Admin
+	 * @param pageNo TODO
+	 */
+	public List<Winner> getAllWinnerbyadmin();
 
 	/**
 	 * Delete Single Winner data by Admin based on id

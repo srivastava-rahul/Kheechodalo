@@ -53,6 +53,29 @@ public class WinnerServiceImpl implements WinnerService {
 		return listofwinner;
 	}
 
+	
+	@Override
+	public List<Winner> getAllWinnerbyadmin() {
+		LOG.info("Inside getAllWinnerbyadmin() serviceImpl");
+		List<Winner> listofwinner = winnerDao.getAllWinnerbyadmin();
+		if (CollectionUtil.isNotEmpty(listofwinner)) {
+			for (Winner winner : listofwinner) {
+				try {
+					if (winner.getFileData() != null) {
+						byte[] encodeBase64 = Base64.encodeBase64(winner.getFileData());
+						winner.setBase64Encoded(new String(encodeBase64, "UTF-8"));
+					}
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		return listofwinner;
+	}
+
+	
+	
+	
 	@Override
 	@Transactional(readOnly = false)
 	public void deleteWinner(Winner winnerdata) {

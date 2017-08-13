@@ -28,10 +28,10 @@ public class AdminWinnerController {
 			 
 	
 	@RequestMapping(value = "/admingetwinner")
-	protected String getWinnerInfo(Model model) throws Exception {
-		LOG.info("Admin getting list of Winner from getWinnerInfo controller");
+	protected String getWinnerInfobyAdmin(Model model) throws Exception {
+		LOG.info("Admin getting list of Winner from getWinnerInfobyAdmin() controller");
 		try {
-			 List<Winner>  listofWinner = winnerService.getAllWinner(1);			
+			 List<Winner>  listofWinner = winnerService.getAllWinnerbyadmin();			
 			 model.addAttribute("winner",listofWinner);
 		   } catch (Exception e) {
 			   LOG.error(e.getMessage(),e);

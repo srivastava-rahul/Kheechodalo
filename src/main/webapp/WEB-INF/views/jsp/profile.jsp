@@ -20,7 +20,7 @@
 			</c:if>
 	
 	</div>
-				 
+				 <h1><a href="${pageContext.request.contextPath}/user/dashboard"  style="margin-top:10%;color:red "><span><img src="${pageContext.request.contextPath}/resources/images/download.jpg" style="margin-top: 1%; background-color: transparent;" src="arrow.gif" width="5%" height="4%"/>&nbsp;BACK</span></a></h1>
 				 
 			    <div class="information">
 				     <p class="header_information"><b>Basic information</b></p>

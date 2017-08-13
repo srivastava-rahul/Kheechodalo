@@ -21,7 +21,7 @@
 			<div class="Changepasswordformboby">
 				<h2 style="color: red">Please Provide your Feedback......!!!</h2>
 				<div style="margin-left: 1%">
-					<textarea name= "feedback" id="feedback" name="feedback" rows="5" cols="66" style="color: black"
+					<textarea name= "feedback" id="feedback" name="feedback" rows="5" cols="28" style="color: black"
 						placeholder="Please provide a detailed description of your Problems or suggestions."
 						 aria-required="true"></textarea>
 				</div>
@@ -35,6 +35,10 @@
 				<a href="${dashUrl}" class="button_submit  submit" style="margin-right: 12px;" style="margin-right: 12px;"> Cancel </a>
 			</div>
 		</form>
+	</div>
+	
+	<div style="float: right;">
+	<div data-WRID="WRID-150143490729356276" data-widgetType="staticBanner"  data-class="affiliateAdsByFlipkart" height="250" width="250"></div><script async src="//affiliate.flipkart.com/affiliate/widgets/FKAffiliateWidgets.js"></script>
 	</div>
 </div>
 

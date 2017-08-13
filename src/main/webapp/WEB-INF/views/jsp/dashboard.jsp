@@ -241,7 +241,13 @@ function showSlides(n) {
 <div class="">
   <ul class="pagination">
   </ul>
+  
+  <h3 style="color: yellow">Please tell What to be search enter here... </h3>
+<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search By Email..." title="Type in Email" style = "width: 452px; height: 38px;">
+	</div>
 </div>
+
+
 <jsp:include page="/WEB-INF/views/jsp/message.jsp" />
 	<div >
 		<div class="row">
@@ -251,8 +257,8 @@ function showSlides(n) {
 					<img src="data:image/jpeg;base64,${pic.base64Encoded}"	alt="Picture" style="width: 291px; height: 320px;" onclick="openModal();currentSlide(${index.index +1})" class="hover-shadow cursor">
 					<h2><span style="margin-left: 50%;color: red" class="voteCount${pic.id}">${pic.picVote}</span></h2>
 					<div class="">
-						<b><h2 style="color:blue">${pic.userName}</h2></b>
-						<b><h2 style="color:blue">${pic.userEmailId}</h2></b>
+						<b><h2 style="color:blue"><a href="${pageContext.request.contextPath}/user/viewProfile/${pic.userEmailId}">${pic.userName}</a></h2></b>
+						<%-- <b><h2 style="color:blue">${pic.userEmailId}</h2></b> --%>
 						<p>${pic.picDescription}</p>
 					 <c:if test="${pic.allowToVote}"> 
 						<p align="center" class="hideVote${pic.id}">

@@ -27,7 +27,7 @@
 			<div class="Changepasswordformboby">
 				<h3 style="color: yellow">Please Provide Some Problem Decsription...</h3>
 				<div style="margin-left: 1%">
-					<textarea name= "quickDesc" id="quickDesc" rows="5" cols="62" style="color: black"
+					<textarea name= "quickDesc" id="quickDesc" rows="5" cols="29" style="color: black"
 						placeholder="Please provide a detailed description of your Problems or suggestions."
 						 aria-required="true"></textarea>
 				</div>

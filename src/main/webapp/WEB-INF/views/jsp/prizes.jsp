@@ -11,10 +11,15 @@ table, th, td {
 </style>
 <div class="body-area">
 
-	<img
+	<%-- <img
 		src="${pageContext.request.contextPath}/resources/images/prize2.jpg"
 		alt="Avatar" class="page_pic">
-	<div class="information">
+	<div class="information"> --%>
+	
+	  <img
+		src="${pageContext.request.contextPath}/resources/images/giftimage.gif"
+		alt="Avatar" class="page_pic">
+		<br/>
 		<p class="header_information">
 			<b>Prizes for participants</b>
 		</p>
@@ -41,5 +46,5 @@ table, th, td {
 
 	</div>
 
-
+    
 </div>

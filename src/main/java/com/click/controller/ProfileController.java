@@ -67,7 +67,12 @@ public class ProfileController {
 		        {
 		        	profileSetting.setAddress("Hidden");
 		        }
-		        
+		        if (profileSetting.getFileData() != null) {
+					 LOG.info("rahl***************"+profileSetting.getFileData());
+						byte[] encodeBase64 = Base64.encodeBase64(profileSetting.getFileData());
+						String base64Encoded = new String(encodeBase64, "UTF-8");
+						model.addAttribute("picImg", base64Encoded);
+				 }
 		        LOG.debug("Show only the data which is not hidden");
 		        model.addAttribute("profileSetting", profileSetting);
 			 }

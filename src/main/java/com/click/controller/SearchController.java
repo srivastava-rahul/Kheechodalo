@@ -47,10 +47,11 @@ public class SearchController {
 			   model.addAttribute("error", "User Does not exit");
 			}else{
 				for (ProfileSetting profileSetting2 : profileSetting) {
-					
+					if(profileSetting2.getFileData() !=null){
 					byte[] encodeBase64 = Base64.encodeBase64(profileSetting2.getFileData());
 					String base64Encoded = new String(encodeBase64, "UTF-8");
 					profileSetting2.setPicImg(base64Encoded);
+					}
 				}
 					
 				//model.addAttribute("picImglist", piclist);	

@@ -12,7 +12,6 @@
 <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,300,600' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/css/style.css">
- 
 <style>
 body {
 	background:
@@ -22,39 +21,38 @@ body {
 </style>
 
 <script type="text/javascript">
-$(document).ready(function(){
-	alert("hi");
-    /* Get iframe src attribute value i.e. YouTube video url and store it in a variable */
-    var url = $("#cartoonVideo").attr('src');
-    
-    /* Assign empty url value to the iframe src attribute when
-    modal hide, which stop the video playing */
-    $("#myModal").on('hide.bs.modal', function(){
-    	alert("hello");
-        $("#cartoonVideo").attr('src', '');
-    });
-    
-    /* Assign the initially stored url back to the iframe src
-    attribute when modal is displayed again */
-    $("#myModal").on('show.bs.modal', function(){
-    	alert("bye");
-        $("#cartoonVideo").attr('src', url);
-    });
-});
+	$(document).ready(function() {
+		
+		/* Get iframe src attribute value i.e. YouTube video url and store it in a variable */
+		var url = $("#cartoonVideo").attr('src');
 
+		/* Assign empty url value to the iframe src attribute when
+		modal hide, which stop the video playing */
+		$("#myModal").on('hide.bs.modal', function() {
+			alert("hello");
+			$("#cartoonVideo").attr('src', '');
+		});
+
+		/* Assign the initially stored url back to the iframe src
+		attribute when modal is displayed again */
+		$("#myModal").on('show.bs.modal', function() {
+			alert("bye");
+			$("#cartoonVideo").attr('src', url);
+		});
+	});
 </script>
 </head>
 
 <body>
-<div style="margin-top: 0.5%; width: 30%; height: 50%; background-color: grey">
+	<div style="margin-top: 0.5%; width: 30%; height: 50%; background-color: grey">
 
-	<%-- 	<center>
+		<%-- 	<center>
 			<p>
 				<span style="font-size: 50px; font-family: Parchment;">kheecho Dalo</span>
 			</p>
 		</center> --%>
-		
-			<center>
+
+		<center>
 			<p>
 				<img src="${pageContext.request.contextPath}/resources/images/logo.png" alt="Avatar" class="page_pic">
 			</p>
@@ -68,22 +66,22 @@ $(document).ready(function(){
 
 	</div>
 
-   <i style="color:yellow">Sign-Up is free and always will be.</br></i>
-   <i style="color:red">In-Order to win Prize (Please Complete your profile as soon as you create account).</i>
-	
+	<i style="color: yellow">Sign-Up is free and always will be.</br></i>
+	<i style="color: red">In-Order to win Prize (Please Complete your profile as soon as you create account).</i>
+
 	<!-- The Modal -->
 	<div id="myModal" class="modal">
 
 		<!-- Modal content -->
 		<div class="modal-content" style="display: block;">
 			<div class="modal-header">
-			 <button type="button" class="close" data-dismiss="modal" aria-l >×</button>
+				<button type="button" class="close" data-dismiss="modal" aria-l>×</button>
 				<!-- <span class="close" data-dismiss="modal">&times;</span> -->
 				<h2>Modal Header</h2>
 			</div>
 			<div class="modal-body" data-reveal data-reset-on-close="true">
 				<%-- <iframe  width="700" height="450"  src="${pageContext.request.contextPath}/resources/mtr.mp4" frameborder="0" allowfullscreen></iframe> --%>
-				<iframe  id="cartoonVideo" width="740" height="450" src="https://www.youtube.com/embed/Ood3teygwh8?" frameborder="0" allowfullscreen> </iframe>
+				<iframe id="cartoonVideo" width="740" height="450" src="https://www.youtube.com/embed/Ood3teygwh8?" frameborder="0" allowfullscreen> </iframe>
 				<%--          <video width="700" height="450" controls id="myVideoPlay" >
                  <source src="${pageContext.request.contextPath}/resources/mtr.mp4" type="video/mp4"  >
                  </video> --%>
@@ -93,8 +91,9 @@ $(document).ready(function(){
 				<h3>Modal Footer</h3>
 			</div>
 		</div>
-	</div><br/>
-		<div style="color:red;margin-left:50%;background:white; width:10%; "><jsp:include page="/WEB-INF/views/jsp/message.jsp" /></div>
+	</div>
+	<br />
+	<div style="color: red; margin-left: 50%; background: white; width: 10%;"><jsp:include page="/WEB-INF/views/jsp/message.jsp" /></div>
 	<div class="form">
 
 		<ul class="tab-group">
@@ -115,14 +114,16 @@ $(document).ready(function(){
 
 					<div class="field-wrap">
 						<label>
-							Email Address<span class="req">*</span>
+							Email Address
+							<span class="req">*</span>
 						</label>
 						<input name="userName" value="" type="text" />
 					</div>
 
 					<div class="field-wrap">
 						<label>
-							Password<span class="req">*</span>
+							Password
+							<span class="req">*</span>
 						</label>
 						<input name="password" type="password" />
 					</div>
@@ -143,14 +144,16 @@ $(document).ready(function(){
 					<div class="top-row">
 						<div class="field-wrap">
 							<label>
-								First Name<span class="req">*</span>
-					</label>
+								First Name
+								<span class="req">*</span>
+							</label>
 							<input type="text" id="firstName" name="firstName" />
 						</div>
 
 						<div class="field-wrap">
 							<label>
-								Last Name<span class="req"></span>
+								Last Name
+								<span class="req"></span>
 							</label>
 							<input type="text" id="lastName" name="lastName" />
 						</div>
@@ -158,18 +161,20 @@ $(document).ready(function(){
 
 					<div class="field-wrap">
 						<label>
-							Email Address<span class="req">*</span>
+							Email Address
+							<span class="req">*</span>
 						</label>
 						<input type="email" id="email" name="email" />
 					</div>
 
 					<div class="field-wrap">
 						<label>
-							Set A Password<span class="req">*</span>
+							Set A Password
+							<span class="req">*</span>
 						</label>
 						<input type="password" id="password" name="password" />
-					</div>	
-										
+					</div>
+
 					<button type="submit" class="button button-block">Get Started</button>
 
 				</form>
@@ -187,13 +192,18 @@ $(document).ready(function(){
 
 	<script src="${pageContext.request.contextPath}/resources/js/view/video.js"></script>
 	<div style="margin-top: 10%; margin-left: 2%; width: 20%;">
-
+		<c:if test="${not empty winner}">
+				<img src="data:image/jpeg;base64,${winner.base64Encoded}" alt="Avatar" style="width: 313px; height: 320px; margin: 4px">
+		</c:if>
+		<c:if test="${empty winner}">
 		<img src="${pageContext.request.contextPath}/resources/images/itg.jpg" alt="Avatar" style="width: 313px; height: 320px; margin: 4px">
+		</c:if>
 
 	</div>
 
 	<div class="chip">
-		<img src="${pageContext.request.contextPath}/resources/images/icon-prize.jpg" alt="Person" width="96" height="96"> Winner
+		<img src="${pageContext.request.contextPath}/resources/images/icon-prize.jpg" alt="Person" width="96" height="96">
+		Winner
 	</div>
 
 

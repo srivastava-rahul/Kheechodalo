@@ -28,4 +28,10 @@ public interface WinnerService {
 	 */
 	public void copyWinnerPic();
 
+	/**
+	 * 
+	 * @return
+	 */
+	public Winner getLastWinner();
+
 }

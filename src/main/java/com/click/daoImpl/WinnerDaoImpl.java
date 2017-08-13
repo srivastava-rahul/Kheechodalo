@@ -14,6 +14,7 @@ import org.springframework.stereotype.Repository;
 
 import com.click.dao.WinnerDao;
 import com.click.entity.Winner;
+import com.click.utils.CollectionUtil;
 
 /**
  * @author rahul
@@ -55,6 +56,19 @@ public class WinnerDaoImpl implements WinnerDao {
 	@Override
 	public void saveWinner(Winner winner) {
 		entityManager.merge(winner);
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public Winner getLastWinner() {
+		Query query = entityManager.createQuery("from Winner w order by w.createdDate DESC");
+		query.setFirstResult(0);
+		query.setMaxResults(1);
+		List<Winner> winnerList = query.getResultList();
+		if (CollectionUtil.isNotEmpty(winnerList)) {
+			return winnerList.get(0);
+		}
+		return null;
 	}
 
 }

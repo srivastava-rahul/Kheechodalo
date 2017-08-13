@@ -1,8 +1,11 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ page isELIgnored="false"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html>
 <body>
-<h2>INDEX PAGE</h2>
-<a href="admin"><h3>admin login</h3></a>
-<a href="buyer"><h3>buyer login</h3></a>
-<a href="supplier"><h3>supplier login</h3></a>
+<c:redirect url="/login" > </c:redirect>
 </body>
 </html>

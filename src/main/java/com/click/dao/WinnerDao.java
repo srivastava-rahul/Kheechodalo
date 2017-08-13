@@ -25,4 +25,10 @@ public interface WinnerDao {
 	 */
 	public void saveWinner(Winner winner);
 
+	/**
+	 * 
+	 * @return
+	 */
+	public Winner getLastWinner();
+
 }

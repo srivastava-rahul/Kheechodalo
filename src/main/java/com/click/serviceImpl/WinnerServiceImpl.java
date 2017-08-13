@@ -76,4 +76,21 @@ public class WinnerServiceImpl implements WinnerService {
 			winnerDao.saveWinner(winner);
 		}
 	}
+
+	@Override
+	public Winner getLastWinner() {
+		Winner winner = winnerDao.getLastWinner();
+		if (winner != null) {
+			LOG.info("winner name :" + winner.getWinner_name());
+			try {
+				if (winner.getFileData() != null) {
+					byte[] encodeBase64 = Base64.encodeBase64(winner.getFileData());
+					winner.setBase64Encoded(new String(encodeBase64, "UTF-8"));
+				}
+			} catch (Exception e) {
+				LOG.error("Error while convert base64 :" + e.getMessage(), e);
+			}
+		}
+		return winner;
+	}
 }

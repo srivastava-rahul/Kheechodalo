@@ -4,57 +4,36 @@
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/jquery-1.4.2.min.js"></script>
 <div class="body-area">
 
-           <img src="${pageContext.request.contextPath}/resources/images/winner.jpg" alt="Avatar" class="page_pic">
-	        <div class="information">
-	             	<p class="header_information"><b>Prizes for participants</b></p>
-	        </div>
-         <center>
-		     <div class="containerwinner">
-				       <div class="container_img_header">
-					  
-					   <img src="${pageContext.request.contextPath}/resources/images/itg.jpg" alt="Avatar" style="width:250px"/>
-					   
-					   <font style="color:red;float:left">01-jul-2017</font> &nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
-					  <font style="color:red;">Prize :Rs200</font> &nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
-					  <font style="color:red;float:right;">Vote:1000000000000000000</font>
-					  
-					   </div>
-						  <div style="background:black;">
-						 <span><center><a href="#">Chris Fox.</a></center></span><br/>
-						  <span>john Doe saved us from a web disaster.John Doe saved us from a web disaster.John Doe saved us from a web disaster.John Doe saved us from a web disaster.John Doe saved us from a web disaster.John Doe saved us from a web disaster.John Doe saved us from a web disaster.John Doe saved us from a web disaster.John Doe saved us from a web 
-                         #ffeb3b
-						  #cddc39    #00d4a3
-						</span>
-						  
-						  </div>
-				  </div>
-				  
-				  	     <div class="containerwinner">
-				       <div class="container_img_header">
-					   <font style="color:red">Prize :Rs200</font>&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
-					   <font style="color:green">Vote:100000</font>
-					   <img src="${pageContext.request.contextPath}/resources/images/itg.jpg" alt="Avatar" style="width:250px"/>
-					  <br/> 
-					  <font style="color:red">01-jul-2017</font>
-					   </div>
-						  <div style="background:black;">
-						 <span><center><a href="#">Chris Fox.</a></center></span><br/>
-						  <span>john Doe saved us from a web disaster.John Doe saved us from a web disaster.John Doe saved us from a web disaster.John Doe saved us from a web disaster.John Doe saved us from a web disaster.John Doe saved us from a web disaster.John Doe saved us from a web disaster.John Doe saved us from a web disaster.John Doe saved us from a web 
-                         #ffeb3b
-						  #cddc39    #00d4a3
-						</span>
-						  
-						  </div>
-				  /div>
-	
-				 
-				  
-				  
-				  
-				  
-				  
-				  </center>
-				  
-				    
-   
+	<img src="${pageContext.request.contextPath}/resources/images/winner.jpg" alt="Avatar" class="page_pic">
+	<div class="information">
+		<p class="header_information">
+			<b>Prizes for participants</b>
+		</p>
 	</div>
+	<center>
+		<c:forEach items="${winnerList}" var="winner">
+			<div class="containerwinner">
+				<div class="container_img_header">
+					<img src="data:image/jpeg;base64,${winner.base64Encoded}" alt="Avatar" style="width: 250px" />
+					<font style="color: red; float: left">${winner.createdDate}</font>
+					&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
+					<font style="color: red;">Prize :${winner.prize_desc}</font>
+					&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
+					<font style="color: red; float: right;">Vote:${winner.picVote}</font>
+				</div>
+				<div style="background: black;">
+					<span>
+						<center>
+							<a href="#">${winner.winner_name}</a>
+						</center>
+					</span>
+					<br />
+					<span>${winner.winner_desc}</span>
+				</div>
+			</div>
+		</c:forEach>
+	</center>
+
+
+
+</div>

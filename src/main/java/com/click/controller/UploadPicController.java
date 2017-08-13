@@ -59,6 +59,7 @@ public class UploadPicController {
 				byte[] bytes = uploadPic.getBytes();
 				PictureUpload pic = new PictureUpload();
 				pic.setPicName(fileName);
+				pic.setEmailId(SecurityLibrary.getLoggedInUserLoginEmailId());
 				pic.setUploadDate(new Date());
 				pic.setContentType(uploadPic.getContentType());
 				pic.setPicSize(bytes.length > 0 ? bytes.length / 1024 : 0);

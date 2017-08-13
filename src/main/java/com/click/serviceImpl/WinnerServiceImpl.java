@@ -5,6 +5,7 @@ package com.click.serviceImpl;
 
 import java.util.List;
 
+import org.apache.commons.codec.binary.Base64;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -15,6 +16,7 @@ import com.click.entity.PictureUpload;
 import com.click.entity.Winner;
 import com.click.service.PicsService;
 import com.click.service.WinnerService;
+import com.click.utils.CollectionUtil;
 
 /**
  * @author rahul
@@ -33,14 +35,20 @@ public class WinnerServiceImpl implements WinnerService {
 	PicsService picsService;
 
 	@Override
-	public List<Winner> getWinner() {
+	public List<Winner> getAllWinner() {
 		LOG.info("Inside getWinner() serviceImpl");
-		List<Winner> listofwinner = null;
-		try {
-			listofwinner = winnerDao.getWinner();
-		} catch (Exception e) {
-			LOG.error(e.getMessage(), e);
-			e.printStackTrace();
+		List<Winner> listofwinner = winnerDao.getWinner();
+		if (CollectionUtil.isNotEmpty(listofwinner)) {
+			for (Winner winner : listofwinner) {
+				try {
+					if (winner.getFileData() != null) {
+						byte[] encodeBase64 = Base64.encodeBase64(winner.getFileData());
+						winner.setBase64Encoded(new String(encodeBase64, "UTF-8"));
+					}
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
 		}
 		return listofwinner;
 	}
@@ -64,7 +72,7 @@ public class WinnerServiceImpl implements WinnerService {
 		LOG.info("Copy winner pic service");
 		PictureUpload winnerPic = picsService.findWinnerPicByMaxVoteCount();
 		if (winnerPic != null) {
-			Winner winner = new Winner(winnerPic.getEmailId(), winnerPic.getDescription(), winnerPic.getPicUploadData().getFileData(), winnerPic.getUploadDate(), "100 RS", winnerPic.getPicVote());
+			Winner winner = new Winner(winnerPic);
 			winnerDao.saveWinner(winner);
 		}
 	}

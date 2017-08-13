@@ -26,12 +26,13 @@ public class WinnerDaoImpl implements WinnerDao {
 	@PersistenceContext(unitName = "entityManagerFactory")
 	EntityManager entityManager;
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Winner> getWinner() {
 		LOG.info("Inside getWinner() DaoImpl");
 		Query query = null;
 		try {
-			query = entityManager.createQuery("from Winner");
+			query = entityManager.createQuery("from Winner w order by w.createdDate DESC");
 		} catch (Exception e) {
 			LOG.error(e.getMessage(), e);
 			e.printStackTrace();

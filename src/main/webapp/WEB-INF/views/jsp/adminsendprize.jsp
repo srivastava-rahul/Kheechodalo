@@ -31,16 +31,16 @@
 				<h2 style="color: red">Please Provide Date......!!!</h2>
 				<div style="margin-left: 1%">
 					<textarea name= "createddate" id="createddate" rows="1" cols="30" style="color: black"
-						placeholder="Please provide a date."
+						placeholder="dd/mm/yyyy."
 						 aria-required="true"></textarea>
 				</div>
 			</div>
 			
 			<div class="Changepasswordformboby">
-				<h2 style="color: red">Please Provide Prize......!!!</h2>
+				<h2 style="color: red">Please Provide Prize......(Rs...)</h2>
 				<div style="margin-left: 1%">
 					<textarea name= "prizevalue" id="prizevalue" rows="2" cols="50" style="color: black"
-						placeholder="Please provide a detailed description prize."
+						placeholder="Please provide a detailed description prize..(RS..)."
 						 aria-required="true"></textarea>
 				</div>
 			</div>	

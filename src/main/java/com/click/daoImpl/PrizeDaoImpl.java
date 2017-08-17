@@ -53,7 +53,9 @@ public class PrizeDaoImpl implements PrizeDao {
 	public void deletePrizeRecord(UserPrize prizedata) {
 		LOG.info(" Inside deletePrizeRecord() DaoImpl GetAllPrizeRecord ");
 		try{
-		     entityManager.remove(prizedata.getId());
+			Query query = entityManager.createQuery("DELETE FROM UserPrize pz where pz.id = :id").setParameter("id", prizedata.getId());
+			int deleteprizedata = query.executeUpdate(); 
+			LOG.info("deleteFeedBack :"+ deleteprizedata);
 		   }catch(Exception e){
              LOG.error(e.getMessage(),e);
 			 e.printStackTrace();

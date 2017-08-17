@@ -38,6 +38,7 @@ public class NotificationDaoImpl implements NotificationDao {
 		
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Notification> getNotification() {
 		LOG.info("Inside getNotification() daoImpl ");
@@ -56,7 +57,9 @@ public class NotificationDaoImpl implements NotificationDao {
 	public void deleteNotification(Notification notify) {
 		LOG.info("Inside deleteNotification() daoImpl ");
 		try{
-		entityManager.remove(notify.getId());
+			Query query = entityManager.createQuery("DELETE FROM Notification nf where nf.id = :id").setParameter("id", notify.getId());
+			int deleteNotification = query.executeUpdate(); 
+			LOG.info("deleteFeedBack :"+ deleteNotification);
 		}catch(Exception e){
 			LOG.error(e.getMessage(),e);
 			e.printStackTrace();	

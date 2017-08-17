@@ -35,26 +35,20 @@ public class AdminNotificationController {
 			throws Exception {
 		LOG.info("Admin adding notification from saveNotificationData controller");
 		try {
-			  System.out.println("rahul================="+noty);
-			/*User userDetails = userService.findUserById(SecurityLibrary.getLoggedInUser().getEmailId());
-			LOG.info("Admin Email - Id :" + userDetails.getEmailId());*/
+			 
 			if(noty!=null && !noty.equals("")){
 			Notification notify=new Notification();
 			notify.setCreatedDate(new Date());
 			notify.setNotification_desc(noty);
-			//notify.setEmail_id(userDetails.getEmailId());	
-			
 			notificationService.saveNotification(notify);	
 			}
-			System.out.println("bye");
-			 List<Notification>  listofNotification = notificationService.getNotification();
-			 model.addAttribute("notification",listofNotification);
-			return "adminsendnotification";
+			 model.addAttribute("success", " Data Entered Successfully .");
+			return "redirect:/admin/admingetnotification";
 		} catch (Exception e) {
 			LOG.error(e.getMessage(),e);
 			e.printStackTrace();
 			model.addAttribute("error", "Error Occured While Sending Data .");
-			return "adminsendnotification";
+			return "redirect:/admin/admingetnotification";
 		}
 	}
 
@@ -79,15 +73,13 @@ public class AdminNotificationController {
 			Notification notify=new Notification();
 			 notify.setId(id);
 			 notificationService.deleteNotification(notify);
-			 List<Notification>  listofNotification = notificationService.getNotification();			
-		     model.addAttribute("notification",listofNotification);
 			 model.addAttribute("success", " Data Deleted Successfully .");
-			return "adminsendnotification";
+			 return "redirect:/admin/admingetnotification";
 		} catch (Exception e) {
 			LOG.error(e.getMessage(),e);
 			e.printStackTrace();
 			model.addAttribute("error", "Error Occured While deleting Data .");
-			return "adminsendnotification";
+			return "redirect:/admin/admingetnotification";
 		}
 	}
 }

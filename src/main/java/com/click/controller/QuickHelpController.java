@@ -68,7 +68,7 @@ public class QuickHelpController {
 							+ quickDesc);
 			quickHelpService.saveQuickHelpData(quickHelp);
 			model.addAttribute("success", "Please Wait We Will Assist You Shortly .");
-			return "dashboard";
+			return "quickhelp";
 		} catch (Exception e) {
 			LOG.error(e.getMessage(),e);
 			e.printStackTrace();
@@ -88,7 +88,7 @@ public class QuickHelpController {
 			feed.setCreatedDate(new Date());
 			quickHelpService.saveFeedbackData(feed);
 			model.addAttribute("success", "Thank You For Providing Us Yours Views .");
-			return "dashboard";
+			return "feedback";
 		} catch (Exception e) {
 			LOG.error(e.getMessage(),e);
 			e.printStackTrace();

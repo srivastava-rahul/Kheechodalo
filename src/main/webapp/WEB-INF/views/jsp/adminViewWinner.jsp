@@ -59,7 +59,7 @@
 				<td><center>${win.email_id}</center></td>
 				<td><center>
 						<a
-							href="${pageContext.request.contextPath}/admin/admindeletefeedback/${win.id}">Delete</a>
+							href="${pageContext.request.contextPath}/admin/admindeletewinner/${win.id}">Delete</a>
 					</center></td>
 			</tr>
 		</c:forEach>

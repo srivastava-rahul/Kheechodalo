@@ -43,28 +43,27 @@ public class AdminPrizeController {
 	
 	
 	@RequestMapping(value = "/adminsaveprize", method = RequestMethod.POST)
-	public String saveNotificationData(@RequestParam Date createddate,@RequestParam String prizevalue,@RequestParam String sponsorby, Model model)
+	public String savePrizebyAdmin(@RequestParam Date createddate,@RequestParam String prizevalue,@RequestParam String sponsorby, Model model)
 			throws Exception {
-		LOG.info("Admin adding prize from saveNotificationData controller");
+		LOG.info("Admin adding prize from savePrizebyAdmin() controller");
 		try {
-			
-			/*User userDetails = userService.findUserById(SecurityLibrary.getLoggedInUser().getEmailId());*/
-			/*LOG.info("Admin Email - Id :" + userDetails.getEmailId());*/
-			
+			System.out.println("rahul============>>>>"+createddate+""+prizevalue+"sponsorby");
 			UserPrize prizedata=new UserPrize();
 			prizedata.setPrizeDate(createddate);			
 			prizedata.setPrizeAmount(prizevalue);
 			prizedata.setSponsor(sponsorby);
 			prizeService.savePrizeRecord(prizedata);
-			List<UserPrize>  listofprize=prizeService.getAllPrizeRecord();
-			model.addAttribute("prize",listofprize);
+			/*List<UserPrize>  listofprize=prizeService.getAllPrizeRecord();
+			model.addAttribute("prize",listofprize);*/
 			 model.addAttribute("success", " Data Entered Successfully .");			
-			return "adminsendprize";
+			//return "adminsendprize";
+			return "redirect:/admin/admingetAllPrize";
 		} catch (Exception e) {
 			LOG.error(e.getMessage(),e);
 			e.printStackTrace();
 			model.addAttribute("error", "Error Occured While Sending Data .");
-			return "adminsendprize";
+			//return "adminsendprize";
+			return "redirect:/admin/admingetAllPrize";
 		}
 	}
 
@@ -90,15 +89,18 @@ public class AdminPrizeController {
 			UserPrize prizedata=new UserPrize();
 			prizedata.setId(id);
 			prizeService.deletePrizeRecord(prizedata);
-			List<UserPrize>  listofprize=prizeService.getAllPrizeRecord();
-			 model.addAttribute("prize",listofprize);
+			/*List<UserPrize>  listofprize=prizeService.getAllPrizeRecord();
+			 model.addAttribute("prize",listofprize);*/
 			 model.addAttribute("success", " Data Deleted Successfully .");
-			return "adminsendprize";
+			//return "adminsendprize";
+			return "redirect:/admin/admingetAllPrize";
+			
 		} catch (Exception e) {
 			LOG.error(e.getMessage(),e);
 			e.printStackTrace();
 			model.addAttribute("error", "Error Occured While deleting Data .");
-			return "adminsendprize";
+			//return "adminsendprize";
+			return "redirect:/admin/admingetAllPrize";
 		}
 	}
 }

@@ -61,22 +61,19 @@ public class AdminQuickHelpAndFeedbackController {
 			QuickHelp quickhelp=new QuickHelp();
 			quickhelp.setId(id);
 			quickHelpsrv.deleteQuickHelpData(quickhelp);
-			List<QuickHelp>  quickhelplist = quickHelpsrv.getQuickHelpData();			
-			 model.addAttribute("quickhelp",quickhelplist);
 			 model.addAttribute("success", " Data Deleted Successfully .");
-			return "adminquickhelpinfo";
+			 return "redirect:/admin/adminquickhelpinfo";
 		} catch (Exception e) {
 			LOG.error(e.getMessage(),e);
 			e.printStackTrace();
 			model.addAttribute("error", "Error Occured While deleting Data .");
-			return "adminquickhelpinfo";
+			return "redirect:/admin/adminquickhelpinfo";
 		}
 	}
 	
 	@RequestMapping(value = "/admindeletefeedback/{id}")
 	protected String deletefeedback(@PathVariable(name ="id")  String id,Model model) throws Exception {
 		LOG.info("Admin delete Feedback information based on id from deletefeedback controller");
-		
 		try {
 			UserFeedback fedback=new UserFeedback();
 			fedback.setId(id);

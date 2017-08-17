@@ -62,7 +62,9 @@ public class WinnerDaoImpl implements WinnerDao {
 	public void deleteWinner(Winner winnerdata) {
 		LOG.info("Inside getWinner() DaoImpl");
 		try {
-			entityManager.remove(winnerdata.getId());
+			Query query = entityManager.createQuery("DELETE FROM Winner w where w.id = :id").setParameter("id", winnerdata.getId());
+		    int deletewinnerdata = query.executeUpdate(); 
+	    	LOG.info("deleteFeedBack :"+ deletewinnerdata);
 		} catch (Exception e) {
 			LOG.error(e.getMessage(), e);
 			e.printStackTrace();

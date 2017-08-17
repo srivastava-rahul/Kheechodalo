@@ -81,7 +81,9 @@ public class QuickHelpDaoImpl implements QuickHelpDao {
 	public void deleteQuickHelpData(QuickHelp quickhelp) {
 		LOG.info("Inside deleteQuickHelpData() DaoImpl");
 		try{
-		      entityManager.remove(quickhelp.getId());
+			Query query = entityManager.createQuery("DELETE FROM QuickHelp qh where qh.id = :id").setParameter("id", quickhelp.getId());
+		    int deleteQuickHelp = query.executeUpdate(); 
+	    	LOG.info("deleteFeedBack :"+ deleteQuickHelp);
 		   }catch(Exception e){
 			   LOG.error(e.getMessage(),e);
 				e.printStackTrace();  

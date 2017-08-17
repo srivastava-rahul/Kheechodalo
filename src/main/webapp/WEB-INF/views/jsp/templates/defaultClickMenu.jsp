@@ -12,13 +12,13 @@
 			<div class="user_box col-md-12">
 				<div class="user-pic">
 					<c:if test="${empty profPic}">
-						<img
-							src="${pageContext.request.contextPath}/resources/images/vip.jpg"
-							id="dp" />
-
-					</c:if>
+						<a href="${pageContext.request.contextPath}/user/dashboard"><img
+							src="${pageContext.request.contextPath}/resources/images/backToHome.jpg"
+							id="dp" /></a>
+	</c:if>
 				</div>
 				<div class="clearfix"></div>
+				<br/>
 				<div class="user_detail_box">
 				<span class="user_Name"></span>
 					<span class="user_Name" style="margin-left: 90px;color: white;">
@@ -102,3 +102,4 @@
 		x[slideIndex - 1].style.display = "block";
 	} */
 </script>
+							

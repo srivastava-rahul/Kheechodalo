@@ -241,17 +241,19 @@ function showSlides(n) {
 <div class="">
   <ul class="pagination">
   </ul>
-  	<form name="searchFormuser" action="searchUserPicbyemailid" method="post">
+     
+  	<form name="searchFormuser" action="searchUserPicbyemailid" method="post" style="margin-left:30%">
 			   <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
 			
 			<div class="Changepasswordformboby">
-				<h3 style="color: yellow">Please Search your loved one Here enter the id... </h3>
+				<h3 style="color: yellow">Please Search your loved one Here... </h3>
 				<input type="text"  name="email_id" id="email_id" style="width:30% "
-					placeholder="Please Enter id" />
+					placeholder="Please Enter Email id" />
 					<button type="submit" class="button_submit  submit" style="background-color:red">Search</button>
 				    <c:url value="/user/dashboard" var="dashUrl" />
 			</div>
 		</form>
+		
 	</div>
 </div>
 

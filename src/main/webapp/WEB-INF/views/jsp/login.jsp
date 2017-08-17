@@ -8,14 +8,16 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Sign-Up/Login Form</title>
+<title>KheechoDalo Sign-Up/Login Form</title>
+<link rel="icon"  type="image/jpg" href="${pageContext.request.contextPath}/resources/images/titleimage.png"/>
 <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,300,600' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/css/style.css">
 <style>
 body {
 	background:
-		url(${pageContext.request.contextPath}/resources/images/login_bck.jpg);
+		 url(${pageContext.request.contextPath}/resources/images/login_bck.jpg); 
+		/* url(${pageContext.request.contextPath}/resources/images/5.jpg); */
 	color: white;
 }
 </style>

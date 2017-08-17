@@ -84,6 +84,11 @@ public class PicsServiceImpl implements PicsService {
 	public PictureUpload getSinglepicInfo(String picid) {
 		LOG.info("Inside getSinglepicInfo() serviceImpl");
 		PictureUpload fullpicsinfo = picsDao.getSinglepicInfo(picid);
+		if (fullpicsinfo != null && CollectionUtil.isNotEmpty(fullpicsinfo.getFriendEmail())) {
+			for (String email : fullpicsinfo.getFriendEmail()) {
+				LOG.info("info email :" + email);
+			} 
+		}
 		return fullpicsinfo;
 	}
 

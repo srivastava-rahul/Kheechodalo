@@ -32,9 +32,9 @@
 			
 			
 		</tr>
-		  <c:forEach var="voter" items="${picsList}">
+		  <c:forEach var="email" items="${picinfo.friendEmail}">
 			<tr>
-				<td><center>${voter.friendEmail}</center></td>
+				<td><center>${email}</center></td>
 				
 			</tr>
 		</c:forEach>

@@ -81,15 +81,13 @@ public class AdminQuickHelpAndFeedbackController {
 			UserFeedback fedback=new UserFeedback();
 			fedback.setId(id);
 			quickHelpsrv.deleteFeedbackData(fedback);
-			 List<UserFeedback>  feedbacklist = quickHelpsrv.getFeedbackData();			
-			 model.addAttribute("feedback",feedbacklist);
 			 model.addAttribute("success", " Data Deleted Successfully .");
-			return "adminfeedbackinfo";
+			return "redirect:/admin/adminfeedbackinfo";
 		} catch (Exception e) {
 			LOG.error(e.getMessage(),e);
 			e.printStackTrace();
 			model.addAttribute("error", "Error Occured While deleting Data .");
-			return "adminfeedbackinfo";
+			return "redirect:/admin/adminfeedbackinfo";
 		}
 	}
 	

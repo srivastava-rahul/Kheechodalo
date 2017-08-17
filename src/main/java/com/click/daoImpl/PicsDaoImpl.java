@@ -87,7 +87,7 @@ public class PicsDaoImpl implements PicsDao {
 		Query query =null;
 		try{
 		// query = entityManager.createQuery("from PictureUpload");
-		 query = entityManager.createQuery("from PictureUpload pi where pi.id = :Id").setParameter("Id", picid);
+		 query = entityManager.createQuery("from PictureUpload pi left outer join fetch pi.friendEmail where pi.id = :Id").setParameter("Id", picid);
 		}catch(Exception e){
             LOG.error(e.getMessage(),e);
 			e.printStackTrace();

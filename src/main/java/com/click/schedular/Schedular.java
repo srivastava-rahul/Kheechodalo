@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 import com.click.service.PicsService;
 import com.click.service.WinnerService;
 
-@EnableScheduling
+//@EnableScheduling
 @Component
 public class Schedular {
 	
@@ -18,19 +18,20 @@ public class Schedular {
 	@Autowired
 	WinnerService winnerService;
 	
-	/*
+	
 	private void sendHeartBeat() throws Exception{
 		System.out.println("hi rahul");
 	}
 	
-	@Scheduled(fixedRate = 600)
-	public void runForAdminHeartBeat()throws Exception{		
-			//send heart beat for health check 
+	@Scheduled(fixedRate = 60000)
+	//@Scheduled(cron="0 * * * * *",zone = "IST")
+	public void runForAdminHeartBeat()throws Exception{	
+		
 			sendHeartBeat();
 	 }
-	*/
 	
-	@Scheduled(cron="0 * * * * *",zone = "IST")
+	
+	/*@Scheduled(cron="0 * * * * *",zone = "IST")
 	public void deleteAllPicsData()throws Exception{		
 			//send heart beat for health check 
 //		copyWinnerPic();
@@ -46,6 +47,6 @@ public class Schedular {
 	private void copyWinnerPic() throws Exception{
 		System.out.println("Copying winner pic");
 		winnerService.copyWinnerPic();
-	}
+	}*/
 	
 }

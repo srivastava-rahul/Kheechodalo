@@ -11,7 +11,8 @@
 <link rel="stylesheet" type="text/css" href="<c:url value="/resources/assets/themes/admin/color-schemes/Kheecho-theme.css"/>">
 <%-- <link rel="stylesheet" type="text/css" href="<c:url value="/resources/assets/themes/admin/kheecholayout.css"/>"> --%>
 <link rel="stylesheet" type="text/css" href="<c:url value="/resources/assets/bootstrap/css/bootstrap.css"/>">
-<title>Kheecho</title>
+<title>KheechoDalo DashBoard</title>
+<link rel="icon"  type="image/jpg" href="${pageContext.request.contextPath}/resources/images/titleimage.png"/>
 <meta name="_csrf" content="${_csrf.token}" />
 <meta name="_csrf_header" content="${_csrf.headerName}" />
 </head>

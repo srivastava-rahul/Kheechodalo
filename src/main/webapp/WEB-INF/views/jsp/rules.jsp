@@ -26,7 +26,7 @@
 
 	8. Photo with the highest number of votes, gets a Chance to win a prize.</br></br>
 
-	9. Winner profile pic must be set to login page for one day.</br></br>
+	9. Winner pic must be set to login page for one day.</br></br>
 	
 	10. Prize may contain  coupons, gift ,cash vouchers, cash etc.</br></br>
 

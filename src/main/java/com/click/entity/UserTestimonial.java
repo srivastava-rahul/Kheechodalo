@@ -5,14 +5,11 @@ import java.util.Arrays;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.ForeignKey;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import org.hibernate.annotations.GenericGenerator;
 
@@ -33,6 +30,10 @@ public class UserTestimonial implements Serializable {
 
 	@Column(name = "EMAIL_ID", length = 500)
 	private String email_id;
+	
+	@Column(name = "NAME", length = 500)
+	private String name;
+
 
 	@Column(name = "Testimonial_DESCRIPTION", length = 500)
 	private String testimonial_desc;
@@ -41,6 +42,9 @@ public class UserTestimonial implements Serializable {
 	@Lob
 	@Column(name = "FILE_DATA")
 	private byte[] fileData;
+	
+	@Transient
+	private String base64Encoded;
 
 	/*@ManyToOne(fetch = FetchType.LAZY, optional = false)
 	@JoinColumn(name = "USER_ID", nullable = false, foreignKey = @ForeignKey(name = "FK1_USER_USER"))
@@ -49,19 +53,21 @@ public class UserTestimonial implements Serializable {
 	
 	
 	public UserTestimonial(){}
-	public UserTestimonial(String id, String email_id, String testimonial_desc, byte[] fileData) {
+	public UserTestimonial(String id, String email_id, String name, String testimonial_desc, byte[] fileData) {
 		super();
 		this.id = id;
 		this.email_id = email_id;
+		this.name = name;
 		this.testimonial_desc = testimonial_desc;
 		this.fileData = fileData;
-		
 	}
+
 
 	public String getId() {
 		return id;
 	}
 
+	
 	public void setId(String id) {
 		this.id = id;
 	}
@@ -97,11 +103,24 @@ public class UserTestimonial implements Serializable {
 	}
 
 	
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
 	public String toLogString() {
 		return "UserTestimonial [id=" + id + ", email_id=" + email_id + ", testimonial_desc=" + testimonial_desc
 				+ ", fileData=" + Arrays.toString(fileData) + "]";
 	}
+	
+	public String getBase64Encoded() {
+		return base64Encoded;
+	}
 
+	public void setBase64Encoded(String base64Encoded) {
+		this.base64Encoded = base64Encoded;
+	}
 
 	
 	

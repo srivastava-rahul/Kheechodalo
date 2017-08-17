@@ -56,7 +56,9 @@ public class TestimonialDaoImpl implements TestimonialDao {
 	public void deletetestimonial(UserTestimonial testimonialdata) {
 		LOG.info("Inside deletetestimonial() DaoImpl");
 		 try{
-		       entityManager.remove(testimonialdata.getId());
+			 Query query = entityManager.createQuery("DELETE FROM UserTestimonial ut where ut.id = :id").setParameter("id", testimonialdata.getId());
+			    int deleteTestimonial = query.executeUpdate(); 
+		    	LOG.info("deleteFeedBack :"+ deleteTestimonial);
 		    }catch(Exception e){
 		    	LOG.error(e.getMessage(),e);
 				e.printStackTrace();

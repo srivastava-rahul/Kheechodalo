@@ -253,8 +253,7 @@ function showSlides(n) {
 				    <c:url value="/user/dashboard" var="dashUrl" />
 			</div>
 		</form>
-		
-	</div>
+		</div>
 </div>
 
 

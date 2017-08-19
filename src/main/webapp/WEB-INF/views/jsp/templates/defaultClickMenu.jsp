@@ -9,19 +9,21 @@
 <c:if test="${!isAdmin}">
 	<div id="page-sidebar">
 		<div class="row">
-			<div class="user_box col-md-12">
+			<%-- <div class="user_box col-md-12">
 				<div class="user-pic">
 					<c:if test="${empty profPic}">
 						<a href="${pageContext.request.contextPath}/user/dashboard">
 						<img src="${pageContext.request.contextPath}/resources/images/backToHome.jpg" id="dp" /></a>
 	               </c:if>
 				</div>
-				
-				
+				 --%>
+				 <a href="${pageContext.request.contextPath}/user/dashboard">
+				<img src="${pageContext.request.contextPath}/resources/images/backToHome.png" style="width:60%;margin-top:5%;margin-left:15%"/></a>
 				
 				<div class="clearfix"></div>
-				<br/>
+				<br>
 				<div class="user_detail_box">
+				
 				<span class="user_Name"></span>
 					<span class="user_Name" style="margin-left: 90px;color: white;">
 					<sec:authentication property="principal.firstName" />

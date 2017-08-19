@@ -99,6 +99,7 @@
 		border="1">
 		<tr class="header">
 			<th height="40"><center>Id</center></th>
+			<th height="40"><center>Created-Date</center></th>
 			<th height="40"><center>Email_id</center></th>
 			<th height="40"><center>name</center></th>
 			<th height="40"><center>Description</center></th>
@@ -109,6 +110,7 @@
 		<c:forEach var="testimonials" items="${testimonial}">
 			<tr>
 				<td><center>${testimonials.id}</center></td>
+				<td><center>${testimonials.createdDate}</center></td>
 				<td><center>${testimonials.email_id}</center></td>
 				<td><center>${testimonials.name}</center></td>
 				<td><center>${testimonials.testimonial_desc}</center></td>

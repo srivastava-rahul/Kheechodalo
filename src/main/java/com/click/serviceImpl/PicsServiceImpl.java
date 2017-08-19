@@ -76,7 +76,12 @@ public class PicsServiceImpl implements PicsService {
 	public PictureUploadPojo findPicsbyemail(String email_id) {
 		LOG.info("Inside findPicsbyemail_id() serviceImpl");
 		PictureUpload singledata = picsDao.findPicsbyemail(email_id);
-		PictureUploadPojo pj=new PictureUploadPojo(singledata);
+		PictureUploadPojo pj=null;
+		if(singledata!=null){
+			  pj=new PictureUploadPojo(singledata);
+		}else{
+			
+		}
 		return pj;
 	}
 

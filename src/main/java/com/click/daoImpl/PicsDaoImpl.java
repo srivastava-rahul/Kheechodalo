@@ -74,9 +74,16 @@ public class PicsDaoImpl implements PicsDao {
 	@SuppressWarnings("unchecked")
 	public PictureUpload findPicsbyemail(String email_id) {
 		LOG.info("Inside findPicsbyemail_id() DaoImpl ");
+		PictureUpload singleuserpicdata=null;
+		try{
 		Query query = entityManager.createQuery("Select distinct pu from PictureUpload pu left outer join pu.picUploadData pd left outer join pu.user left outer join pu.friendEmail u where upper(pu.emailId) = :emailId order by pu.picVote DESC, pu.uploadDate ASC ");
 		query.setParameter("emailId", email_id.toUpperCase());
-		PictureUpload singleuserpicdata = (PictureUpload) query.getSingleResult();
+		singleuserpicdata = (PictureUpload) query.getSingleResult();
+		
+		}catch(Exception e){
+			 LOG.error(e.getMessage(),e);
+				e.printStackTrace();
+		}
 		return singleuserpicdata;
 	}
 	

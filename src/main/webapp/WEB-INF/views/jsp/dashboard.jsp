@@ -239,22 +239,22 @@ function showSlides(n) {
 
 <div class="body-area">
 <div class="">
-  <ul class="pagination">
+  <ul class="pagination" style="float:right;margin-right:3%">
   </ul>
      
-  	<form name="searchFormuser" action="searchUserPicbyemailid" method="post" style="margin-left:30%">
+  	<form name="searchFormuser" action="searchUserPicbyemailid" method="post" style="margin-left:30%;margin-top:2%">
 			   <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
 			
 			<div class="Changepasswordformboby">
-				<h3 style="color: yellow">Please Search your loved one Here... </h3>
+				<!-- <h3 style="color: yellow">Please Search your loved one Here... </h3> -->
 				<input type="text"  name="email_id" id="email_id" style="width:30% "
-					placeholder="Please Enter Email id" />
+					placeholder="Please Search your loved one Here....Email" />
 					<button type="submit" class="button_submit  submit" style="background-color:red">Search</button>
 				    <c:url value="/user/dashboard" var="dashUrl" />
 			</div>
 		</form>
 		</div>
-</div>
+
 
 
 <jsp:include page="/WEB-INF/views/jsp/message.jsp" />
@@ -323,8 +323,8 @@ function showSlides(n) {
 					<img src="data:image/jpeg;base64,${pic.base64Encoded}"	style="width:100%;height:90%">
 					<h2><span style="margin-left: 50%;color: red; " class="voteCount${pic.id}">${pic.picVote}</span></h2>
 					<div class="">
-						<b><h2 style="color:blue">${pic.userName}</h2></b>
-						<b><h2 style="color:blue">${pic.userEmailId}</h2></b>
+						<b><h2 style="color:blue"><a href="${pageContext.request.contextPath}/user/viewProfile/${pic.userEmailId}">${pic.userName}</a></h2></b>
+						<%-- <b><h2 style="color:blue">${pic.userEmailId}</h2></b> --%>
 						<p>${pic.picDescription}</p>
 					 <c:if test="${pic.allowToVote}"> 
 						<p align="center" class="hideVote${pic.id}">
@@ -378,7 +378,7 @@ function showSlides(n) {
 	
 	</div>
 	
-	
+	</div>
 </div>
 
 

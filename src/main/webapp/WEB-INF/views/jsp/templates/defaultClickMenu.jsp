@@ -12,11 +12,13 @@
 			<div class="user_box col-md-12">
 				<div class="user-pic">
 					<c:if test="${empty profPic}">
-						<a href="${pageContext.request.contextPath}/user/dashboard"><img
-							src="${pageContext.request.contextPath}/resources/images/backToHome.jpg"
-							id="dp" /></a>
-	</c:if>
+						<a href="${pageContext.request.contextPath}/user/dashboard">
+						<img src="${pageContext.request.contextPath}/resources/images/backToHome.jpg" id="dp" /></a>
+	               </c:if>
 				</div>
+				
+				
+				
 				<div class="clearfix"></div>
 				<br/>
 				<div class="user_detail_box">

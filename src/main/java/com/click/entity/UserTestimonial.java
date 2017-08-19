@@ -2,6 +2,7 @@ package com.click.entity;
 
 import java.io.Serializable;
 import java.util.Arrays;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -34,7 +35,9 @@ public class UserTestimonial implements Serializable {
 	@Column(name = "NAME", length = 500)
 	private String name;
 
-
+	@Column(name = "CTREATED_DATE", length = 500)
+	private Date createdDate;
+	
 	@Column(name = "Testimonial_DESCRIPTION", length = 500)
 	private String testimonial_desc;
 	
@@ -53,21 +56,24 @@ public class UserTestimonial implements Serializable {
 	
 	
 	public UserTestimonial(){}
-	public UserTestimonial(String id, String email_id, String name, String testimonial_desc, byte[] fileData) {
+	public UserTestimonial(String id, String email_id, String name, Date createdDate, String testimonial_desc,
+			byte[] fileData, String base64Encoded) {
 		super();
 		this.id = id;
 		this.email_id = email_id;
 		this.name = name;
+		this.createdDate = createdDate;
 		this.testimonial_desc = testimonial_desc;
 		this.fileData = fileData;
+		this.base64Encoded = base64Encoded;
 	}
-
-
+	
 	public String getId() {
 		return id;
 	}
 
 	
+
 	public void setId(String id) {
 		this.id = id;
 	}
@@ -121,10 +127,12 @@ public class UserTestimonial implements Serializable {
 	public void setBase64Encoded(String base64Encoded) {
 		this.base64Encoded = base64Encoded;
 	}
-
-	
-	
-
+	public Date getCreatedDate() {
+		return createdDate;
+	}
+	public void setCreatedDate(Date createdDate) {
+		this.createdDate = createdDate;
+	}
 	
 
 	

@@ -5,7 +5,6 @@ package com.click.service;
 
 import java.util.List;
 
-import com.click.entity.Notification;
 import com.click.entity.UserTestimonial;
 
 /**

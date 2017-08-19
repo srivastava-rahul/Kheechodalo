@@ -1,15 +1,19 @@
 package com.click.controller;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -37,17 +41,17 @@ public class AdminTestimonialController {
 	@Autowired
 	TestimonialService testimonialService;  
 			 
-	
+	@InitBinder
+	public void dataBinding(WebDataBinder binder) {
+		SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+		binder.registerCustomEditor(Date.class, "dob", new CustomDateEditor(dateFormat, true));
+	}
 	
 	@RequestMapping(value = "/admingetTestimonial")
 	protected String getTestimonialInfo(Model model) throws Exception {
 		LOG.info("Admin getting list of Testimonial data from getTestimonialInfo controller");
 		try {
 			 List<UserTestimonial>  listoftestimonial = testimonialService.gettestimonial();
-			    /*byte[] encodeBase64 = Base64.encodeBase64(listoftestimonial.getFileData());
-				String base64Encoded = new String(encodeBase64, "UTF-8");
-				model.addAttribute("picImg", base64Encoded);*/
-			 
 			 model.addAttribute("testimonial",listoftestimonial);
 		   } catch (Exception e) {
 			   LOG.error(e.getMessage(),e);
@@ -88,6 +92,7 @@ public class AdminTestimonialController {
 				testimonialdata.setFileData(bytes);
 				testimonialdata.setTestimonial_desc(desc);
 				testimonialdata.setName(name);
+				testimonialdata.setCreatedDate(new Date());
 				if(email==null){
 					testimonialdata.setEmail_id("Not Know");
 				}else{

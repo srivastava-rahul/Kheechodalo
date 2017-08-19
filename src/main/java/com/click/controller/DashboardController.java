@@ -68,11 +68,23 @@ public class DashboardController {
 	
 	@RequestMapping(value = "/searchUserPicbyemailid")
 	protected String getPicsbyemail_id(String email_id,Model model) throws Exception {
+		
+		if(email_id == null && email_id.equals("")){
+			model.addAttribute("error", "Invalid Data");
+			return "redirect:/user/dashboard";
+		}else{
 		LOG.info(" LOG User Dashboard from getPicsbyemail_id controlller==>"+email_id);
 		User u = SecurityLibrary.getLoggedInUser();
 		PictureUploadPojo searchPic = picsService.findPicsbyemail(email_id);
-		model.addAttribute("searchPic", searchPic);
-		return "dashboard";
+		if(searchPic!=null){
+			model.addAttribute("searchPic", searchPic);
+			return "dashboard";
+			
+		}else{
+		model.addAttribute("error", "Pic Does not exit");
+		return "redirect:/user/dashboard";
+		}
+		}
 	}
 	
 	@RequestMapping(value = "/newUserPassword", method = RequestMethod.GET)

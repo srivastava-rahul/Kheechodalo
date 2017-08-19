@@ -14,6 +14,44 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/css/style.css">
 <style>
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content1 {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+/* The Close Button */
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
 body {
 	background:
 		 url(${pageContext.request.contextPath}/resources/images/login_bck.jpg); 
@@ -42,11 +80,12 @@ body {
 			$("#cartoonVideo").attr('src', url);
 		});
 	});
+	
 </script>
 </head>
 
 <body>
-	<div style="margin-top: 0.5%; width: 30%; height: 50%; background-color: grey">
+	<div style="margin-top: 0%; width: 30%; height: 50%; background-color:">
 
 		<%-- 	<center>
 			<p>
@@ -56,21 +95,23 @@ body {
 
 		<center>
 			<p>
-				<img src="${pageContext.request.contextPath}/resources/images/logo.png" alt="Avatar" class="page_pic">
+				<img src="${pageContext.request.contextPath}/resources/images/logo3.png" alt="Avatar" class="" style="width:25%;float:left">
 			</p>
 		</center>
 
 	</div>
+	  <div style="margin-top:0 %;margin-left:8% ">
+	<i style="color: yellow">Sign-Up is free and always will be.</br></i>
+	<i style="color: red">In-Order to win Prize (Please Complete your profile as soon as you create account).</i>
+   </div>
+   
 	<div style="float: right; margin-right: 1%">
 		<button class="buttonvideo" data-tooltip="Visit Here For Site Tour">
 			<span id="myBtn">Video </span>
 		</button>
 
 	</div>
-
-	<i style="color: yellow">Sign-Up is free and always will be.</br></i>
-	<i style="color: red">In-Order to win Prize (Please Complete your profile as soon as you create account).</i>
-
+   <br/>
 	<!-- The Modal -->
 	<div id="myModal" class="modal">
 
@@ -177,10 +218,21 @@ body {
 						<input type="password" id="password" name="password" />
 					</div>
 
-					<button type="submit" class="button button-block">Get Started</button>
+					<!-- <button type="submit" class="button button-block" >Get Started</button> -->
+					
+					<button class="button button-block" id="myBtn">Get Started</button>
+					<div class="modal-content1">  
+                     <p style="color:red">Before clicking Please Read below link..!!</p>
+                     <ul>
+						  <li><a href="${pageContext.request.contextPath}/user/rulesouter">Rule</a></li>
+						  <li><a href="${pageContext.request.contextPath}/user/signupdataOuter">Signup-Data</a></li>
+						  <li><a href="${pageContext.request.contextPath}/user/privacyOuter">Privacy</a></li>
+						  <li><a href="${pageContext.request.contextPath}/user/termsConditionOuter">Terms & Condition</a></li>
+					</ul> 
+                  </div>
 
 				</form>
-
+                             
 			</div>
 		</div>
 		<!-- tab-content -->
@@ -209,7 +261,7 @@ body {
 	</div>
 
 
-	<div style="margin-top: 7%; width: 100%; height: auto; background-color:">
+	<div style="margin-top: 8%; width: 100%; height: auto; background-color:">
 		<div style="margin-bottom: 0px; background-color: #06ccb3;" align="center">&copy; 2018 All rights reserved</div>
 		&nbsp;
 		<div style="color: black">
@@ -217,7 +269,7 @@ body {
 			&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
 			<a href="${pageContext.request.contextPath}/user/termsConditionOuter">Terms & Condition</a>
 			&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
-			<a href="${pageContext.request.contextPath}/user/signupdataOuter">Signup -Data</a>
+			<a href="${pageContext.request.contextPath}/user/signupdataOuter">Signup-Data</a>
 			&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
 			<a href="${pageContext.request.contextPath}/user/rulesouter">Rules</a>
 			&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;

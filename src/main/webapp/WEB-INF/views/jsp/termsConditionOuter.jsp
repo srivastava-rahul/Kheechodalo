@@ -5,7 +5,6 @@
 <head>
 
 <meta charset="UTF-8">
- <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="Login to Kheecho-Dalo to share your pictures and win exicting prizes in daily photo contest for free.. | KheechoDalo.com">
 <meta name="Keyword"  content="cute ,cute baby, cute girls, earn money online, photographs, online photography ,Photo competion, indian competition, vote photo, vote pic, Beautiful pic , pic upload , photo upload, indian photography, photo contest, photo sharing, free |KheechoDalo.com">
 <meta name="author" content="Kheechodalo origination |KheechoDalo.com">

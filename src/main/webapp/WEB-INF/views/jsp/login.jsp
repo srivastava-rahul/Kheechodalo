@@ -9,13 +9,14 @@
 <head>
 <meta charset="UTF-8">
 <title>KheechoDalo Sign-Up/Login Form</title>
- <meta name="viewport" content="width=device-width, initial-scale=1">
+ 
 
 <meta name="description" content="Login to Kheecho-Dalo to share your pictures and win exicting prizes in daily photo contest for free.. | KheechoDalo.com">
 <meta name="Keyword"  content="
 cute ,cute baby, cute girls, earn money online, photographs, online photography ,Photo competion, indian competition, vote photo, vote pic, Beautiful pic , pic upload , photo upload, indian photography, photo contest, photo sharing, free |KheechoDalo.com
 ">
 <meta name="author" content="Kheechodalo origination |KheechoDalo.com">
+
 
 <link rel="icon"  type="image/jpg" href="${pageContext.request.contextPath}/resources/images/titleimage.png"/>
 <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,300,600' rel='stylesheet' type='text/css'>

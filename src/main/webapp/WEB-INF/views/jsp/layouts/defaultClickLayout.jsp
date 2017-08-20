@@ -4,6 +4,16 @@
     <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 <html>
 <head>
+<meta charset="UTF-8">
+<title>KheechoDalo DashBoard</title>
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta name="description" content="Login to Kheecho-Dalo to share your pictures and win exicting prizes in daily photo contest for free.. | KheechoDalo.com">
+<meta name="Keyword"  content="
+cute ,cute baby, cute girls, earn money online, photographs, online photography ,Photo competion, indian competition, vote photo, vote pic, Beautiful pic , pic upload , photo upload, indian photography, photo contest, photo sharing, free |KheechoDalo.com
+">
+<meta name="author" content="Kheechodalo origination |KheechoDalo.com">
+
 <link rel="stylesheet" type="text/css" href="<c:url value="/resources/assets/icons/fontawesome/font-awesome.min.css"/>">
 <link rel="stylesheet" type="text/css" href="<c:url value="/resources/assets/icons/fontawesome/fontawesome.css"/>">
 <link rel="stylesheet" type="text/css" href="<c:url value="/resources/assets/icons/fontawsome-4.7/css/font-awesome.min.css"/>">
@@ -11,7 +21,7 @@
 <link rel="stylesheet" type="text/css" href="<c:url value="/resources/assets/themes/admin/color-schemes/Kheecho-theme.css"/>">
 <%-- <link rel="stylesheet" type="text/css" href="<c:url value="/resources/assets/themes/admin/kheecholayout.css"/>"> --%>
 <link rel="stylesheet" type="text/css" href="<c:url value="/resources/assets/bootstrap/css/bootstrap.css"/>">
-<title>KheechoDalo DashBoard</title>
+
 <link rel="icon"  type="image/jpg" href="${pageContext.request.contextPath}/resources/images/titleimage.png"/>
 <meta name="_csrf" content="${_csrf.token}" />
 <meta name="_csrf_header" content="${_csrf.headerName}" />

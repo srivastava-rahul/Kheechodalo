@@ -20,4 +20,6 @@
  8.In the event it is claimed that the photographs submitted by you infringes any person’s copyright, you agree to indemnify </br>&nbsp; &nbsp;&nbsp;against all costs, expenses, losses, fines etc. incurred, borne or suffered by website.
 	</h3>
 	</p>
+	<br/><br/><br/><br/>
+    <span style="color:red;margin-left: 5%"> * condition apply</span>
 </div>

@@ -54,4 +54,7 @@
 	<br/>&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
 	&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;also to recover the lost password.
 	</p></h3>
+	
+	</br></br>
+	<span style="color:red;margin-left: 5%"> * condition apply</span>
 </div>

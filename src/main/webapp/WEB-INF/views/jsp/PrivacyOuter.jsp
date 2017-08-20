@@ -34,5 +34,6 @@
 	
 3) This site uses cookies to track your information.It is needed to provide better user experience
 	</h3>	
-    
+    <br/><br/><br/><br/><br/>
+    <span style="color:red;margin-left: 5%"> * condition apply</span>
 </div>

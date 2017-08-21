@@ -74,13 +74,11 @@
 			</a>
 			<%-- <a href="${pageContext.request.contextPath}/user/myownpic" id="My_own_pic">My_pic&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
    &nbsp;<i class="fa fa-photo"style="font-size:22px;color:red"></i></a> --%>
-
 		</div>
+		
 	</div>
 	</c:if>
 </div>
-
-
 
 <script>
 	/* var slideIndex = 1;

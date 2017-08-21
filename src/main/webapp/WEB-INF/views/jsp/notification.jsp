@@ -12,12 +12,26 @@
 		<p class="header_information">Notification--Page</p>
 	</div>
 	
+	 <div style="margin-left: 80%">
+	 <span data-WRID="WRID-150143479608384177" data-widgetType="staticBanner" data-responsive="yes" data-class="affiliateAdsByFlipkart" height="120" width="300"></span><script async src="//affiliate.flipkart.com/affiliate/widgets/FKAffiliateWidgets.js"></script>
 	
-	
+	 
+	 </div>
 	 <c:forEach var="notify" items="${notifiy}">
-	    <div class="containersearch">       
+	    <!-- <div class="containersearch">  -->
+	    <div style="width:60%; height:15%; border: 2px solid black; background-color: white; border-radius: 10px; padding: 8px; margin: 12px 0; margin-left:5%;">      
 		    <p><span style="color:red">${notify.createdDate}</span><br/><br/>
 		    <span style="margin-left:2%;color:black">${notify.notification_desc}</span></p>
 		</div>
 	 </c:forEach> 
+
+    
+	 
+    <div style="margin-left:40%;margin-top: 3%">
+	<div data-WRID="WRID-150325420505791119" data-widgetType="staticBanner" data-responsive="yes" data-class="affiliateAdsByFlipkart" height="90" width="728"></div><script async src="//affiliate.flipkart.com/affiliate/widgets/FKAffiliateWidgets.js"></script>
+	 </div>
+	 
+	 
+	 
+ 
 </div>

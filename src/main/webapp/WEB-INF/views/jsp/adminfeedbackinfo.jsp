@@ -4,7 +4,7 @@
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/jquery-1.4.2.min.js"></script>
 
 <div class="body-area">
-	
+	<jsp:include page="/WEB-INF/views/jsp/message.jsp" />
 	<div class="information">
 		<p class="header_information">Feedback Information for Admin</p>
 	</div>

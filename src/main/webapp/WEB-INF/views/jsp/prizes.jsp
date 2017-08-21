@@ -23,7 +23,7 @@ table, th, td {
 		<p class="header_information">
 			<b>Prizes for participants</b>
 		</p>
-	</div>
+
 
 	<div style="margin-left: 20%; margin-top: 5%;">
 		<table style="">
@@ -43,8 +43,19 @@ table, th, td {
 			</tr>
           </c:forEach>
 					</table>
+					
+					
+	
 
-	</div>
-
+<div style="margin-top: 6%;margin-left:5% ">				
+    <span data-WRID="WRID-150325514460931555" data-widgetType="productBanner"  data-class="affiliateAdsByFlipkart" height="350px" width="200px"></span><script async src="//affiliate.flipkart.com/affiliate/widgets/FKAffiliateWidgets.js"></script>					
+    
+    <span data-WRID="WRID-150325563521533262" data-widgetType="productBanner"  data-class="affiliateAdsByFlipkart" height="250px" width="200px"></span><script async src="//affiliate.flipkart.com/affiliate/widgets/FKAffiliateWidgets.js"></script>
+    
+    <span data-WRID="WRID-150325567273950214" data-widgetType="productBanner"  data-class="affiliateAdsByFlipkart" height="350px" width="200px"></span><script async src="//affiliate.flipkart.com/affiliate/widgets/FKAffiliateWidgets.js"></script>
+    
+    <span data-WRID="WRID-150325698005019858" data-widgetType="productBanner"  data-class="affiliateAdsByFlipkart" height="250px" width="300px"></span><script async src="//affiliate.flipkart.com/affiliate/widgets/FKAffiliateWidgets.js"></script>
+    </div>
+	
     
 </div>

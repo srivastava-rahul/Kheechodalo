@@ -25,6 +25,11 @@ public interface TestimonialService {
 	public List<UserTestimonial> gettestimonial();
 	
 	/**
+	 * Get List of the Testimonial data by Admin
+	 */
+	public List<UserTestimonial> gettestimonial(int pageNo);
+	
+	/**
 	 * Delete Single Testimonial data by Admin  based on id 
 	 */
 	public void deletetestimonial(UserTestimonial testimonialdata);

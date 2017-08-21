@@ -19,7 +19,7 @@ public class Schedular {
 	WinnerService winnerService;
 	
 	
-	private void sendHeartBeat() throws Exception{
+	/*private void sendHeartBeat() throws Exception{
 		System.out.println("hi rahul");
 	}
 	
@@ -28,10 +28,10 @@ public class Schedular {
 	public void runForAdminHeartBeat()throws Exception{	
 		
 			sendHeartBeat();
-	 }
+	 }*/
 	
 	
-	/*@Scheduled(cron="0 * * * * *",zone = "IST")
+	@Scheduled(cron="0 * * * * *",zone = "IST")
 	public void deleteAllPicsData()throws Exception{		
 			//send heart beat for health check 
 //		copyWinnerPic();
@@ -47,6 +47,6 @@ public class Schedular {
 	private void copyWinnerPic() throws Exception{
 		System.out.println("Copying winner pic");
 		winnerService.copyWinnerPic();
-	}*/
+	}
 	
 }

@@ -45,11 +45,11 @@ public class TestimonialServiceImpl implements TestimonialService {
 	}
 
 	@Override
-	public List<UserTestimonial> gettestimonial() {
-		LOG.info("Inside gettestimonial() serviceImpl ");
+	public List<UserTestimonial> gettestimonial(int pageNo) {
+		LOG.info("Inside gettestimonial(int pageNo) serviceImpl ");
 		List<UserTestimonial> listoftestimonial=null;
 		try{
-		 listoftestimonial=testimonialDao.gettestimonial();
+		 listoftestimonial=testimonialDao.gettestimonial(pageNo);
 			if (CollectionUtil.isNotEmpty(listoftestimonial)) {
 				for (UserTestimonial testimonial : listoftestimonial) {
 					try {
@@ -80,6 +80,31 @@ public class TestimonialServiceImpl implements TestimonialService {
 				e.printStackTrace(); 
 		}
 		
+	}
+
+	@Override
+	public List<UserTestimonial> gettestimonial() {
+		LOG.info("Inside gettestimonial() serviceImpl ");
+		List<UserTestimonial> listoftestimonial=null;
+		try{
+		 listoftestimonial=testimonialDao.gettestimonial();
+			if (CollectionUtil.isNotEmpty(listoftestimonial)) {
+				for (UserTestimonial testimonial : listoftestimonial) {
+					try {
+						if (testimonial.getFileData() != null) {
+							byte[] encodeBase64 = Base64.encodeBase64(testimonial.getFileData());
+							testimonial.setBase64Encoded(new String(encodeBase64, "UTF-8"));
+						}
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+				}
+			}
+		 }catch(Exception e){
+			  LOG.error(e.getMessage(),e);
+				e.printStackTrace(); 
+		 }
+		return listoftestimonial;
 	}
 
 }

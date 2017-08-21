@@ -269,8 +269,8 @@ function showSlides(n) {
 					<div class="">
 						<b><h2 style="color:blue"><a href="${pageContext.request.contextPath}/user/viewProfile/${pic.userEmailId}">${pic.userName}</a></h2></b>
 						<%-- <b><h2 style="color:blue">${pic.userEmailId}</h2></b> --%>
-						<p>${pic.picDescription}</p>
-					 <c:if test="${pic.allowToVote}"> 
+						<p style="color:green;">${pic.picDescription}</p><br/>
+					    <c:if test="${pic.allowToVote}"> 
 						<p align="center" class="hideVote${pic.id}">
 							<button class="marg-bottom-10 button_submit  submit votePic">Vote</button>
 							<input type="hidden" id="picId" name="picId" value="${pic.id}">
@@ -303,7 +303,13 @@ function showSlides(n) {
 		</div>
 	</div>
 	
-	
+	    <div style="margin-top: 5%;margin-left: 10%;">
+		<div data-WRID="WRID-150143651598347589" data-widgetType="Push Content"  data-class="affiliateAdsByFlipkart" height="90" width="728"></div><script async src="//affiliate.flipkart.com/affiliate/widgets/FKAffiliateWidgets.js"></script>
+		
+		
+		</div>
+		
+		
 <div id="myModal" class="modal">
   <span class="close cursor" onclick="closeModal()">&times;</span>
   <div class="modal-content">

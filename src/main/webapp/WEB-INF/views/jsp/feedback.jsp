@@ -37,9 +37,15 @@
 		</form>
 	</div>
 	
-	<div style="float: right;">
-	<div data-WRID="WRID-150143490729356276" data-widgetType="staticBanner"  data-class="affiliateAdsByFlipkart" height="250" width="250"></div><script async src="//affiliate.flipkart.com/affiliate/widgets/FKAffiliateWidgets.js"></script>
+	<div style="float:right; margin-right:2%;margin-top: 5%">
+	<span  data-WRID="WRID-150143490729356276" data-widgetType="staticBanner"  data-class="affiliateAdsByFlipkart" height="250" width="250"></span><script async src="//affiliate.flipkart.com/affiliate/widgets/FKAffiliateWidgets.js"></script>
+	 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+	  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+	   &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+	<span data-WRID="WRID-150325849813113290" data-widgetType="staticBanner" data-responsive="yes" data-class="affiliateAdsByFlipkart" height="250" width="300"></span><script async src="//affiliate.flipkart.com/affiliate/widgets/FKAffiliateWidgets.js"></script>
 	</div>
+	
+	
 </div>
 
 <style>

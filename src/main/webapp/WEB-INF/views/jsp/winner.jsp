@@ -60,10 +60,20 @@ $(document).ready(function() {
 			<b>Prizes for participants</b>
 		</p>
 	</div>
+	
 	<center>
 	 <ul class="pagination">
-  </ul>
-	
+     </ul>
+  </center>
+  <br/>
+  
+  <div>
+  
+      <div style="width: 5%;height: 20%;margin-left:78%;margin-top: 3%">
+		<div data-WRID="WRID-150143535395538190" data-widgetType="Push Content"  data-class="affiliateAdsByFlipkart" height="250" width="300"></div><script async src="//affiliate.flipkart.com/affiliate/widgets/FKAffiliateWidgets.js"></script>
+		</div>
+		
+	 <div>
 		<c:forEach items="${winnerList}" var="winner">
 			<div class="containerwinner">
 				<div class="container_img_header">
@@ -73,7 +83,7 @@ $(document).ready(function() {
 					<font style="color: red;">Prize :${winner.prize_desc}</font>
 					&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
 					<font style="color: red; float: right;">Vote:${winner.picVote}</font>
-				</div>
+				 </div>
 				<div style="background: black;">
 					<span>
 						<center>
@@ -85,7 +95,12 @@ $(document).ready(function() {
 				</div>
 			</div>
 		</c:forEach>
-	</center>
+		</div>
+		
+		
+		</div>
+		
+	
 
-
+     
 </div>

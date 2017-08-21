@@ -38,12 +38,17 @@ public class TestimonialDaoImpl implements TestimonialDao {
 		   }   
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
-	public List<UserTestimonial> gettestimonial() {
-		LOG.info("Inside gettestimonial() DaoImpl");
+	public List<UserTestimonial> gettestimonial(int pageNo) {
+		LOG.info("Inside gettestimonial(int pageNo) DaoImpl");
 		Query query=null;
 		try{
 			 query = entityManager.createQuery("from UserTestimonial");
+			 
+			 query = entityManager.createQuery("from UserTestimonial ut order by ut.createdDate DESC");
+				query.setFirstResult(pageNo == 1 ? 0 : ((pageNo-1)*5));
+				query.setMaxResults(5);
 		}catch(Exception e){
 			LOG.error(e.getMessage(),e);
 			e.printStackTrace();
@@ -64,6 +69,21 @@ public class TestimonialDaoImpl implements TestimonialDao {
 				e.printStackTrace();
 		    }
 		
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<UserTestimonial> gettestimonial() {
+		LOG.info("Inside gettestimonial() DaoImpl");
+		Query query=null;
+		try{
+			 query = entityManager.createQuery("from UserTestimonial");
+		}catch(Exception e){
+			LOG.error(e.getMessage(),e);
+			e.printStackTrace();
+		}
+		
+		return (List<UserTestimonial> ) query.getResultList();
 	}
 
 

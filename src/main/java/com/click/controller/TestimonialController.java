@@ -6,6 +6,7 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.click.entity.UserTestimonial;
@@ -21,11 +22,34 @@ public class TestimonialController {
 
 	private static final Logger LOG = Logger.getLogger(TestimonialController.class);
 	
-	@RequestMapping(value = "/testimonials")
+	/*@RequestMapping(value = "/testimonials")
 	protected String getAllTestimonial(Model model) throws Exception {
 		LOG.info("Fetchig testimonial page from getAllTestimonial controller");
 		List<UserTestimonial>  listoftestimonial=gettestimonial.gettestimonial();
 		 model.addAttribute("testimonial",listoftestimonial);
+		return "testimonials";
+	}*/
+	
+	
+	@RequestMapping(value = "/testimonials")
+	protected String getAllTestimonial(Model model) throws Exception {
+		LOG.info("Fetchig testimonial page from getAllTestimonial controller");
+		List<UserTestimonial>  listoftestimonial=gettestimonial.gettestimonial(1);
+		 model.addAttribute("testimonial",listoftestimonial);
+		return "testimonials";
+	}
+	
+	@RequestMapping(value = "/testimonialsPagination/{page}")
+	protected String getAllWinnersPagination(@PathVariable("page") int pageNo, Model model) throws Exception {
+		LOG.info("Fetchig testimonial page from getAllWinnersPagination() controller");
+		List<UserTestimonial>  listoftestimonial=gettestimonial.gettestimonial(pageNo);
+		model.addAttribute("testimonial",listoftestimonial);
+		int rem = pageNo % 4;
+		rem = 4 - rem;
+		if (rem != 0) {
+			pageNo = pageNo + rem;
+		}
+		model.addAttribute("pageNo", pageNo);
 		return "testimonials";
 	}
 }

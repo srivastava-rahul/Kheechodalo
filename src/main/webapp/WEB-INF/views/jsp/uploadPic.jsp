@@ -2,8 +2,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@ page isELIgnored="false"%>
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/jquery-1.4.2.min.js"></script>
-<div class="body-area">
 
+<div class="body-area">
 	<img src="${pageContext.request.contextPath}/resources/images/myownpicvote.jpg" alt="Avatar" class="page_pic">
 	<div class="information">
 		<p class="header_information">
@@ -46,7 +46,7 @@
 					<h2>Description</h2>
 					<!-- <h5>Today 12:00</h5> -->
 					<c:if test="${empty picImg}">
-						<textarea name="desc" id="desc" rows="6" cols="35" style="color: black" placeholder="Please provide a detailed description of your Pic." aria-required="true"></textarea>
+						<textarea name="desc" id="desc" rows="6" cols="35" style="color: black" placeholder="Please provide a detailed description of your Pic...Only 45 charcter is allowed" aria-required="true" maxlength="45"></textarea>
 					</c:if>
 					<c:if test="${not empty picImg}">
 						<h3>${picData.description}</h3>
@@ -71,18 +71,17 @@
 						<input type="submit" id="uploadPicBtnId" class="btn success" value="Upload">
 					</div>
 				</c:if>
-				<br /> <br /> <br /> <br /> <br /> <br />
-
-
+				<br /> <br /> <br /> <br />
+		  <div>
+		   <span data-WRID="WRID-150329794559992600" data-widgetType="productBanner"  data-class="affiliateAdsByFlipkart" height="240px" width="120px"></span><script async src="//affiliate.flipkart.com/affiliate/widgets/FKAffiliateWidgets.js"></script>
+		   <span data-WRID="WRID-150329878052136571" data-widgetType="productBanner"  data-class="affiliateAdsByFlipkart" height="240px" width="120px"></span><script async src="//affiliate.flipkart.com/affiliate/widgets/FKAffiliateWidgets.js"></script>
+           <span data-WRID="WRID-150325902204681690" data-widgetType="staticBanner" data-responsive="yes" data-class="affiliateAdsByFlipkart" height="200" width="1000"></span><script async src="//affiliate.flipkart.com/affiliate/widgets/FKAffiliateWidgets.js"></script>
 			</div>
 
 		</form>
-
 	</div>
-
+	           
 </div>
-
-
 <script>
 	$(document).ready(
 			function() {

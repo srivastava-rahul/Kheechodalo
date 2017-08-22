@@ -34,16 +34,16 @@ public interface PicsService {
 	/**
 	 * 
 	 * @param pageNo
-	 *            
+	 * 
 	 * @return
 	 */
 	List<PictureUploadPojo> findAllPics(int pageNo);
-	
-	
+
 	/**
 	 * 
-	 * @param get pic based on emailid
-	 *            
+	 * @param get
+	 *            pic based on emailid
+	 * 
 	 * @return
 	 */
 	PictureUploadPojo findPicsbyemail(String email_id);
@@ -82,10 +82,24 @@ public interface PicsService {
 	 */
 	void deleteAllPics();
 
+	/*
+	 * @param emailId
+	 * 
+	 * @return
+	 */
+	long findVoteCountForAdminOfSpecificEmail(String emailId);
+
 	/**
 	 * 
 	 * @return
 	 */
+
 	PictureUpload findWinnerPicByMaxVoteCount();
+
+	/**
+	 * 
+	 * @return
+	 */
+	long incrementVoteCountForEmail();
 
 }

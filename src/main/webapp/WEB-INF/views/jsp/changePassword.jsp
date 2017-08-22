@@ -18,8 +18,10 @@
 		<div class="forgetformheader" align="center"> <h1>Recover Your Password</h1>
 		</div>
 		<br/>
-		 <form>
-		<%-- <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"> --%>
+		 <form  name="changePasswordForm" action="${pageContext.request.contextPath}/newRecoverPassword" method="post">
+		 
+		 <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"> 
+		 <input type="hidden" name="id" value="${id}"> 
 			<div class="forgetformboby">
 		    <h2>Please Enter New Password </h2>
 		<input type="text" type="password" id="password" name="password" class ="form-control"placeholder="Please Enter your new Password"/>

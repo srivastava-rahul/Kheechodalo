@@ -34,4 +34,10 @@ public interface AdminGetUserInfoService {
 	 */
 	 ProfileSetting  getProfileInfoByEmailId(String email_id);
 
+	 /**
+	  * 
+	  * @return
+	  */
+	int countAllTotalUser();
+
 }

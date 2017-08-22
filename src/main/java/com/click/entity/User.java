@@ -49,9 +49,6 @@ public class User implements Serializable {
 	@Column(name = "USER_GENDER", length = 1)
 	private String gender;
 
-//	@Column(name = "USER_PHONE", length = 18)
-//	private long phone;
-
 	@Column(name = "USER_DOB")
 	private Date dob;
 

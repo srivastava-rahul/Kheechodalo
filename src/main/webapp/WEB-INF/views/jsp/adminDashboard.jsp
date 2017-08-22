@@ -16,7 +16,7 @@ table, th, td {
 <div class="body-area">
 
 	<div class="information">
-		<p class="header_information">User Information for Admin</p>
+		<p class="header_information">User Information for Admin <span style="margin-left:910px;">Total User : ${total}</span> </p>
 	</div>
 	<p>
 	<%-- <form name="deleteForm" action="" method="post">
@@ -48,7 +48,6 @@ table, th, td {
 			<th height="40"><center>Name</center></th>
 			<th height="40"><center>Email-Id</center></th>
 			<th height="40"><center>Created Date</center></th>
-			<th height="40"><center>Modified Date</center></th>
 			<th height="40"><center>Account Active</center></th>
 			<th height="40"><center>Account Deleted</center></th>
 			<th height="40"><center>Action Button</center></th>
@@ -59,7 +58,6 @@ table, th, td {
 				<td><center>${userinfo.firstName} ${userinfo.lastName}</center></td>
 				<td><center>${userinfo.emailId}</center></td>
 				<td><center>${userinfo.createdDate}</center></td>
-				<td><center>${userinfo.modifiedDate}</center></td>
 				<td><center>${userinfo.status}</center></td>
 				<td><center>${userinfo.deleted}</center></td>
 				<td><center>

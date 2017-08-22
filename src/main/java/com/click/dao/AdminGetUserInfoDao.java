@@ -36,4 +36,11 @@ public interface AdminGetUserInfoDao {
 	 */
 	ProfileSetting getProfileInfoByEmailId(String email_id);
 
+
+	/**
+	 * 
+	 * @return
+	 */
+	int countAllTotalUser();
+
 }

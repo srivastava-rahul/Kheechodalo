@@ -208,6 +208,13 @@
 		<put-attribute name="body"
 			value="/WEB-INF/views/jsp/adminfeedbackinfo.jsp" />
 	</definition>
+	
+		<!-- Feedback Information by Admin pages -->
+	<definition name="adminVoteIncrement" extends="full-definition">
+		<put-attribute name="title" value="Vote Increment" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/adminVoteIncrement.jsp" />
+	</definition>
 
 	<!-- Quick Help Information by Admin pages -->
 	<definition name="adminquickhelpinfo" extends="full-definition">

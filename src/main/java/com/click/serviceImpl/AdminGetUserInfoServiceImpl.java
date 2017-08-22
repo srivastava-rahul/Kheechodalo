@@ -67,6 +67,13 @@ public class AdminGetUserInfoServiceImpl implements AdminGetUserInfoService {
 		return profiledata;
 	}
 
+	@Override
+	public int countAllTotalUser() {
+		LOG.info(" Count User ");
+		int total = adminGetUserInfoDao.countAllTotalUser();
+		return total;
+	}
+
 	
 
 	

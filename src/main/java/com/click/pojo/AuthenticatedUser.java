@@ -8,6 +8,7 @@ import org.apache.log4j.Logger;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import com.click.entity.User;
 
@@ -33,7 +34,11 @@ public class AuthenticatedUser extends User implements UserDetails {
 	 */
 	public AuthenticatedUser(User user) {
 		try {
+			BCryptPasswordEncoder enc = new BCryptPasswordEncoder();
+//			String pass= enc.matches(, user.getPassword());
+			
 			this.setId(user.getId());
+			
 			this.setPassword(user.getPassword());
 			this.setEmailId(user.getEmailId());
 			this.setFirstName(user.getFirstName());
@@ -44,7 +49,7 @@ public class AuthenticatedUser extends User implements UserDetails {
 				setUserRole(user.getUserRole());
 				if (user.getUserRole().getRoleName() != null) {
 					grantedAuthorities.add(user.getUserRole().getRoleName());
-					if (user.getUserRole().getRoleName().equals("USER_ADMIN")) {
+					if (user.getUserRole().getRoleName().equals("ROLE_ADMIN")) {
 						this.isAdmin = Boolean.TRUE;
 						LOG.info("AuthenticatedUser  isAdmin" + isAdmin);
 					}

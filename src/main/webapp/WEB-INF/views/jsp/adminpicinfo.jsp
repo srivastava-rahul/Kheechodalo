@@ -5,36 +5,31 @@
 
 <div class="body-area">
 	
-	<form name="deleteForm" action="" method="post">
-			   <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
-			
-			<div class="Changepasswordformboby">
-				<h3 style="color: yellow">Please tell What to be deleted enter the id... </h3>
-				<input type="text"  name="pic_id" id="pic_id" style="width:30% "
-					placeholder="Please Enter id" />
-					
-					<button type="submit" class="button_submit  submit" style="background-color:red">Delete</button>
-				
-				    <c:url value="/user/dashboard" var="dashUrl" />
-			</div>
-		</form>
-		</br></br>
 	<div class="information">
 		<p class="header_information">Pics Information for Admin</p>
 	</div>
 		<p>	
-	
            Admin Pic info
-	
 	</p>
 	<div style="margin-left:25%">
-
+	
+	<form name="deleteForm" action="" method="post">
+			   <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
+			
+			<div class="Changepasswordformboby">
+				<h3 style="color: yellow;margin-left: 334px;">Please tell What to be deleted enter the id... </h3>
+				<input type="text"  name="pic_id" id="pic_id" style = "width: 452px; height: 40px;margin-left: 334px;" placeholder="Please Enter id" />
+					
+					<button type="submit" class="button_submit  submit" style="background-color:gray">Delete</button>
+				
+			</div>
+		</form>
+		
 <h3 style="color: yellow">Please tell What to be search enter here... </h3>
 <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search By Email..." title="Type in Email" style = "width: 452px; height: 38px;">
 	</div>
 	</br>
 	</br>
-	
 
 	<table id="myTable" style="margin-left: 5%; width: 90%; padding: 5%; color: white"
 		border="1">
@@ -45,7 +40,6 @@
 			<th height="40"><center>Pic</center></th>
 			<th height="40"><center>Vote</center></th>
 			<th height="40"><center>Action Button</center></th>
-			
 		</tr>
 		<c:forEach var="pic" items="${picsList}">
 			<tr>
@@ -60,13 +54,8 @@
 					</center></td>
 			</tr>
 		</c:forEach>
-
 	</table>
-
-
-
 </div>
-
 <script>
 function myFunction() {
   var input, filter, table, tr, td, i;

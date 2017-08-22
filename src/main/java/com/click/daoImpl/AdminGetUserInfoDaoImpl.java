@@ -17,8 +17,8 @@ import com.click.entity.User;
  * @author rahul
  */
 @Repository
-public class AdminGetUserInfoDaoImpl implements AdminGetUserInfoDao{
-	
+public class AdminGetUserInfoDaoImpl implements AdminGetUserInfoDao {
+
 	private static final Logger LOG = Logger.getLogger(AdminGetUserInfoDaoImpl.class);
 
 	@PersistenceContext(unitName = "entityManagerFactory")
@@ -28,11 +28,11 @@ public class AdminGetUserInfoDaoImpl implements AdminGetUserInfoDao{
 	@Override
 	public List<User> getAllUserInfo() {
 		LOG.info(" Inside Get getAllUserInfo() DaoImpl All User Infomation ");
-		Query query=null;
-		try{
-		 query = entityManager.createQuery("from User where isAdmin = 0");
-		}catch(Exception e){
-			LOG.error(e.getMessage(),e);
+		Query query = null;
+		try {
+			query = entityManager.createQuery("from User where isAdmin = 0");
+		} catch (Exception e) {
+			LOG.error(e.getMessage(), e);
 			e.printStackTrace();
 		}
 		return (List<User>) query.getResultList();
@@ -41,11 +41,12 @@ public class AdminGetUserInfoDaoImpl implements AdminGetUserInfoDao{
 	@Override
 	public User getlUserInfoByEmailId(String email_id) {
 		LOG.info(" Inside getlUserInfoByEmailId() DaoImpl   Get   User Infomation by Email-Id");
-		Query query =null;
-		try{
-		 query = entityManager.createQuery("from User u where u.emailId = :EMAIL_Id").setParameter("EMAIL_Id", email_id);
-		}catch(Exception e){
-			LOG.error(e.getMessage(),e);
+		Query query = null;
+		try {
+			query = entityManager.createQuery("from User u where u.emailId = :EMAIL_Id").setParameter("EMAIL_Id",
+					email_id);
+		} catch (Exception e) {
+			LOG.error(e.getMessage(), e);
 			e.printStackTrace();
 		}
 		return (User) query.getSingleResult();
@@ -54,24 +55,35 @@ public class AdminGetUserInfoDaoImpl implements AdminGetUserInfoDao{
 	@SuppressWarnings("unchecked")
 	@Override
 	public ProfileSetting getProfileInfoByEmailId(String email_id) {
-		LOG.info("Inside DaoImpl User profile Infomation by Email-Id :" +email_id);
-		Query query=null;
-		try{
-		 query = entityManager.createQuery("from ProfileSetting  p where (upper(p.email_id) like :EMAIL_Id)");
-		 query.setParameter("EMAIL_Id","%"+ email_id +"%");
-		}catch(Exception e){
-			LOG.error(e.getMessage(),e);
+		LOG.info("Inside DaoImpl User profile Infomation by Email-Id :" + email_id);
+		Query query = null;
+		try {
+			query = entityManager.createQuery("from ProfileSetting  p where (upper(p.email_id) like :EMAIL_Id)");
+			query.setParameter("EMAIL_Id", "%" + email_id + "%");
+		} catch (Exception e) {
+			LOG.error(e.getMessage(), e);
 			e.printStackTrace();
 		}
-		LOG.info(" ProfileSetting Size For Admin : "+query.getResultList().size());
+		LOG.info(" ProfileSetting Size For Admin : " + query.getResultList().size());
 		List<ProfileSetting> list = query.getResultList();
-		if(list.isEmpty()){
+		if (list.isEmpty()) {
 			return null;
-		}else{
+		} else {
 			return list.get(0);
 		}
 	}
-	
 
+	@Override
+	public int countAllTotalUser() {
+		Query query = null;
+		try {
+			query = entityManager.createQuery("select count(u) from User u where isAdmin = false)");
+		} catch (Exception e) {
+			LOG.error(e.getMessage(), e);
+			e.printStackTrace();
+		}
+		Object obj = (Number) query.getSingleResult();
+		return obj != null ? ((Number) obj).intValue() : 0;
+	}
 
 }

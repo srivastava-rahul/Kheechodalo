@@ -39,7 +39,8 @@ public class AppAuthenticationSuccessHandler extends SavedRequestAwareAuthentica
 
 	protected void handle(HttpServletRequest request, HttpServletResponse response, Authentication authentication)
 			throws IOException {
-
+		
+		
 		AuthenticatedUser user = (AuthenticatedUser) authentication.getPrincipal();
 
 		User dbUser = userDao.findById(user.getId());
@@ -68,7 +69,7 @@ public class AppAuthenticationSuccessHandler extends SavedRequestAwareAuthentica
 			for (GrantedAuthority grantedAuthority : authorities) {
 				LOG.info("Granted Access : " + grantedAuthority.getAuthority());
 				if (grantedAuthority.getAuthority().equals("USER_ROLE")) {
-				} else if (grantedAuthority.getAuthority().equals("USER_ADMIN")) {
+				} else if (grantedAuthority.getAuthority().equals("ROLE_ADMIN")) {
 					isAdmin = true;
 				}
 			}

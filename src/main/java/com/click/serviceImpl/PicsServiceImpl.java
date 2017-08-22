@@ -6,8 +6,6 @@ package com.click.serviceImpl;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.Query;
-
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -60,8 +58,12 @@ public class PicsServiceImpl implements PicsService {
 		if (CollectionUtil.isNotEmpty(list)) {
 			for (PictureUpload pictureUpload : list) {
 				PictureUploadPojo pu = new PictureUploadPojo(pictureUpload);
-			//	LOG.info("friend Email list :" + pictureUpload.getFriendEmail().toString() + " SecurityLibrary.getLoggedInUserLoginEmailId() :" + SecurityLibrary.getLoggedInUserLoginEmailId());
-				if (pictureUpload.getFriendEmail().contains(SecurityLibrary.getLoggedInUserLoginEmailId().toUpperCase())) {
+				// LOG.info("friend Email list :" +
+				// pictureUpload.getFriendEmail().toString() + "
+				// SecurityLibrary.getLoggedInUserLoginEmailId() :" +
+				// SecurityLibrary.getLoggedInUserLoginEmailId());
+				if (pictureUpload.getFriendEmail()
+						.contains(SecurityLibrary.getLoggedInUserLoginEmailId().toUpperCase())) {
 					pu.setAllowToVote(false);
 				}
 				pojoList.add(pu);
@@ -70,17 +72,16 @@ public class PicsServiceImpl implements PicsService {
 
 		return pojoList;
 	}
-	
-	
+
 	@Override
 	public PictureUploadPojo findPicsbyemail(String email_id) {
 		LOG.info("Inside findPicsbyemail_id() serviceImpl");
 		PictureUpload singledata = picsDao.findPicsbyemail(email_id);
-		PictureUploadPojo pj=null;
-		if(singledata!=null){
-			  pj=new PictureUploadPojo(singledata);
-		}else{
-			
+		PictureUploadPojo pj = null;
+		if (singledata != null) {
+			pj = new PictureUploadPojo(singledata);
+		} else {
+
 		}
 		return pj;
 	}
@@ -92,7 +93,7 @@ public class PicsServiceImpl implements PicsService {
 		if (fullpicsinfo != null && CollectionUtil.isNotEmpty(fullpicsinfo.getFriendEmail())) {
 			for (String email : fullpicsinfo.getFriendEmail()) {
 				LOG.info("info email :" + email);
-			} 
+			}
 		}
 		return fullpicsinfo;
 	}
@@ -109,8 +110,7 @@ public class PicsServiceImpl implements PicsService {
 	public long updateVoteCount(String picId, String userEmailId) {
 		return picsDao.updateVoteCount(picId, userEmailId);
 	}
-	
-	
+
 	@Override
 	public List<PictureUploadPojo> findAllPicsbyAdmin() {
 		LOG.info("Inside findAllPicsbyAdmin() serviceImpl");
@@ -119,8 +119,12 @@ public class PicsServiceImpl implements PicsService {
 		if (CollectionUtil.isNotEmpty(list)) {
 			for (PictureUpload pictureUpload : list) {
 				PictureUploadPojo pu = new PictureUploadPojo(pictureUpload);
-			//	LOG.info("friend Email list :" + pictureUpload.getFriendEmail().toString() + " SecurityLibrary.getLoggedInUserLoginEmailId() :" + SecurityLibrary.getLoggedInUserLoginEmailId());
-				if (pictureUpload.getFriendEmail().contains(SecurityLibrary.getLoggedInUserLoginEmailId().toUpperCase())) {
+				// LOG.info("friend Email list :" +
+				// pictureUpload.getFriendEmail().toString() + "
+				// SecurityLibrary.getLoggedInUserLoginEmailId() :" +
+				// SecurityLibrary.getLoggedInUserLoginEmailId());
+				if (pictureUpload.getFriendEmail()
+						.contains(SecurityLibrary.getLoggedInUserLoginEmailId().toUpperCase())) {
 					pu.setAllowToVote(false);
 				}
 				pojoList.add(pu);
@@ -139,5 +143,17 @@ public class PicsServiceImpl implements PicsService {
 	@Override
 	public PictureUpload findWinnerPicByMaxVoteCount() {
 		return picsDao.findWinnerPicBymaxVoteCount();
+	}
+
+	public long findVoteCountForAdminOfSpecificEmail(String emailId) {
+		long voteCount = picsDao.findVoteCountForAdminOfSpecificEmail(emailId);
+		return voteCount;
+
+	}
+
+	@Override
+	public long incrementVoteCountForEmail() {
+		long voteCount = picsDao.incrementVoteCountForEmail();
+		return voteCount;
 	}
 }

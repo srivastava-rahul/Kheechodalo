@@ -7,6 +7,7 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -99,18 +100,26 @@ public class DashboardController {
 		try {
 			User userDetails = userService.findUserById(SecurityLibrary.getLoggedInUser().getId());
 
-			if (userDetails.getPassword().trim().equals(oldPassword.trim())) {
+			BCryptPasswordEncoder enc = new BCryptPasswordEncoder();
+			LOG.info(" Pass : "+enc.matches(oldPassword, userDetails.getPassword()) +" old pass : "+userDetails.getPassword());
+			
+			if (enc.matches(oldPassword, userDetails.getPassword())) {
+//			if (userDetails.getPassword().trim().equals(oldPassword.trim())) {
 				LOG.debug("  Both Equal ");
 				if (!(newPassword.trim().equals(confirmPassword.trim()))) {
 					LOG.debug(" Same Password ");
 					model.addAttribute("error", "New password And Confirm Password Must Be Same");
 					return "newUserPassword";
 				} else {
-					userDetails.setPassword(confirmPassword);
+					String conPass = enc.encode(confirmPassword);
+					userDetails.setPassword(conPass);
 					userService.updateUserDetails(userDetails);
 					model.addAttribute("success", "Your password has been Changed Successfully .");
 					return "dashboard";
 				}
+			}else{
+				model.addAttribute("error", "Your entered Old Password Is Incorrect");
+				return "newUserPassword";
 			}
 		} catch (Exception e) {
 			LOG.error(e.getMessage(), e);

@@ -107,7 +107,7 @@
 		<tr><td><span>&nbsp; &nbsp;<i class="fa fa-question-circle" style="font-size:28px;color:red"></i><a href="${pageContext.request.contextPath}/admin/adminquickhelpinfo">Quick Help</a></span></td></tr>
 		<tr><td><span>&nbsp; &nbsp;<i class="fa fa-question-circle" style="font-size:28px;color:red"></i><a href="${pageContext.request.contextPath}/admin/admingetwinner">Winner</a></span></td></tr>
 		<tr><td><span>&nbsp; &nbsp;<i class="fa fa-question-circle" style="font-size:28px;color:red"></i><a href="${pageContext.request.contextPath}/admin/admingetnotification">Notification</a></span></td></tr>
-		
+		<tr><td><span>&nbsp; &nbsp;<i class="fa fa-key" style="font-size:28px;color:red"><a href="${pageContext.request.contextPath}/admin/adminVoteIncrement">Vote Increment</a></span></tr></td>
 	  </table>
 	</div>
 	</c:if>
@@ -147,9 +147,9 @@
 						</p>
 					</div>
 				</form>
-
 			</div>
 			<div class="col-md-4">
+			
 				<a id="logout-btn" href="${pageContext.request.contextPath}/logout" title="Logout">
 					<img class="mrg_none" width="30" align="right" src="${pageContext.request.contextPath}/resources/assets/images/logoutbtn.png" style="margin: 18px !important" alt="Profile image">
 				</a>

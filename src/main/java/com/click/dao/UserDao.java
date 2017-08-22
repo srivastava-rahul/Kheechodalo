@@ -29,4 +29,26 @@ public interface UserDao {
 	public User findByEmailId(String email);
 
 	public void updateUser(User userDetails);
+
+	/**
+	 * 
+	 * @param string
+	 * @param string2
+	 * @return
+	 */
+	public User findByProperty(String name, Object value);
+
+	/**
+	 * 
+	 * @param email
+	 * @return
+	 */
+	public User findByUser(String email);
+
+	/**
+	 * 
+	 * @param adminDetail
+	 * @return
+	 */
+	User saveDefaultAdmin(User adminDetail);
 }

@@ -1,31 +1,31 @@
 package com.click.config;
 
-import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
+import javax.servlet.ServletContext;
+import javax.servlet.ServletException;
+import javax.servlet.ServletRegistration.Dynamic;
 
-public class WebAppInitializer extends AbstractAnnotationConfigDispatcherServletInitializer { // implements
-																								// WebApplicationInitializer
-																								// {
+import org.springframework.web.WebApplicationInitializer;
+import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
+import org.springframework.web.servlet.DispatcherServlet;
 
-	/*
-	 * public void onStartup(ServletContext servletContext) throws
-	 * ServletException {
-	 * 
-	 * //TimeZone.setDefault(TimeZone.getTimeZone("UTC"));
-	 * 
-	 * AnnotationConfigWebApplicationContext ctx = new
-	 * AnnotationConfigWebApplicationContext(); ctx.register(WebConfig.class);
-	 * ctx.setServletContext(servletContext);
-	 * 
-	 * DispatcherServlet dp = new DispatcherServlet(ctx);
-	 * dp.setThrowExceptionIfNoHandlerFound(true);
-	 * 
-	 * Dynamic dynamic = servletContext.addServlet("dispatcher", dp);
-	 * dynamic.addMapping("/"); dynamic.setLoadOnStartup(1);
-	 * 
-	 * //servletContext.addListener(HttpSessionEventPublisher.class);
-	 * 
-	 * }
-	 */
+public class WebAppInitializer implements WebApplicationInitializer {
+
+	public void onStartup(ServletContext servletContext) throws ServletException {
+
+		AnnotationConfigWebApplicationContext ctx = new AnnotationConfigWebApplicationContext();
+		ctx.register(WebConfig.class);
+		ctx.setServletContext(servletContext);
+
+		DispatcherServlet dp = new DispatcherServlet(ctx);
+		dp.setThrowExceptionIfNoHandlerFound(true);
+
+		Dynamic dynamic = servletContext.addServlet("dispatcher", dp);
+		dynamic.addMapping("/");
+		dynamic.setLoadOnStartup(1);
+
+	}
+
+/*public class WebAppInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
 
 	@Override
 	protected Class<?>[] getRootConfigClasses() {
@@ -43,6 +43,6 @@ public class WebAppInitializer extends AbstractAnnotationConfigDispatcherServlet
 	protected String[] getServletMappings() {
 		System.out.println("getServletMappings()");
 		return new String[] { "/" };
-	}
+	}*/
 
 }

@@ -89,19 +89,27 @@ public class UserDaoImpl implements UserDao {
 		}
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public User findByEmailId(String email) {
 		LOG.info("Inside findByEmailId() DaoImpl user dao email ");
 		Query query = null;
 		try {
-			query = entityManager.createQuery("from User u where upper(u.emailId) = :emailId").setParameter("emailId",
-					email);
-		} catch (Exception e) {
-			LOG.error(e.getMessage(), e);
-			e.printStackTrace();
+			query = entityManager.createQuery("from User u where upper(u.emailId) = :emailId");
+			query.setParameter("emailId", email.toUpperCase());
+			List<User> uList = query.getResultList();
+			LOG.info(" ULIst : " + uList.size());
+			if (CollectionUtil.isNotEmpty(uList)) {
+				return uList.get(0);
+			} else {
+				return null;
+			}
+		} catch (NoResultException nr) {
+			LOG.info("Error while getting user : " + nr.getMessage(), nr);
+			return null;
 		}
-		return (User) query.getSingleResult();
 	}
+
 
 	@Override
 	public void updateUser(User userDetails) {

@@ -8,6 +8,7 @@
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/jquery.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/jquery.form-validator.min.js"></script>  --%>
 
+
 <div class="body-area">
 	<div id="overlay"></div>
 	<img
@@ -21,7 +22,7 @@
 
 	<!-- <button onclick="on()">Turn on overlay effect</button> -->
 
-			<div class="loader" style="display: none"></div>
+	<div class="loader" style="display: none"></div>
 	<div class="Myown_pic_header">
 		<!-- header -->
 		<div class="forgetformheader">
@@ -33,68 +34,81 @@
 			method="post" id="uploadPicForm" enctype="multipart/form-data">
 			<div class="MyownpicBodyleft">
 				<%-- <img src="${pageContext.request.contextPath}/resources/images/itg.jpg" alt="Avatar" style="width: 304px; height: 320px; margin: 1px"> --%>
+				<input type="hidden" name="${_csrf.parameterName}"
+					value="${_csrf.token}"> <input type="hidden" name="picId"
+					value="${picData.id}">
 				<c:if test="${empty picImg}">
-					<input type="hidden" name="${_csrf.parameterName}"
-						value="${_csrf.token}">
 					<img id="picImageHolder"
 						src="${pageContext.request.contextPath}/resources/images/logo-image.png"
 						alt="Picture" style="width: 304px; height: 320px; margin: 1px"
 						onclick="$('#picImg').click()" />
-					<div class="row">
-						<div class="col-md-12">
-							<a href="javascript:" onclick="$('#picImg').click()"
-								style="color: #eee;">Select Pic</a>
-						</div>
-						<!-- <div class="col-md-6">
-							<a href="javascript:" id="removeLogo" style="float: right; color: #eee;">Remove Pic</a>
-						</div> -->
-					</div>
-					<input type="file" accept="image/*" style="visibility: hidden"
-						name="picImg" id="picImg">
 				</c:if>
+
 				<c:if test="${not empty picImg}">
 					<img id="picImageHolder" src="data:image/jpeg;base64,${picImg}"
 						alt="Picture" style="width: 304px; height: 320px; margin: 1px"
 						onclick="$('#picImg').click()" />
 				</c:if>
+				<div class="row">
+					<div class="col-md-12">
+						<a href="javascript:" onclick="$('#picImg').click()"
+							style="color: #eee;" class="${not empty picImg ? ' changePic ': ''}">${not empty picImg ? ' Change ': 'Select '}Pic</a>
+					</div>
+				</div>
+				<input type="file" accept="image/*" style="visibility: hidden"
+					name="picImg" id="picImg">
+
 
 			</div>
 
 			<div class="MyownpicBodyright">
-				<span style="color: #eee;">
-					<h2>Description</h2> <!-- <h5>Today 12:00</h5> --> <c:if
-						test="${empty picImg}">
-						<textarea name="desc" id="desc" rows="6" cols="35"
-							style="color: black"
+				<c:if test="${empty picImg}">
+					<span style="color: #eee;">
+						<h2>Description</h2> <!-- <h5>Today 12:00</h5> --> <textarea
+							name="desc" id="desc" rows="6" cols="35" style="color: black"
 							placeholder="Please provide a detailed description of your Pic...Only 45 charcter is allowed"
 							aria-required="true" maxlength="45"></textarea>
-					</c:if> <c:if test="${not empty picImg}">
-						<h3>${picData.description}</h3>
-					</c:if>
-				</span>
-				<c:if test="${not empty picImg}">
-					<p style="color: green; font-size: 25px">Winner vote
-						(${maxVoteCount})</p>
-					<p style="color: red; font-size: 25px">Remaning vote to win</p>
-					<img
-						src="${pageContext.request.contextPath}/resources/images/arrow.gif"
-						style="margin-top: 1%;" src="arrow.gif" width="12%" height="5%" />
-					<span style="color: red; font-size: 25px">${maxVoteCount - picData.picVote}</span>
-					<div style="margin-top: 19%">
-
-						<p class="btn success">
-							<i class="glyphicon glyphicon-thumbs-up"
-								style="font-size: 28px; color: blue"></i> &nbsp; <span>${picData.picVote}</span>
-						</p>
-					</div>
-				</c:if>
-				<c:if test="${empty picImg}">
-
+					</span>
 					<div style="margin-top: 24%">
 						<input type="submit" id="uploadPicBtnId" class="btn success"
 							value="Upload" onclick="on()">
 					</div>
 				</c:if>
+				<span id="picImgEmpty" style="display: none"> <span style="color: #eee;">
+						<h2>Description</h2> <!-- <h5>Today 12:00</h5> --> <textarea
+							name="desc" id="desc" rows="6" cols="35" style="color: black"
+							placeholder="Please provide a detailed description of your Pic...Only 45 charcter is allowed"
+							aria-required="true" maxlength="45">${picData.description}</textarea>
+				</span>
+					<div style="margin-top: 24%">
+						<input type="submit" id="uploadPicBtnId" class="btn success"
+							value="Upload" onclick="on()">
+					</div>
+				</span>
+				<c:if test="${not empty picImg}">
+					<span id="picImgNotEmpty"> <span style="color: #eee;">
+							<h2>Description</h2> <!-- <h5>Today 12:00</h5> -->
+							<h3>${picData.description}</h3>
+					</span>
+						<p style="color: green; font-size: 25px">Winner vote
+							(${maxVoteCount})</p>
+						<p style="color: red; font-size: 25px">Remaning vote to win</p> <img
+						src="${pageContext.request.contextPath}/resources/images/arrow.gif"
+						style="margin-top: 1%;" src="arrow.gif" width="12%" height="5%" />
+						<span style="color: red; font-size: 25px">${maxVoteCount - picData.picVote}</span>
+						<div style="margin-top: 19%">
+
+							<p class="btn success">
+								<i class="glyphicon glyphicon-thumbs-up"
+									style="font-size: 28px; color: blue"></i> &nbsp; <span>${picData.picVote}</span>
+							</p>
+						</div>
+					</span>
+				</c:if>
+
+
+
+
 				<br /> <br /> <br /> <br />
 				<div>
 					<span data-WRID="WRID-150329794559992600"
@@ -113,6 +127,7 @@
 					<script async
 						src="//affiliate.flipkart.com/affiliate/widgets/FKAffiliateWidgets.js"></script>
 				</div>
+			</div>
 		</form>
 	</div>
 
@@ -121,7 +136,12 @@
 	$(document).ready(
 			function() {
 				$('.body-area').fadeIn(10);
-
+					$('.changePic').click(function() {
+					$('#picImgEmpty').css('display','block');
+					$('#picImgNotEmpty').css('display','none');
+				});
+				
+				
 				$("body").delegate(
 						"#picImg",
 						"change",
@@ -212,28 +232,30 @@ $.validate({
 
 <style>
 #overlay {
-    position: fixed; /* Sit on top of the page content */
-    display: none; /* Hidden by default */
-    width: 100%; /* Full width (cover the whole page) */
-    height: 100%; /* Full height (cover the whole page) */
-    top: 0; 
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0,0,0,0.5); /* Black background with opacity */
-    z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
-    cursor: pointer; /* Add a pointer on hover */
+	position: fixed; /* Sit on top of the page content */
+	display: none; /* Hidden by default */
+	width: 100%; /* Full width (cover the whole page) */
+	height: 100%; /* Full height (cover the whole page) */
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: rgba(0, 0, 0, 0.5);
+	/* Black background with opacity */
+	z-index: 2;
+	/* Specify a stack order in case you're using a different order for other elements */
+	cursor: pointer; /* Add a pointer on hover */
 }
 
 .loader {
-  border: 16px solid #f3f3f3;
-  border-radius: 50%;
-  border-top: 16px solid #3498db;
-  width: 120px;
-  height: 120px;
-  -webkit-animation: spin 2s linear infinite;
-  animation: spin 2s linear infinite;
-   margin: auto;
+	border: 16px solid #f3f3f3;
+	border-radius: 50%;
+	border-top: 16px solid #3498db;
+	width: 120px;
+	height: 120px;
+	-webkit-animation: spin 2s linear infinite;
+	animation: spin 2s linear infinite;
+	margin: auto;
 }
 
 @-webkit-keyframes spin {
@@ -252,7 +274,7 @@ $.validate({
 <script>
 	function on() {
 		document.getElementById("overlay").style.display = "block";
-		$(".loader").css('display','block');
+		$(".loader").css('display', 'block');
 	}
 
 	function off() {

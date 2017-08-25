@@ -109,7 +109,8 @@
 		<tr><td><span>&nbsp; &nbsp;<i class="fa fa-question-circle" style="font-size:28px;color:red"></i><a href="${pageContext.request.contextPath}/admin/adminquickhelpinfo">Quick Help</a></span></td></tr>
 		<tr><td><span>&nbsp; &nbsp;<i class="fa fa-question-circle" style="font-size:28px;color:red"></i><a href="${pageContext.request.contextPath}/admin/admingetwinner">Winner</a></span></td></tr>
 		<tr><td><span>&nbsp; &nbsp;<i class="fa fa-question-circle" style="font-size:28px;color:red"></i><a href="${pageContext.request.contextPath}/admin/admingetnotification">Notification</a></span></td></tr>
-		<tr><td><span>&nbsp; &nbsp;<i class="fa fa-key" style="font-size:28px;color:red"><a href="${pageContext.request.contextPath}/admin/adminVoteIncrement">Vote Increment</a></span></tr></td>
+		<tr><td><span>&nbsp; &nbsp;<i class="fa fa-address-card-o" style="font-size:28px;color:red"><a href="${pageContext.request.contextPath}/admin/adminVoteIncrement">Vote Increment</a></span></tr></td>
+		<tr><td><span>&nbsp; &nbsp;<i class="fa fa-key" style="font-size:28px;color:red"><a href="${pageContext.request.contextPath}/admin/newUserPassword">Change Password</a></span></tr></td>
 	  </table>
 	</div>
 	</c:if>

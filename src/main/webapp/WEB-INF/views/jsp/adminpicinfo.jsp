@@ -13,12 +13,12 @@
 	</p>
 	<div style="margin-left:25%">
 	
-	<form name="deleteForm" action="" method="post">
+	<form name="deleteForm" action="${pageContext.request.contextPath}/admin/adminDeletePic" method="post">
 			   <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
 			
 			<div class="Changepasswordformboby">
 				<h3 style="color: yellow;margin-left: 334px;">Please tell What to be deleted enter the id... </h3>
-				<input type="text"  name="pic_id" id="pic_id" style = "width: 452px; height: 40px;margin-left: 334px;" placeholder="Please Enter id" />
+				<input type="text"  name="picId" id="picId" style = "width: 452px; height: 40px;margin-left: 334px;" placeholder="Please Enter id" />
 					
 					<button type="submit" class="button_submit  submit" style="background-color:gray">Delete</button>
 				

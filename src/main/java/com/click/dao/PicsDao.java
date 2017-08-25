@@ -93,13 +93,7 @@ public interface PicsDao {
 
 	PictureUpload findWinnerPicBymaxVoteCount();
 
-	/**
-	 * 
-	 * @return
-	 */
-	long incrementVoteCountForEmail();
-	
-	
+
 	/**
 	 * Edit the vote on the basis of pic id by admin
 	 * @param picId
@@ -108,5 +102,8 @@ public interface PicsDao {
 	 */
 	long updateVoteCountbyadmin(PictureUpload updatevote);
 	
+	long incrementVoteCountForEmail(long voteConut, String emailId);
+
+	void adminDeletePicByPicId(String picId);
 
 }

@@ -185,20 +185,24 @@ public class PicsDaoImpl implements PicsDao {
 	public long findVoteCountForAdminOfSpecificEmail(String emailId) {
 		LOG.info("Inside findVoteCountForAdminOfSpecificEmail() DaoImpl ");
 		Query query = entityManager
-				.createQuery("Select count(pu.picVote) from PictureUpload pu where pu.emailId = :emailId");
+				.createQuery("Select pu.picVote from PictureUpload pu where pu.emailId = :emailId");
 		query.setParameter("emailId", emailId);
 		Object obj = (Number) query.getSingleResult();
 		return obj != null ? ((Number) obj).longValue() : 0;
 	}
 
 	@Override
-	public long incrementVoteCountForEmail() {
-		LOG.info("Inside updateVoteCount() DaoImpl ");
-		Query query = entityManager
-				.createQuery("update PictureUpload pu set pu.picVote = (pu.picVote + 1) where id = :id");
-		// query.setParameter("id", picId);
-		int voteUpdate = query.executeUpdate();
-		return 0;
+	@Transactional(readOnly = false, propagation = Propagation.REQUIRES_NEW, rollbackFor = Exception.class)
+	public long incrementVoteCountForEmail(long vote,String emailId) {
+		LOG.info("Inside updateVoteCount() DaoImpl "+vote +"  email : "+emailId);
+		Query query = entityManager.createQuery("update PictureUpload pu set picVote = (picVote + 1) where (upper(emailId) like :emailId)");
+//		 query.setParameter("vote", vote);
+		 query.setParameter("emailId", "%" + emailId.toUpperCase()+"%" );
+		 int voteNew = query.executeUpdate();
+		 LOG.info(" voteNew :"+voteNew);
+		 query = entityManager.createQuery("select pu.picVote from PictureUpload pu where (upper(emailId) like :emailId1)");
+		 query.setParameter("emailId1", "%" + emailId.toUpperCase()+"%" );
+		 return ((Number) query.getSingleResult()).longValue();
 
 	}
 	
@@ -207,4 +211,26 @@ public class PicsDaoImpl implements PicsDao {
 		// TODO Auto-generated method stub
 		return 0;
 	}
+
+	@Override
+	@Transactional(propagation = Propagation.REQUIRES_NEW, rollbackFor = Exception.class)
+	public void adminDeletePicByPicId(String picId) {
+		Query query = entityManager.createNativeQuery("DELETE FROM KD_PIC_FRIEND_LIST where PIC_ID = :picId");
+		 query.setParameter("picId", picId);
+		int deletedFriend = query.executeUpdate();
+		LOG.info("Deleted friend Result :" + deletedFriend);
+
+		query = entityManager.createNativeQuery("DELETE FROM KD_PICS_UPLOAD where ID = :picId1");
+		 query.setParameter("picId1", picId);
+		int picUplaod = query.executeUpdate();
+		LOG.info("Deleted picUplaod Result :" + picUplaod);
+
+		query = entityManager.createNativeQuery("DELETE FROM KD_PIC_DATA where ID = :picId2");
+		 query.setParameter("picId2", picId);
+		int deletedData = query.executeUpdate();
+		LOG.info("Deleted data Result :" + deletedData);
+		
+	}
+
+	
 }

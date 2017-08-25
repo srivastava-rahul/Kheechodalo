@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.commons.codec.binary.Base64;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,6 +18,7 @@ import com.click.entity.User;
 import com.click.service.AdminGetUserInfoService;
 import com.click.service.PicsService;
 import com.click.service.UserService;
+import com.click.utils.SecurityLibrary;
 
 /**
  * @author Vipul
@@ -101,6 +103,7 @@ public class AdminDashboardController {
 	@RequestMapping(value = "/adminVoteIncrement")
 	protected String getVoteIncrement(Model model) throws Exception {
 		LOG.info("Fetching the Quick Help Form  from getAboutUs controller");
+		
 		return "adminVoteIncrement";
 	}
 
@@ -111,6 +114,7 @@ public class AdminDashboardController {
 			long voteConut = picsService.findVoteCountForAdminOfSpecificEmail(emailId);
 			LOG.info(" Vote Count :" + voteConut);
 			model.addAttribute("voteConut", voteConut);
+			model.addAttribute("emailId",emailId);
 			return "adminVoteIncrement";
 		} catch (Exception e) {
 			LOG.error(e.getMessage(), e);
@@ -120,19 +124,78 @@ public class AdminDashboardController {
 		}
 	}
 
-	@RequestMapping(value = "/increment", method = RequestMethod.GET)
-	public String incrementCount(Model model) throws Exception {
-		LOG.info("In-side incrementCount ");
+	@RequestMapping(value = "/increment/{voteConut}/{emailId}", method = RequestMethod.GET)
+	public String incrementCount(Model model,@PathVariable(name = "voteConut") String voteConut ,@PathVariable(name = "emailId") String emailId) throws Exception {
 		try {
-			long voteConut = picsService.incrementVoteCountForEmail();
-			LOG.info(" Vote Count :" + voteConut);
-			model.addAttribute("voteConut", voteConut);
+			long vote= Long.parseLong(voteConut);
+			long voteConut1 = picsService.incrementVoteCountForEmail(vote,emailId);
+			model.addAttribute("voteConut", voteConut1);
 			return "adminVoteIncrement";
 		} catch (Exception e) {
 			LOG.error(e.getMessage(), e);
 			e.printStackTrace();
 			model.addAttribute("error", "Error Occured Whie Sending Data .");
 			return "adminVoteIncrement";
+		}
+	}
+	
+
+	@RequestMapping(value = "/newUserPassword", method = RequestMethod.GET)
+	public String forgetPassword() {
+		return "newUserPassword";
+	}
+
+	@RequestMapping(value = "/changeNewPassword", method = RequestMethod.POST)
+	public String changeNewPassword(@RequestParam String oldPassword, @RequestParam String newPassword,
+			@RequestParam String confirmPassword, Model model) {
+		LOG.info("Inside changeNewPassword controller");
+		try {
+			User userDetails = userService.findUserById(SecurityLibrary.getLoggedInUser().getId());
+
+			BCryptPasswordEncoder enc = new BCryptPasswordEncoder();
+			LOG.info(" Pass : "+enc.matches(oldPassword, userDetails.getPassword()) +" old pass : "+userDetails.getPassword());
+			
+			if (enc.matches(oldPassword, userDetails.getPassword())) {
+//			if (userDetails.getPassword().trim().equals(oldPassword.trim())) {
+				LOG.debug("  Both Equal ");
+				if (!(newPassword.trim().equals(confirmPassword.trim()))) {
+					LOG.debug(" Same Password ");
+					model.addAttribute("error", "New password And Confirm Password Must Be Same");
+					return "newUserPassword";
+				} else {
+					String conPass = enc.encode(confirmPassword);
+					userDetails.setPassword(conPass);
+					userService.updateUserDetails(userDetails);
+					model.addAttribute("success", "Your password has been Changed Successfully .");
+					return "dashboard";
+				}
+			}else{
+				model.addAttribute("error", "Your entered Old Password Is Incorrect");
+				return "newUserPassword";
+			}
+		} catch (Exception e) {
+			LOG.error(e.getMessage(), e);
+			e.printStackTrace();
+		}
+		model.addAttribute("error", "Your entered Old Password Is Incorrect");
+		return "newUserPassword";
+	}
+	
+	
+	
+	@RequestMapping(value = "/adminDeletePic", method = RequestMethod.POST)
+	public String adminDeletePic(@RequestParam String picId, Model model) throws Exception {
+		LOG.info("In-side Admin Search Vote controller" + picId);
+		try {
+			picsService.adminDeletePicByPicId(picId);
+
+			model.addAttribute("success", "Image Deleted Successfully");
+			return "adminpicinfo";
+		} catch (Exception e) {
+			LOG.error(e.getMessage(), e);
+			e.printStackTrace();
+			model.addAttribute("error", "Error Occured Whie Image Deleted  .");
+			return "adminpicinfo";
 		}
 	}
 }

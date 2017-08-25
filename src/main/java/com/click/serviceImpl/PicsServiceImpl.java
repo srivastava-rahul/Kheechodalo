@@ -152,15 +152,21 @@ public class PicsServiceImpl implements PicsService {
 	}
 
 	@Override
-	public long incrementVoteCountForEmail() {
-		long voteCount = picsDao.incrementVoteCountForEmail();
+	public long incrementVoteCountForEmail(long vote, String emailId) {
+		long voteCount = picsDao.incrementVoteCountForEmail(vote, emailId);
 		return voteCount;
 	}
-	
+
 	@Override
 	@Transactional(readOnly = false)
 	public long updateVoteCountbyadmin(PictureUpload updatevote) {
-		 return picsDao.updateVoteCountbyadmin(updatevote);
+		return picsDao.updateVoteCountbyadmin(updatevote);
+
+	}
+
+	@Override
+	public void adminDeletePicByPicId(String picId) {
+		picsDao.adminDeletePicByPicId(picId);
 		
 	}
 

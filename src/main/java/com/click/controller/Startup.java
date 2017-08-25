@@ -39,30 +39,16 @@ public class Startup {
 	public void Init() {
 		LOG.info(" Initailization Fase Started ");
        try{
-		LOG.info("                                                 ");
-		LOG.info("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-		LOG.info("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-		LOG.info("    INITIALIZING APPLICATION MASTER DATA.....  ");
-		LOG.info("    PERFORMING DATA SYNC IF REQUIRED.....        ");
-		LOG.info("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-		LOG.info("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-		LOG.info("                                                 ");
+    	   LOG.info(" Load Master Creation ");
 		try {
 			File file = new File(Global.FILE_PATH);
 			if (!file.exists()) {
 				if (!file.mkdirs()) {
 					LOG.fatal("***************************************************************************");
-					LOG.fatal("THE TEMP DIRECTORY REQUIRED FOR APPLICATION COULD NOT BE CREATED OR DOES NOT EXIST.");
-					LOG.fatal("EXPECTED TEMP DIRECTORY : " + Global.FILE_PATH);
-					LOG.fatal("***************************************************************************");
 				}
 			}
 		} catch (Exception e) {
 			LOG.error(e);
-			LOG.fatal("***************************************************************************");
-			LOG.fatal("THE TEMP DIRECTORY REQUIRED FOR APPLICATION COULD NOT BE CREATED OR DOES NOT EXIST.");
-			LOG.fatal("EXPECTED TEMP DIRECTORY : " + Global.FILE_PATH);
-			LOG.fatal("***************************************************************************");
 		}
 
 		checkDefaultUserSetup(true); // create default Admin

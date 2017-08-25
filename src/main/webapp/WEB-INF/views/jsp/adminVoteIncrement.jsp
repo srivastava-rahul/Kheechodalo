@@ -12,7 +12,7 @@
 		
 		<div style="margin-left:25%">
 	
-	<form name="adminVoteIncreForm" action="adminVoteIncrementCount" method="post">
+	<form name="adminVoteIncreForm" action="${pageContext.request.contextPath}/admin/adminVoteIncrementCount" method="post">
 			   <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
 			
 			<div class="Changepasswordformboby">
@@ -23,16 +23,16 @@
 			</div>
 		</form>
 		
-		<c:if test="${voteConut eq 0}">
+		<c:if test="${voteConut ne 0}">
 	<table id="myTable" style="margin-left: 5%; width: 90%; padding: 5%; color: white"
 		border="1">
 		<tr class="header">
-			<th height="40"><center>Count</center></th>
+			 <th height="40"><center>Count</center></th> 
 			<th height="40"><center>Increse</center></th>
 		</tr>
 			<tr>
 				<td><center>${voteConut}</center></td>
-				<td><center></center></td>
+				<td><center><a href="${pageContext.request.contextPath}/admin/increment/200/${emailId}" style="color: white">Increment</a></center></td>
 			
 			</tr>
 			
@@ -40,9 +40,13 @@
 
 	</table>
 	
-	<form action ="<c:url value="/admin/increment"/>">
+	<%-- <form action ="<c:url value="/admin/increment/${voteConut}"/>">
 	<button type="submit">Increment</button>
-	</form>
+	</form> --%>
+	
+	
+	
+	
 </c:if>
 		
 	

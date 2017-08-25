@@ -96,12 +96,7 @@ public interface PicsService {
 
 	PictureUpload findWinnerPicByMaxVoteCount();
 
-	/**
-	 * 
-	 * @return
-	 */
-	long incrementVoteCountForEmail();
-	
+
 	/**
 	 * Edit the vote on the basis of picid by admin
 	 * @param picId
@@ -109,5 +104,9 @@ public interface PicsService {
 	 * @return
 	 */
 	long updateVoteCountbyadmin(PictureUpload updatevote);
+	
+	long incrementVoteCountForEmail(long voteConut, String emailId);
+
+	void adminDeletePicByPicId(String picId);
 
 }

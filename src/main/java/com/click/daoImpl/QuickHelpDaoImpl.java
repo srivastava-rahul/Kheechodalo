@@ -90,12 +90,12 @@ public class QuickHelpDaoImpl implements QuickHelpDao {
 			e.printStackTrace();
 		}
 
-		try {
-			entityManager.remove(quickhelp.getId());
-		} catch (Exception e) {
-			LOG.error(e.getMessage(), e);
-			e.printStackTrace();
-		}
+//		try {
+//			entityManager.remove(quickhelp.getId());
+//		} catch (Exception e) {
+//			LOG.error(e.getMessage(), e);
+//			e.printStackTrace();
+//		}
 
 	}
 

@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.click.entity.ProfileSetting;
 import com.click.entity.User;
+import com.click.pojo.PictureUploadPojo;
 import com.click.service.AdminGetUserInfoService;
 import com.click.service.PicsService;
 import com.click.service.UserService;
@@ -188,6 +189,8 @@ public class AdminDashboardController {
 		LOG.info("In-side Admin Search Vote controller" + picId);
 		try {
 			picsService.adminDeletePicByPicId(picId);
+			List<PictureUploadPojo> picsList = picsService.findAllPicsbyAdmin();
+			model.addAttribute("picsList", picsList);
 
 			model.addAttribute("success", "Image Deleted Successfully");
 			return "adminpicinfo";

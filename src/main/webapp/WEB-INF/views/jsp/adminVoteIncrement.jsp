@@ -23,7 +23,7 @@
 			</div>
 		</form>
 		
-		<c:if test="${voteConut ne 0}">
+		
 	<table id="myTable" style="margin-left: 5%; width: 90%; padding: 5%; color: white"
 		border="1">
 		<tr class="header">
@@ -43,11 +43,7 @@
 	<%-- <form action ="<c:url value="/admin/increment/${voteConut}"/>">
 	<button type="submit">Increment</button>
 	</form> --%>
-	
-	
-	
-	
-</c:if>
+
 		
 	
 		

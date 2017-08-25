@@ -101,5 +101,13 @@ public interface PicsService {
 	 * @return
 	 */
 	long incrementVoteCountForEmail();
+	
+	/**
+	 * Edit the vote on the basis of picid by admin
+	 * @param picId
+	 * @param by admin 
+	 * @return
+	 */
+	long updateVoteCountbyadmin(PictureUpload updatevote);
 
 }

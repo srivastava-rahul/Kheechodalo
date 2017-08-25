@@ -105,7 +105,7 @@ $(document).ready(function() {
   width: 100%;
   height: 100%;
   overflow: auto;
-  background-color: black;
+  background-color: rgb(23, 23, 23);
 }
 
 /* Modal Content */

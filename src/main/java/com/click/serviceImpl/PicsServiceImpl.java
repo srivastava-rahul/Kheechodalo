@@ -156,4 +156,12 @@ public class PicsServiceImpl implements PicsService {
 		long voteCount = picsDao.incrementVoteCountForEmail();
 		return voteCount;
 	}
+	
+	@Override
+	@Transactional(readOnly = false)
+	public long updateVoteCountbyadmin(PictureUpload updatevote) {
+		 return picsDao.updateVoteCountbyadmin(updatevote);
+		
+	}
+
 }

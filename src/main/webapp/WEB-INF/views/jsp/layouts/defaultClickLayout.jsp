@@ -20,7 +20,7 @@ cute ,cute baby, cute girls, earn money online, photographs, online photography 
 <%-- <link rel="stylesheet" type="text/css" href="<c:url value="/resources/assets/themes/admin/kheecholayout.css"/>"> --%>
 <link rel="stylesheet" type="text/css" href="<c:url value="/resources/assets/bootstrap/css/bootstrap.css"/>">
 
-<link rel="icon"  type="image/jpg" href="${pageContext.request.contextPath}/resources/images/titleimage.png"/>
+<link rel="icon"  type="image/jpg" href="${pageContext.request.contextPath}/resources/images/logo4.png"/>
 <meta name="_csrf" content="${_csrf.token}" />
 <meta name="_csrf_header" content="${_csrf.headerName}" />
 </head>

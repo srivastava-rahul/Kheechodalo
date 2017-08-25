@@ -201,4 +201,10 @@ public class PicsDaoImpl implements PicsDao {
 		return 0;
 
 	}
+	
+	@Override
+	public long updateVoteCountbyadmin(PictureUpload updatevote) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 }

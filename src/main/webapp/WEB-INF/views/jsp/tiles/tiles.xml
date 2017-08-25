@@ -253,7 +253,13 @@
 			value="/WEB-INF/views/jsp/adminViewWinner.jsp" />
 	</definition>
 
-
+    <!-- Vote Information by Admin pages -->
+	<definition name="vote" extends="full-definition">
+		<put-attribute name="title" value="Vote Information" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/adminvoteinfo.jsp" />
+	</definition>
+	
 	<!-- Get profile Data of User by Admin pages -->
 	<definition name="adminViewProfileSetting" extends="full-definition">
 		<put-attribute name="title" value="adminViewProfileSetting" />

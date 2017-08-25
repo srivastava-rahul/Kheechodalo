@@ -38,7 +38,9 @@
 
 .searchBox {
 	/* margin-right: 60px; */
-	float: right;
+	/* float: right; */
+	float:left;
+	margin-left:50%;
 	margin-top: 20px;
 	width: 270px;
 	height: 35px;

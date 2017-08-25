@@ -98,5 +98,15 @@ public interface PicsDao {
 	 * @return
 	 */
 	long incrementVoteCountForEmail();
+	
+	
+	/**
+	 * Edit the vote on the basis of pic id by admin
+	 * @param picId
+	 * @param vote
+	 * @return
+	 */
+	long updateVoteCountbyadmin(PictureUpload updatevote);
+	
 
 }

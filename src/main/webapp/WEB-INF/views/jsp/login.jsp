@@ -16,7 +16,7 @@ cute ,cute baby, cute girls, earn money online, photographs, online photography 
 <meta name="author" content="Kheechodalo origination |KheechoDalo.com">
 
 
-<link rel="icon"  type="image/jpg" href="${pageContext.request.contextPath}/resources/images/titleimage.png"/>
+<link rel="icon"  type="image/jpg" href="${pageContext.request.contextPath}/resources/images/logo4.png"/>
 <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,300,600' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/css/style.css">
@@ -63,6 +63,7 @@ body {
 	background:
 		 url(${pageContext.request.contextPath}/resources/images/login_bck.jpg); 
 		/* url(${pageContext.request.contextPath}/resources/images/5.jpg); */
+		height:auto;
 	color: white;
 }
 </style>
@@ -102,7 +103,7 @@ body {
 
 		<center>
 			<p>
-				<img src="${pageContext.request.contextPath}/resources/images/logo3.png" alt="Avatar" class="" style="width:25%;float:left">
+				<img src="${pageContext.request.contextPath}/resources/images/logo4.png" alt="Avatar" class="" style="width:25%;float:left">
 			</p>
 		</center>
 
@@ -143,7 +144,7 @@ body {
 		</div>
 	</div>
 	<br />
-	<div style="color: red; margin-left: 50%; background: white; width: 10%;"><jsp:include page="/WEB-INF/views/jsp/message.jsp" /></div>
+	<div style="color: red; margin-left: 30%; background: white; width: 10%;"><jsp:include page="/WEB-INF/views/jsp/message.jsp" /></div>
 	<div class="form">
 
 		<ul class="tab-group">

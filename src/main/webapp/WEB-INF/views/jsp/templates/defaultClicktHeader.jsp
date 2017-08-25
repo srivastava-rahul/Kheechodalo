@@ -127,7 +127,15 @@
 			&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
 			&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
 			&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
+			<c:if test="${!isAdmin}">
 			<p style="font-size: 50px; font-family: Parchment;"><a href="${pageContext.request.contextPath}/user/dashboard" style="color: black;" >kheecho Dalo</a></p>
+			</c:if>
+			
+			<c:if test="${isAdmin}">
+			<p style="font-size: 50px; font-family: Parchment;"><a href="${pageContext.request.contextPath}/admin/adminDashboard" style="color: black;" >kheecho Dalo</a></p>
+			</c:if>
+			
+			
 			</div>
 			
 			

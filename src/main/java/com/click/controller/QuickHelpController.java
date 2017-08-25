@@ -24,6 +24,7 @@ import com.click.service.SendMailService;
 import com.click.service.UserService;
 import com.click.utils.Global;
 import com.click.utils.SecurityLibrary;
+import com.click.utils.StringUtils;
 
 @Controller
 @RequestMapping(value = "/user")
@@ -60,8 +61,8 @@ public class QuickHelpController {
 			User userDetails = userService.findUserById(SecurityLibrary.getLoggedInUser().getId());
 			QuickHelp quickHelp = new QuickHelp();
 			quickHelp.setUser(userDetails);
-			quickHelp.setQuickProblem(problem);
-			quickHelp.setQuickDesc(quickDesc);
+			quickHelp.setQuickProblem(StringUtils.checkString(problem));
+			quickHelp.setQuickDesc(StringUtils.checkString(quickDesc));
 			quickHelp.setCreatedDate(new Date());
 			sendProblemEmail(new String[] { "click8me@gmail.com" }, userDetails.getFirstName(), userDetails.getId(),
 					"I " + userDetails.getEmailId() + " Want Some Help In " + problem + " And Short Description"
@@ -70,9 +71,8 @@ public class QuickHelpController {
 			model.addAttribute("success", "Please Wait We Will Assist You Shortly .");
 			return "quickhelp";
 		} catch (Exception e) {
-			LOG.error(e.getMessage(),e);
-			e.printStackTrace();
-			model.addAttribute("error", "Error Occured Whie Sending Data .");
+			LOG.error("Error Occured Whie Sending Data ." + e.getMessage(),e);
+			model.addAttribute("error", e.getMessage());
 			return "quickhelp";
 		}
 	}

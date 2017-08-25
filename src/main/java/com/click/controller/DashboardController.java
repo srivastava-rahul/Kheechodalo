@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.click.entity.ProfileSetting;
 import com.click.entity.User;
@@ -68,10 +69,10 @@ public class DashboardController {
 	
 	
 	@RequestMapping(value = "/searchUserPicbyemailid")
-	protected String getPicsbyemail_id(String email_id,Model model) throws Exception {
+	protected String getPicsbyemail_id(String email_id,Model model, RedirectAttributes redir) throws Exception {
 		
 		if(email_id == null && email_id.equals("")){
-			model.addAttribute("error", "Invalid Data");
+			redir.addFlashAttribute("error", "Invalid Data");
 			return "redirect:/user/dashboard";
 		}else{
 		LOG.info(" LOG User Dashboard from getPicsbyemail_id controlller==>"+email_id);
@@ -82,7 +83,7 @@ public class DashboardController {
 			return "dashboard";
 			
 		}else{
-		model.addAttribute("error", "Pic Does not exit");
+			redir.addFlashAttribute("error", "Pic Does not exit");
 		return "redirect:/user/dashboard";
 		}
 		}

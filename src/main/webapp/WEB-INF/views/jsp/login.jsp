@@ -67,29 +67,6 @@ body {
 	color: white;
 }
 </style>
-
-<script type="text/javascript">
-	$(document).ready(function() {
-		
-		/* Get iframe src attribute value i.e. YouTube video url and store it in a variable */
-		var url = $("#cartoonVideo").attr('src');
-
-		/* Assign empty url value to the iframe src attribute when
-		modal hide, which stop the video playing */
-		$("#myModal").on('hide.bs.modal', function() {
-			alert("hello");
-			$("#cartoonVideo").attr('src', '');
-		});
-
-		/* Assign the initially stored url back to the iframe src
-		attribute when modal is displayed again */
-		$("#myModal").on('show.bs.modal', function() {
-			alert("bye");
-			$("#cartoonVideo").attr('src', url);
-		});
-	});
-	
-</script>
 </head>
 
 <body>
@@ -144,7 +121,7 @@ body {
 		</div>
 	</div>
 	<br />
-	<div style="color: red; margin-left: 30%; background: white; width: 10%;"><jsp:include page="/WEB-INF/views/jsp/message.jsp" /></div>
+	<div style="color: red; margin-left: 15%; background: white; width:8%;"><jsp:include page="/WEB-INF/views/jsp/message.jsp" /></div>
 	<div class="form">
 
 		<ul class="tab-group">

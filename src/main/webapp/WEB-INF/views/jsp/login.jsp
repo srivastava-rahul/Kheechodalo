@@ -121,7 +121,8 @@ body {
 		</div>
 	</div>
 	<br />
-	<div style="color: red; margin-left: 15%; background: white; width:8%;"><jsp:include page="/WEB-INF/views/jsp/message.jsp" /></div>
+	<div style="color: red; margin-left: 8%; background: white; width:6%;"><jsp:include page="/WEB-INF/views/jsp/message.jsp" /></div>
+	
 	<div class="form">
 
 		<ul class="tab-group">

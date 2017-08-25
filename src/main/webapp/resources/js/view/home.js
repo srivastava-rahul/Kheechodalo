@@ -13,7 +13,7 @@ closeNav=function () {
 //	document.getElementById("logoutbutton").style.marginRight= "0";
 	
 }
-
+/*
 
 //----------------------------------
 
@@ -40,4 +40,4 @@ closeNav=function () {
 										if (event.target == modal) {
 											modal.style.display = "none";
 										}
-									}
+									}*/

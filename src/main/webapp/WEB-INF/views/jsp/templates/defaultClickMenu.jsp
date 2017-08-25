@@ -28,6 +28,7 @@
 					<span class="user_Name" style="margin-left: 90px;color: white;">
 					<sec:authentication property="principal.firstName" />
 					</span>
+					<br/>
 					<span class="user_Name" style="margin-left: 34px;color: white;"> 
 					<sec:authentication property="principal.emailId" /> 
 					</span>

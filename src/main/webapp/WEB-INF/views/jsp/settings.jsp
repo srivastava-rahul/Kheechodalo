@@ -1,8 +1,12 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
-<%@ page isELIgnored="false"%>
+<%@ page isELIgnored="false"%> 
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/jquery.min.js"></script>
+
+<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/jquery.form-validator.min.js"></script> 
+
 <div class="body-area">
 	<div>
 		<a href="${pageContext.request.contextPath}/user/uploadprofilepic">
@@ -29,19 +33,19 @@
 					<tr>
 						<td>Name</td>
 						<td>
-							<form:input placeholder="Name     Surname" style="color:black" path="name_surname" />
+							<form:input placeholder="Name     Surname" style="color:black" path="name_surname" data-validation="length alphanumeric" data-validation-length="min4" />
 						</td>
 					</tr>
 					<tr>
 						<td>Birthday</td>
 						<td>
-							<form:input placeholder="dd/MM/YYYY" style="color:black" path="dob" />
+							<form:input placeholder="dd/MM/YYYY" style="color:black" path="dob" data-validation="date" data-validation-format="dd/MM/YYYY" />
 						</td>
 					</tr>
 					<tr>
 						<td>email_id</td>
 						<td>
-							<form:input placeholder="email address" style="color:black" path="email_id" disabled="disabled"/>
+							<form:input placeholder="email address" style="color:black" path="email_id" readonly="true" data-validation="email"/>
 						</td>
 					</tr>
 					<tr>
@@ -254,3 +258,10 @@
 
 
 </div>
+
+
+<script>
+  $.validate({
+    lang: 'en'
+  });
+</script>

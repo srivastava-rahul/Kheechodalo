@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 import com.click.service.PicsService;
 import com.click.service.WinnerService;
 
-//@EnableScheduling
+@EnableScheduling
 @Component
 public class Schedular {
 	
@@ -31,12 +31,12 @@ public class Schedular {
 	 }*/
 	
 	
-	@Scheduled(cron="0 * * * * *",zone = "IST")
+	@Scheduled(cron="0 55 23 * * *",zone = "IST")
 	public void deleteAllPicsData()throws Exception{		
 			//send heart beat for health check 
-//		copyWinnerPic();
-//		
-//			deleteAllPics();
+		copyWinnerPic();
+		
+			deleteAllPics();
 	 }
 	
 	private void deleteAllPics() throws Exception{

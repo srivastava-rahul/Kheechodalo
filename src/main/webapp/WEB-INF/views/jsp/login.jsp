@@ -261,6 +261,8 @@ body {
 			&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
 			<a href="${pageContext.request.contextPath}/user/contactusOuter">Contact</a>
 			&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
+			<a href="${pageContext.request.contextPath}/user/aboutusOuter">About Us</a>
+			&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
 			<%-- <a href="">Cookies</a> --%>
 		</div>
 	</div>

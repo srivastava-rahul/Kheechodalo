@@ -9,9 +9,10 @@
           <div>
              <a href="${pageContext.request.contextPath}/user/privacy">Privacy</a> &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
 			<a href="${pageContext.request.contextPath}/user/termsandcondition">Terms & Condition</a>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
-			<a href="${pageContext.request.contextPath}/user/signupdata">Signup -Data</a>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
+			<a href="${pageContext.request.contextPath}/user/signupdata">SignUp-Data</a>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
 			<a href="${pageContext.request.contextPath}/user/rules">Rules</a>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
 			<a href="${pageContext.request.contextPath}/user/contactus">Contact</a>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; 
+			<a href="${pageContext.request.contextPath}/user/aboutUs">About Us</a>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
 			<!-- <a href="">Cookies</a>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; -->                  
 			
 			<%-- &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;

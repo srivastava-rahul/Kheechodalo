@@ -44,4 +44,10 @@ public class OuterFooterController {
 		return "privacyOuter";
 	}
 	
+	@RequestMapping(value = "/aboutusOuter")
+	protected String getAboutusOuter(Model model) throws Exception {
+		LOG.info("Fetching Privacy page from getAboutusOuter() controller");
+		return "aboutusOuter";
+	}
+	
 }

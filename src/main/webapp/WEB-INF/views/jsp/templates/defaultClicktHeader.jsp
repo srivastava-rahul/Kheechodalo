@@ -76,9 +76,9 @@
               <tr><td><span>&nbsp; &nbsp;<i class="fa fa-envelope-o" style="font-size:28px;color:red"></i><a href="${pageContext.request.contextPath}/user/feedback">feedback</a></span></td></tr>
 
 		
-		<tr><td><span>&nbsp; &nbsp;<i class="fa fa-info-circle" style="font-size:28px;color:red"></i><a href="${pageContext.request.contextPath}/user/aboutUs">About_Us</a></span></tr></td>
-        <tr><td><span>&nbsp; &nbsp;<i class="fa fa-phone" style="font-size:28px;color:red"></i><a href="${pageContext.request.contextPath}/user/contactus">Contact_us</a></span></tr></td>
-        <tr><td><span>&nbsp; &nbsp;<i class="fa fa-key" style="font-size:28px;color:red"><a href="${pageContext.request.contextPath}/user/newUserPassword">Change Password</a></span></tr></td>
+		<tr><td><span>&nbsp; &nbsp;<i class="fa fa-info-circle" style="font-size:28px;color:red"></i><a href="${pageContext.request.contextPath}/user/aboutUs">About Us</a></span></tr></td>
+        <tr><td><span>&nbsp; &nbsp;<i class="fa fa-phone" style="font-size:28px;color:red"></i><a href="${pageContext.request.contextPath}/user/contactus">Contact Us</a></span></tr></td>
+        <tr><td><span>&nbsp; <i class="fa fa-key" style="font-size:28px;color:red"><a href="${pageContext.request.contextPath}/user/newUserPassword">Change Password</a></span></tr></td>
 		<tr><td><span>&nbsp; &nbsp;<i class="fa fa-question-circle" style="font-size:28px;color:red"></i><a href="${pageContext.request.contextPath}/user/quickHelp">Quick Help</a></span></td></tr>
 		
 	  </table>

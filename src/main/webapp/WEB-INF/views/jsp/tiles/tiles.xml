@@ -302,6 +302,12 @@
 		<put-attribute name="body" value="/WEB-INF/views/jsp/termsConditionOuter.jsp" />
 	</definition>
 	
+	<!-- Outer About Us pages -->
+    <definition name="aboutusOuter" extends="blank-definition">
+		<put-attribute name="title" value="About Us" />
+		<put-attribute name="body" value="/WEB-INF/views/jsp/aboutusOuter.jsp" />
+	</definition>
+	
 	<!-- Outer Privacy pages -->
     <definition name="privacyOuter" extends="blank-definition">
 		<put-attribute name="title" value="Privacy" />

@@ -1,5 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ page isELIgnored="false"%>
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/jquery-1.4.2.min.js"></script>
 
@@ -20,7 +21,11 @@
 	 <c:forEach var="notify" items="${notifiy}">
 	    <!-- <div class="containersearch">  -->
 	    <div style="width:60%; height:15%; border: 2px solid black; background-color: white; border-radius: 10px; padding: 8px; margin: 12px 0; margin-left:5%;">      
-		    <p><span style="color:red">${notify.createdDate}</span><br/><br/>
+		   
+		   <fmt:formatDate value="${notify.createdDate}" pattern="dd/MMM/yyyy"
+						var="myValue" />
+		   
+		    <p><span style="color:red">${myValue}</span><br/><br/>
 		    <span style="margin-left:2%;color:black">${notify.notification_desc}</span></p>
 		</div>
 	 </c:forEach> 

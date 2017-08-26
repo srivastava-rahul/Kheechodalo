@@ -1,5 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ page isELIgnored="false"%>
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/jquery-1.4.2.min.js"></script>
 <div class="body-area">
@@ -28,9 +29,12 @@
 				   
 				   <br/><br/>
 				   <div style="margin-left:20%;">
+				   
+				   <fmt:formatDate value="${profileSetting.dob}" pattern="dd/MMM/yyyy"
+						var="myValue" />
 				   <table>
 				   <tr><td>Name</td><td>${profileSetting.name_surname} </p></td></tr>
-				   <tr><td>Birth-Date</td><td>${profileSetting.dob}</td></tr>
+				   <tr><td>Birth-Date</td><td>${myValue}</td></tr>
 				   <tr><td>email_id</td><td>${profileSetting.email_id}</td></tr>
 				   <tr><td>phone</td><td>${profileSetting.phone}</td></tr>
 				   <tr><td>Gender</td><td>${profileSetting.gender}</td></tr>

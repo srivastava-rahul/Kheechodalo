@@ -1,7 +1,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ page isELIgnored="false"%>
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/jquery-1.4.2.min.js"></script>
+
 <script>
 $(document).ready(function() {
 	var num2 = 4;
@@ -82,7 +84,9 @@ $(document).ready(function() {
 						  </p>
 						  
 						  <p>${test.testimonial_desc}</p>
-						   <p><span style="color:red;">${test.createdDate}</span></p>
+						  <fmt:formatDate value="${test.createdDate}" pattern="dd/MMM/yyyy"
+						var="myValue" />
+						   <p><span style="color:red;">${myValue}</span></p>
 						</div>
 						
 				</c:forEach>

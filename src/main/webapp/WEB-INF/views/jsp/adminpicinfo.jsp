@@ -35,6 +35,7 @@
 		border="1">
 		<tr class="header">
 			<th height="40"><center>Pic Id</center></th>
+			<th height="40"><center>Name</center></th>
 			<th height="40"><center>Email_id</center></th>
 			<th height="40"><center>Pic description</center></th>
 			<th height="40"><center>Pic</center></th>
@@ -45,6 +46,7 @@
 			<tr>
 				<td><center>${pic.id}</center></td>
 				<td><center>${pic.userName}</center></td>
+				<td><center>${pic.userEmailId}</center></td>
 				<td><center>${pic.picDescription}</center></td>
 				<td><center><img src="data:image/jpeg;base64,${pic.base64Encoded}"	style="width:30%;height:30%"></center></td>
 				<td><center>${pic.picVote}</center></td>

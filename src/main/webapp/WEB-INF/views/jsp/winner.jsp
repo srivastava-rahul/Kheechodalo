@@ -1,5 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ page isELIgnored="false"%>
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/jquery-1.4.2.min.js"></script>
 <script>
@@ -78,11 +79,13 @@ $(document).ready(function() {
 			<div class="containerwinner">
 				<div class="container_img_header">
 					<img src="data:image/jpeg;base64,${winner.base64Encoded}" alt="Avatar" style="width: 250px" />
-					<font style="color: red; float: left">${winner.createdDate}</font>
+						<fmt:formatDate value="${winner.createdDate}" pattern="dd/MMM/yyyy"
+						var="myValue" />
+					<font style="color: red; float: left;margin-left: 2%">${myValue}</font>
 					&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
-					<font style="color: red;">Prize :${winner.prize_desc}</font>
+					<font style="color: red;margin-left: 25%">Prize :${winner.prize_desc}</font>
 					&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
-					<font style="color: red; float: right;">Vote:${winner.picVote}</font>
+					<font style="color: red; float: right;margin-right: 15%">Vote:${winner.picVote}</font>
 				 </div>
 				<div style="background: black;">
 					<span>

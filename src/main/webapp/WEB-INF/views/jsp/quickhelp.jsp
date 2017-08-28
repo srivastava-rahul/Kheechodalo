@@ -4,6 +4,9 @@
 <%@ page isELIgnored="false"%>
 <script type="text/javascript"
 	src="${pageContext.request.contextPath}/resources/js/jquery-1.4.2.min.js"></script>
+	
+	<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/jquery.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/jquery.form-validator.min.js"></script> 
 
 <div class="body-area">
 		<jsp:include page="/WEB-INF/views/jsp/message.jsp" />
@@ -19,17 +22,17 @@
 		<form name="quickhelpForm" action="quickHelpData" method="post">
 			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
 			<div class="Changepasswordformboby">
-				<h3 style="color: yellow">Please tell Problem you A are facing... </h3>
+				<h3 style="color: yellow">Please tell the Problem you are facing... </h3>
 				<input type="text" class="Changepassword_form-control" name="problem" id="problem" required="true"
-					placeholder="Please Enter Page or button name" />
+					placeholder="Please Enter Page or button name" data-validation="length" data-validation-length="3-20" />
 			</div>
 
 			<div class="Changepasswordformboby">
-				<h3 style="color: yellow">Please Provide Some Problem Decsription...</h3>
+				<h3 style="color: yellow">Please Provide Decsription of your Problem...</h3>
 				<div style="margin-left: 1%">
 					<textarea name= "quickDesc" id="quickDesc" rows="5" cols="29" style="color: black"
 						placeholder="Please provide a detailed description of your Problems or suggestions."
-						 aria-required="true"></textarea>
+						 aria-required="true" data-validation="length" data-validation-length="2-800"></textarea>
 				</div>
 			</div>
 
@@ -46,3 +49,9 @@
 		</form>
 	</div>
 </div>
+
+<script>
+  $.validate({
+    lang: 'en'
+  });
+</script>

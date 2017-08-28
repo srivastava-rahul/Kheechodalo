@@ -3,8 +3,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@ page isELIgnored="false"%> 
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/jquery-1.4.2.min.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/jquery.min.js"></script>
 
+<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/jquery.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/jquery.form-validator.min.js"></script> 
 
 <div class="body-area">
@@ -33,7 +33,7 @@
 					<tr>
 						<td>Name</td>
 						<td>
-							<form:input placeholder="Name     Surname" style="color:black" path="name_surname" data-validation="length alphanumeric" data-validation-length="min4" />
+							<form:input placeholder="Name     Surname" style="color:black" path="name_surname" data-validation="length" data-validation-length="3-20"/>
 						</td>
 					</tr>
 					<tr>
@@ -51,7 +51,7 @@
 					<tr>
 						<td>phone</td>
 						<td>
-							<form:input placeholder="mobile number" style="color:black" path="phone" />
+							<form:input placeholder="mobile number" style="color:black" path="phone"  data-validation="number,length"  data-validation-length="min10"/>
 						</td>
 						<td>
 							<form:checkbox path="phone_flage" value="true" />
@@ -85,7 +85,7 @@
 					<tr>
 						<td>Daliy Status</td>
 						<td>
-							<form:input placeholder="Daliy Status" style="color:black" path="daily_status" />
+							<form:textarea rows="4" cols="50" placeholder="Daliy Status" style="color:black" path="daily_status"  data-validation="length" data-validation-length="2-200"/>
 						</td>
 					</tr>
 					<tr>
@@ -97,13 +97,13 @@
 					<tr>
 						<td>Live In</td>
 						<td>
-							<form:input placeholder="current city name" style="color:black" path="live_in" />
+							<form:input placeholder="current city name" style="color:black" path="live_in" data-validation="length" data-validation-length="2-20"/>
 						</td>
 					</tr>
 					<tr>
 						<td>country</td>
 						<td>
-							<form:input placeholder="country" style="color:black" path="country" />
+							<form:input placeholder="country" style="color:black" path="country"  data-validation="length" data-validation-length="2-20"/>
 						</td>
 					</tr>
 					<tr>
@@ -175,7 +175,7 @@
 					<tr>
 						<td>Birth-Place</td>
 						<td>
-							<form:input placeholder="city or village name" style="color:black" path="birth_place" />
+							<form:input placeholder="city or village name" style="color:black" path="birth_place" data-validation="length" data-validation-length="2-20"/>
 						</td>
 					</tr>
 					<tr>
@@ -187,7 +187,7 @@
 					<tr>
 						<td>paytm</td>
 						<td>
-							<form:input placeholder="paytm number" style="color:black" path="paytm" />
+							<form:input placeholder="paytm number" style="color:black" path="paytm" data-validation="number,length"  data-validation-length="min10"/>
 						</td>
 						</td>
 						<td>
@@ -202,7 +202,7 @@
 					<tr>
 						<td>Address</td>
 						<td>
-							<form:textarea rows="4" cols="50" placeholder="Describe your local address,city,pincode here..." style="color:black" path="address"></form:textarea>
+							<form:textarea rows="4" cols="50" placeholder="Describe your local address,city,pincode here..." style="color:black" path="address" data-validation="length" data-validation-length="2-300"></form:textarea>
 						</td>
 						<td>
 							<form:checkbox path="address_flage" value="true" />

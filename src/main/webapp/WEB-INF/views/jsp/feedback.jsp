@@ -4,6 +4,9 @@
 <%@ page isELIgnored="false"%>
 <script type="text/javascript"
 	src="${pageContext.request.contextPath}/resources/js/jquery-1.4.2.min.js"></script>
+	
+	<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/jquery.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/jquery.form-validator.min.js"></script> 
 
 <div class="body-area">
 	<jsp:include page="/WEB-INF/views/jsp/message.jsp" />
@@ -23,7 +26,7 @@
 				<div style="margin-left: 1%">
 					<textarea name= "feedback" id="feedback" name="feedback" rows="5" cols="28" style="color: black"
 						placeholder="Please provide a detailed description of your Problems or suggestions."
-						 aria-required="true"></textarea>
+						 aria-required="true" data-validation="length" data-validation-length="2-800"></textarea>
 				</div>
 			</div>
 
@@ -54,3 +57,9 @@ margin-bottom: auto; !important;
 }
 
 </style>
+
+<script>
+  $.validate({
+    lang: 'en'
+  });
+</script>

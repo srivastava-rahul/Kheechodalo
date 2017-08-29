@@ -8,6 +8,7 @@
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/jquery.form-validator.min.js"></script> 
 
 <div class="body-area">
+<jsp:include page="/WEB-INF/views/jsp/message.jsp" />
 	<div>
 		<a href="${pageContext.request.contextPath}/user/uploadprofilepic">
 		<c:if test="${not empty picImg}">

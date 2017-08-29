@@ -16,6 +16,7 @@ import com.click.entity.PictureUpload;
 import com.click.entity.ProfileSetting;
 import com.click.service.PicsService;
 import com.click.service.ProfileSettingService;
+import com.click.utils.StringUtils;
 
 @Controller
 @RequestMapping(value = "/user")
@@ -34,11 +35,11 @@ public class SearchController {
 		LOG.info("Fetching search page from getSearchPage  controller"+search);
 		
 		try{
-			if(search==null){
+			if(search==null ){
 				 model.addAttribute("error", "Please provide valid Data");
 				 return"searchpage";
 			}
-			List<ProfileSetting> profileSetting =  profileSettingService.findByEmailAndName(search);
+			List<ProfileSetting> profileSetting =  profileSettingService.findByEmailAndName(StringUtils.checkString(search));
 			LOG.info("Fetching search page from getSearchPage  controller"+profileSetting.size());
 			
 			

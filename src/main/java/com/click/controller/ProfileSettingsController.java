@@ -84,7 +84,7 @@ public class ProfileSettingsController {
 		} catch (Exception e) {
 			LOG.error(e.getMessage(), e);
 			e.printStackTrace();
-			model.addAttribute("error", "Error " + e.getMessage());
+			model.addAttribute("error", e.getMessage());
 		}
 		return "settings";
 	}

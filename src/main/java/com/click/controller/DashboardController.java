@@ -23,6 +23,7 @@ import com.click.pojo.PictureUploadPojo;
 import com.click.service.PicsService;
 import com.click.service.UserService;
 import com.click.utils.SecurityLibrary;
+import com.click.utils.StringUtils;
 
 /**
  * 
@@ -97,10 +98,11 @@ public class DashboardController {
 	@RequestMapping(value = "/changeNewPassword", method = RequestMethod.POST)
 	public String changeNewPassword(@RequestParam String oldPassword, @RequestParam String newPassword,
 			@RequestParam String confirmPassword, Model model) {
+	
 		LOG.info("Inside changeNewPassword controller");
+	
 		try {
 			User userDetails = userService.findUserById(SecurityLibrary.getLoggedInUser().getId());
-
 			BCryptPasswordEncoder enc = new BCryptPasswordEncoder();
 			LOG.info(" Pass : "+enc.matches(oldPassword, userDetails.getPassword()) +" old pass : "+userDetails.getPassword());
 			
@@ -125,6 +127,8 @@ public class DashboardController {
 		} catch (Exception e) {
 			LOG.error(e.getMessage(), e);
 			e.printStackTrace();
+			model.addAttribute("error", e.getMessage());
+			
 		}
 		model.addAttribute("error", "Your entered Old Password Is Incorrect");
 		return "newUserPassword";

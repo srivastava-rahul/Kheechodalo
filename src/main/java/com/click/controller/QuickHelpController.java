@@ -84,7 +84,7 @@ public class QuickHelpController {
 			User userDetails = userService.findUserById(SecurityLibrary.getLoggedInUser().getId());
 			UserFeedback feed = new UserFeedback();
 			feed.setUser(userDetails);
-			feed.setFeedDesc(feedback);
+			feed.setFeedDesc(StringUtils.checkString(feedback));
 			feed.setCreatedDate(new Date());
 			quickHelpService.saveFeedbackData(feed);
 			model.addAttribute("success", "Thank You For Providing Us Yours Views .");
@@ -92,7 +92,7 @@ public class QuickHelpController {
 		} catch (Exception e) {
 			LOG.error(e.getMessage(),e);
 			e.printStackTrace();
-			model.addAttribute("error", "Error Occured Whie Giving Feedback .");
+			model.addAttribute("error", e.getMessage());
 			return "feedback";
 		}
 	}

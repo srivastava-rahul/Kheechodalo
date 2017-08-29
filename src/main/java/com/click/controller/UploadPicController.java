@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.click.entity.PicUploadData;
 import com.click.entity.PictureUpload;
@@ -50,7 +51,7 @@ public class UploadPicController {
 
 	@RequestMapping(value = "/savePic", method = RequestMethod.POST)
 	public String savePic(@RequestParam("picImg") MultipartFile uploadPic, @RequestParam(required = false) String desc, @RequestParam(required = false) String picId,
-			Model model) {
+			Model model,RedirectAttributes redir) {
 		LOG.info("save pic Inside savePic controller pic Id : " + picId);
 		String fileName = null;
 		if (!uploadPic.isEmpty()) {
@@ -65,7 +66,7 @@ public class UploadPicController {
 					pic.setUploadDate(new Date());
 					pic.setContentType(uploadPic.getContentType());
 					pic.setPicSize(bytes.length > 0 ? bytes.length / 1024 : 0);
-					pic.setDescription(desc);
+					pic.setDescription(StringUtils.checkString(desc));
 					PicUploadData data = new PicUploadData();
 					data.setFileData(bytes);
 					pic.setPicUploadData(data);
@@ -82,7 +83,7 @@ public class UploadPicController {
 					pictureUpload.setUploadDate(new Date());
 					pictureUpload.setContentType(uploadPic.getContentType());
 					pictureUpload.setPicSize(bytes.length > 0 ? bytes.length / 1024 : 0);
-					pictureUpload.setDescription(desc);
+					pictureUpload.setDescription(StringUtils.checkString(desc));
 					pictureUpload.setPicVote(0);
 					pictureUpload.setFriendEmail(null);
 					PicUploadData data = pictureUpload.getPicUploadData();
@@ -93,6 +94,7 @@ public class UploadPicController {
 			} catch (Exception e) {
 				System.out.println("Error :" + e.getMessage());
 				e.printStackTrace();
+				redir.addFlashAttribute("error", e.getMessage());
 			}
 		} else {
 			LOG.info("file is null");

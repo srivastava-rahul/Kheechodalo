@@ -19,6 +19,7 @@ import com.click.entity.UserRole;
 import com.click.service.SendMailService;
 import com.click.service.UserService;
 import com.click.utils.Global;
+import com.click.utils.StringUtils;
 
 @Controller
 public class UserController {
@@ -75,9 +76,9 @@ public class UserController {
 			BCryptPasswordEncoder enc = new BCryptPasswordEncoder();
 			String pass = enc.encode(password);
 			User user = new User();
-			user.setFirstName(firstName);
-			user.setLastName(lastName);
-			user.setEmailId(email);
+			user.setFirstName(StringUtils.checkString(firstName));
+			user.setLastName(StringUtils.checkString(lastName));
+			user.setEmailId(StringUtils.checkString(email));
 			user.setPassword(pass);
 			user.setCreatedDate(new Date());
 			user.setAdmin(false);

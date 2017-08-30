@@ -104,7 +104,7 @@
 					<tr>
 						<td>country</td>
 						<td>
-							<form:input placeholder="country" style="color:black" path="country"  data-validation="length" data-validation-length="2-20"/>
+							<form:input placeholder="country" style="color:black" path="country"  data-validation="length" data-validation-length="1-20"/>
 						</td>
 					</tr>
 					<tr>

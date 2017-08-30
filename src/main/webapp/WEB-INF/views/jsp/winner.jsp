@@ -94,7 +94,7 @@ $(document).ready(function() {
 						</center>
 					</span>
 					<br />
-					<span>${winner.winner_desc}</span>
+					<center><span>${winner.winner_desc}</span></center>
 				</div>
 			</div>
 		</c:forEach>

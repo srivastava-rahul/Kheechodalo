@@ -333,7 +333,7 @@ function showSlides(n) {
 					<div class="">
 						<b><h2 style="color:blue"><a href="${pageContext.request.contextPath}/user/viewProfile/${pic.userEmailId}">${pic.userName}</a></h2></b>
 						<%-- <b><h2 style="color:blue">${pic.userEmailId}</h2></b> --%>
-						<p style="color:green;margin-left: 40%">${pic.picDescription}</p>
+						<center><p style="color:green;">${pic.picDescription}</p></center>
 					 <c:if test="${pic.allowToVote}"> 
 						<p align="center" class="hideVote${pic.id}">
 							<button class="marg-bottom-10 button_submit  submit votePic">Vote</button>

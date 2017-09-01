@@ -35,8 +35,8 @@ public interface AdminGetUserInfoService {
 	 ProfileSetting  getProfileInfoByEmailId(String email_id);
 
 	 /**
-	  * 
-	  * @return
+	  * Function to count total user of the application
+	  * @return user count to admin dashboard
 	  */
 	int countAllTotalUser();
 

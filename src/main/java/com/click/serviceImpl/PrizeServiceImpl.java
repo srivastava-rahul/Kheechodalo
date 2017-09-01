@@ -27,6 +27,10 @@ public class PrizeServiceImpl implements PrizeService {
 	@Autowired
 	PrizeDao prizeDao;
 
+	/**
+	 * Get The list of All Prize by User
+	 * @return
+	 */
 	@Override
 	public List<UserPrize> getAllPrizeRecord() {
 		LOG.info("Inside getAllPrizeRecord() serviceImpl "); 
@@ -41,6 +45,10 @@ public class PrizeServiceImpl implements PrizeService {
 		
 	}
 
+	/**
+	 * Saving The prize by Admin
+	 * @param prizedata
+	 */
 	@Override
 	@Transactional(readOnly = false)
 	public void savePrizeRecord(UserPrize prizedata) {
@@ -54,6 +62,10 @@ public class PrizeServiceImpl implements PrizeService {
 		
 	}
 
+	/**
+	 * Delete The prize by Admin
+	 * @param prizedata
+	 */
 	@Override
 	@Transactional(readOnly = false)
 	public void deletePrizeRecord(UserPrize prizedata) {

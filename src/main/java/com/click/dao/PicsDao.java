@@ -46,8 +46,8 @@ public interface PicsDao {
 	PictureUpload findPicsbyemail(String email_id);
 
 	/**
-	 * 
-	 * @return
+	 * Get the information based on picid
+	 * @return  pic information
 	 */
 	PictureUpload getSinglepicInfo(String picid);
 
@@ -67,7 +67,6 @@ public interface PicsDao {
 
 	/**
 	 * Get all the pic information for Admin
-	 * 
 	 * @param picId
 	 * @param userEmailId
 	 * @return
@@ -75,14 +74,14 @@ public interface PicsDao {
 	List<PictureUpload> findAllPicsbyAdmin();
 
 	/**
-	 * 
+	 * Delete All the data from pics table
 	 */
 	void deleteAllPics();
 
 	/*
+	 * find the vote on a pic based on email id
 	 * @param emailId
-	 * 
-	 * @return
+	 * @return count of vote
 	 */
 	long findVoteCountForAdminOfSpecificEmail(String emailId);
 
@@ -102,6 +101,12 @@ public interface PicsDao {
 	 */
 	long updateVoteCountbyadmin(PictureUpload updatevote);
 	
+	/**
+	 * increment the vote count on a pic
+	 * @param voteConut
+	 * @param emailId
+	 * @return increased vote count
+	 */
 	long incrementVoteCountForEmail(long voteConut, String emailId);
 
 	void adminDeletePicByPicId(String picId);

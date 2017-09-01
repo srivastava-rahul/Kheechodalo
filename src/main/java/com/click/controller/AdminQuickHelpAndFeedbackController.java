@@ -8,7 +8,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import com.click.entity.QuickHelp;
 import com.click.entity.UserFeedback;
@@ -25,6 +24,12 @@ public class AdminQuickHelpAndFeedbackController {
 	QuickHelpService quickHelpsrv;
 			 
 	
+	/**
+	 * Get all the feedback by Admin
+	 * @param model
+	 * @return to adminfeedbackinfo page 
+	 * @throws Exception throw data does not exist
+	 */
 	@RequestMapping(value = "/adminfeedbackinfo")
 	protected String getFeedbackInfo(Model model) throws Exception {
 		LOG.info("Admin fetching  feedback information from getFeedbackInfo controller");
@@ -40,6 +45,12 @@ public class AdminQuickHelpAndFeedbackController {
 		return "adminfeedbackinfo";
 	}
 	
+	/**
+	 * Get all the quick help information by admin
+	 * @param model
+	 * @return to adminquickhelpinfo page
+	 * @throws Exception throw data does not exist 
+	 */
 	@RequestMapping(value = "/adminquickhelpinfo")
 	protected String getQuickHelpInfo(Model model) throws Exception {
 		LOG.info("Admin fetching quick help information from getQuickHelpInfo controller");
@@ -54,6 +65,13 @@ public class AdminQuickHelpAndFeedbackController {
 		return "adminquickhelpinfo";
 	}
 	
+	/**
+	 * Quick help deleted by Admin based on id 
+	 * @param id
+	 * @param model
+	 * @return to adminquickhelpinfo page
+	 * @throws Exception throw data does not exist
+	 */
 	@RequestMapping(value = "/admindeleteQuickhelp/{id}")
 	protected String deleteQuickHelp(@PathVariable(name ="id")  String id,Model model) throws Exception {
 		LOG.info("Admin delete QuickHelp information based on id from deleteQuickHelp controller");
@@ -71,6 +89,14 @@ public class AdminQuickHelpAndFeedbackController {
 		}
 	}
 	
+	
+	/**
+	 * feedback deleted by Admin based on id
+	 * @param id
+	 * @param model
+	 * @return to adminfeedbackinfo page
+	 * @throws Exception throw data does not exist
+	 */
 	@RequestMapping(value = "/admindeletefeedback/{id}")
 	protected String deletefeedback(@PathVariable(name ="id")  String id,Model model) throws Exception {
 		LOG.info("Admin delete Feedback information based on id from deletefeedback controller");

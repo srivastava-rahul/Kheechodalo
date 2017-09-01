@@ -49,6 +49,10 @@ public class QuickHelpDaoImpl implements QuickHelpDao {
 		}
 	}
 
+	/**
+	 * Get the quick help (problem) data For Admin
+	 * @param quickHelp
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<QuickHelp> getQuickHelpData() {
@@ -77,6 +81,10 @@ public class QuickHelpDaoImpl implements QuickHelpDao {
 		return (List<UserFeedback>) query.getResultList();
 	}
 
+	/**
+	 * Delete the quick help (problem) data by Admin based on id
+	 * @param quickHelp
+	 */
 	@Override
 	public void deleteQuickHelpData(QuickHelp quickhelp) {
 		LOG.info("Inside deleteQuickHelpData() DaoImpl");
@@ -99,6 +107,10 @@ public class QuickHelpDaoImpl implements QuickHelpDao {
 
 	}
 
+	/**
+	 * Delete the feedback data by Admin based on id
+	 * @param quickHelp
+	 */
 	@Override
 	public void deleteFeedbackData(UserFeedback userfeedback) {
 		LOG.info("Inside deleteFeedbackData() DaoImpl");

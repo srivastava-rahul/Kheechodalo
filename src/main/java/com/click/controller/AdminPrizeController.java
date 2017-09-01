@@ -42,6 +42,15 @@ public class AdminPrizeController {
 
 	
 	
+	/**
+	 * Admin Save  prize
+	 * @param createddate
+	 * @param prizevalue
+	 * @param sponsorby
+	 * @param model
+	 * @return to admingetAllPrize page
+	 * @throws Exception throw data does not exist
+	 */
 	@RequestMapping(value = "/adminsaveprize", method = RequestMethod.POST)
 	public String savePrizebyAdmin(@RequestParam Date createddate,@RequestParam String prizevalue,@RequestParam String sponsorby, Model model)
 			throws Exception {
@@ -53,22 +62,24 @@ public class AdminPrizeController {
 			prizedata.setPrizeAmount(prizevalue);
 			prizedata.setSponsor(sponsorby);
 			prizeService.savePrizeRecord(prizedata);
-			/*List<UserPrize>  listofprize=prizeService.getAllPrizeRecord();
-			model.addAttribute("prize",listofprize);*/
-			 model.addAttribute("success", " Data Entered Successfully .");			
-			//return "adminsendprize";
+			model.addAttribute("success", " Data Entered Successfully .");
 			return "redirect:/admin/admingetAllPrize";
 		} catch (Exception e) {
 			LOG.error(e.getMessage(),e);
 			e.printStackTrace();
 			model.addAttribute("error", "Error Occured While Sending Data .");
-			//return "adminsendprize";
 			return "redirect:/admin/admingetAllPrize";
 		}
 	}
 
+	/**
+	 * Get all the prize information
+	 * @param model
+	 * @return to adminsendprize page
+	 * @throws Exception throw data does not exist
+	 */
 	@RequestMapping(value = "/admingetAllPrize")
-	protected String getNotificationInfo(Model model) throws Exception {
+	protected String getAllprizeInfo(Model model) throws Exception {
 		LOG.info("Admin getting list of prize from getNotificationInfo controller");
 		try {
 			List<UserPrize>  listofprize=prizeService.getAllPrizeRecord();
@@ -81,25 +92,27 @@ public class AdminPrizeController {
 		return "adminsendprize";
 	}
 	
+	/**
+	 * Delete the prize information by admin based on id
+	 * @param id
+	 * @param model
+	 * @return to admingetAllPrize page
+	 * @throws Exception throw data does not exist
+	 */
 	@RequestMapping(value = "/admindeleteprize/{id}")
-	protected String deleteNotificationInfo(@PathVariable(name ="id") String id,Model model) throws Exception {
+	protected String deleteprizeInfo(@PathVariable(name ="id") String id,Model model) throws Exception {
 		LOG.info("Admin removing prize based on id from deleteNotificationInfo controller"+id);
 		
 		try {
 			UserPrize prizedata=new UserPrize();
 			prizedata.setId(id);
 			prizeService.deletePrizeRecord(prizedata);
-			/*List<UserPrize>  listofprize=prizeService.getAllPrizeRecord();
-			 model.addAttribute("prize",listofprize);*/
-			 model.addAttribute("success", " Data Deleted Successfully .");
-			//return "adminsendprize";
+			model.addAttribute("success", " Data Deleted Successfully .");
 			return "redirect:/admin/admingetAllPrize";
-			
 		} catch (Exception e) {
 			LOG.error(e.getMessage(),e);
 			e.printStackTrace();
 			model.addAttribute("error", "Error Occured While deleting Data .");
-			//return "adminsendprize";
 			return "redirect:/admin/admingetAllPrize";
 		}
 	}

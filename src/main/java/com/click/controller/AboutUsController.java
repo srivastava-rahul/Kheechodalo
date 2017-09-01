@@ -11,6 +11,12 @@ public class AboutUsController {
 	
 	private static final Logger LOG = Logger.getLogger(AboutUsController.class);
 			 
+	/**
+	 * Load the About Us Page
+	 * @param model
+	 * @return AboutUs page 
+	 * @throws Exception
+	 */
 	@RequestMapping(value = "/aboutUs")
 	protected String getAboutUs(Model model) throws Exception {
 		LOG.info("Fetching AboutUs Page from getAboutUs Controller ");

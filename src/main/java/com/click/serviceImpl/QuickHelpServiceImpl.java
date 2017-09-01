@@ -54,6 +54,11 @@ public class QuickHelpServiceImpl implements QuickHelpService {
 
 	}
 
+	
+	/**
+	 * Get the quick help (problem) data For Admin
+	 * @param quickHelp
+	 */
 	@Override
 	public List<QuickHelp> getQuickHelpData() {
 		LOG.info("Inside getQuickHelpData() service");
@@ -80,6 +85,10 @@ public class QuickHelpServiceImpl implements QuickHelpService {
 		return quickhelp;
 	}
 
+	/**
+	 * Delete the quick help (problem) data by Admin based on id
+	 * @param quickHelp
+	 */
 	@Override
 	@Transactional(readOnly = false)
 	public void deleteQuickHelpData(QuickHelp quickhelp) {
@@ -93,6 +102,10 @@ public class QuickHelpServiceImpl implements QuickHelpService {
 
 	}
 
+	/**
+	 * Delete the feedback data by Admin based on id
+	 * @param quickHelp
+	 */
 	@Override
 	@Transactional(readOnly = false)
 	public void deleteFeedbackData(UserFeedback userfeedback) {

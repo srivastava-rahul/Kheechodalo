@@ -26,6 +26,10 @@ public class NotificationDaoImpl implements NotificationDao {
 	@PersistenceContext(unitName = "entityManagerFactory")
 	EntityManager entityManager;
 
+	/**
+	 * Save the  Notification by Admin
+	 * @param notify
+	 */
 	@Override
 	public void saveNotification(Notification notify) {
 		LOG.info("Inside saveNotification() daoImpl ");
@@ -38,6 +42,9 @@ public class NotificationDaoImpl implements NotificationDao {
 		
 	}
 
+	/**
+	 * Get List of the notification by Admin
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Notification> getNotification() {
@@ -52,7 +59,11 @@ public class NotificationDaoImpl implements NotificationDao {
 		return (List<Notification>) query.getResultList();
 		
 	}
+	
 
+	/**
+	 * Delete Single notification by Admin  based on id 
+	 */
 	@Override
 	public void deleteNotification(Notification notify) {
 		LOG.info("Inside deleteNotification() daoImpl ");

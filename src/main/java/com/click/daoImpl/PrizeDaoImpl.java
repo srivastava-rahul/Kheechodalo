@@ -23,6 +23,10 @@ public class PrizeDaoImpl implements PrizeDao {
 	@PersistenceContext(unitName = "entityManagerFactory")
 	EntityManager entityManager;
 
+	/**
+	 * Get The list of All Prize by User
+	 * @return
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<UserPrize> getAllPrizeRecord() {
@@ -37,6 +41,10 @@ public class PrizeDaoImpl implements PrizeDao {
 		return (List<UserPrize>) query.getResultList();
 	}
 
+	/**
+	 * Saving The prize by Admin
+	 * @param prizedata
+	 */
 	@Override
 	public void savePrizeRecord(UserPrize prizedata) {
 		LOG.info(" Inside savePrizeRecord() DaoImpl GetAllPrizeRecord ");
@@ -49,6 +57,10 @@ public class PrizeDaoImpl implements PrizeDao {
 		
 	}
 
+	/**
+	 * Delete The prize by Admin
+	 * @param prizedata
+	 */
 	@Override
 	public void deletePrizeRecord(UserPrize prizedata) {
 		LOG.info(" Inside deletePrizeRecord() DaoImpl GetAllPrizeRecord ");

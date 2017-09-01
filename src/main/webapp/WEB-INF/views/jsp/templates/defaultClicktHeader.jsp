@@ -146,7 +146,7 @@
 					<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
 					<div class="col-md-10" style="padding-right: 0px;">
 						<p align="right">
-							<input type="text" name="search" class="fa fa-search searchBox" placeholder="&nbsp; Search ...." style="color:black;">
+							<input type="text" name="search" class="fa fa-search searchBox" placeholder="&nbsp; Search here by name or email id ..." style="color:black;">
 						</p>
 					</div>
 

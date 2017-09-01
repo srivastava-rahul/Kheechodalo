@@ -39,6 +39,12 @@ public class AdminDashboardController {
 	@Autowired
 	PicsService picsService;
 
+	/**
+	 * Getting the user information
+	 * @param model
+	 * @return page to admin dashboard with user information
+	 * @throws Exception throw message user does not exist 
+	 */
 	@RequestMapping(value = "/adminDashboard")
 	protected String getUserInfo(Model model) throws Exception {
 		LOG.info("Admin getting user information from getUserInfo controller");
@@ -54,6 +60,13 @@ public class AdminDashboardController {
 		return "adminDashboard";
 	}
 
+	/**
+	 * Getting the user information based on email id
+	 * @param model
+	 * @param email_id
+	 * @return to Admin Dashboard page with particular user information
+	 * @throws Exception throw message user does not exist 
+	 */
 	@RequestMapping(value = "/adminSingleUserInfo")
 	protected String searchUserbyEmailId(Model model, @RequestParam String email_id) throws Exception {
 		LOG.info("Admin searching user information based on email id from searchUserbyEmailId controller");
@@ -67,6 +80,14 @@ public class AdminDashboardController {
 		return "adminDashboard";
 	}
 
+	
+	/**
+	 * Search the profile information of particular user based on email_id for Admin
+	 * @param model
+	 * @param email_id
+	 * @return  to adminViewProfileSetting
+	 * @throws Exception throw profile information does not exist error
+	 */
 	@RequestMapping(value = "/adminSingleProfileInfo/{email_id}")
 	public String searchProfilebyEmailId(Model model, @PathVariable(name = "email_id") String email_id)
 			throws Exception {
@@ -88,8 +109,14 @@ public class AdminDashboardController {
 		return "adminViewProfileSetting";
 	}
 
+	
+	/**
+	 * Delete all the pic at 11.55pm when scheduler start  from pic table
+	 * @param model
+	 * @return to the Admin dashboard page
+	 * @throws Exception data does not exist
+	 */
 	@RequestMapping(value = "/deleteAllPics")
-
 	protected String deleteAllPics(Model model) throws Exception {
 		LOG.info("deleteAllPics called");
 		try {
@@ -101,6 +128,12 @@ public class AdminDashboardController {
 		return "dashboard";
 	}
 
+	/**
+	 * Get Vote Increment page
+	 * @param model
+	 * @return to  adminVoteIncrement page
+	 * @throws Exception page does not exist
+	 */
 	@RequestMapping(value = "/adminVoteIncrement")
 	protected String getVoteIncrement(Model model) throws Exception {
 		LOG.info("Fetching the Quick Help Form  from getAboutUs controller");
@@ -108,6 +141,16 @@ public class AdminDashboardController {
 		return "adminVoteIncrement";
 	}
 
+	
+	
+	
+	/**
+	 * Increase the vote by admin
+	 * @param emailId
+	 * @param model
+	 * @return to adminVoteIncrement page 
+	 * @throws Exception
+	 */
 	@RequestMapping(value = "/adminVoteIncrementCount", method = RequestMethod.POST)
 	public String adminVoteIncrementCount(@RequestParam String emailId, Model model) throws Exception {
 		LOG.info("In-side Admin Search Vote controller" + emailId);
@@ -125,6 +168,14 @@ public class AdminDashboardController {
 		}
 	}
 
+	/**
+	 * Increment  the vote count on a pic based on email id
+	 * @param model
+	 * @param voteConut
+	 * @param emailId
+	 * @return adminVoteIncrement page
+	 * @throws Exception throw pic does not exist
+	 */
 	@RequestMapping(value = "/increment/{voteConut}/{emailId}", method = RequestMethod.GET)
 	public String incrementCount(Model model,@PathVariable(name = "voteConut") String voteConut ,@PathVariable(name = "emailId") String emailId) throws Exception {
 		try {
@@ -141,11 +192,24 @@ public class AdminDashboardController {
 	}
 	
 
+	/**
+	 * Render the forget password screen
+	 * @return
+	 */
 	@RequestMapping(value = "/newUserPassword", method = RequestMethod.GET)
 	public String forgetPassword() {
 		return "newUserPassword";
 	}
 
+	
+	/**
+	 * change old password to new password
+	 * @param oldPassword
+	 * @param newPassword
+	 * @param confirmPassword
+	 * @param model
+	 * @return admin dashboard page
+	 */
 	@RequestMapping(value = "/changeNewPassword", method = RequestMethod.POST)
 	public String changeNewPassword(@RequestParam String oldPassword, @RequestParam String newPassword,
 			@RequestParam String confirmPassword, Model model) {
@@ -184,6 +248,13 @@ public class AdminDashboardController {
 	
 	
 	
+	/**
+	 * Delete the pic by admin based on pic id
+	 * @param picId
+	 * @param model
+	 * @return to adminpicinfo page
+	 * @throws Exception pic does not exist 
+	 */
 	@RequestMapping(value = "/adminDeletePic", method = RequestMethod.POST)
 	public String adminDeletePic(@RequestParam String picId, Model model) throws Exception {
 		LOG.info("In-side Admin Search Vote controller" + picId);

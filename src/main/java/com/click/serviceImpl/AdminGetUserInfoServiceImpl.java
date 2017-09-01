@@ -28,6 +28,11 @@ public class AdminGetUserInfoServiceImpl implements AdminGetUserInfoService {
     @Autowired
     AdminGetUserInfoDao adminGetUserInfoDao;  
 
+    
+    /**
+	  * Get All User Information
+	 * @return All User Data
+	 */
 	@Override
 	public List<User> getAllUserInfo() {
 		LOG.info("Inside  getAllUserInfo() serviceImpl");
@@ -41,6 +46,10 @@ public class AdminGetUserInfoServiceImpl implements AdminGetUserInfoService {
 		return userinfo;
 	}
 
+	/**
+	 *Get Single User Information by passing the email id
+	 * @return Single User Data
+	 */
 	@Override
 	public User getUserInfoByEmailId(String email_id) {
 		LOG.info("Inside  getUserInfoByEmailId() serviceImpl");
@@ -54,6 +63,10 @@ public class AdminGetUserInfoServiceImpl implements AdminGetUserInfoService {
 		return userdata;
 	}
 
+	/**
+	 * Get Single User Profile  Information by passing the email id
+	 * @return Single User Profile Data
+	 */
 	@Override
 	public ProfileSetting getProfileInfoByEmailId(String email_id) {
 		LOG.info("Inside  getProfileInfoByEmailId() serviceImpl");
@@ -67,6 +80,10 @@ public class AdminGetUserInfoServiceImpl implements AdminGetUserInfoService {
 		return profiledata;
 	}
 
+	 /**
+	  * Function to count total user of the application
+	  * @return user count to admin dashboard
+	  */
 	@Override
 	public int countAllTotalUser() {
 		LOG.info(" Count User ");

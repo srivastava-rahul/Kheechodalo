@@ -86,6 +86,10 @@ public class PicsServiceImpl implements PicsService {
 		return pj;
 	}
 
+	/**
+	 * Get the information based on picid
+	 * @return  pic information
+	 */
 	@Override
 	public PictureUpload getSinglepicInfo(String picid) {
 		LOG.info("Inside getSinglepicInfo() serviceImpl");
@@ -111,6 +115,12 @@ public class PicsServiceImpl implements PicsService {
 		return picsDao.updateVoteCount(picId, userEmailId);
 	}
 
+	/**
+	 * getting all the pic information for admin
+	 * @param
+	 * @param loggedInUserLoginEmailId
+	 * @return
+	 */
 	@Override
 	public List<PictureUploadPojo> findAllPicsbyAdmin() {
 		LOG.info("Inside findAllPicsbyAdmin() serviceImpl");
@@ -134,6 +144,9 @@ public class PicsServiceImpl implements PicsService {
 		return pojoList;
 	}
 
+	/**
+	 * Delete All the data from pics table
+	 */
 	@Override
 	@Transactional(readOnly = false)
 	public void deleteAllPics() {
@@ -145,12 +158,23 @@ public class PicsServiceImpl implements PicsService {
 		return picsDao.findWinnerPicBymaxVoteCount();
 	}
 
+	/*
+	 * find the vote on a pic based on email id
+	 * @param emailId
+	 * @return count of vote
+	 */
 	public long findVoteCountForAdminOfSpecificEmail(String emailId) {
 		long voteCount = picsDao.findVoteCountForAdminOfSpecificEmail(emailId);
 		return voteCount;
 
 	}
 
+	/**
+	 * increment the vote count on a pic
+	 * @param voteConut
+	 * @param emailId
+	 * @return increased vote count
+	 */
 	@Override
 	public long incrementVoteCountForEmail(long vote, String emailId) {
 		long voteCount = picsDao.incrementVoteCountForEmail(vote, emailId);
@@ -164,6 +188,10 @@ public class PicsServiceImpl implements PicsService {
 
 	}
 
+	/**
+	 * Delete the pic based on pic id
+	 * @param picId
+	 */
 	@Override
 	public void adminDeletePicByPicId(String picId) {
 		picsDao.adminDeletePicByPicId(picId);

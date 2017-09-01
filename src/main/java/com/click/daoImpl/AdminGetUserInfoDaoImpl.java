@@ -24,6 +24,12 @@ public class AdminGetUserInfoDaoImpl implements AdminGetUserInfoDao {
 	@PersistenceContext(unitName = "entityManagerFactory")
 	EntityManager entityManager;
 
+	
+	/**
+	 * Getting List Of All User
+	 * @param 
+	 * @return  List of All User
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<User> getAllUserInfo() {
@@ -38,6 +44,11 @@ public class AdminGetUserInfoDaoImpl implements AdminGetUserInfoDao {
 		return (List<User>) query.getResultList();
 	}
 
+	/**
+	 * Getting Information of User by passing email Id
+	 * @param email- id of user
+	 * @return Single User info based on email_id
+	 */
 	@Override
 	public User getlUserInfoByEmailId(String email_id) {
 		LOG.info(" Inside getlUserInfoByEmailId() DaoImpl   Get   User Infomation by Email-Id");
@@ -52,6 +63,12 @@ public class AdminGetUserInfoDaoImpl implements AdminGetUserInfoDao {
 		return (User) query.getSingleResult();
 	}
 
+
+	/**
+	 * Getting Information of User Profile by passing email Id
+	 * @param email- id of user
+	 * @return Single User profile info based on email_id
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public ProfileSetting getProfileInfoByEmailId(String email_id) {
@@ -73,6 +90,10 @@ public class AdminGetUserInfoDaoImpl implements AdminGetUserInfoDao {
 		}
 	}
 
+	 /**
+	  * Function to count total user of the application
+	  * @return user count to admin dashboard
+	  */
 	@Override
 	public int countAllTotalUser() {
 		Query query = null;

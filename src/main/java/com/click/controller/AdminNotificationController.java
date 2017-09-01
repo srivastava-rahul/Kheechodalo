@@ -30,6 +30,13 @@ public class AdminNotificationController {
 	NotificationService notificationService;  
 			 
 	
+	/**
+	 * Save the Notification
+	 * @param noty
+	 * @param model
+	 * @return to admingetnotification page
+	 * @throws Exception throw error notification does not exist
+	 */
 	@RequestMapping(value = "/adminsendnotification", method = RequestMethod.POST)
 	public String saveNotificationData(@RequestParam String noty , Model model)
 			throws Exception {
@@ -52,6 +59,12 @@ public class AdminNotificationController {
 		}
 	}
 
+	/**
+	 * Admin get the notification which is added by Admin only
+	 * @param model
+	 * @return to adminsendnotification page
+	 * @throws Exception throw notification does not exist
+	 */
 	@RequestMapping(value = "/admingetnotification")
 	protected String getNotificationInfo(Model model) throws Exception {
 		LOG.info("Admin getting list of notification from getNotificationInfo controller");
@@ -66,6 +79,13 @@ public class AdminNotificationController {
 		return "adminsendnotification";
 	}
 	
+	/**
+	 * Delete the notification enter by admin 
+	 * @param id
+	 * @param model
+	 * @return to admingetnotification page
+	 * @throws Exception notification does not exist
+	 */
 	@RequestMapping(value = "/admindeletenotification/{id}")
 	protected String deleteNotificationInfo(@PathVariable(name ="id") String id,Model model) throws Exception {
 		LOG.info("Admin removing notification based on id from deleteNotificationInfo controller");

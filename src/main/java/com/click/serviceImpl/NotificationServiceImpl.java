@@ -27,6 +27,10 @@ public class NotificationServiceImpl implements NotificationService {
     @Autowired
     NotificationDao notificationDao;
 	
+    
+    /**
+	 * Save the notification by Admin
+	 */
 	@Override
 	@Transactional(readOnly = false)
 	public void saveNotification(Notification notify) {	
@@ -41,6 +45,10 @@ public class NotificationServiceImpl implements NotificationService {
 		
 	}
 
+
+	/**
+	 * Get List of the notification by Admin
+	 */
 	@Override
 	public List<Notification> getNotification() {	
 		LOG.info("Inside  getNotification() serviceImpl ");
@@ -54,7 +62,11 @@ public class NotificationServiceImpl implements NotificationService {
 		
 		return listofNotification;
 	}
-
+	
+	
+	/**
+	 * Delete Single notification by Admin  based on id 
+	 */
 	@Override
 	@Transactional(readOnly = false)
 	public void deleteNotification(Notification notify) {

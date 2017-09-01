@@ -54,6 +54,12 @@ public class AdminPicInfoController {
 	}*/
 	
 	
+	/**
+	 * Get list of All the pics for Admin 
+	 * @param model
+	 * @return to adminpicinfo page
+	 * @throws Exception throw pics does not if table is empty 
+	 */ 
 	@RequestMapping(value = "/adminpicinfo")
 	protected String getAllPicsforAdmin(Model model) throws Exception {
 		LOG.info(" LOG Admin  pic information controller  from getAllPics controlllergetAllPicsforAdmin() ");
@@ -63,6 +69,14 @@ public class AdminPicInfoController {
 		return "adminpicinfo";
 	}
 	
+	
+	/**
+	 * Get Single pic information based on picid
+	 * @param picid
+	 * @param model
+	 * @return to adminpicinfofull page
+	 * @throws Exception throw data does not exist 
+	 */
 	@RequestMapping(value = "/adminpicinfofull/{picid}")
 	protected String getSinglepicInfo(@PathVariable(name="picid") String picid,Model model) throws Exception {
     LOG.info("Admin getting pic information from getSinglepicInfo() controller"+picid);
@@ -79,6 +93,14 @@ public class AdminPicInfoController {
 		return "adminpicinfofull";
 	}
 	
+	
+	/**
+	 * Get the single pic information  based on pic id 
+	 * @param picid
+	 * @param model
+	 * @return to adminviewVoter page
+	 * @throws Exception data does not exist
+	 */
 	@RequestMapping(value = "/adminviewVoter/{picid}")
 	protected String getSinglepicInVoteInfo(@PathVariable(name="picid") String picid,Model model) throws Exception {
     LOG.info("Admin getting pic information from getSinglepicInfo() controller"+picid);

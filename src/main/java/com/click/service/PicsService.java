@@ -41,21 +41,19 @@ public interface PicsService {
 
 	/**
 	 * 
-	 * @param get
-	 *            pic based on emailid
-	 * 
-	 * @return
+	 * @param get pic based on emailid
+	 * @return pic information
 	 */
 	PictureUploadPojo findPicsbyemail(String email_id);
 
 	/**
-	 * 
-	 * @return
+	 * Get the information based on picid
+	 * @return  pic information
 	 */
 	PictureUpload getSinglepicInfo(String picid);
 
 	/**
-	 * 
+	 * Get the information of all the pics
 	 * @return
 	 */
 	List<PictureUpload> getPicDetails();
@@ -70,7 +68,6 @@ public interface PicsService {
 
 	/**
 	 * getting all the pic information for admin
-	 * 
 	 * @param
 	 * @param loggedInUserLoginEmailId
 	 * @return
@@ -78,14 +75,14 @@ public interface PicsService {
 	List<PictureUploadPojo> findAllPicsbyAdmin();
 
 	/**
-	 * 
+	 * Delete All the data from pics table
 	 */
 	void deleteAllPics();
 
 	/*
+	 * find the vote on a pic based on email id
 	 * @param emailId
-	 * 
-	 * @return
+	 * @return count of vote
 	 */
 	long findVoteCountForAdminOfSpecificEmail(String emailId);
 
@@ -105,8 +102,18 @@ public interface PicsService {
 	 */
 	long updateVoteCountbyadmin(PictureUpload updatevote);
 	
+	/**
+	 * increment the vote count on a pic
+	 * @param voteConut
+	 * @param emailId
+	 * @return increased vote count
+	 */
 	long incrementVoteCountForEmail(long voteConut, String emailId);
 
+	/**
+	 * Delete the pic based on pic id
+	 * @param picId
+	 */
 	void adminDeletePicByPicId(String picId);
 
 }

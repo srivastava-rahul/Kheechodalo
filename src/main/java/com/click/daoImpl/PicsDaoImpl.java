@@ -87,6 +87,11 @@ public class PicsDaoImpl implements PicsDao {
 		return singleuserpicdata;
 	}
 
+	
+	/**
+	 * Get the information based on picid
+	 * @return  pics information
+	 */
 	@Override
 	public PictureUpload getSinglepicInfo(String picid) {
 		LOG.info("Inside getSinglepicInfo() DaoImpl ");
@@ -138,6 +143,12 @@ public class PicsDaoImpl implements PicsDao {
 		return ((Number) query.getSingleResult()).longValue();
 	}
 
+	/**
+	 * Get all the pic information for Admin
+	 * @param picId
+	 * @param userEmailId
+	 * @return
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<PictureUpload> findAllPicsbyAdmin() {
@@ -150,6 +161,9 @@ public class PicsDaoImpl implements PicsDao {
 		return dataList;
 	}
 
+	/**
+	 * Delete All the data from pics table
+	 */
 	@Override
 	@Transactional(propagation = Propagation.REQUIRES_NEW, rollbackFor = Exception.class)
 	public void deleteAllPics() {
@@ -181,6 +195,11 @@ public class PicsDaoImpl implements PicsDao {
 		return null;
 	}
 
+	/*
+	 * find the vote on a pic based on email id
+	 * @param emailId
+	 * @return count of vote
+	 */
 	@Override
 	public long findVoteCountForAdminOfSpecificEmail(String emailId) {
 		LOG.info("Inside findVoteCountForAdminOfSpecificEmail() DaoImpl ");
@@ -191,6 +210,12 @@ public class PicsDaoImpl implements PicsDao {
 		return obj != null ? ((Number) obj).longValue() : 0;
 	}
 
+	/**
+	 * increment the vote count on a pic
+	 * @param voteConut
+	 * @param emailId
+	 * @return increased vote count
+	 */
 	@Override
 	@Transactional(readOnly = false, propagation = Propagation.REQUIRES_NEW, rollbackFor = Exception.class)
 	public long incrementVoteCountForEmail(long vote,String emailId) {
@@ -212,6 +237,10 @@ public class PicsDaoImpl implements PicsDao {
 		return 0;
 	}
 
+	/**
+	 * Delete the pic based on pic id
+	 * @param picId
+	 */
 	@Override
 	@Transactional(propagation = Propagation.REQUIRES_NEW, rollbackFor = Exception.class)
 	public void adminDeletePicByPicId(String picId) {

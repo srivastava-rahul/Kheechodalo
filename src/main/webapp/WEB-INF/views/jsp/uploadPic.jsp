@@ -20,6 +20,8 @@
 			<b>My Todays Photo</b>
 		</p>
 	</div>
+	
+	<center style="color:red">** Note:-Photo size should not be more than 5 MB</center>
 
 	<!-- <button onclick="on()">Turn on overlay effect</button> -->
 

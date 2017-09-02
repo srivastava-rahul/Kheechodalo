@@ -248,7 +248,7 @@ body {
 
 
 	<div style="margin-top: 8%; width: 100%; height: auto; background-color:">
-		<div style="margin-bottom: 0px; background-color: #06ccb3;" align="center">&copy; 2018 All rights reserved</div>
+		<div style="margin-bottom: 0px; background-color: #06ccb3;" align="center">&copy; 2017 All rights reserved</div>
 		&nbsp;
 		<div style="color: black">
 			<a href="${pageContext.request.contextPath}/user/privacyOuter">Privacy</a>

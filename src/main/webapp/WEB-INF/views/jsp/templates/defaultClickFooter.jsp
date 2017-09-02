@@ -4,7 +4,7 @@
 <link rel="stylesheet" type="text/css" href="<c:url value="/resources/assets/themes/admin/kheecholayout.css"/>">
 
 <div class="clearfix"></div>
-<div class="main-footer" style="margin-bottom: 0px;" align="center">&copy; 2018 All rights reserved</div>
+<div class="main-footer" style="margin-bottom: 0px;" align="center">&copy; 2017 All rights reserved</div>
           &nbsp;
           <div>
              <a href="${pageContext.request.contextPath}/user/privacy">Privacy</a> &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;

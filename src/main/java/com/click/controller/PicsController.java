@@ -28,6 +28,12 @@ public class PicsController {
 	@Autowired
 	PicsService picsService;
 
+	/**
+	 * Upload pic 
+	 * @param file
+	 * @param desc
+	 * @return 
+	 */
 	@RequestMapping(value = "/savePic", method = RequestMethod.POST)
 	public @ResponseBody ResponseEntity<List<PictureUpload>> uploadprDocuments(@RequestParam("file") MultipartFile file, @RequestParam("desc") String desc) {
 		LOG.info(" Inside uploadprDocuments controller save pic called");

@@ -30,6 +30,13 @@ public class SearchController {
 	@Autowired
 	PicsService picsService;
 	
+	/**
+	 * Fetching user  through search box
+	 * @param search
+	 * @param model
+	 * @return to searchpage page
+	 * @throws Exception if data does not exist
+	 */
 	@RequestMapping(value = "/search", method = { RequestMethod.POST})
 	protected String getSearchPage(@RequestParam String search,Model model) throws Exception {
 		LOG.info("Fetching search page from getSearchPage  controller"+search);
@@ -69,6 +76,13 @@ public class SearchController {
 	}
 
 	
+	/**
+	 * Getting pics of user based on email_id
+	 * @param email_id
+	 * @param model
+	 * @return to uploadPic page
+	 * @throws Exception if data does not exist
+	 */
 	@RequestMapping(value = "/searchpicbyemailId/{email_id}",  method = RequestMethod.GET)
 	protected String getpicbyEmailId(@PathVariable(name="email_id") String email_id,Model model) throws Exception {
 		LOG.info("Fetching pic depend on email id for search page controller"+email_id);

@@ -26,6 +26,11 @@ public class UserServiceImpl implements UserService {
 	@Autowired
 	ProfileSettingDao profileSettingDao;
 
+	/**
+	 * finding user information  by email id
+	 * @param userId
+	 * @return user information
+	 */
 	@Override
 	public User findUserById(String userId) {
 		LOG.info("user service :" + userId);

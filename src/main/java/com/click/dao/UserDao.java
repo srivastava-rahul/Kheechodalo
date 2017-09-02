@@ -4,8 +4,9 @@ import com.click.entity.User;
 
 public interface UserDao {
 	/**
+	 * finding user information  by email id
 	 * @param userId
-	 * @return user
+	 * @return user information
 	 */
 	public User findById(String userId);
 

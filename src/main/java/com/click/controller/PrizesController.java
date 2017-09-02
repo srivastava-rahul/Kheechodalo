@@ -20,6 +20,12 @@ public class PrizesController {
 	@Autowired
 	PrizeService prizeService;
 
+	/**
+	 * Fetching the prize page for user
+	 * @param model
+	 * @return to prize list to prize page to user dashboard 
+	 * @throws Exception if page does not exist
+	 */
 	@RequestMapping(value = "/prizes")
 	protected String getPrizeRecord(Model model) throws Exception {
 		LOG.info("Fetching the prize information from getPrizeRecord controller ");

@@ -42,6 +42,9 @@ public class TestimonialDaoImpl implements TestimonialDao {
 		   }   
 	}
 
+	/**
+	 * Get List of the Testimonial data for user dashboard
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<UserTestimonial> gettestimonial(int pageNo) {

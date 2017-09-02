@@ -28,6 +28,14 @@ public class ProfileSettingServiceImpl implements ProfileSettingService {
 	@Autowired
 	UserService userService;
 
+	/**
+	 * Add user basic information
+	 * @param user
+	 * profile data
+	 * @param userprofiledata
+	 * @param map
+	 * @param template
+	 */
 	@Override
 	@Transactional(readOnly = false)
 	public ProfileSetting adduserprofiledata(ProfileSetting userprofiledata) {
@@ -186,12 +194,21 @@ public class ProfileSettingServiceImpl implements ProfileSettingService {
 
 	}
 
+	/**
+	 * getting profile information of user based on emailId
+	 * @param emailId
+	 * @return profile information of user based on email id
+	 */
 	@Override
 	public ProfileSetting findByEmailId(String emailId) {
 		LOG.info("Inside  profile findByEmailId()  serviceImpl");
 		return profileSettingDao.findByEmailId(emailId);
 	}
 
+	/**
+	 * save profile pic of user
+	 * @param profileSetting
+	 */
 	@Override
 	@Transactional(readOnly = false)
 	public void updateProfile(ProfileSetting profileSetting) {
@@ -199,6 +216,12 @@ public class ProfileSettingServiceImpl implements ProfileSettingService {
 		profileSettingDao.updateUserProfile(profileSetting);
 	}
 	
+	
+	/**
+	 * fetching information based on email id
+	 * @param emailId
+	 * @return list user profile information
+	 */
 	@Override
 	public List<ProfileSetting> findByEmailAndName(String emailIdAndName) {
 		LOG.info("Inside  profile findByEmailAndName()  serviceImpl"+emailIdAndName);
@@ -206,6 +229,11 @@ public class ProfileSettingServiceImpl implements ProfileSettingService {
 		return profilelist;
 	}
 
+	/**
+	 * getting profile information of user to show other user based on email id
+	 * @param emailId
+	 * @return user profile information based on email id
+	 */
 	@Override
 	public ProfileSetting findProfileByEmailId(String emailId) {
 		LOG.info("Inside  profile findProfileByEmailId()  serviceImpl"+emailId);

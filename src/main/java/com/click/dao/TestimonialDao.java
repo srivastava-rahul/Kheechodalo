@@ -15,9 +15,8 @@ public interface TestimonialDao {
 	 */
 	public void savetestimonial(UserTestimonial testimonialdata);
 	
-	
 	/**
-	 * Get List of the Testimonial data by User
+	 * Get List of the Testimonial data for user dashboard
 	 */
 	public List<UserTestimonial> gettestimonial(int pageNo);
 	

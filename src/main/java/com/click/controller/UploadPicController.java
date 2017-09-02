@@ -28,6 +28,12 @@ public class UploadPicController {
 	@Autowired
 	PicsService picsService;
 
+	/**
+	 * Get pic of user which is to be upload
+	 * @param model
+	 * @return to uploadPic page
+	 * @throws Exception id data does not exist
+	 */
 	@RequestMapping(value = "/uploadPic", method = RequestMethod.GET)
 	protected String getMyPic(Model model) throws Exception {
 		LOG.info("In user uploadPic from getMyPic controller");
@@ -49,6 +55,15 @@ public class UploadPicController {
 		return "uploadPic";
 	}
 
+	/**
+	 * save user pic 
+	 * @param uploadPic
+	 * @param desc
+	 * @param picId
+	 * @param model
+	 * @param redir
+	 * @return to  uploadPic page
+	 */
 	@RequestMapping(value = "/savePic", method = RequestMethod.POST)
 	public String savePic(@RequestParam("picImg") MultipartFile uploadPic, @RequestParam(required = false) String desc, @RequestParam(required = false) String picId,
 			Model model,RedirectAttributes redir) {

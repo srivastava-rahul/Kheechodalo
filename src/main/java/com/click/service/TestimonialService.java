@@ -25,7 +25,7 @@ public interface TestimonialService {
 	public List<UserTestimonial> gettestimonial();
 	
 	/**
-	 * Get List of the Testimonial data by Admin
+	 * Get List of the Testimonial data for user dashboard
 	 */
 	public List<UserTestimonial> gettestimonial(int pageNo);
 	

@@ -12,20 +12,20 @@ import com.click.entity.PictureUpload;
  */
 public interface PicsDao {
 	/**
+	 * Save the pic
 	 * @param pic
 	 * @return Pics
 	 */
 	PictureUpload savePic(PictureUpload pic);
 
 	/**
-	 * 
+	 * find picBy user id
 	 * @param userId
 	 * @return
-	 */
-	PictureUpload findPicByUserId(String userId);
+	 */	PictureUpload findPicByUserId(String userId);
 
 	/**
-	 * 
+	 * Find max vote of pic
 	 * @return
 	 */
 	long findPicMaxVoteCount();

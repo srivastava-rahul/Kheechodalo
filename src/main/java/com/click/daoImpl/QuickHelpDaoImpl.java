@@ -26,6 +26,10 @@ public class QuickHelpDaoImpl implements QuickHelpDao {
 	@PersistenceContext(unitName = "entityManagerFactory")
 	EntityManager entityManager;
 
+	/**
+	 * Save the quick help (problem) data of user
+	 * @param quickHelp
+	 */
 	@Override
 	public void saveQuickHelp(QuickHelp quickHelp) {
 		LOG.info("Inside saveQuickHelp() DaoImpl");
@@ -38,6 +42,10 @@ public class QuickHelpDaoImpl implements QuickHelpDao {
 
 	}
 
+	/**
+	 * Save the feedback data of user
+	 * @param quickHelp
+	 */
 	@Override
 	public void saveFeedback(UserFeedback feed) {
 		LOG.info("Inside saveFeedback() DaoImpl");

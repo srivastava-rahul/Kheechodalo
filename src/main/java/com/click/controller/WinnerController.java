@@ -21,6 +21,12 @@ public class WinnerController {
 
 	private static final Logger LOG = Logger.getLogger(WinnerController.class);
 
+	/**
+	 * Get All winner 
+	 * @param model
+	 * @return to  winner page
+	 * @throws Exception if data does not exist
+	 */
 	@RequestMapping(value = "/winner")
 	protected String getAllWinners(Model model) throws Exception {
 		LOG.info("Fetching winner page from  getWinners controller");
@@ -29,6 +35,13 @@ public class WinnerController {
 		return "winner";
 	}
 
+	/**
+	 * Get All winner page by page
+	 * @param pageNo
+	 * @param model
+	 * @return to  winner page
+	 * @throws Exception if data does not exist
+	 */
 	@RequestMapping(value = "/winnerPagination/{page}")
 	protected String getAllWinnersPagination(@PathVariable("page") int pageNo, Model model) throws Exception {
 		LOG.info(" LOG User Dashboard from getAllWinnersPagination controller");

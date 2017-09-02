@@ -41,6 +41,11 @@ public class ProfileSettingsController {
 	@Autowired
 	ProfileSettingService profileSettingService;
 
+	/**
+	 * Get profile information
+	 * @param model
+	 * @return to  settings page
+	 */
 	@RequestMapping(value = "/getProfileSettings", method = RequestMethod.GET)
 	public String getProfile(Model model) {
 		LOG.info("Inside getProfile controller where user set  profile data Or user information");
@@ -69,6 +74,12 @@ public class ProfileSettingsController {
 		return "settings";
 	}
 
+	/**
+	 * Saving basic information of user 
+	 * @param userprofiledata
+	 * @param model
+	 * @return to settings page
+	 */
 	@RequestMapping(value = "/basicInformation", method = RequestMethod.POST)
 	public String addbasicinformation(@ModelAttribute ProfileSetting userprofiledata, Model model) {
 		LOG.info("Inside addbasicinformation controller where user set  profile data Or user information");
@@ -89,12 +100,22 @@ public class ProfileSettingsController {
 		return "settings";
 	}
 
+	/**
+	 * fetching the upload profile pic page
+	 * @return to UploadProfilePic page
+	 */
 	@RequestMapping(value = "/uploadprofilepic", method = RequestMethod.GET)
 	public String uploadprofilepic() {
 		LOG.info("Inside uploadprofilepic controller to Fetch the upload pic page");
 		return "UploadProfilePic";
 	}
 
+	/**
+	 * Save profile pic of user
+	 * @param uploadPic
+	 * @param model
+	 * @return to UploadProfilePic page
+	 */
 	@RequestMapping(value = "/saveProfilePic", method = RequestMethod.POST)
 	public String savePic(@RequestParam("picImg") MultipartFile uploadPic, Model model) {
 		LOG.info("Inside savepic controller to save the pic ");

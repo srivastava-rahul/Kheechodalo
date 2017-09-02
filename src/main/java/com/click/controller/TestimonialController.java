@@ -31,6 +31,12 @@ public class TestimonialController {
 	}*/
 	
 	
+	/**
+	 * Get All testimonial 
+	 * @param model
+	 * @return to testimonials page
+	 * @throws Exception if data does not exist
+	 */
 	@RequestMapping(value = "/testimonials")
 	protected String getAllTestimonial(Model model) throws Exception {
 		LOG.info("Fetchig testimonial page from getAllTestimonial controller");
@@ -39,8 +45,15 @@ public class TestimonialController {
 		return "testimonials";
 	}
 	
+	/**
+	 * Get All testimonial page by page
+	 * @param pageNo
+	 * @param model
+	 * @return to testimonials page
+	 * @throws Exception if data does not exist
+	 */
 	@RequestMapping(value = "/testimonialsPagination/{page}")
-	protected String getAllWinnersPagination(@PathVariable("page") int pageNo, Model model) throws Exception {
+	protected String getAllTestimonialPagination(@PathVariable("page") int pageNo, Model model) throws Exception {
 		LOG.info("Fetchig testimonial page from getAllWinnersPagination() controller");
 		List<UserTestimonial>  listoftestimonial=gettestimonial.gettestimonial(pageNo);
 		model.addAttribute("testimonial",listoftestimonial);

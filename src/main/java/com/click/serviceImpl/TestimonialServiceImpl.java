@@ -47,6 +47,10 @@ public class TestimonialServiceImpl implements TestimonialService {
 		
 	}
 
+	
+	/**
+	 * Get List of the Testimonial data for user dashboard
+	 */
 	@Override
 	public List<UserTestimonial> gettestimonial(int pageNo) {
 		LOG.info("Inside gettestimonial(int pageNo) serviceImpl ");

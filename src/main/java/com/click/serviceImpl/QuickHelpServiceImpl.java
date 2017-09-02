@@ -28,6 +28,10 @@ public class QuickHelpServiceImpl implements QuickHelpService {
 	@Autowired
 	QuickHelpDao quickHelpDao;
 
+	/**
+	 * Save the quick help (problem) data of user
+	 * @param quickHelp
+	 */
 	@Override
 	@Transactional(readOnly = false)
 	public void saveQuickHelpData(QuickHelp quickHelp) {
@@ -41,6 +45,10 @@ public class QuickHelpServiceImpl implements QuickHelpService {
 
 	}
 
+	/**
+	 * Save the feedback data of user
+	 * @param quickHelp
+	 */
 	@Override
 	@Transactional(readOnly = false)
 	public void saveFeedbackData(UserFeedback feed) {

@@ -34,6 +34,10 @@ public class WinnerServiceImpl implements WinnerService {
 	@Autowired
 	PicsService picsService;
 
+	/**
+	 * Get List of the Winner data for User
+	 * @param pageNo TODO
+	 */
 	@Override
 	public List<Winner> getAllWinner(int pageNo) {
 		LOG.info("Inside getWinner() serviceImpl");

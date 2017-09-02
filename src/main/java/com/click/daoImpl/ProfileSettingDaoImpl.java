@@ -42,12 +42,22 @@ public class ProfileSettingDaoImpl implements ProfileSettingDao {
 	}*/
 
 
+	/**
+	 * updating basic information in user profile
+	 * @param userprofileDetails
+	 * @return basic information data
+	 */
     @Override
 	public ProfileSetting updateUserProfile(ProfileSetting userprofileDetails) {
     	LOG.info("Inside updateUserProfile() DaoImpl");
 		return entityManager.merge(userprofileDetails);
 	}
 
+    /**
+	 * getting profile information of user based on emailId
+	 * @param emailId
+	 * @return profile information of user based on email id
+	 */
 	@Override
 	public ProfileSetting findByEmailId(String emailId) {
 		LOG.info("Inside findByEmailId() DaoImpl");
@@ -62,6 +72,12 @@ public class ProfileSettingDaoImpl implements ProfileSettingDao {
 		return profSet;
 }
 
+	
+	/**
+	 * fetching information based on email id
+	 * @param emailId
+	 * @return list user profile information
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<ProfileSetting> findByEmailAndName(String emailIdAndName) {
@@ -81,6 +97,11 @@ public class ProfileSettingDaoImpl implements ProfileSettingDao {
 		return  list;
 	}
 
+	/**
+	 * getting profile information of user to show other user based on email id
+	 * @param emailId
+	 * @return user profile information based on email id
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public ProfileSetting findUserProfileByEmailId(String emailId) {

@@ -26,12 +26,23 @@ public class PicsDaoImpl implements PicsDao {
 	@PersistenceContext(unitName = "entityManagerFactory")
 	EntityManager entityManager;
 
+	
+	/**
+	 * Save the pic
+	 * @param pic
+	 * @return Pics
+	 */
 	@Override
 	public PictureUpload savePic(PictureUpload pic) {
 		LOG.info("Inside savePic() DaoImpl ");
 		return entityManager.merge(pic);
 	}
 
+	/**
+	 * find picBy user id
+	 * @param userId
+	 * @return
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public PictureUpload findPicByUserId(String userId) {
@@ -47,6 +58,10 @@ public class PicsDaoImpl implements PicsDao {
 		return null;
 	}
 
+	/**
+	 * Find max vote of pic
+	 * @return
+	 */
 	@Override
 	public long findPicMaxVoteCount() {
 		LOG.info("Inside findPicMaxVoteCount() DaoImpl ");

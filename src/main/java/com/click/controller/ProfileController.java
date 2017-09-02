@@ -23,6 +23,11 @@ public class ProfileController {
 	@Autowired
 	ProfileSettingService profileSettingService;
 
+	/**
+	 * Fetching  profile  page for user with user  profile information
+	 * @param model
+	 * @return to profile page user dashboard
+	 */
 	@RequestMapping(value = "/profile", method = RequestMethod.GET)
 	public String getUser( Model model) {
 		LOG.info("Fetching  profile  page from getUser controller ");
@@ -46,6 +51,12 @@ public class ProfileController {
 		return "profile";
 	}
 	
+	/**
+	 * Fetching profile information based on email id to show other people
+	 * @param email_id
+	 * @param model
+	 * @return to profile page
+	 */
 	@RequestMapping(value = "/viewProfile/{emailid}", method = RequestMethod.GET)
 	public String viewOtherProfile(@PathVariable(name="emailid") String email_id ,Model model) {
 		LOG.info("Fetching the profile data on the basis of email_id from viewOtherProfile controller"+email_id);

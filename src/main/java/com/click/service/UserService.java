@@ -8,8 +8,9 @@ import com.click.entity.User;
 
 public interface UserService {
 	/**
+	 * finding user information  by email id
 	 * @param userId
-	 * @return
+	 * @return user information
 	 */
 	public User findUserById(String userId);
 

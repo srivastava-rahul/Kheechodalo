@@ -41,18 +41,40 @@ public class QuickHelpController {
 	@Autowired
 	SendMailService sendMailService;
 
+	/**
+	 * Fetching Quick help form
+	 * @param model
+	 * @return to quickhelp page on user dashboard
+	 * @throws Exception if page does not exist
+	 */
 	@RequestMapping(value = "/quickHelp")
-	protected String getAboutUs(Model model) throws Exception {
+	protected String getQuickhelp(Model model) throws Exception {
 		LOG.info("Fetching the Quick Help Form  from getAboutUs controller");
 		return "quickhelp";
 	}
 
+	
+	/**
+	 * Fetching Feedback form
+	 * @param model
+	 * @return to feedback page on user dashboard
+	 * @throws Exception if page does not exist
+	 */
 	@RequestMapping(value = "/feedback")
 	protected String getFeedback(Model model) throws Exception {
 		LOG.info("Fetching the Feedback Form");
 		return "feedback";
 	}
 
+	
+	/**
+	 * Save quick help form data 
+	 * @param problem
+	 * @param quickDesc
+	 * @param model
+	 * @return to quickhelp page on user dashboard
+	 * @throws Exception if page does not exist
+	 */
 	@RequestMapping(value = "/quickHelpData", method = RequestMethod.POST)
 	public String quickHelpData(@RequestParam String problem, @RequestParam String quickDesc, Model model)
 			throws Exception {
@@ -77,6 +99,14 @@ public class QuickHelpController {
 		}
 	}
 
+	/**
+	 * Save feedback form data 
+	 * @param problem
+	 * @param feedback
+	 * @param model
+	 * @return to feedback page on user dashboard
+	 * @throws Exception if page does not exist
+	 */
 	@RequestMapping(value = "/feedbackData", method = RequestMethod.POST)
 	public String feedbackData(@RequestParam String feedback, Model model) throws Exception {
 		LOG.info("In-side Feedback controller to save data of  feedback form by  feedbackData data");

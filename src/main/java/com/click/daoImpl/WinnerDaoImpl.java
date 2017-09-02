@@ -27,6 +27,11 @@ public class WinnerDaoImpl implements WinnerDao {
 	@PersistenceContext(unitName = "entityManagerFactory")
 	EntityManager entityManager;
 
+	
+	/**
+	 * Get List of the Winner data for User
+	 * @param pageNo TODO
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Winner> getWinner(int pageNo) {

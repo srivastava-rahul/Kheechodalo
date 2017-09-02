@@ -31,6 +31,11 @@ public class PicsServiceImpl implements PicsService {
 	@Autowired
 	PicsDao picsDao;
 
+	/**
+	 * Save the pic
+	 * @param pic
+	 * @return Pics
+	 */
 	@Override
 	@Transactional(readOnly = false)
 	public PictureUpload savePic(PictureUpload pic) {
@@ -38,12 +43,22 @@ public class PicsServiceImpl implements PicsService {
 		return picsDao.savePic(pic);
 	}
 
+	
+	/**
+	 * find picBy user id
+	 * @param userId
+	 * @return
+	 */
 	@Override
 	public PictureUpload findPicByUserId(String userId) {
 		LOG.info("Inside findPicByUserId() serviceImpl");
 		return picsDao.findPicByUserId(userId);
 	}
 
+	/**
+	 * Find max vote of pic
+	 * @return
+	 */
 	@Override
 	public long findPicMaxVoteCount() {
 		LOG.info("Inside findPicMaxVoteCount() serviceImpl");

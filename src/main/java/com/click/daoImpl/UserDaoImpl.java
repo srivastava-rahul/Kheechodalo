@@ -28,6 +28,11 @@ public class UserDaoImpl implements UserDao {
 	@PersistenceContext(unitName = "entityManagerFactory")
 	EntityManager entityManager;
 
+	/**
+	 * finding user information  by email id
+	 * @param userId
+	 * @return user information
+	 */
 	@Override
 	public User findById(String userId) {
 		LOG.info("Inside findById() DaoImpl user dao ");

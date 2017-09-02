@@ -11,11 +11,15 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.click.entity.PictureUpload;
 import com.click.entity.ProfileSetting;
+import com.click.entity.User;
+import com.click.pojo.PictureUploadPojo;
 import com.click.service.PicsService;
 import com.click.service.ProfileSettingService;
+import com.click.utils.SecurityLibrary;
 import com.click.utils.StringUtils;
 
 @Controller
@@ -83,7 +87,7 @@ public class SearchController {
 	 * @return to uploadPic page
 	 * @throws Exception if data does not exist
 	 */
-	@RequestMapping(value = "/searchpicbyemailId/{email_id}",  method = RequestMethod.GET)
+/*	@RequestMapping(value = "/searchpicbyemailId/{email_id}",  method = RequestMethod.GET)
 	protected String getpicbyEmailId(@PathVariable(name="email_id") String email_id,Model model) throws Exception {
 		LOG.info("Fetching pic depend on email id for search page controller"+email_id);
 		long maxVoteCount = picsService.findPicMaxVoteCount();
@@ -106,6 +110,27 @@ public class SearchController {
 		}
 		return "uploadPic";
 		
+		
+	}*/
+	
+	@RequestMapping(value = "/picsearchbyemailid")
+	protected String getPicsbyemail_id(String email_id,Model model) throws Exception {
+		LOG.info("Fetching pic depend on email id for search page controller==>"+email_id);
+		if(email_id == null && email_id.equals("")){
+			model.addAttribute("error","Invalid data");
+			return "searchpage";
+		}else{
+		LOG.info(" LOG User Dashboard from getPicsbyemail_id controlller==>"+email_id);
+		User u = SecurityLibrary.getLoggedInUser();
+		PictureUploadPojo searchPic = picsService.findPicsbyemail(email_id);
+		if(searchPic.getId()!=null){
+			model.addAttribute("searchPic", searchPic);
+			return "dashboard";
+		}else{
+			model.addAttribute("error","No pic Found");
+			return "searchpage";
+		}
+		}
 	}
 	
 }

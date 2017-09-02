@@ -27,9 +27,20 @@
 						  <p style="margin-left:10%;color:black">${prof.daily_status}
 						  </p>
 						 <!--  <button class="view_today_pic">View--Profile</button>&nbsp;&nbsp;&nbsp;&nbsp; -->
-		 <a class="view_today_pic"  href="${pageContext.request.contextPath}/user/viewProfile/${prof.email_id}">View--Profile</a>&nbsp;&nbsp;&nbsp;&nbsp;
-						 <!--  <button class="view_profile" style="margin-right:2%">Today--Pic</button> -->
-		 <a class="view_profile" style="margin-right:2%" href="${pageContext.request.contextPath}/user/searchpicbyemailId/${prof.email_id}" >Today--Pic</a>
+		 <a class="view_today_pic" style="margin-top:1.8%" href="${pageContext.request.contextPath}/user/viewProfile/${prof.email_id}">View--Profile</a>&nbsp;&nbsp;&nbsp;&nbsp;
+						
+		<%--  <a class="view_profile" style="margin-right:2%" href="${pageContext.request.contextPath}/user/searchpicbyemailId/${prof.email_id}" >Today--Pic</a> --%>
+					
+		<form name="searchFormuser" action="picsearchbyemailid" method="post" >
+			   <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
+			  <input type="hidden" name="email_id"  value="${prof.email_id}">
+              <button type="submit" class="view_profile" style="margin-right:2%">Today--Pic</button>
+				   
+
+		</form>
+					
+						
+						
 						 </div>
 	 </c:forEach> 
 	       

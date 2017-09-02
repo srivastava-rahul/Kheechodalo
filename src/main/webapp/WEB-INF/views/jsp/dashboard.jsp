@@ -113,8 +113,10 @@ $(document).ready(function() {
   position: relative;
   background-color: #fefefe;
   margin: auto;
+  margin-top:0.5%;
   padding: 0;
-  width:80%;
+  width:50%;
+  height:80%;
   max-width: 1200px;
 }
 
@@ -313,7 +315,7 @@ function showSlides(n) {
 		
 		
 <div id="myModal" class="modal">
-  <span class="close cursor" onclick="closeModal()">&times;</span>
+  <b><a href="" onclick="closeModal()"><img src="${pageContext.request.contextPath}/resources/images/crossSign.png" alt="Avatar" style="float: right;width:3%;height:5%;margin-right:5% "></a></b>
   <div class="modal-content">
 <c:if test="${empty searchPic}">
        <c:forEach var="pic" items="${picsList}">
@@ -358,7 +360,7 @@ function showSlides(n) {
 						</p>
 					</div> --%>
 					<div class="card">
-					<img src="data:image/jpeg;base64,${searchPic.base64Encoded}"	style="width:100%;height:90%">
+					<img src="data:image/jpeg;base64,${searchPic.base64Encoded}" style="width:100%;height:90%">
 					<h2><span style="margin-left: 50%;color: red; " class="voteCount${searchPic.id}">${searchPic.picVote}</span></h2>
 					<div class="">
 						<b><h2 style="color:blue">${searchPic.userName}</h2></b>

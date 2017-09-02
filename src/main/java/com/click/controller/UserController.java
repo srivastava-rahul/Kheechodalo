@@ -35,6 +35,12 @@ public class UserController {
 	@Autowired
 	UserService userService;
 
+	/**
+	 * Get user information to land him to the user panel
+	 * @param userId
+	 * @param model
+	 * @return to  user page
+	 */
 	@RequestMapping(value = "/getUser/{userId}", method = RequestMethod.GET)
 	public String getUser(@PathVariable String userId, Model model) {
 		LOG.info("Fetching the data based on email_id from getUser controller");
@@ -49,6 +55,11 @@ public class UserController {
 		return "user";
 	}
 
+	/**
+	 * View user
+	 * @param model
+	 * @return to user page
+	 */
 	@RequestMapping(value = "/user", method = RequestMethod.GET)
 	public String viewUser(Model model) {
 		LOG.info("view user information from viewUser controller");
@@ -63,6 +74,15 @@ public class UserController {
 		return "user";
 	}
 
+	/**
+	 * Save user singup data 
+	 * @param firstName
+	 * @param lastName
+	 * @param email
+	 * @param password
+	 * @param model
+	 * @return to login page
+	 */
 	@RequestMapping(value = "/saveUser", method = RequestMethod.POST)
 	public String saveUser(@RequestParam String firstName, @RequestParam String lastName, @RequestParam String email,
 			@RequestParam String password, Model model) {
@@ -101,6 +121,12 @@ public class UserController {
 		return "WEB-INF/views/jsp/login";
 	}
 
+	/**
+	 * Activating the user
+	 * @param id
+	 * @param model
+	 * @return to login page only
+	 */
 	@RequestMapping(value = "/activateUser/{id}", method = RequestMethod.GET)
 	public String activateUser(@PathVariable String id, Model model) {
 		LOG.info("Inside activateUser contoller ");
@@ -117,6 +143,12 @@ public class UserController {
 		return "WEB-INF/views/jsp/login";
 	}
 
+	
+	
+	/**
+	 * fetching the forgot password form
+	 * @return to forgetPassword page
+	 */
 	@RequestMapping(value = "/forgetPassword", method = RequestMethod.GET)
 	public String forgetPassword() {
 		LOG.info("Inside forgetPassword controller ");
@@ -124,6 +156,13 @@ public class UserController {
 		return "forgetPassword";
 	}
 
+	
+	/**
+	 * fetching the change password form based on id
+	 * @param id
+	 * @param model
+	 * @return to changePassword page
+	 */
 	@RequestMapping(value = "/changePassword/{id}", method = RequestMethod.GET)
 	public String changePassword(@PathVariable String id, Model model) {
 		LOG.info(" Inside  changePassword controller");
@@ -131,6 +170,14 @@ public class UserController {
 		return "changePassword";
 	}
 
+	
+	
+	/**
+	 * recovering the password
+	 * @param email
+	 * @param model
+	 * @return to login page
+	 */
 	@RequestMapping(value = "/recoverPassword", method = RequestMethod.POST)
 	public String recoverPassword(@RequestParam String email, Model model) {
 		LOG.info(" Inside recoverPassword controller " + email);
@@ -147,6 +194,12 @@ public class UserController {
 		return "login";
 	}
 
+	/**
+	 * Newly recovery password
+	 * @param password
+	 * @param id
+	 * @return to login page
+	 */
 	@RequestMapping(value = "/newRecoverPassword", method = RequestMethod.POST)
 	public String newRecoverPassword(@RequestParam String password, @RequestParam String id) {
 		LOG.info(" newRecoverPassword() " + password);

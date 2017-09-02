@@ -15,16 +15,23 @@ public interface UserService {
 	public User findUserById(String userId);
 
 	/**
+	 * Save user
 	 * @param user
-	 * @return
+	 * @return newly saved user info
 	 */
 	User saveUser(User user);
 
 	/**
+	 * Activate user
 	 * @param id
 	 */
 	public void activateUser(String id);
 
+	/**
+	 * Get user details based on email id
+	 * @param email
+	 * @return user info
+	 */
 	public User getUserDeatilsByEmailId(String email);
 
 	public void updateUserDetails(User userDetails);

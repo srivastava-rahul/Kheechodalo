@@ -37,6 +37,12 @@ public class UserServiceImpl implements UserService {
 		return userDao.findById(userId);
 	}
 
+	
+	/**
+	 * Save user
+	 * @param user
+	 * @return newly saved user info
+	 */
 	@Override
 	@Transactional(readOnly = false)
 	public User saveUser(User user) {
@@ -49,6 +55,11 @@ public class UserServiceImpl implements UserService {
 		return userDao.saveUser(user);
 	}
 
+	
+	/**
+	 * Activate user
+	 * @param id
+	 */
 	@Override
 	@Transactional(readOnly = false)
 	public void activateUser(String id) {
@@ -60,6 +71,12 @@ public class UserServiceImpl implements UserService {
 			e.printStackTrace();
 		}
 	}
+
+	/**
+	 * Get user details based on email id
+	 * @param email
+	 * @return user info
+	 */
 
 	@Override
 	public User getUserDeatilsByEmailId(String email) {

@@ -80,6 +80,10 @@ public class UserDaoImpl implements UserDao {
 		return user;
 	}
 
+	/**
+	 * Activate user
+	 * @param id
+	 */
 	@Override
 	public void activateUser(String id) {
 		LOG.info("Inside activateUser() DaoImpl user dao email ");
@@ -94,6 +98,12 @@ public class UserDaoImpl implements UserDao {
 		}
 	}
 
+	
+	/**
+	 * Get user details based on email id
+	 * @param email
+	 * @return user info
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public User findByEmailId(String email) {

@@ -23,10 +23,16 @@ public interface UserDao {
 	public User findUserByName(String userName);
 
 	/**
+	 * Activate user
 	 * @param id
 	 */
 	public void activateUser(String id);
 
+	/**
+	 * Get user details based on email id
+	 * @param email
+	 * @return user info
+	 */
 	public User findByEmailId(String email);
 
 	public void updateUser(User userDetails);

@@ -315,7 +315,7 @@ function showSlides(n) {
 		
 		
 <div id="myModal" class="modal">
-  <b><a href="" onclick="closeModal()"><img src="${pageContext.request.contextPath}/resources/images/crossSign.png" alt="Avatar" style="float: right;width:3%;height:5%;margin-right:5% "></a></b>
+  <b><a href="" onclick="closeModal()"><img src="${pageContext.request.contextPath}/resources/images/crossSign.png" alt="Avatar" style="float: right;width:3%;height:5%;margin-right:18% "></a></b>
   <div class="modal-content">
 <c:if test="${empty searchPic}">
        <c:forEach var="pic" items="${picsList}">

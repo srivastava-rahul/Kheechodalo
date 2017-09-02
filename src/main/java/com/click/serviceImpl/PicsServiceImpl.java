@@ -50,6 +50,11 @@ public class PicsServiceImpl implements PicsService {
 		return picsDao.findPicMaxVoteCount();
 	}
 
+	/**
+	 * Get all the pics for user 
+	 * @param pageNo
+	 * @return list of pics 
+	 */
 	@Override
 	public List<PictureUploadPojo> findAllPics(int pageNo) {
 		LOG.info("Inside findAllPics() serviceImpl");
@@ -181,6 +186,12 @@ public class PicsServiceImpl implements PicsService {
 		return voteCount;
 	}
 
+	/**
+	 * Edit the vote on the basis of picid by admin
+	 * @param picId
+	 * @param by admin 
+	 * @return updated vote of pic
+	 */
 	@Override
 	@Transactional(readOnly = false)
 	public long updateVoteCountbyadmin(PictureUpload updatevote) {

@@ -53,7 +53,11 @@ public class WinnerServiceImpl implements WinnerService {
 		return listofwinner;
 	}
 
-	
+	/**
+	 * Get List of the Winner data by Admin
+	 * @param pageNo TODO
+	 * return winner information list
+	 */
 	@Override
 	public List<Winner> getAllWinnerbyadmin() {
 		LOG.info("Inside getAllWinnerbyadmin() serviceImpl");
@@ -75,7 +79,9 @@ public class WinnerServiceImpl implements WinnerService {
 
 	
 	
-	
+	/**
+	 * Delete Single Winner data by Admin based on id
+	 */
 	@Override
 	@Transactional(readOnly = false)
 	public void deleteWinner(Winner winnerdata) {

@@ -2,7 +2,6 @@ package com.click.controller;
 
 import java.util.List;
 
-import org.apache.commons.codec.binary.Base64;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -17,13 +16,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.click.entity.ProfileSetting;
 import com.click.entity.User;
 import com.click.pojo.PictureUploadPojo;
 import com.click.service.PicsService;
 import com.click.service.UserService;
 import com.click.utils.SecurityLibrary;
-import com.click.utils.StringUtils;
 
 /**
  * 
@@ -42,6 +39,12 @@ public class DashboardController {
 	@Autowired
 	PicsService picsService;
 
+	/**
+	 * Get All the pics for user dashboard  
+	 * @param model
+	 * @return to dashboard page
+	 * @throws Exception throw if page does not exist
+	 */
 	@RequestMapping(value = "/dashboard")
 	protected String getAllPics(Model model) throws Exception {
 		LOG.info(" LOG User Dashboard from getAllPics controlller ");
@@ -51,6 +54,14 @@ public class DashboardController {
 		return "dashboard";
 	}
 
+	
+	/**
+	 * Get All the pics based on pagination
+	 * @param pageNo
+	 * @param model
+	 * @return to dashboard page
+	 * @throws Exception throw if pic id does not exist
+	 */
 	@RequestMapping(value = "/dashboardPagination/{page}")
 	protected String getAllPicsPagination(@PathVariable("page") int pageNo, Model model) throws Exception {
 		LOG.info(" LOG User Dashboard from getAllPicsPagination controller");
@@ -69,6 +80,14 @@ public class DashboardController {
 
 	
 	
+	/**
+	 * Get Pics based on email_id
+	 * @param email_id
+	 * @param model
+	 * @param redir
+	 * @return to dashboard page
+	 * @throws Exception throw if id does not exist
+	 */
 	@RequestMapping(value = "/searchUserPicbyemailid")
 	protected String getPicsbyemail_id(String email_id,Model model, RedirectAttributes redir) throws Exception {
 		
@@ -90,11 +109,26 @@ public class DashboardController {
 		}
 	}
 	
+	
+	/**
+	 * fetching the forget password form
+	 * @return to newUserPassword page
+	 */
 	@RequestMapping(value = "/newUserPassword", method = RequestMethod.GET)
 	public String forgetPassword() {
 		return "newUserPassword";
 	}
-
+	
+  
+	
+	/**
+	 * Change the password by user 
+	 * @param oldPassword
+	 * @param newPassword
+	 * @param confirmPassword
+	 * @param model
+	 * @return to newUserPassword page
+	 */
 	@RequestMapping(value = "/changeNewPassword", method = RequestMethod.POST)
 	public String changeNewPassword(@RequestParam String oldPassword, @RequestParam String newPassword,
 			@RequestParam String confirmPassword, Model model) {
@@ -134,6 +168,12 @@ public class DashboardController {
 		return "newUserPassword";
 	}
 
+	
+	/**
+	 * Save the vote given user 
+	 * @param picId
+	 * @return 
+	 */
 	@RequestMapping(value = "/saveVote", method = RequestMethod.POST)
 	public @ResponseBody ResponseEntity<Long> saveUserVote(@RequestParam("picId") String picId) {
 		LOG.info(" Inside save vote called pic Id : " + picId);

@@ -11,8 +11,14 @@ public class MyOwnPicController {
 
 	private static final Logger LOG = Logger.getLogger(MyOwnPicController.class);
 	
+	/**
+	 * Getting myownpic page
+	 * @param model
+	 * @return to 
+	 * @throws Exception
+	 */
 	@RequestMapping(value = "/myownpic")
-	protected String getAboutUs(Model model) throws Exception {
+	protected String getmyownpic(Model model) throws Exception {
 		LOG.info("Fetching own pic page  from getAboutUs controller");
 		return "myownpic";
 	}

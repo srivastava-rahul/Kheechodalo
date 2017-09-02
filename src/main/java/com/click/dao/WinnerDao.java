@@ -18,6 +18,7 @@ public interface WinnerDao {
 	/**
 	 * Get List of the Winner data by Admin
 	 * @param pageNo TODO
+	 * return winner information list
 	 */
 	public List<Winner> getAllWinnerbyadmin();
 

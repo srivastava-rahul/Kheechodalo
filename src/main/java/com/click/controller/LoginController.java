@@ -18,6 +18,11 @@ public class LoginController {
 	@Autowired
 	WinnerService winnerService;
 
+	/**
+	 * Show Login page
+	 * @param model
+	 * @return to login page
+	 */
 	@RequestMapping(value = "/login", method = { RequestMethod.GET })
 	protected String showLogin(Model model) {
 		LOG.info("Login called  from  showLogin controller");

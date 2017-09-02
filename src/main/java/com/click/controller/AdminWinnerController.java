@@ -8,7 +8,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import com.click.entity.Winner;
 import com.click.service.UserService;
@@ -28,6 +27,12 @@ public class AdminWinnerController {
 	WinnerService winnerService;  
 			 
 	
+	/**
+	 * Admin Fetching the winner information
+	 * @param model
+	 * @return to adminViewWinner page
+	 * @throws Exception throw exception if winner does not exist
+	 */
 	@RequestMapping(value = "/admingetwinner")
 	protected String getWinnerInfobyAdmin(Model model) throws Exception {
 		LOG.info("Admin getting list of Winner from getWinnerInfobyAdmin() controller");
@@ -41,6 +46,13 @@ public class AdminWinnerController {
 		return "adminViewWinner";
 	}
 	
+	/**
+	 * Winner information deleted by Admin  based on pi id
+	 * @param id
+	 * @param model
+	 * @return to admingetwinner page
+	 * @throws Exception  throw if pic id does not exist 
+	 */
 	@RequestMapping(value = "/admindeletewinner/{id}")
 	protected String deleteWinnerInfo(@PathVariable(name ="id")  String id,Model model) throws Exception {
 		LOG.info("Admin removing notification based on id from deleteWinnerInfo controller");

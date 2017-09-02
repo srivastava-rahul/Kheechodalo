@@ -27,6 +27,10 @@ public class TestimonialDaoImpl implements TestimonialDao {
 	EntityManager entityManager;
 	
 
+
+	/**
+	 * Save the Testimonial data by Admin
+	 */
 	@Override
 	public void savetestimonial(UserTestimonial testimonialdata) {
 		LOG.info("Inside savetestimonial() DaoImpl"); 
@@ -57,6 +61,9 @@ public class TestimonialDaoImpl implements TestimonialDao {
 		return (List<UserTestimonial> ) query.getResultList();
 	}
 
+	/**
+	 * Delete Single Testimonial data by Admin  based on id 
+	 */
 	@Override
 	public void deletetestimonial(UserTestimonial testimonialdata) {
 		LOG.info("Inside deletetestimonial() DaoImpl");
@@ -71,6 +78,9 @@ public class TestimonialDaoImpl implements TestimonialDao {
 		
 	}
 
+	/**
+	 * Get List of the Testimonial data by Admin
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<UserTestimonial> gettestimonial() {

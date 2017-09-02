@@ -31,6 +31,9 @@ public class TestimonialServiceImpl implements TestimonialService {
     TestimonialDao testimonialDao;
 	
 	
+    /**
+	 * Save the Testimonial data by Admin
+	 */
 	@Override
 	@Transactional(readOnly = false)
 	public void savetestimonial(UserTestimonial testimonialdata) {
@@ -69,6 +72,9 @@ public class TestimonialServiceImpl implements TestimonialService {
 		return listoftestimonial;
 	}
 
+	/**
+	 * Delete Single Testimonial data by Admin  based on id 
+	 */
 	@Override
 	@Transactional(readOnly = false)
 	public void deletetestimonial(UserTestimonial testimonialdata) {
@@ -82,6 +88,9 @@ public class TestimonialServiceImpl implements TestimonialService {
 		
 	}
 
+	/**
+	 * Get List of the Testimonial data by Admin
+	 */
 	@Override
 	public List<UserTestimonial> gettestimonial() {
 		LOG.info("Inside gettestimonial() serviceImpl ");

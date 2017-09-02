@@ -20,8 +20,14 @@ public class NotificationController {
 	@Autowired
 	NotificationService notifi;
 
+	/**
+	 * Getting Notification for User
+	 * @param model
+	 * @return to notification page
+	 * @throws Exception if page does not exist
+	 */
 	@RequestMapping(value = "/notification")
-	protected String getPrizeRecord(Model model) throws Exception {
+	protected String getNotificationforuser(Model model) throws Exception {
 		LOG.info("Fetching the prize information from getPrizeRecord controller ");
 		try {
 			List<Notification> notifiy = notifi.getNotification();

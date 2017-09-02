@@ -56,6 +56,11 @@ public class PicsDaoImpl implements PicsDao {
 		return obj != null ? ((Number) obj).longValue() : 0;
 	}
 
+	/**
+	 * Get all the pics for user 
+	 * @param pageNo
+	 * @return list of pics 
+	 */
 	@Override
 	@SuppressWarnings("unchecked")
 	public List<PictureUpload> findAllPics(int pageNo) {
@@ -231,6 +236,12 @@ public class PicsDaoImpl implements PicsDao {
 
 	}
 	
+	/**
+	 * Edit the vote on the basis of picid by admin
+	 * @param picId
+	 * @param by admin 
+	 * @return updated vote of pic
+	 */
 	@Override
 	public long updateVoteCountbyadmin(PictureUpload updatevote) {
 		// TODO Auto-generated method stub

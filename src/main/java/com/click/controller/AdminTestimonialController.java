@@ -41,6 +41,12 @@ public class AdminTestimonialController {
 		binder.registerCustomEditor(Date.class, "dob", new CustomDateEditor(dateFormat, true));
 	}
 	
+	/**
+	 * Admin getting Testimonial information
+	 * @param model
+	 * @return to adminsendtestimonial page
+	 * @throws Exception throw error if does not exist
+	 */
 	@RequestMapping(value = "/admingetTestimonial")
 	protected String getTestimonialInfo(Model model) throws Exception {
 		LOG.info("Admin getting list of Testimonial data from getTestimonialInfo controller");
@@ -55,6 +61,13 @@ public class AdminTestimonialController {
 		return "adminsendtestimonial";
 	}
 	
+	/**
+	 * Admin deleting testimonial based on id 
+	 * @param id
+	 * @param model
+	 * @return to admingetTestimonial page
+	 * @throws Exception throw error if particular id does not exist
+	 */
 	@RequestMapping(value = "/admindeletetestimonial/{id}")
 	protected String deleteTesrimonialInfo(@PathVariable(name ="id")  String id,Model model) throws Exception {
 		LOG.info("Admin removing Testimonial  data based on id from deleteTesrimonialInfo controller");
@@ -72,6 +85,15 @@ public class AdminTestimonialController {
 		}
 	}
 	
+	/**
+	 * Testimonials save by Admin 
+	 * @param file
+	 * @param desc
+	 * @param name
+	 * @param email
+	 * @param model
+	 * @return to admingetTestimonial page
+	 */
 	@RequestMapping(value = "/savetestimonialPic", method = RequestMethod.POST)
 	public String uploadprDocuments(@RequestParam("picImg") MultipartFile file, @RequestParam("desc") String desc, @RequestParam("name") String name, @RequestParam("email") String email,Model model) {
 		LOG.info(" Inside uploadprDocuments controller save pic called");

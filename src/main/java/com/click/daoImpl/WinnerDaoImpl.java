@@ -43,6 +43,11 @@ public class WinnerDaoImpl implements WinnerDao {
 		return (List<Winner>) query.getResultList();
 	}
 	
+	/**
+	 * Get List of the Winner data by Admin
+	 * @param pageNo TODO
+	 * return winner information list
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Winner> getAllWinnerbyadmin() {
@@ -58,6 +63,9 @@ public class WinnerDaoImpl implements WinnerDao {
 		return (List<Winner>) query.getResultList();
 	}
 
+	/**
+	 * Delete Single Winner data by Admin based on id
+	 */
 	@Override
 	public void deleteWinner(Winner winnerdata) {
 		LOG.info("Inside getWinner() DaoImpl");

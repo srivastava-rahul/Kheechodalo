@@ -21,19 +21,32 @@ public class AdminVoteController {
 	PicsService picsrv;
 
 	
+	/**
+	 * Get Vote information by Admin
+	 * @param model
+	 * @return to vote page
+	 * @throws Exception throw exception if pic doesnot exist
+	 */
 	@RequestMapping(value = "/admingetvoteinfo")
 	protected String getvoteinfo(Model model) throws Exception {
 		LOG.info("Fetching the voteinfo from getvoteinfo() controller");
 		return "vote";
 	}
 
+	/**
+	 * Save vote information by admin
+	 * @param picid
+	 * @param picvote
+	 * @param model
+	 * @return to vote page
+	 * @throws Exception throw if pic id does not exist
+	 */
 	@RequestMapping(value = "/adminsavevote", method = RequestMethod.POST)
 	public String saveVotebyAdmin(@RequestParam String picid,@RequestParam String picvote, Model model)
 			throws Exception {
 		LOG.info("Admin adding prize from saveVotebyAdmin() controller");
 		try {
 			long vote = Long.parseLong(picvote);
-			System.out.println("rahul============>>>>"+picid+""+picvote);
 			PictureUpload picvoteupdate=new PictureUpload();
 			picvoteupdate.setId(picid);
 			picvoteupdate.setPicVote(vote);

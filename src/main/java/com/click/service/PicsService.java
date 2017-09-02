@@ -32,10 +32,9 @@ public interface PicsService {
 	long findPicMaxVoteCount();
 
 	/**
-	 * 
+	 * Get all the pics for user 
 	 * @param pageNo
-	 * 
-	 * @return
+	 * @return list of pics 
 	 */
 	List<PictureUploadPojo> findAllPics(int pageNo);
 
@@ -98,7 +97,7 @@ public interface PicsService {
 	 * Edit the vote on the basis of picid by admin
 	 * @param picId
 	 * @param by admin 
-	 * @return
+	 * @return updated vote of pic
 	 */
 	long updateVoteCountbyadmin(PictureUpload updatevote);
 	

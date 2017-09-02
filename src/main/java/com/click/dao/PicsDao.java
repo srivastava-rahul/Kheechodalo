@@ -31,9 +31,9 @@ public interface PicsDao {
 	long findPicMaxVoteCount();
 
 	/**
-	 * 
+	 * Get all the pics for user 
 	 * @param pageNo
-	 * @return
+	 * @return list of pics 
 	 */
 	List<PictureUpload> findAllPics(int pageNo);
 
@@ -94,10 +94,10 @@ public interface PicsDao {
 
 
 	/**
-	 * Edit the vote on the basis of pic id by admin
+	 * Edit the vote on the basis of picid by admin
 	 * @param picId
-	 * @param vote
-	 * @return
+	 * @param by admin 
+	 * @return updated vote of pic
 	 */
 	long updateVoteCountbyadmin(PictureUpload updatevote);
 	

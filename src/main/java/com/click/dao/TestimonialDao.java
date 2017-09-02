@@ -26,6 +26,7 @@ public interface TestimonialDao {
 	 * Get List of the Testimonial data by Admin
 	 */
 	public List<UserTestimonial> gettestimonial();
+	
 	/**
 	 * Delete Single Testimonial data by Admin  based on id 
 	 */

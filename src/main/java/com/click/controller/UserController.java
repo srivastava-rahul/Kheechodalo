@@ -109,8 +109,6 @@ public class UserController {
 
 			sendRegistrationEmail(new String[] { user.getEmailId() }, user.getFirstName(), user.getId(),
 					"Thanks For Registration");
-			sendRegistrationEmail(new String[] { user.getEmailId() }, user.getFirstName(), user.getId(),
-					"Thanks For Registration");
 			model.addAttribute("success", "Please Visit Your Email Id For Activation .");
 			LOG.info("user object :" + user.toLogString());
 		} catch (Exception e) {

@@ -40,6 +40,11 @@ public class CustomUserDetailsService implements UserDetailsService {
 			System.out.println("fdsfdsfs");
 			throw new UsernameNotFoundException("Invalid username of password specified. Bad credentials.");
 		}
+		if (!user.isStatus()) {
+			LOG.info(" User is deactive :" + user);
+			throw new UsernameNotFoundException("Please go to your mail and activate your account ");
+		}
+		
 		LOG.info(" authenticatedUser :" + user.toLogString());
 		user = userDao.findById(user.getId());
 		LOG.info(" user===== :" + user.toLogString());

@@ -15,6 +15,7 @@ import com.click.dao.WinnerDao;
 import com.click.entity.PictureUpload;
 import com.click.entity.Winner;
 import com.click.service.PicsService;
+import com.click.service.PrizeService;
 import com.click.service.WinnerService;
 import com.click.utils.CollectionUtil;
 
@@ -34,6 +35,9 @@ public class WinnerServiceImpl implements WinnerService {
 	@Autowired
 	PicsService picsService;
 
+	@Autowired
+	PrizeService prizeService;  
+	
 	/**
 	 * Get List of the Winner data for User
 	 * @param pageNo TODO
@@ -103,10 +107,15 @@ public class WinnerServiceImpl implements WinnerService {
 	@Transactional(readOnly = false)
 	public void copyWinnerPic() {
 		LOG.info("Copy winner pic service");
-		PictureUpload winnerPic = picsService.findWinnerPicByMaxVoteCount();
-		if (winnerPic != null) {
-			Winner winner = new Winner(winnerPic);
-			winnerDao.saveWinner(winner);
+		try {
+			PictureUpload winnerPic = picsService.findWinnerPicByMaxVoteCount();
+			if (winnerPic != null) {
+				Winner winner = new Winner(winnerPic);
+				winner.setPrize_desc(prizeService.getPrizeAmountDesc());
+				winnerDao.saveWinner(winner);
+			}
+		} catch (Exception e) {
+			LOG.error("Error While Copy winner :" + e.getMessage(), e);
 		}
 	}
 

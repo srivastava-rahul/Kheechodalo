@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.click.entity.User;
 import com.click.entity.UserRole;
@@ -85,13 +86,13 @@ public class UserController {
 	 */
 	@RequestMapping(value = "/saveUser", method = RequestMethod.POST)
 	public String saveUser(@RequestParam String firstName, @RequestParam String lastName, @RequestParam String email,
-			@RequestParam String password, Model model) {
+			@RequestParam String password, Model model, RedirectAttributes redir) {
 		LOG.info("Inside saveUser controller");
 		try {
 			User userexit = userService.getUserDeatilsByEmailId(email);
 			if (userexit != null) {
-				model.addAttribute("error", "Email-id Already Exit...!");
-				return "WEB-INF/views/jsp/login";
+				redir.addFlashAttribute("error", "Email-id Already Exit...!");
+				return "redirect:/login";
 			}
 			BCryptPasswordEncoder enc = new BCryptPasswordEncoder();
 			String pass = enc.encode(password);
@@ -109,14 +110,14 @@ public class UserController {
 
 			sendRegistrationEmail(new String[] { user.getEmailId() }, user.getFirstName(), user.getId(),
 					"Thanks For Registration");
-			model.addAttribute("success", "Please Visit Your Email Id For Activation .");
+			redir.addFlashAttribute("success", "Please Visit Your Email Id For Activation .");
 			LOG.info("user object :" + user.toLogString());
 		} catch (Exception e) {
 			LOG.error(e.getMessage(), e);
 			e.printStackTrace();
-			model.addAttribute("error", "Error Sending Mail.");
+			redir.addFlashAttribute("error", "Error Sending Mail.");
 		}
-		return "WEB-INF/views/jsp/login";
+		return "redirect:/login";
 	}
 
 	/**

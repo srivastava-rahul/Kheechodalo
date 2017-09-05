@@ -79,4 +79,9 @@ public class PrizeServiceImpl implements PrizeService {
 		
 	}
 
+	@Override
+	public String getPrizeAmountDesc() {
+		return prizeDao.getPrizeAmountDesc();
+	}
+
 }

@@ -2,6 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ page isELIgnored="false"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <script type="text/javascript"
 	src="${pageContext.request.contextPath}/resources/js/jquery-1.4.2.min.js"></script>
 
@@ -31,7 +32,7 @@
 				<h2 style="color: red">Please Provide Date......!!!</h2>
 				<div style="margin-left: 1%">
 					<textarea name= "createddate" id="createddate" rows="1" cols="30" style="color: black"
-						placeholder="dd/mm/yyyy."
+						placeholder="mm/dd/yyyy."
 						 aria-required="true"></textarea>
 				</div>
 			</div>
@@ -77,7 +78,7 @@
 		</tr>
 		<c:forEach var="prz" items="${prize}">
 			<tr>
-				<td><center>${prz.prizeDate}</center></td>
+				<td><center><fmt:formatDate value="${prz.prizeDate}" pattern="dd/MM/yyyy"/></center></td>
 				<td><center>${prz.sponsor}</center></td>
 				<td><center>${prz.prizeAmount}</center></td>
 				<td><center>

@@ -13,25 +13,31 @@ import com.click.entity.UserPrize;
 
 public interface PrizeService {
 
-	/**Get The list of All Prize by User
+	/**
+	 * Get The list of All Prize by User
+	 * 
 	 * @return
 	 */
 	List<UserPrize> getAllPrizeRecord();
-	
-	
+
 	/**
 	 * Saving The prize by Admin
+	 * 
 	 * @param prizedata
 	 */
 	public void savePrizeRecord(UserPrize prizedata);
-	
+
 	/**
 	 * Delete The prize by Admin
+	 * 
 	 * @param prizedata
 	 */
 	public void deletePrizeRecord(UserPrize prizedata);
-	
-	
-	
+
+	/**
+	 * 
+	 * @return
+	 */
+	String getPrizeAmountDesc();
 
 }

@@ -315,7 +315,7 @@ function showSlides(n) {
 		
 		
 <div id="myModal" class="modal">
-  <b><a href="" onclick="closeModal()"><img src="${pageContext.request.contextPath}/resources/images/crossSign.png" alt="Avatar" style="float: right;width:3%;height:5%;margin-right:18% "></a></b>
+  <b><a href="#" onclick="closeModal()"><img src="${pageContext.request.contextPath}/resources/images/crossSign.png" alt="Avatar" style="float: right;width:3%;height:5%;margin-right:18% "></a></b>
   <div class="modal-content">
 <c:if test="${empty searchPic}">
        <c:forEach var="pic" items="${picsList}">
@@ -364,7 +364,7 @@ function showSlides(n) {
 					<h2><span style="margin-left: 50%;color: red; " class="voteCount${searchPic.id}">${searchPic.picVote}</span></h2>
 					<div class="">
 						<b><h2 style="color:blue">${searchPic.userName}</h2></b>
-						<b><h2 style="color:blue">${searchPic.userEmailId}</h2></b>
+						<%-- <b><h2 style="color:blue">${searchPic.userEmailId}</h2></b> --%>
 						<p>${searchPic.picDescription}</p>
 					 <c:if test="${searchPic.allowToVote}"> 
 						<p align="center" class="hideVote${searchPic.id}">

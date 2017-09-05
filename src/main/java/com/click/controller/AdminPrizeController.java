@@ -37,7 +37,7 @@ public class AdminPrizeController {
 	@InitBinder
 	public void dataBinding(WebDataBinder binder) {
 		SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-		binder.registerCustomEditor(Date.class, "dob", new CustomDateEditor(dateFormat, true));
+		binder.registerCustomEditor(Date.class, "createddate", new CustomDateEditor(dateFormat, true));
 	}
 
 	

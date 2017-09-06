@@ -219,14 +219,10 @@ div.pannel {
 }
 
 .MyownpicBodyleft{
-
  float:left;
  width:auto;
  height:auto;
- /* border:2px solid black; */
-  margin-top:2%;
- margin-left:2%;
- 
+ margin-top:2%;
 }
 
 .MyownpicBodyright{
@@ -234,8 +230,7 @@ div.pannel {
  float:right;
  width:49%;
  height:auto;
- 
-  margin-top:2%;
+ margin-top:2%;
  margin-left:2%;
  color:black;
  

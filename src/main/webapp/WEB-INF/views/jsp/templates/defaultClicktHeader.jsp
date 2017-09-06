@@ -129,7 +129,7 @@
 			&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
 			&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
 			<c:if test="${!isAdmin}">
-			<p style="font-size: 50px; font-family: Parchment;"><a href="${pageContext.request.contextPath}/user/dashboard" style="color: black;" >kheecho Dalo</a></p>
+			<%-- <p style="font-size: 50px; font-family: Parchment;"><a href="${pageContext.request.contextPath}/user/dashboard" style="color: black;" >kheecho Dalo</a></p> --%>
 			</c:if>
 			
 			<c:if test="${isAdmin}">
@@ -152,7 +152,7 @@
 
 					<div class="col-md-2" style="padding-left: 5px;padding-top: 20px;height: 34px;">
 						<p align="left">
-							<button class="btn btn-default" style="border-radius: 0;height: 32px;" type="submit">
+							<button class="btn btn-default" style="border-radius: 0;height: 35px;" type="submit">
 								<span class="glyphicon glyphicon-search"></span>
 							</button>
 						</p>

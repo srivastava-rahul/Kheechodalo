@@ -61,8 +61,8 @@ cute ,cute baby, cute girls, earn money online, photographs, online photography 
 
 body {
 	background:
-		 url(${pageContext.request.contextPath}/resources/images/login_bck.jpg); 
-		/* url(${pageContext.request.contextPath}/resources/images/5.jpg); */
+		  url(${pageContext.request.contextPath}/resources/images/login_bck.jpg);  
+		  /* url(${pageContext.request.contextPath}/resources/images/5.jpg); */ 
 		height:auto;
 	color: white;
 }
@@ -105,23 +105,24 @@ body {
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-l>×</button>
 				<!-- <span class="close" data-dismiss="modal">&times;</span> -->
-				<h2>Modal Header</h2>
+				<h2>Site Tour</h2>
 			</div>
 			<div class="modal-body" data-reveal data-reset-on-close="true">
 				<%-- <iframe  width="700" height="450"  src="${pageContext.request.contextPath}/resources/mtr.mp4" frameborder="0" allowfullscreen></iframe> --%>
-				<iframe id="cartoonVideo" width="740" height="450" src="https://www.youtube.com/embed/ladnbzlA5lk" frameborder="0" allowfullscreen> </iframe>
+				<iframe id="cartoonVideo" width="700" height="450" src="https://www.youtube.com/embed/T36PCp3bttU" frameborder="0" allowfullscreen> </iframe>
 				<%--          <video width="700" height="450" controls id="myVideoPlay" >
                  <source src="${pageContext.request.contextPath}/resources/mtr.mp4" type="video/mp4"  >
                  </video> --%>
 
 			</div>
 			<div class="modal-footer">
-				<h3>Modal Footer</h3>
+				<h3>Welcome To Kheechodalo.com  Stay Connected by SingUp</h3>
 			</div>
 		</div>
 	</div>
 	<br />
 	<div style="color: red; margin-left: 8%; background: white; width:6%;"><jsp:include page="/WEB-INF/views/jsp/message.jsp" /></div>
+
 	
 	<div class="form">
 
@@ -202,27 +203,26 @@ body {
 							<span class="req">*</span>
 						</label>
 						<input type="password" id="password" name="password" />
-					</div>
-
-					<!-- <button type="submit" class="button button-block" >Get Started</button> -->
-					
+					</div>					
 					<button class="button button-block" id="myBtn">Get Started</button>
-					<div class="modal-content1">  
-                     <p style="color:red">Before clicking Please Read below link..!!</p>
+					
+					
+				<%-- 	<div class="modal-content1">  
+                     <p style="color:red">Before clicking Please Read below link..!!</p>  
                      <ul>
 						  <li><a href="${pageContext.request.contextPath}/user/rulesouter">Rule</a></li>
 						  <li><a href="${pageContext.request.contextPath}/user/signupdataOuter">Signup-Data</a></li>
 						  <li><a href="${pageContext.request.contextPath}/user/privacyOuter">Privacy</a></li>
 						  <li><a href="${pageContext.request.contextPath}/user/termsConditionOuter">Terms & Condition</a></li>
 					</ul> 
-                  </div>
+                  </div> --%>
 
 				</form>
                              
 			</div>
 		</div>
 		<!-- tab-content -->
-
+      
 	</div>
 	<!-- /form -->
 
@@ -247,7 +247,7 @@ body {
 	</div>
 
 
-	<div style="margin-top: 8%; width: 100%; height: auto; background-color:">
+	<div style="margin-top: 5%; width: 100%; height: auto; background-color:">
 		<div style="margin-bottom: 0px; background-color: #06ccb3;" align="center">&copy; 2017 All rights reserved</div>
 		&nbsp;
 		<div style="color: black">

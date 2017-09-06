@@ -2,6 +2,23 @@
   box-sizing: border-box;
 }
 
+
+input[type=checkbox] {
+    display: none;
+} 
+
+.regular-checkbox {
+  -webkit-appearance: none;
+  background-color: #fafafa;
+  border: 1px solid #cacece;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);
+  padding: 9px;
+  border-radius: 3px;
+  display: inline-block;
+  position: relative;
+} 
+
+
 a {
   text-decoration: none;
   color: #1ab188;
@@ -16,12 +33,11 @@ a:hover {
    float:right;
    background: rgba(19, 35, 47, 0.9);
    padding: 40px;
-   max-width: 400px;
+   max-width: 340px;
    border-radius: 4px;
    box-shadow: 0 4px 10px 4px rgba(19, 35, 47, 0.3);
    margin-right:5%;
    margin-top:4%;
-    
 }
 .tab-group {
   list-style: none;
@@ -146,7 +162,7 @@ textarea {
   outline: none;
   border-radius: 10px;
   padding: 15px 0;
-  font-size: 2rem;
+  font-size: 1rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: .1em;
@@ -240,7 +256,10 @@ textarea {
     color: white;
 }
 
-.modal-body {padding: 2px 16px;}
+.modal-body 
+{
+	padding: 1px 16px;
+}
 
 .modal-footer {
     padding: 2px 16px;

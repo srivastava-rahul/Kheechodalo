@@ -18,7 +18,10 @@
 				</div>
 				 --%>
 				 <a href="${pageContext.request.contextPath}/user/dashboard">
-				<img src="${pageContext.request.contextPath}/resources/images/backToHome.png" style="width:60%;margin-top:5%;margin-left:15%"/></a>
+				<%-- <img src="${pageContext.request.contextPath}/resources/images/logo1.png" style="width:60%;margin-top:5%;margin-left:15%"/> --%>
+				
+				<p style="font-size: 50px; font-family: Parchment;"><a href="${pageContext.request.contextPath}/user/dashboard" style="color:white;margin-left: 10%" >kheecho Dalo</a></p>
+				</a>
 				
 				<div class="clearfix"></div>
 				<br>

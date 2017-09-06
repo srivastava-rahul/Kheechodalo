@@ -35,5 +35,6 @@ public class LoginController {
 		}
 
 		return "WEB-INF/views/jsp/login";
+		
 	}
 }

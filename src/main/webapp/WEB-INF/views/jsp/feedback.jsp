@@ -4,7 +4,6 @@
 <%@ page isELIgnored="false"%>
 <script type="text/javascript"
 	src="${pageContext.request.contextPath}/resources/js/jquery-1.4.2.min.js"></script>
-	
 	<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/jquery.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/jquery.form-validator.min.js"></script> 
 

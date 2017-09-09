@@ -123,7 +123,7 @@ public class SearchController {
 		LOG.info(" LOG User Dashboard from getPicsbyemail_id controlller==>"+email_id);
 		User u = SecurityLibrary.getLoggedInUser();
 		PictureUploadPojo searchPic = picsService.findPicsbyemail(email_id);
-		if(searchPic.getId()!=null){
+		if(searchPic !=null){
 			model.addAttribute("searchPic", searchPic);
 			return "dashboard";
 		}else{

@@ -5,14 +5,14 @@
 
 <div class="body-area">
 
-<jsp:include page="/WEB-INF/views/jsp/message.jsp" />
+
 
 	<%-- <img src="${pageContext.request.contextPath}/resources/images/aboutUs.jpg" alt="Avatar" class="page_pic"> --%>
 	<div class="information">
 		<p class="header_information">Search--Page</p>
 	</div>
 	
-	
+	<jsp:include page="/WEB-INF/views/jsp/message.jsp" />
 	
 	 <c:forEach var="prof" items="${viewprofile}">
 	 
@@ -35,8 +35,6 @@
 			   <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
 			  <input type="hidden" name="email_id"  value="${prof.email_id}">
               <button type="submit" class="view_profile" style="margin-right:2%">Today--Pic</button>
-				   
-
 		</form>
 					
 						

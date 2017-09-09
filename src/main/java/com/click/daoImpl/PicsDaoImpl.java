@@ -3,6 +3,7 @@ package com.click.daoImpl;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
@@ -92,6 +93,14 @@ public class PicsDaoImpl implements PicsDao {
 	@Override
 	@SuppressWarnings("unchecked")
 	public PictureUpload findPicsbyemail(String email_id) {
+		/*LOG.info("Inside findPicsbyemail_id() DaoImpl "+email_id);
+		PictureUpload singleuserpicdata = null;
+		Query query = entityManager.createQuery(
+			"Select distinct pu from PictureUpload pu left outer join pu.picUploadData pd left outer join pu.user left outer join pu.friendEmail u where upper(pu.emailId) = :emailId order by pu.picVote DESC, pu.uploadDate ASC ");
+			query.setParameter("emailId", email_id.toUpperCase());
+			singleuserpicdata = (PictureUpload) query.getSingleResult();
+		    return singleuserpicdata;*/
+		
 		LOG.info("Inside findPicsbyemail_id() DaoImpl ");
 		PictureUpload singleuserpicdata = null;
 		try {

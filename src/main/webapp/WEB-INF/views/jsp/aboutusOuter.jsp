@@ -16,8 +16,7 @@
 	</div>
 		<p>	
 	
-<h2 style="color:black;margin-left: 2%">Welcome to the world of fun and frolic. Welcome to Kheecho-Daalo....! </br>
-
+<h4 style="color:black;margin-left: 2%">Welcome to the world of fun and frolic. Welcome to Kheecho-Daalo....! </br>
 A platform to showcase your amazing pictures and swaggy selfies. Your uploaded pictures will be available on the website for a day which you can share with your friends, family and the likeminded audience of the website. 
 
 </br></br>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Registered website users can vote for the pictures they like. A vote is a way to represent your liking and appreciation for the picture. The picture with the highest number of votes will be chosen as the 'Pic Of The Day!'.
@@ -26,7 +25,7 @@ With daily competitions running on the website you can win some exciting prizes.
 
 </br></br>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;The sole intention of the website is to promote your photography talent and provide genuine feedback. The website provides a platform to showcase your talent along with learning, sharing and winning amazing prizes. It connects you to the world of like minded.
 
-	</h2>
+	</h4>
 	
 	</p>
 </div>

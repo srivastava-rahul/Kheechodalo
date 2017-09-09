@@ -22,7 +22,7 @@
 		<p>	
 	<h2><b style="margin-left:2%;color:white;background-color: black;">Rules Related to competition</b></h2> </br>
 
-    <h3 style="margin-left:2%; color:Black;">
+    <h4 style="margin-left:2%; color:Black;">
      1. To participate in the competitions on the website the participant has to upload a picture clicked by them.</br>
         &nbsp; &nbsp;&nbsp;A participant passing someone else's pictures as their own will be disqualified from entering any competition on the website and </br>&nbsp; &nbsp;&nbsp;will loose the claim to prize even her/his picture receives most votes.</br></br>
 	 2. The pic which receives maximum votes at the end of the day will be the winning picture for the day (A competition lasts </br>  &nbsp; &nbsp;&nbsp;for 24 hours only ).</br></br>
@@ -58,7 +58,7 @@
         This competition is</br>&nbsp; &nbsp;&nbsp; &nbsp; only for fun and entertainment and to encourage photographic talent.<br/><br/>
         
     17. All the pics automatically get deleted from the site at the end of the day.</br></br>
-</h3>	</p>
+</h4>	</p>
 
 <span style="color:red;margin-left: 5%"> * condition apply</span></br></br>
 </div>

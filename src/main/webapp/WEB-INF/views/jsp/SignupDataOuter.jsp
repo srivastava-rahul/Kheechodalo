@@ -17,7 +17,7 @@
 		
 		<h2 style="margin-left: 2%">Related to Signup form</h2><br/> 
    <p style="color:red;margin-left: 1%"> Why and what information we need from you to create your account on our website.</p>
-<p ><h3 style="color:black;margin-left: 2%">
+<p ><h4 style="color:black;margin-left: 2%">
 	1. Name :- 
 	Enter the name you want to use on the website. Your name will serve as your identity for others on the<br/> &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; website.
 	 Choose a friendly name (usually a combination of your first name and last name is preferred as<br/>&nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;
@@ -59,7 +59,7 @@
 	Current email address should be used for login purpose .And it will be also used for verification and 
 	<br/>&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
 	&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;also to recover the lost password.
-	</p></h3>
+	</p></h4>
 	
 	</br></br>
 	<span style="color:red;margin-left: 5%"> * condition apply</span>

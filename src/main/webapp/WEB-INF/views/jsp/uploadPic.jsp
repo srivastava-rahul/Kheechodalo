@@ -28,11 +28,12 @@
 	<div class="loader" style="display: none"></div>
 	<div class="Myown_pic_header">
 		<!-- header -->
-		<div class="forgetformheader">
+	<%-- 	<div class="forgetformheader">
 			<center>
-				<b><h1>Find Your Todays Photo</h1> <b>
+				<b>Find Your Todays Photo <b>
 			</center>
-		</div>
+		</div> --%>
+		
 		<form action="${pageContext.request.contextPath}/user/savePic"
 			method="post" id="uploadPicForm" enctype="multipart/form-data">
 			<div class="MyownpicBodyleft">
@@ -55,7 +56,7 @@
 				<div class="row">
 					<div class="col-md-12">
 						<a href="javascript:" onclick="$('#picImg').click()"
-							style="color: #eee;" class="${not empty picImg ? ' changePic ': ''}">${not empty picImg ? ' Change ': 'Select '}Pic</a>
+							style="color: black;" class="${not empty picImg ? ' changePic ': ''}">${not empty picImg ? ' Change ': 'Select '}Pic</a>
 					</div>
 				</div>
 				<input type="file" accept="image/*" style="visibility: hidden"
@@ -66,7 +67,7 @@
 
 			<div class="MyownpicBodyright">
 				<c:if test="${empty picImg}">
-					<span style="color: #eee;">
+					<span style="color: black;">
 						<h2>Description</h2> <!-- <h5>Today 12:00</h5> --> <textarea
 							name="desc" id="desc" rows="6" cols="35" style="color: black"
 							placeholder="Please provide a detailed description of your Pic...Only 45 charcter is allowed"
@@ -77,7 +78,7 @@
 							value="Upload" onclick="on()">
 					</div>
 				</c:if>
-				<span id="picImgEmpty" style="display: none"> <span style="color: #eee;">
+				<span id="picImgEmpty" style="display: none"> <span style="color: black;">
 						<h2>Description</h2> <!-- <h5>Today 12:00</h5> --> <textarea
 							name="desc" id="desc" rows="6" cols="35" style="color: black"
 							placeholder="Please provide a detailed description of your Pic...Only 45 charcter is allowed"
@@ -89,9 +90,8 @@
 					</div>
 				</span>
 				<c:if test="${not empty picImg}">
-					<span id="picImgNotEmpty"> <span style="color: #eee;">
-							<h2>Description</h2> <!-- <h5>Today 12:00</h5> -->
-							<h3>${picData.description}</h3>
+					<span id="picImgNotEmpty"> <span style="color: black;">
+					<h3>${picData.description}</h3>
 					</span>
 						<p style="color: green; font-size: 25px">Winner vote
 							(${maxVoteCount})</p>

@@ -12,11 +12,13 @@
 
 <style>
 table, th, td {
-	border: 1px solid white;
+	border: 1px solid black;
+	
 }
+ 
 </style>
 <div class="body-area">
-
+<br/><br/><br/><br/>
 	<%-- <img
 		src="${pageContext.request.contextPath}/resources/images/prize2.jpg"
 		alt="Avatar" class="page_pic">

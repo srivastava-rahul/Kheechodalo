@@ -20,14 +20,14 @@
 				 <a href="${pageContext.request.contextPath}/user/dashboard">
 				<%-- <img src="${pageContext.request.contextPath}/resources/images/logo1.png" style="width:60%;margin-top:5%;margin-left:15%"/> --%>
 				
-				<p style="font-size: 50px; font-family: Parchment;"><a href="${pageContext.request.contextPath}/user/dashboard" style="color:white;margin-left: 10%" >kheecho Dalo</a></p>
+				<%-- <p style="font-size: 50px; font-family: Parchment;"><a href="${pageContext.request.contextPath}/user/dashboard" style="color:white;margin-left: 10%" >kheecho Dalo</a></p> --%>
 				</a>
 				
 				<div class="clearfix"></div>
 				<br>
 				<div class="user_detail_box">
 				
-				<span class="user_Name"></span>
+				<%-- <span class="user_Name"></span>
 					<span class="user_Name" style="margin-left: 90px;color: white;">
 					<sec:authentication property="principal.firstName" />
 					</span>
@@ -38,7 +38,7 @@
 					<h4 class="user_mail">
 						 
 					</h4>
-
+ --%>
 
 				</div>
 			</div>

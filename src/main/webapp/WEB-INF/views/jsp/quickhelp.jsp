@@ -9,6 +9,7 @@
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/jquery.form-validator.min.js"></script> 
 
 <div class="body-area">
+<br/><br/>
 		<jsp:include page="/WEB-INF/views/jsp/message.jsp" />
 	<div class="Changepassword_password_form">
 		<!-- header -->
@@ -22,13 +23,13 @@
 		<form name="quickhelpForm" action="quickHelpData" method="post">
 			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
 			<div class="Changepasswordformboby">
-				<h3 style="color: yellow">Please tell the Problem you are facing... </h3>
+				<h3 style="color: blue">Please tell the Problem you are facing... </h3>
 				<input type="text" class="Changepassword_form-control" name="problem" id="problem" required="true"
 					placeholder="Please Enter Page or button name" data-validation="length" data-validation-length="3-20" />
 			</div>
 
 			<div class="Changepasswordformboby">
-				<h3 style="color: yellow">Please Provide Decsription of your Problem...</h3>
+				<h3 style="color: blue">Please Provide Decsription of your Problem...</h3>
 				<div style="margin-left: 1%">
 					<textarea name= "quickDesc" id="quickDesc" rows="5" cols="29" style="color: black"
 						placeholder="Please provide a detailed description of your Problems or suggestions."

@@ -38,12 +38,13 @@
 
 .searchBox {
 	/* margin-right: 60px; */
-	/* float: right; */
-	float:left;
-	margin-left:50%;
-	margin-top: 20px;
+	 /* float: right;  */
+	float:left; 
+	/* margin-left:50%; */
+	/* margin-top: 20px; */
 	width: 270px;
 	height: 35px;
+	aligin:center;
 	/* box-sizing: border-box; */
 	/* 	border: 2px solid #ccc;
  */
@@ -73,7 +74,7 @@
 			   <tr><td><span>&nbsp; &nbsp;<i class="fa fa-diamond" style="font-size:28px;color:red"></i><a href="${pageContext.request.contextPath}/user/rules">Rules</a></span></td></tr>
 			   <tr><td><span>&nbsp; &nbsp;<i class="fa fa-gift" style="font-size:28px;color:red"></i><a href="${pageContext.request.contextPath}/user/prizes">Prize</a></span></td></tr>
 			   <tr><td><span>&nbsp; &nbsp;<i class="fa fa-pencil-square-o" style="font-size:28px;color:red"></i><a href="${pageContext.request.contextPath}/user/testimonials">Testimonials</a></span></td></tr>
-              <tr><td><span>&nbsp; &nbsp;<i class="fa fa-envelope-o" style="font-size:28px;color:red"></i><a href="${pageContext.request.contextPath}/user/feedback">feedback</a></span></td></tr>
+              <tr><td><span>&nbsp; &nbsp;<i class="fa fa-envelope-o" style="font-size:28px;color:red"></i><a href="${pageContext.request.contextPath}/user/feedback">Feedback</a></span></td></tr>
 
 		
 		<tr><td><span>&nbsp; &nbsp;<i class="fa fa-info-circle" style="font-size:28px;color:red"></i><a href="${pageContext.request.contextPath}/user/aboutUs">About Us</a></span></tr></td>
@@ -119,17 +120,106 @@
 
 
 	<!-- PAGE HEADER BLOCK -->
-	<div id="page-header" class="bg-gradient-9" style="padding-left: 10px;">
+	<!-- <div id="page-header" class="bg-gradient-9" style="padding-left: 10px;"> -->
 		<!-----------------------------------------------Code for left navigator menu---------------------------------------------------------------- -->
+		
+         <div style="margin-bottom: 0px; background-color: rgba(19, 35, 47, 0.9);height:10%" >
+         
+          <span style="margin-left:1%;font-size: 25px;  cursor: pointer; padding-top: 16; color: #fff; font-style: bold; font-family: Charcoal;" onclick="openNav()"/>&#9776;</span>
+	         <img src="${pageContext.request.contextPath}/resources/images/logo4.png" alt="Avatar" class="" style="width:6%;"/>
+	        
+	        <span> 
+	        <c:if test="${!isAdmin}">
+			<a href="${pageContext.request.contextPath}/user/dashboard" style="color: black;" > <font style="margin-top: 20%;font-size: 50px;color:#1ab188"> khëëchodalo</font></a>
+			</c:if>
+			
+			
+			<c:if test="${isAdmin}">
+			<a href="${pageContext.request.contextPath}/admin/adminDashboard" style="color: black;" ><font style="margin-top: 20%;font-size: 50px;color:#1ab188"> khëëchodalo</font></a>
+			</c:if>
+	         
+	         
+	        <!--  <span class="user_Name"></span> -->
+					
+					<!-- <h4 class="user_mail">
+						 
+					</h4>
+	          -->
+	         
+	         <a id="logout-btn" href="${pageContext.request.contextPath}/logout" title="Logout">
+					<img class="mrg_none" width="30" align="right" src="${pageContext.request.contextPath}/resources/assets/images/logoutbtn.png" style="margin: 18px !important" alt="Profile image">
+				</a>
+				
+				   <span class="user_Name" style="margin-right:2%;color:white;float: right;">
+					<sec:authentication property="principal.firstName" />
+					(<sec:authentication property="principal.emailId" /> )
+					</span>
+					
+	        <div style="margin-left: 40%;">
+	          	<form id="search" method="post" action="${pageContext.request.contextPath}/user/search" >
+					<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
+					    
+                           <input type="text" name="search" class="searchBox" placeholder="&nbsp; Search here by name or email id ..." style="color:black;"/>
+						
+						    <button class="btn btn-default" style="border-radius: 0;height: 35px;" type="submit">
+								<span class="glyphicon glyphicon-search"></span>
+							</button>
+				</form>
+		   </div>
+			
+			
+	      <br/>
+
+	<%-- <div class="col-md-3">	
+			<c:if test="${!isAdmin}">
+			<p style="font-size: 50px; font-family: Parchment;"><a href="${pageContext.request.contextPath}/user/dashboard" style="color: black;" >kheecho Dalo</a></p>
+			</c:if>
+			
+			<c:if test="${isAdmin}">
+			<p style="font-size: 50px; font-family: Parchment;"><a href="${pageContext.request.contextPath}/admin/adminDashboard" style="color: black;" >kheecho Dalo</a></p>
+			</c:if>
+			
+	</div> --%>
+	
+	
+	
+	  <%--   <div class="col-md-5 row">       
+
+				<form id="search" method="post" action="${pageContext.request.contextPath}/user/search">
+					<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
+					<div class="col-md-10" style="padding-right: 0px;">
+						<p align="right">
+							<input type="text" name="search" class="fa fa-search searchBox" placeholder="&nbsp; Search here by name or email id ..." style="color:black;">
+						</p>
+					</div>
+
+					<div class="col-md-2" style="padding-left: 5px;padding-top: 20px;height: 34px;">
+						<p align="left">
+							<button class="btn btn-default" style="border-radius: 0;height: 35px;" type="submit">
+								<span class="glyphicon glyphicon-search"></span>
+							</button>
+						</p>
+					</div>
+				</form>
+			</div> --%>
+			
+	
+	     
+		<%-- 
 		<div class="row">
 			<div class="col-md-3">
-				<span style="font-size: 25px; float: left; cursor: pointer; padding-top: 20; color: #fff; font-style: bold; font-family: Charcoal;" onclick="openNav()">&#9776; Open</span>
+			
+			<span><img src="${pageContext.request.contextPath}/resources/images/logo4.png" alt="Avatar" class="" style="width:20%;float:left"/>
+				<font style="margin-top: 20%;font-size: 50px;color:#1ab188"> khëëchodalo</font>
+				</span>
+				
 			&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 
-			&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
+			&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 
 			&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
 			&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
+			
 			<c:if test="${!isAdmin}">
-			<%-- <p style="font-size: 50px; font-family: Parchment;"><a href="${pageContext.request.contextPath}/user/dashboard" style="color: black;" >kheecho Dalo</a></p> --%>
+			<p style="font-size: 50px; font-family: Parchment;"><a href="${pageContext.request.contextPath}/user/dashboard" style="color: black;" >kheecho Dalo</a></p>
 			</c:if>
 			
 			<c:if test="${isAdmin}">
@@ -159,6 +249,8 @@
 					</div>
 				</form>
 			</div>
+			
+			
 			<div class="col-md-4">
 			
 				<a id="logout-btn" href="${pageContext.request.contextPath}/logout" title="Logout">
@@ -168,7 +260,10 @@
 			</div>
 
 		</div>
-	</div>
+		
+		
+		<!-- header end here -->
+	</div> --%>
 	<script src="${pageContext.request.contextPath}/resources/js/view/home.js"></script>
 	<script src="${pageContext.request.contextPath}/resources/js/bootstrap.min.css"></script>
 	<script src="${pageContext.request.contextPath}/resources/js/bootstrap.min.js"></script>

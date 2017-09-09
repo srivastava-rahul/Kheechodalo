@@ -26,6 +26,7 @@ cute ,cute baby, cute girls, earn money online, photographs, online photography 
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
     padding-top: 100px; /* Location of the box */
+    
     left: 0;
     top: 0;
     width: 100%; /* Full width */
@@ -61,7 +62,7 @@ cute ,cute baby, cute girls, earn money online, photographs, online photography 
 
 body {
 	background:
-		  url(${pageContext.request.contextPath}/resources/images/login_bck.jpg);  
+		 /*  url(${pageContext.request.contextPath}/resources/images/login_bck.jpg); */  
 		  /* url(${pageContext.request.contextPath}/resources/images/5.jpg); */ 
 		height:auto;
 	color: white;
@@ -70,33 +71,29 @@ body {
 </head>
 
 <body>
-	<div style="margin-top: 0%; width: 30%; height: 50%; background-color:">
+	
 
-		<%-- 	<center>
-			<p>
-				<span style="font-size: 50px; font-family: Parchment;">kheecho Dalo</span>
-			</p>
-		</center> --%>
-
-		<center>
-			<p>
-				<img src="${pageContext.request.contextPath}/resources/images/logo4.png" alt="Avatar" class="" style="width:25%;float:left">
-			</p>
-		</center>
-
-	</div>
-	  <div style="margin-top:0 %;margin-left:8% ">
-	<i style="color: yellow">Sign-Up is free and always will be.</br></i>
-	<i style="color: red">In-Order to win Prize (Please Complete your profile as soon as you create account).</i>
+		
+	<div style="margin-bottom: 0px; background-color: rgba(19, 35, 47, 0.9);" >
+	<span>
+	<img src="${pageContext.request.contextPath}/resources/images/logo4.png" alt="Avatar" class="" style="width:6%;float:left"/>
+	</span>
+	 <font style="margin-top: 20%;font-size: 50px;color:#1ab188"> khëëchodalo</font>
+	 <br/><br/>
+	
    </div>
-   
-	<div style="float: right; margin-right: 1%">
-		<button class="buttonvideo" data-tooltip="Visit Here For Site Tour">
-			<span id="myBtn">Video </span>
+	
+	<br/>
+	   <marquee><i style="color: red">Sign Up for free and Win Prize Money*. Note: Please Complete your profile as soon as you create account</i></marquee>
+	<!-- <i style="color: red">In-Order to win Prize (Please Complete your profile as soon as you create account).</i> -->
+	
+		<div style="float: right;">
+	<button class="buttonvideo" data-tooltip="Visit Here For Site Tour">
+			<span id="myBtn">Demo </span>
 		</button>
-
-	</div>
-   <br/>
+		</div>
+	
+	
 	<!-- The Modal -->
 	<div id="myModal" class="modal">
 
@@ -231,39 +228,43 @@ body {
 	<script src="${pageContext.request.contextPath}/resources/js/view/index.js"></script>
 
 	<script src="${pageContext.request.contextPath}/resources/js/view/video.js"></script>
+	
 	<div style="margin-top: 10%; margin-left: 2%; width: 20%;">
+	   <p style="color:green;"> Yesterday's  Winner !</p>
 		<c:if test="${not empty winner}">
-				<img src="data:image/jpeg;base64,${winner.base64Encoded}" alt="Avatar" style="width: 313px; height: 320px; margin: 4px">
+				<img src="data:image/jpeg;base64,${winner.base64Encoded}" alt="Avatar" style="width: 250px; height: 250px; margin: 4px">
 		</c:if>
 		<c:if test="${empty winner}">
-		<img src="${pageContext.request.contextPath}/resources/images/itg.jpg" alt="Avatar" style="width: 313px; height: 320px; margin: 4px">
+		<img src="${pageContext.request.contextPath}/resources/images/itg.jpg" alt="Avatar" style="width: 250px; height: 250px; margin: 4px;">
 		</c:if>
 
 	</div>
 
 	<div class="chip">
 		<img src="${pageContext.request.contextPath}/resources/images/icon-prize.jpg" alt="Person" width="96" height="96">
-		Winner
+		 ${winner.winner_name} 
 	</div>
 
 
-	<div style="margin-top: 5%; width: 100%; height: auto; background-color:">
-		<div style="margin-bottom: 0px; background-color: #06ccb3;" align="center">&copy; 2017 All rights reserved</div>
+	<div style="margin-top: 6%; width: 100%; height: auto;">
+		<div style="margin-bottom: 0px; background-color: #06ccb3;" align="">&copy; 2017 All rights reserved<br/><br/>
 		&nbsp;
-		<div style="color: black">
-			<a href="${pageContext.request.contextPath}/user/privacyOuter">Privacy</a>
+		    <a href="${pageContext.request.contextPath}/user/privacyOuter"><font style="color:blue">Privacy</a>
 			&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
-			<a href="${pageContext.request.contextPath}/user/termsConditionOuter">Terms & Condition</a>
+			<a href="${pageContext.request.contextPath}/user/termsConditionOuter"><font style="color:blue">Terms & Condition</a>
 			&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
-			<a href="${pageContext.request.contextPath}/user/signupdataOuter">Signup-Data</a>
+			<a href="${pageContext.request.contextPath}/user/signupdataOuter"><font style="color:blue">Signup-Data</a>
 			&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
-			<a href="${pageContext.request.contextPath}/user/rulesouter">Rules</a>
+			<a href="${pageContext.request.contextPath}/user/rulesouter"><font style="color:blue">Rules</a>
 			&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
-			<a href="${pageContext.request.contextPath}/user/contactusOuter">Contact</a>
+			<a href="${pageContext.request.contextPath}/user/contactusOuter"><font style="color:blue">Contact</a>
 			&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
-			<a href="${pageContext.request.contextPath}/user/aboutusOuter">About Us</a>
+			<a href="${pageContext.request.contextPath}/user/aboutusOuter"><font style="color:blue">About Us</a>
 			&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
 			<%-- <a href="">Cookies</a> --%>
+		<!-- <div style="color: black"> -->
+			
+		<!-- </div> -->
 		</div>
 	</div>
 

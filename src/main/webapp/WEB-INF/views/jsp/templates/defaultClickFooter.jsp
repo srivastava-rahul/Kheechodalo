@@ -4,26 +4,18 @@
 <link rel="stylesheet" type="text/css" href="<c:url value="/resources/assets/themes/admin/kheecholayout.css"/>">
 
 <div class="clearfix"></div>
-<div class="main-footer" style="margin-bottom: 0px;" align="center">&copy; 2017 All rights reserved</div>
+<div class="main-footer" style="margin-bottom: 0px;height: auto" align="">&copy; 2017 All rights reserved
           &nbsp;
           <div>
-             <a href="${pageContext.request.contextPath}/user/privacy">Privacy</a> &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
-			<a href="${pageContext.request.contextPath}/user/termsandcondition">Terms & Condition</a>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
-			<a href="${pageContext.request.contextPath}/user/signupdata">SignUp-Data</a>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
-			<a href="${pageContext.request.contextPath}/user/rules">Rules</a>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
-			<a href="${pageContext.request.contextPath}/user/contactus">Contact</a>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; 
-			<a href="${pageContext.request.contextPath}/user/aboutUs">About Us</a>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
+             <a href="${pageContext.request.contextPath}/user/privacy"><font style="color:blue">Privacy</a> &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
+			<a href="${pageContext.request.contextPath}/user/termsandcondition"><font style="color:blue">Terms & Condition</a>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
+			<a href="${pageContext.request.contextPath}/user/signupdata"><font style="color:blue">SignUp-Data</a>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
+			<a href="${pageContext.request.contextPath}/user/rules"><font style="color:blue">Rules</a>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
+			<a href="${pageContext.request.contextPath}/user/contactus"><font style="color:blue">Contact</a>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; 
+			<a href="${pageContext.request.contextPath}/user/aboutUs"><font style="color:blue">About Us</a>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
 			<!-- <a href="">Cookies</a>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; -->                  
 			
-			<%-- &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
-			
-			<a href="${pageContext.request.contextPath}/user/adminDashboard">Get User Info</a>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
-			<a href="${pageContext.request.contextPath}/user/adminpicinfo">Get Pics Info </a>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
-			<a href="${pageContext.request.contextPath}/user/adminfeedbackinfo">Get Feedback Info </a>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
-			<a href="${pageContext.request.contextPath}/user/adminquickhelpinfo">Get QuickHelp Info </a>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
-			<a href="${pageContext.request.contextPath}/user/adminsendnotification">Send Notification by Admin </a>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
-			<a href="${pageContext.request.contextPath}/user/adminsendtestimonial">Send Testimonial by Admin </a>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
-			<a href="${pageContext.request.contextPath}/user/adminsendprize">Send Prize by Admin </a>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; --%>
+			</div>
          </div>
          <br/>
          

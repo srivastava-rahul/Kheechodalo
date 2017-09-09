@@ -9,8 +9,8 @@
 		<p class="header_information">About--Us</p>
 	</div>
 		<p>	
-	
-<h2 style="color:white">Welcome to the world of fun and frolic. Welcome to Kheecho-Daalo....! </br>
+	<br/>
+<h4 style="color:">Welcome to the world of fun and frolic. Welcome to Kheecho-Daalo....! </br>
 
 A platform to showcase your amazing pictures and swaggy selfies. Your uploaded pictures will be available on the website for a day which you can share with your friends, family and the likeminded audience of the website. 
 
@@ -20,7 +20,7 @@ With daily competitions running on the website you can win some exciting prizes.
 
 </br></br>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;The sole intention of the website is to promote your photography talent and provide genuine feedback. The website provides a platform to showcase your talent along with learning, sharing and winning amazing prizes. It connects you to the world of like minded.
 
-	</h2>
+	</h4>
 	
 	</p>
 </div>

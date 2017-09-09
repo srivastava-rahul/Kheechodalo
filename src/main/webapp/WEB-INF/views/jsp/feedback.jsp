@@ -8,6 +8,8 @@
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/jquery.form-validator.min.js"></script> 
 
 <div class="body-area">
+
+<br/><br/>
 	<jsp:include page="/WEB-INF/views/jsp/message.jsp" />
 	<div class="Changepassword_password_form">
 		<!-- header -->
@@ -21,7 +23,7 @@
 		<form name="feedbackForm" action="feedbackData" method="post">
 			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
 			<div class="Changepasswordformboby">
-				<h2 style="color: red">Please Provide your Feedback......!!!</h2>
+				<h2 style="color: blue">Please Provide your Feedback......!!!</h2>
 				<div style="margin-left: 1%">
 					<textarea name= "feedback" id="feedback" name="feedback" rows="5" cols="28" style="color: black"
 						placeholder="Please provide a detailed description of your Problems or suggestions."

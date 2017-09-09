@@ -8,12 +8,13 @@
 		<p class="header_information">Rules for participants</p>
 	</div>
 		<p>	
-	<h2><b style="margin-left:2%;color:white">Related to competition</b></h2> </br>
+	<h2><b style="margin-left:2%; color:blue">Related to competition</b></h2> </br>
 
-<h3 style="margin-left:2%; color:white;">
-     1. To participate in the competitions on the website the participant has to upload a picture clicked by them.</br>
-        &nbsp; &nbsp;&nbsp;A participant passing someone else's pictures as their own will be disqualified from entering any competition on &nbsp; &nbsp;&nbsp;the website and will loose the claim to prize even her/his picture receives most votes.</br></br>
-	 2. The pic which receives maximum votes  at  the end of the day will be the winning picture for the day (A competition lasts </br>  &nbsp; &nbsp;&nbsp;for 24 hours only ).</br></br>
+<h4 style="margin-left:2%;">
+    1. To participate in the competitions on the website the participant has to upload a picture clicked by them.</br>
+        &nbsp; &nbsp;&nbsp;A participant passing someone else's pictures as their own will be disqualified from entering any competition on the website and will loose the claim to <br/> &nbsp;&nbsp; prize even her/his picture receives most votes.</br></br>
+	
+    2. The pic which receives maximum votes at the end of the day will be the winning picture for the day (A competition lasts </br>  &nbsp; &nbsp;&nbsp;for 24 hours only ).</br></br>
 
 	3. In-appropriate images all totally discouraged on the website and the user uploading such images will be barred from the website.</br></br>
 
@@ -50,7 +51,7 @@
     17. All the pics automatically get deleted from the site at the end of the day.</br></br>
     
     
-</h3>	</p>
+</h4>	</p>
 
 <span style="color:red"> * condition apply</span>
 </div>

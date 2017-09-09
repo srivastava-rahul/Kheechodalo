@@ -244,7 +244,7 @@ function showSlides(n) {
   <ul class="pagination" style="float:right;margin-right:3%">
   </ul>
      
-  	<form name="searchFormuser" action="searchUserPicbyemailid" method="post" style="margin-left:30%;margin-top:2%">
+ <%--  	<form name="searchFormuser" action="searchUserPicbyemailid" method="post" style="margin-left:30%;margin-top:2%">
 			   <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
 			
 			<div class="Changepasswordformboby">
@@ -254,13 +254,11 @@ function showSlides(n) {
 					<button type="submit" class="button_submit  submit" style="background-color:red">Search</button>
 				    <c:url value="/user/dashboard" var="dashUrl" />
 			</div>
-		</form>
+		</form> --%>
+		<br/>
 		</div>
 		
-		<br/>
-
-
-
+		<br/><br/>
 <jsp:include page="/WEB-INF/views/jsp/message.jsp" />
 	<div >
 		<div class="row">

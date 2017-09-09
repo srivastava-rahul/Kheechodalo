@@ -29,6 +29,7 @@ $(document).ready(function(){
 
 <div class="body-area">
 
+<br/><br/>
 	<jsp:include page="/WEB-INF/views/jsp/message.jsp" />
 	<div class="Changepassword_password_form">
 		<!-- header -->
@@ -43,7 +44,7 @@ $(document).ready(function(){
 			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
 
 			<div class="Changepasswordformboby">
-				<h3 style="color: yellow">Please Enter old Password</h3>
+				<h3 style="color: blue">Please Enter old Password</h3>
 				<input type="password" id="oldPassword" name="oldPassword" class="Changepassword_form-control" placeholder="Enter your old Password" required="true"/>
 		       <div align="right" style ="margin-right: 18px;">
 		        <input type="checkbox" id="pwcheck" />Show Password
@@ -51,12 +52,12 @@ $(document).ready(function(){
 			</div>
 
 			<div class="Changepasswordformboby">
-				<h3 style="color: yellow">Enter new Password</h3>
+				<h3 style="color: blue">Enter new Password</h3>
 				<input type="password" id="newPassword" name="newPassword" class="Changepassword_form-control" placeholder="Enter new Password" required="true" />
 			</div>
 
 			<div class="Changepasswordformboby">
-				<h3 style="color: yellow">Confirm new Password</h3>
+				<h3 style="color: blue">Confirm new Password</h3>
 				<input type="password" id="confirmPassword" name="confirmPassword" class="Changepassword_form-control" placeholder="Confirm new Password" required="true"/>
 			</div>
 

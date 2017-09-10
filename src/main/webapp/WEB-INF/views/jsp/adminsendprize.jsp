@@ -7,9 +7,13 @@
 	src="${pageContext.request.contextPath}/resources/js/jquery-1.4.2.min.js"></script>
 
 <div class="body-area">
+<br/><br/> <br/><br/>
    <jsp:include page="/WEB-INF/views/jsp/message.jsp" />
 <div style="margin-left: 25%">
-<h3 style="color: yellow">Please tell What to be search enter here... </h3>
+
+
+
+<h3 style="color: blue">Please tell What to be search enter here... </h3>
 <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search By Email..." title="Type in Email" style = "width: 452px; height: 38px;">
 	</div>
 	</br>
@@ -17,6 +21,31 @@
 
 
 	<jsp:include page="/WEB-INF/views/jsp/message.jsp" />
+	
+		
+	<br/><br/>
+	
+	<table id="myTable" style="margin-left: 5%; width: 90%; padding: 5%; color: white" border="1">
+		<tr class="header">
+			<th height="40"><center>Date</center></th>
+			<th height="40"><center>Sponsor-By</center></th>
+			<th height="40"><center>Prize</center></th>
+			<th height="40"><center>Action Button</center></th>
+			
+		</tr>
+		<c:forEach var="prz" items="${prize}">
+			<tr>
+				<td><center><fmt:formatDate value="${prz.prizeDate}" pattern="dd/MM/yyyy"/></center></td>
+				<td><center>${prz.sponsor}</center></td>
+				<td><center>${prz.prizeAmount}</center></td>
+				<td><center>
+						<a href="${pageContext.request.contextPath}/admin/admindeleteprize/${prz.id}">Delete</a>
+					</center></td>
+			</tr>
+		</c:forEach>
+
+	</table>
+	
 	<div class="Changepassword_password_form">
 		<!-- header -->
 		<div class="Changepasswordformheader">
@@ -65,29 +94,6 @@
 			</div>
 		</form>
 	</div>
-		
-	<br/><br/><br/><br/>
-	
-	<table id="myTable" style="margin-left: 5%; width: 90%; padding: 5%; color: white" border="1">
-		<tr class="header">
-			<th height="40"><center>Date</center></th>
-			<th height="40"><center>Sponsor-By</center></th>
-			<th height="40"><center>Prize</center></th>
-			<th height="40"><center>Action Button</center></th>
-			
-		</tr>
-		<c:forEach var="prz" items="${prize}">
-			<tr>
-				<td><center><fmt:formatDate value="${prz.prizeDate}" pattern="dd/MM/yyyy"/></center></td>
-				<td><center>${prz.sponsor}</center></td>
-				<td><center>${prz.prizeAmount}</center></td>
-				<td><center>
-						<a href="${pageContext.request.contextPath}/admin/admindeleteprize/${prz.id}">Delete</a>
-					</center></td>
-			</tr>
-		</c:forEach>
-
-	</table>
 	
 	
 	

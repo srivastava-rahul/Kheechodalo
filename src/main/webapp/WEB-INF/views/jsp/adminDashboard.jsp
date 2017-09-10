@@ -9,7 +9,7 @@
 	src="${pageContext.request.contextPath}/resources/js/jquery-1.4.2.min.js"></script>
 <style>
 table, th, td {
-	border: 1px solid white;
+	border: 1px solid black;
 }
 </style>
 
@@ -35,7 +35,7 @@ table, th, td {
 		</div>
 	</form> --%>
 	<div style="margin-left:25%">
-	<h3 style="color: yellow">Please tell What to be search enter here... </h3>
+	<h3 style="color: blue">Please tell What to be search enter here... </h3>
 	<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search By Email..." title="Type in Email" style = "width: 452px; height: 38px;">
 	</div>
 	</br>

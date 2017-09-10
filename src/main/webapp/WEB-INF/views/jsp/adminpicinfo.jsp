@@ -94,14 +94,14 @@
 	<div class="information">
 		<p class="header_information">Pics Information for Admin</p>
 	</div>
-		<p style="color:yellow"> Admin Pic info</p>
+		<p style="color:red"> Admin Pic info</p>
 	<div style="margin-left:25%">
 	
 	<form name="deleteForm" action="${pageContext.request.contextPath}/admin/adminDeletePic" method="post">
 			   <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
 			
 			<div class="Changepasswordformboby">
-				<h3 style="color: yellow;margin-left:0%;">Please tell What to be deleted enter the id... </h3>
+				<h3 style="color: blue;margin-left:0%;">Please tell What to be deleted enter the id... </h3>
 				<input type="text"  name="picId" id="picId" style = "width: 452px; height: 40px;margin-left:0%" placeholder="Please Enter id" />
 					
 					<button type="submit" class="button_submit  submit" style="background-color:red">Delete</button>
@@ -109,7 +109,7 @@
 			</div>
 		</form>
 		
-<h3 style="color: yellow">Please tell What to be search enter here... </h3>
+<h3 style="color: blue">Please tell What to be search enter here... </h3>
 <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search By Email..." title="Type in Email" style = "width: 452px; height: 38px;">
 	</div>
 	</br>

@@ -26,7 +26,7 @@
 		</br></br>
 		
 		
-		<h3 style="color: yellow;margin-left: 25%">Please tell What to be search enter here... </h3>
+		<h3 style="color: blue;margin-left: 25%">Please tell What to be search enter here... </h3>
     <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search By Email..." title="Type in Email" style = "width: 452px; height: 38px;;margin-left: 25%"/>
 	</br></br>
 	

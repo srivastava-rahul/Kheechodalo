@@ -6,9 +6,11 @@
 	src="${pageContext.request.contextPath}/resources/js/jquery-1.4.2.min.js"></script>
 
 <div class="body-area">
+
+<br/><br/><br/><br/>
     <jsp:include page="/WEB-INF/views/jsp/message.jsp" />
 <div style="margin-left: 25%">
-    <h3 style="color: yellow">Please tell What to be search enter here... </h3>
+    <h3 style="color: blue">Please tell What to be search enter here... </h3>
     <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search By Email..." title="Type in Email" style = "width: 452px; height: 38px;">
 	</div>
 	</br>

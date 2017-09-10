@@ -229,7 +229,7 @@ body {
 
 	<script src="${pageContext.request.contextPath}/resources/js/view/video.js"></script>
 	
-	<div style="margin-top: 10%; margin-left: 2%; width: 20%;">
+	<div style="margin-top: 6%; margin-left: 2%; width: 20%;">
 	   <p style="color:green;"> Yesterday's  Winner !</p>
 		<c:if test="${not empty winner}">
 				<img src="data:image/jpeg;base64,${winner.base64Encoded}" alt="Avatar" style="width: 250px; height: 250px; margin: 4px">
@@ -246,7 +246,7 @@ body {
 	</div>
 
 
-	<div style="margin-top: 6%; width: 100%; height: auto;">
+	<div style="margin-top: 10%; width: 100%; height: auto;">
 		<div style="margin-bottom: 0px; background-color: #06ccb3;" align="">&copy; 2017 All rights reserved<br/><br/>
 		&nbsp;
 		    <a href="${pageContext.request.contextPath}/user/privacyOuter"><font style="color:blue">Privacy</a>

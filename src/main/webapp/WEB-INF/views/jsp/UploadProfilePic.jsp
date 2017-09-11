@@ -38,10 +38,10 @@
 					<img id="picImageHolder" src="${pageContext.request.contextPath}/resources/images/logo-image.png" alt="Picture" style="width: 304px; height: 320px; margin: 1px" onclick="$('#picImg').click()" />
 					<div class="row">
 						<div class="col-md-6">
-							<a href="javascript:" onclick="$('#picImg').click()" style="color: #eee;">Select Pic</a>
+							<a href="javascript:" onclick="$('#picImg').click()" style="color:black;">Select Pic</a>
 						</div>
 						<div class="col-md-6">
-							<a href="javascript:" id="removeLogo" style="float: right; color: #eee;">Remove Pic</a>
+							<a href="javascript:" id="removeLogo" style="float: right; color: black;">Remove Pic</a>
 						</div>
 					</div>
 					<input type="file" accept="image/*" style="visibility: hidden" name="picImg" id="picImg">

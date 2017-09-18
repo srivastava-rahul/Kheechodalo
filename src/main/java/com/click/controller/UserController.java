@@ -88,6 +88,26 @@ public class UserController {
 	public String saveUser(@RequestParam String firstName, @RequestParam String lastName, @RequestParam String email,
 			@RequestParam String password, Model model, RedirectAttributes redir) {
 		LOG.info("Inside saveUser controller");
+		
+		System.out.println("helllllooooooooooo"+firstName+""+lastName+""+email+""+password);
+		  String str=null;
+		if(firstName.equals(null) || firstName.equals("") || lastName.equals(null) || lastName.equals("") || email.equals(null) || email.equals("")|| password.equals(null) || password.equals(""))
+		{
+			  if(firstName.equals(null) || firstName.equals("")||lastName.equals(null) || lastName.equals(""))
+			  {
+				    str="Please Provide Name...!";
+			  }
+			  else if(email.equals(null) || email.equals("")){
+				  str="Please Provide Email-Id...!";
+			  }
+			  else if(password.equals(null) || password.equals("")){
+				  str="Please Provide Password...!";
+			  }
+			redir.addFlashAttribute("error", str);
+			return "redirect:/login";
+		}else{
+		
+		
 		try {
 			User userexit = userService.getUserDeatilsByEmailId(email);
 			if (userexit != null) {
@@ -118,6 +138,7 @@ public class UserController {
 			redir.addFlashAttribute("error", "Error Sending Mail.");
 		}
 		return "redirect:/login";
+		}
 	}
 
 	/**

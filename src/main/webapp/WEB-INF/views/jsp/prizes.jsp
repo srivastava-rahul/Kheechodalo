@@ -44,9 +44,10 @@ table, th, td {
 			</tr>
 
 			<c:forEach var="prize" items="${prize}">
-				<tr>
-					<fmt:formatDate value="${prize.prizeDate}" pattern="dd/MM/yyyy"
+				<tr>	
+						 <fmt:formatDate value="${prize.prizeDate}" pattern="dd/MMM/yyyy"
 						var="myValue" />
+		   
 					<td><center>${myValue}</center></td>
 					<td><center>${prize.sponsor}</center></td>
 					<td><center>${prize.prizeAmount}</center></td>

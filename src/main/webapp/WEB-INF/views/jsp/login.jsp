@@ -20,6 +20,7 @@ cute ,cute baby, cute girls, earn money online, photographs, online photography 
 <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,300,600' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/css/style.css">
+
 <style>
 .modal {
     display: none; /* Hidden by default */
@@ -62,18 +63,18 @@ cute ,cute baby, cute girls, earn money online, photographs, online photography 
 
 body {
 	background:
-		 /*  url(${pageContext.request.contextPath}/resources/images/login_bck.jpg); */  
+		     url(${pageContext.request.contextPath}/resources/images/1.jpg);   
 		  /* url(${pageContext.request.contextPath}/resources/images/5.jpg); */ 
-		height:auto;
-	color: white;
+		   height:auto;
+	   color: white;
+	   
+	   
 }
 </style>
 </head>
 
 <body>
-	
 
-		
 	<div style="margin-bottom: 0px; background-color: rgba(19, 35, 47, 0.9);" >
 	<span>
 	<img src="${pageContext.request.contextPath}/resources/images/logo4.png" alt="Avatar" class="" style="width:6%;float:left"/>
@@ -84,7 +85,7 @@ body {
    </div>
 	
 	<br/>
-	   <marquee><i style="color: red">Sign Up for free and Win Prize Money*. Note: Please Complete your profile as soon as you create account</i></marquee>
+	   <marquee><i style="color: red;background-color:yellow ">Sign Up for free and Win Prize Money*. Note: Please Complete your profile as soon as you create account</i></marquee>
 	<!-- <i style="color: red">In-Order to win Prize (Please Complete your profile as soon as you create account).</i> -->
 	
 		<div style="float: right;">
@@ -118,7 +119,7 @@ body {
 		</div>
 	</div>
 	<br />
-	<div style="color: red; margin-left: 8%; background: white; width:6%;"><jsp:include page="/WEB-INF/views/jsp/message.jsp" /></div>
+	<div style="color: red; margin-left: 8%; background: grey; width:15%;"><jsp:include page="/WEB-INF/views/jsp/message.jsp" /></div>
 
 	
 	<div class="form">
@@ -185,12 +186,13 @@ body {
 							<input type="text" id="lastName" name="lastName" />
 						</div>
 					</div>
-
+                  <font style="color:red"> Please Provide Authenticated Email id Otherwise Account De-Activate within 1 day</font>
 					<div class="field-wrap">
 						<label>
-							Email Address
+							Email Address 
 							<span class="req">*</span>
 						</label>
+						
 						<input type="email" id="email" name="email" />
 					</div>
 
@@ -229,8 +231,8 @@ body {
 
 	<script src="${pageContext.request.contextPath}/resources/js/view/video.js"></script>
 	
-	<div style="margin-top: 6%; margin-left: 2%; width: 20%;">
-	   <p style="color:green;"> Yesterday's  Winner !</p>
+	<div style="margin-top: 6%; margin-left: 2%; width: 11%;">
+	   <p style="color:blue;background-color: white;margin-left:8% "> Yesterday's  Winner...!</p>
 		<c:if test="${not empty winner}">
 				<img src="data:image/jpeg;base64,${winner.base64Encoded}" alt="Avatar" style="width: 250px; height: 250px; margin: 4px">
 		</c:if>
@@ -267,6 +269,7 @@ body {
 		<!-- </div> -->
 		</div>
 	</div>
+
 
 </body>
 </html>

@@ -15,8 +15,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.click.entity.ProfileSetting;
 import com.click.entity.User;
 import com.click.entity.UserRole;
+import com.click.service.AdminGetUserInfoService;
+import com.click.service.ProfileSettingService;
 import com.click.service.SendMailService;
 import com.click.service.UserService;
 import com.click.utils.Global;
@@ -36,11 +39,18 @@ public class UserController {
 	@Autowired
 	UserService userService;
 
+	@Autowired
+	AdminGetUserInfoService adminGetUserInfoService;
+
+	@Autowired
+	ProfileSettingService profileSettingService;
+
 	/**
 	 * Get user information to land him to the user panel
+	 * 
 	 * @param userId
 	 * @param model
-	 * @return to  user page
+	 * @return to user page
 	 */
 	@RequestMapping(value = "/getUser/{userId}", method = RequestMethod.GET)
 	public String getUser(@PathVariable String userId, Model model) {
@@ -58,6 +68,7 @@ public class UserController {
 
 	/**
 	 * View user
+	 * 
 	 * @param model
 	 * @return to user page
 	 */
@@ -76,7 +87,8 @@ public class UserController {
 	}
 
 	/**
-	 * Save user singup data 
+	 * Save user singup data
+	 * 
 	 * @param firstName
 	 * @param lastName
 	 * @param email
@@ -88,61 +100,58 @@ public class UserController {
 	public String saveUser(@RequestParam String firstName, @RequestParam String lastName, @RequestParam String email,
 			@RequestParam String password, Model model, RedirectAttributes redir) {
 		LOG.info("Inside saveUser controller");
-		
-		System.out.println("helllllooooooooooo"+firstName+""+lastName+""+email+""+password);
-		  String str=null;
-		if(firstName.equals(null) || firstName.equals("") || lastName.equals(null) || lastName.equals("") || email.equals(null) || email.equals("")|| password.equals(null) || password.equals(""))
-		{
-			  if(firstName.equals(null) || firstName.equals("")||lastName.equals(null) || lastName.equals(""))
-			  {
-				    str="Please Provide Name...!";
-			  }
-			  else if(email.equals(null) || email.equals("")){
-				  str="Please Provide Email-Id...!";
-			  }
-			  else if(password.equals(null) || password.equals("")){
-				  str="Please Provide Password...!";
-			  }
+
+		System.out.println("helllllooooooooooo" + firstName + "" + lastName + "" + email + "" + password);
+		String str = null;
+		if (firstName.equals(null) || firstName.equals("") || lastName.equals(null) || lastName.equals("")
+				|| email.equals(null) || email.equals("") || password.equals(null) || password.equals("")) {
+			if (firstName.equals(null) || firstName.equals("") || lastName.equals(null) || lastName.equals("")) {
+				str = "Please Provide Name...!";
+			} else if (email.equals(null) || email.equals("")) {
+				str = "Please Provide Email-Id...!";
+			} else if (password.equals(null) || password.equals("")) {
+				str = "Please Provide Password...!";
+			}
 			redir.addFlashAttribute("error", str);
 			return "redirect:/login";
-		}else{
-		
-		
-		try {
-			User userexit = userService.getUserDeatilsByEmailId(email);
-			if (userexit != null) {
-				redir.addFlashAttribute("error", "Email-id Already Exit...!");
-				return "redirect:/login";
-			}
-			BCryptPasswordEncoder enc = new BCryptPasswordEncoder();
-			String pass = enc.encode(password);
-			User user = new User();
-			user.setFirstName(StringUtils.checkString(firstName));
-			user.setLastName(StringUtils.checkString(lastName));
-			user.setEmailId(StringUtils.checkString(email));
-			user.setPassword(pass);
-			user.setCreatedDate(new Date());
-			user.setAdmin(false);
-			UserRole role = new UserRole();
-			role.setId("111");
-			user.setUserRole(role);
-			user = userService.saveUser(user);
+		} else {
 
-			sendRegistrationEmail(new String[] { user.getEmailId() }, user.getFirstName(), user.getId(),
-					"Thanks For Registration");
-			redir.addFlashAttribute("success", "Please Visit Your Email Id For Activation .");
-			LOG.info("user object :" + user.toLogString());
-		} catch (Exception e) {
-			LOG.error(e.getMessage(), e);
-			e.printStackTrace();
-			redir.addFlashAttribute("error", "Error Sending Mail.");
-		}
-		return "redirect:/login";
+			try {
+				User userexit = userService.getUserDeatilsByEmailId(email);
+				if (userexit != null) {
+					redir.addFlashAttribute("error", "Email-id Already Exit...!");
+					return "redirect:/login";
+				}
+				BCryptPasswordEncoder enc = new BCryptPasswordEncoder();
+				String pass = enc.encode(password);
+				User user = new User();
+				user.setFirstName(StringUtils.checkString(firstName));
+				user.setLastName(StringUtils.checkString(lastName));
+				user.setEmailId(StringUtils.checkString(email));
+				user.setPassword(pass);
+				user.setCreatedDate(new Date());
+				user.setAdmin(false);
+				UserRole role = new UserRole();
+				role.setId("111");
+				user.setUserRole(role);
+				user = userService.saveUser(user);
+
+				sendRegistrationEmail(new String[] { user.getEmailId() }, user.getFirstName(), user.getId(),
+						"Thanks For Registration");
+				redir.addFlashAttribute("success", "Please Visit Your Email Id For Activation .");
+				LOG.info("user object :" + user.toLogString());
+			} catch (Exception e) {
+				LOG.error(e.getMessage(), e);
+				e.printStackTrace();
+				redir.addFlashAttribute("error", "Error Sending Mail.");
+			}
+			return "redirect:/login";
 		}
 	}
 
 	/**
 	 * Activating the user
+	 * 
 	 * @param id
 	 * @param model
 	 * @return to login page only
@@ -163,22 +172,22 @@ public class UserController {
 		return "WEB-INF/views/jsp/login";
 	}
 
-	
-	
 	/**
 	 * fetching the forgot password form
+	 * 
 	 * @return to forgetPassword page
 	 */
 	@RequestMapping(value = "/forgetPassword", method = RequestMethod.GET)
 	public String forgetPassword() {
 		LOG.info("Inside forgetPassword controller ");
+
 		System.out.println(" forgetPassword() ");
 		return "forgetPassword";
 	}
 
-	
 	/**
 	 * fetching the change password form based on id
+	 * 
 	 * @param id
 	 * @param model
 	 * @return to changePassword page
@@ -190,38 +199,52 @@ public class UserController {
 		return "changePassword";
 	}
 
-	
-	
 	/**
 	 * recovering the password
+	 * 
 	 * @param email
 	 * @param model
 	 * @return to login page
 	 */
 	@RequestMapping(value = "/recoverPassword", method = RequestMethod.POST)
-	public String recoverPassword(@RequestParam String email, Model model) {
-		LOG.info(" Inside recoverPassword controller " + email);
+	public String recoverPassword(@RequestParam String email, @RequestParam long phone, Model model,
+			RedirectAttributes redir) {
+		LOG.info(" Inside recoverPassword controller " + email + " Phone :" + phone);
 		try {
 			User user = userService.getUserDeatilsByEmailId(email);
-			LOG.debug(" User FirstName :" + user.getFirstName());
-			sendForgrtPasswordEmail(new String[] { email }, user.getFirstName(), user.getId(),
-					"Change Password Request");
-			model.addAttribute("success", "Recovery mail send to your Registered E-mail Id");
+			if (user != null) {
+				ProfileSetting profileSetting = profileSettingService.findByEmailId(email);
+				if (profileSetting != null && profileSetting.getPhone() != 0 && profileSetting.getPhone() == phone) {
+					LOG.info("Checking Phone No. Is same or different");
+					return "redirect:/changePassword/" + user.getId();
+				} else {
+					redir.addFlashAttribute("error", "Your entered Phone Number is wrong");
+					return "redirect:/login";
+				}
+			}else{
+				redir.addFlashAttribute("error", "Account Does Not Exist ,please Sign Up first ");
+				return "redirect:/login";
+			}
+
+			// sendForgrtPasswordEmail(new String[] { email },
+			// user.getFirstName(), user.getId(),"Change Password Request");
+
 		} catch (Exception e) {
 			LOG.error(e.getMessage(), e);
 			e.printStackTrace();
 		}
-		return "login";
+		return null;
 	}
 
 	/**
 	 * Newly recovery password
+	 * 
 	 * @param password
 	 * @param id
 	 * @return to login page
 	 */
 	@RequestMapping(value = "/newRecoverPassword", method = RequestMethod.POST)
-	public String newRecoverPassword(@RequestParam String password, @RequestParam String id) {
+	public String newRecoverPassword(@RequestParam String password, @RequestParam String id ,RedirectAttributes redir) {
 		LOG.info(" newRecoverPassword() " + password);
 		try {
 			BCryptPasswordEncoder enc = new BCryptPasswordEncoder();
@@ -230,12 +253,13 @@ public class UserController {
 			LOG.info(" User FirstName :" + persistObject.getPassword());
 			persistObject.setPassword(forPass);
 			userService.updateUserDetails(persistObject);
+			redir.addFlashAttribute("success", "Your password changed successfully");
 
 		} catch (Exception e) {
 			LOG.error("Error activate user");
 			e.printStackTrace();
 		}
-		return "login";
+		return "redirect:/login";
 	}
 
 	private void sendForgrtPasswordEmail(String[] mailTo, String userName, String id, String message) {

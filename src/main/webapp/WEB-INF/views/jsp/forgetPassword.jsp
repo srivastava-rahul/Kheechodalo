@@ -26,6 +26,12 @@
 				    <h2>Please enter your email address </h2>
 					<input type="email" id="email" name="email" class ="form-control" placeholder="Please Enter your email-id"/></p>
 					</div>	
+					
+					<div class="forgetformboby">
+				    <h2>Please enter your phone No. </h2>
+					<input type="text" id="phone" name="phone" class ="form-control" placeholder="Please Enter your Phone"/></p>
+					</div>	
+					
 				<br/><br/>
 			<div class="forgetformfooter" align="right">
 			<button type="submit" class="button_submit  submit">Send</button>

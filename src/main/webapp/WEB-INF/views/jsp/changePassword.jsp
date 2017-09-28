@@ -30,7 +30,7 @@
 		<br/><br/>
 		<div class="forgetformfooter" align="right">
 		<button type="submit" class="button_submit  submit">Reset</button>
-			<button class="button_submit  submit" style="width: 98px;margin-right: 12px" style="margin-right: 12px;">Cancel</button>
+			<button class="button_submit  submit" style="width: 98px;margin-right: 12px" style="margin-right: 12px;" href="${pageContext.request.contextPath}/user/forgetPassword">Cancel</button>
 		</div>
 		</form>
     </div>

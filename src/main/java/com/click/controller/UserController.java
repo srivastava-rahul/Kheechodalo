@@ -101,7 +101,7 @@ public class UserController {
 			@RequestParam String password, Model model, RedirectAttributes redir) {
 		LOG.info("Inside saveUser controller");
 
-		System.out.println("helllllooooooooooo" + firstName + "" + lastName + "" + email + "" + password);
+		//System.out.println("helllllooooooooooo" + firstName + "" + lastName + "" + email + "" + password);
 		String str = null;
 		if (firstName.equals(null) || firstName.equals("") || lastName.equals(null) || lastName.equals("")
 				|| email.equals(null) || email.equals("") || password.equals(null) || password.equals("")) {
@@ -134,11 +134,13 @@ public class UserController {
 				UserRole role = new UserRole();
 				role.setId("111");
 				user.setUserRole(role);
+				user.setStatus(true);
 				user = userService.saveUser(user);
 
-				sendRegistrationEmail(new String[] { user.getEmailId() }, user.getFirstName(), user.getId(),
-						"Thanks For Registration");
-				redir.addFlashAttribute("success", "Please Visit Your Email Id For Activation .");
+				/*sendRegistrationEmail(new String[] { user.getEmailId() }, user.getFirstName(), user.getId(),
+						"Thanks For Registration");*/
+				/*redir.addFlashAttribute("success", "Please Visit Your Email Id For Activation .");*/
+				redir.addFlashAttribute("success", "Thanks For Registration Please Login to Activate Your Account.");
 				LOG.info("user object :" + user.toLogString());
 			} catch (Exception e) {
 				LOG.error(e.getMessage(), e);

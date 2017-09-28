@@ -28,14 +28,14 @@
 					</div>	
 					
 					<div class="forgetformboby">
-				    <h2>Please enter your phone No. </h2>
+				    <h2>Please enter your paytm No. </h2>
 					<input type="text" id="phone" name="phone" class ="form-control" placeholder="Please Enter your Phone"/></p>
 					</div>	
 					
 				<br/><br/>
 			<div class="forgetformfooter" align="right">
 			<button type="submit" class="button_submit  submit">Send</button>
-			<button class="button_submit  submit" style="width: 98px;margin-right: 12px">Cancel</button>
+			<!-- <button class="button_submit  submit" style="width: 98px;margin-right: 12px">Cancel</button> -->
 		</div>
 		</form>
 	</div>

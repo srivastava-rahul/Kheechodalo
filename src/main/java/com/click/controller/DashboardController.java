@@ -152,7 +152,8 @@ public class DashboardController {
 					userDetails.setPassword(conPass);
 					userService.updateUserDetails(userDetails);
 					model.addAttribute("success", "Your password has been Changed Successfully .");
-					return "dashboard";
+					//return "dashboard";
+					return "redirect:/user/dashboard";
 				}
 			}else{
 				model.addAttribute("error", "Your entered Old Password Is Incorrect");

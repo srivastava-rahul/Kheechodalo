@@ -146,7 +146,7 @@
 				   </table>
 				    </div>
 				
-				   <br/><br/><span style="color:yellow">click here</span>
+				   <br/><br/><span style="color:red">click here</span>
 		       <img src="${pageContext.request.contextPath}/resources/images/animatedArrow.gif" width="3%"height="3%" />
 			   <button class="accordion"><b>Advance information</b></button>
 				 

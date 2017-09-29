@@ -224,15 +224,15 @@ public class UserController {
 	 * @return to login page
 	 */
 	@RequestMapping(value = "/recoverPassword", method = RequestMethod.POST)
-	public String recoverPassword(@RequestParam String email, @RequestParam long phone, Model model,
+	public String recoverPassword(@RequestParam String email, @RequestParam String paytm, Model model,
 			RedirectAttributes redir) {
-		LOG.info(" Inside recoverPassword controller " + email + " Phone :" + phone);
+		LOG.info(" Inside recoverPassword controller " + email + " Phone :" + paytm);
 		try {
 			User user = userService.getUserDeatilsByEmailId(email);
 			if (user != null) {
 				ProfileSetting profileSetting = profileSettingService.findByEmailId(email);
-				if (profileSetting != null && profileSetting.getPhone() != 0 && profileSetting.getPhone() == phone) {
-					LOG.info("Checking Phone No. Is same or different");
+				if (profileSetting != null && profileSetting.getPaytm() != "0" && profileSetting.getPaytm().equals(paytm)) {
+					LOG.info("Checking Paytm No. Is same or different");
 					return "redirect:/changePassword/" + user.getId();
 				} else {
 					redir.addFlashAttribute("error", "Your entered Phone Number is wrong");

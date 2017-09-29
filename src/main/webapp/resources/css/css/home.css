@@ -413,7 +413,7 @@ html {
     font-size: 16px;
     cursor: pointer;
 	position :relative;
-	margin-left:42%;
+	margin-left:40%;
 }
 .success {background-color: #4CAF50;} Green
 .success:hover {background-color: #46a049;}
@@ -470,7 +470,7 @@ background-color:rgba(0, 212, 163, 0.21);
 
 .containersearch {
   width:80%;
-  height:20%;
+  height:auto;
   border: 2px solid black;
   background-color: white;
   border-radius: 10px;

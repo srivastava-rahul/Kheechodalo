@@ -29,7 +29,7 @@
 					
 					<div class="forgetformboby">
 				    <h2>Please enter your paytm No. </h2>
-					<input type="text" id="phone" name="phone" class ="form-control" placeholder="Please Enter your Phone"/></p>
+					<input type="text" id="phone" name="paytm" class ="form-control" placeholder="Please Enter your Phone"/></p>
 					</div>	
 					
 				<br/><br/>

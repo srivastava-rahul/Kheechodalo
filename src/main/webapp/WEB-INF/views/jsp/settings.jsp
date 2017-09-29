@@ -156,7 +156,7 @@
 						</td>
 					</tr>
 				</table>
-				<button class="btn_setting success">Submit</button>
+				<button class="btn_setting success">Send</button>
 			</center>
 		</form:form>
 
@@ -247,7 +247,7 @@
 						</td>
 					</tr>
 				</table>
-				<button class="btn_setting success">Submit</button>
+				<button class="btn_setting success">Send</button>
 			</center>
 		</form:form>
 

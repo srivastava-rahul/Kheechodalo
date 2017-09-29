@@ -252,7 +252,7 @@ textarea {
 
 .modal-header {
     padding: 2px 16px;
-    background-color: #5cb85c;
+    background-color: rgba(83, 220, 100, 0.88);
     color: white;
 }
 
@@ -263,7 +263,7 @@ textarea {
 
 .modal-footer {
     padding: 2px 16px;
-    background-color: #5cb85c;
+    background-color: rgba(83, 220, 100, 0.88);
     color: white;
 }
 /*******************************Video Button*****************************************************************/

@@ -97,7 +97,8 @@ public class ProfileSettingsController {
 			e.printStackTrace();
 			model.addAttribute("error", e.getMessage());
 		}
-		return "settings";
+		//return "settings";
+		return "redirect:/user/getProfileSettings";
 	}
 
 	/**

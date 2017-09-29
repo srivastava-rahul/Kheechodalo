@@ -100,18 +100,33 @@ public class UserController {
 	public String saveUser(@RequestParam String firstName, @RequestParam String lastName, @RequestParam String email,
 			@RequestParam String password, Model model, RedirectAttributes redir) {
 		LOG.info("Inside saveUser controller");
-
-		//System.out.println("helllllooooooooooo" + firstName + "" + lastName + "" + email + "" + password);
 		String str = null;
-		if (firstName.equals(null) || firstName.equals("") || lastName.equals(null) || lastName.equals("")
-				|| email.equals(null) || email.equals("") || password.equals(null) || password.equals("")) {
-			if (firstName.equals(null) || firstName.equals("") || lastName.equals(null) || lastName.equals("")) {
-				str = "Please Provide Name...!";
-			} else if (email.equals(null) || email.equals("")) {
-				str = "Please Provide Email-Id...!";
-			} else if (password.equals(null) || password.equals("")) {
-				str = "Please Provide Password...!";
-			}
+		if(firstName.equals(null) || firstName.equals("") || lastName.equals(null) || lastName.equals("") || email.equals(null) || email.equals("")|| password.equals(null) || password.equals(""))
+		{
+			  if(firstName.equals(null) || firstName.equals("")||firstName.toLowerCase().contains("<script>")||
+					  lastName.equals(null) || lastName.equals(""))
+			  {
+				    str="Please Provide Name...!";
+			  }
+			  else if(firstName.toLowerCase().contains("<?>")||firstName.toLowerCase().contains("<*>")||
+					  firstName.toLowerCase().contains("</script>")||firstName.toLowerCase().contains("<>")||lastName.toLowerCase().contains("<script>")||lastName.toLowerCase().contains("<?>")||lastName.toLowerCase().contains("<*>")||
+					  lastName.toLowerCase().contains("</script>")||lastName.toLowerCase().contains("<>")){
+				   str="Please Provide Valid Name...!";
+			  }
+			  else if(email.equals(null) || email.equals("")||email.toLowerCase().contains("<script>")||email.toLowerCase().contains("<?>")||email.toLowerCase().contains("<*>")||
+					  email.toLowerCase().contains("</script>")||email.toLowerCase().contains("<>")){
+				  str="Please Provide Email-Id...!";
+			  }else if(email.toLowerCase().contains("<script>")||email.toLowerCase().contains("<?>")||email.toLowerCase().contains("<*>")||
+					  email.toLowerCase().contains("</script>")||email.toLowerCase().contains("<>")){
+				  str="Please Provide Valid Email-Id...!";
+			  }
+			  else if(password.equals(null) || password.equals("")||password.toLowerCase().contains("<script>")||password.toLowerCase().contains("<?>")||password.toLowerCase().contains("<*>")||
+					  password.toLowerCase().contains("</script>")||password.toLowerCase().contains("<>")){
+				  str="Please Provide Password...!";
+			  }else if(password.toLowerCase().contains("<script>")||password.toLowerCase().contains("<?>")||password.toLowerCase().contains("<*>")||
+					  password.toLowerCase().contains("</script>")||password.toLowerCase().contains("<>")){
+				  str="Please Provide Valid Password...!";
+			  }
 			redir.addFlashAttribute("error", str);
 			return "redirect:/login";
 		} else {

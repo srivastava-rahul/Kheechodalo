@@ -4,15 +4,15 @@
 <link rel="stylesheet" type="text/css" href="<c:url value="/resources/assets/themes/admin/kheecholayout.css"/>">
 
 <div class="clearfix"></div>
-<div class="main-footer" style="margin-bottom: 0px;height: auto" align="">&copy; 2017 All rights reserved
+<div class="main-footer" style="margin-bottom: 0px;height: auto;background-color: rgba(19, 35, 47, 0.9);" align="">&copy; 2017 All rights reserved
           &nbsp;
           <div>
-             <a href="${pageContext.request.contextPath}/user/privacy"><font style="color:blue">Privacy</a> &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
-			<a href="${pageContext.request.contextPath}/user/termsandcondition"><font style="color:blue">Terms & Condition</a>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
-			<a href="${pageContext.request.contextPath}/user/signupdata"><font style="color:blue">SignUp-Data</a>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
-			<a href="${pageContext.request.contextPath}/user/rules"><font style="color:blue">Rules</a>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
-			<a href="${pageContext.request.contextPath}/user/contactus"><font style="color:blue">Contact</a>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; 
-			<a href="${pageContext.request.contextPath}/user/aboutUs"><font style="color:blue">About Us</a>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
+             <a href="${pageContext.request.contextPath}/user/privacy"><font style="">Privacy</a> &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
+			<a href="${pageContext.request.contextPath}/user/termsandcondition"><font style="">Terms & Condition</a>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
+			<a href="${pageContext.request.contextPath}/user/signupdata"><font style="">SignUp-Data</a>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
+			<a href="${pageContext.request.contextPath}/user/rules"><font style="">Rules</a>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
+			<a href="${pageContext.request.contextPath}/user/contactus"><font style="">Contact</a>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; 
+			<a href="${pageContext.request.contextPath}/user/aboutUs"><font style="">About Us</a>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
 			<!-- <a href="">Cookies</a>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; -->                  
 			
 			</div>

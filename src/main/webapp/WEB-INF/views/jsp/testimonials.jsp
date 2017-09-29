@@ -155,7 +155,7 @@ $(document).ready(function() {
 			  
 				<c:forEach items="${testimonial}" var="test" varStatus="index">
                        <div class="testimonialcontainer">
-						 <img src="data:image/jpeg;base64,${test.base64Encoded}" alt="Avatar" style="width:90px"onclick="openModal();currentSlide(${index.index +1})">
+						 <img src="data:image/jpeg;base64,${test.base64Encoded}" alt="Avatar" style="width:90px" height="90px">
 						  <p><span style="color:blue;">
 						  
 						  <%-- <c:if test="${not empty email_id}">
@@ -173,7 +173,7 @@ $(document).ready(function() {
 						  <p>${test.testimonial_desc}</p>
 						  <fmt:formatDate value="${test.createdDate}" pattern="dd/MMM/yyyy"
 						var="myValue" />
-						   <p><span style="color:red;">${myValue}</span></p>
+						   <p><span style="color:red;font-size: 12px">${myValue}</span></p>
 						</div>
 						
 				</c:forEach>

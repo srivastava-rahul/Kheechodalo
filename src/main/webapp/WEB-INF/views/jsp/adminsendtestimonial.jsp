@@ -166,6 +166,59 @@
 	<!-- Modal pop-up End here -->
 	
 	
+	
+	<!-- Testimonial adding  form start here -->
+	
+	<div class="Myown_pic_header">
+		<!-- header -->
+		<div class="forgetformheader">
+			<center>
+				<b><h1>Find Your Todays Photo</h1> <b>
+			</center>
+		</div>
+		<form action="${pageContext.request.contextPath}/admin/savetestimonialPic" method="post" id="uploadPicForm" enctype="multipart/form-data">
+			<div class="MyownpicBodyleft">
+			
+				
+					<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
+					<img id="picImageHolder" src="${pageContext.request.contextPath}/resources/images/logo-image.png" alt="Picture" style="width: 304px; height: 320px; margin: 1px" onclick="$('#picImg').click()" />
+					<div class="row">
+						<div class="col-md-12">
+							<a href="javascript:" onclick="$('#picImg').click()" style="color: black;">Select Pic</a>
+						</div>
+						
+					</div>
+					<input type="file" accept="image/*" style="visibility: hidden" name="picImg" id="picImg">
+				<c:if test="${not empty picImg}">
+					<img id="picImageHolder" src="data:image/jpeg;base64,${picImg}" alt="Picture" style="width: 304px; height: 320px; margin: 1px" onclick="$('#picImg').click()" />
+				</c:if>
+
+			</div>
+
+			<div class="MyownpicBodyright">
+				<span style="color: black;">
+					<h4>Description</h4>
+						<textarea name="desc" id="desc" rows="6" cols="35" style="color: black" placeholder="Please provide a detailed description of your Pic." aria-required="true"></textarea>
+					<h4>Name</h4>
+						<textarea name="name" id="name" rows="2" cols="25" style="color: black" placeholder="Please provide a name." aria-required="true"></textarea>
+				    <h4>Email_id</h4>
+						<textarea name="email" id="email" rows="2" cols="25" style="color: black" placeholder="Please provide a email_id."></textarea>
+				</span>
+					<div style="margin-top: 24%">
+						<input type="submit" id="uploadPicBtnId" class="btn success" value="Upload">
+					</div>
+				
+				<br /> <br /> <br /> <br /> <br /> <br />
+
+
+			</div>
+
+		</form>
+
+	</div>
+	
+	<!-- Testimonial adding form end here -->
+	
 	</div>
 
 	<script>

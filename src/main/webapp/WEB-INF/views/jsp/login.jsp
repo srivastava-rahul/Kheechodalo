@@ -43,7 +43,8 @@ cute ,cute baby, cute girls, earn money online, photographs, online photography 
     margin: auto;
     padding: 20px;
     border: 1px solid #888;
-    width: 80%;
+     width: auto; 
+     
 }
 
 /* The Close Button */
@@ -63,7 +64,7 @@ cute ,cute baby, cute girls, earn money online, photographs, online photography 
 
 body {
 	background:
-		     url(${pageContext.request.contextPath}/resources/images/1.jpg);   
+		     url(${pageContext.request.contextPath}/resources/images/loginpagebackimage.jpeg);   
 		  /* url(${pageContext.request.contextPath}/resources/images/5.jpg); */ 
 		   height:auto;
 	   color: white;
@@ -77,15 +78,15 @@ body {
 
 	<div style="margin-bottom: 0px; background-color: rgba(19, 35, 47, 0.9);" >
 	<span>
-	<img src="${pageContext.request.contextPath}/resources/images/logo4.png" alt="Avatar" class="" style="width:6%;float:left"/>
+	<img src="${pageContext.request.contextPath}/resources/images/logofinal.png" alt="Avatar" class="" style="width:4%;float:left;margin:0.5% "/>
 	</span>
 	 <font style="margin-top: 20%;font-size: 50px;color:#1ab188"> khëëchodalo</font>
 	 <br/><br/>
 	
    </div>
 	
-	<br/>
-	   <marquee><i style="color: red;background-color:yellow ">Sign Up for free and Win Prize Money*. Note: Please Complete your profile as soon as you create account</i></marquee>
+	  <i style="color:blue;">Sign Up for free and Win Prize Money*. Note: Please Complete your profile as soon as you create account</i>
+	  <!--  <marquee><i style="color: red;background-color:yellow ">Sign Up for free and Win Prize Money*. Note: Please Complete your profile as soon as you create account</i></marquee> -->
 	<!-- <i style="color: red">In-Order to win Prize (Please Complete your profile as soon as you create account).</i> -->
 	
 		<div style="float: right;">
@@ -186,7 +187,7 @@ body {
 							<input type="text" id="lastName" name="lastName" />
 						</div>
 					</div>
-                  <font style="color:red"> Please Provide Authenticated Email id Otherwise Account De-Activate within 1 day</font>
+                  <font style="color:red"> Please provide a valid email-id otherwise your account will be deactivated in a day</font>
 					<div class="field-wrap">
 						<label>
 							Email Address 
@@ -248,20 +249,20 @@ body {
 	</div>
 
 
-	<div style="margin-top: 10%; width: 100%; height: auto;">
-		<div style="margin-bottom: 0px; background-color: #06ccb3;" align="">&copy; 2017 All rights reserved<br/><br/>
+		<div style="margin-top: 11.2%; width: 100%; height: auto;">
+		<div style="padding-top:4px; background-color: rgba(19, 35, 47, 0.9);;" align="center">&copy; 2017 All rights reserved<br/><br/>
 		&nbsp;
-		    <a href="${pageContext.request.contextPath}/user/privacyOuter"><font style="color:blue">Privacy</a>
+		    <a href="${pageContext.request.contextPath}/user/privacyOuter"><font style="font-size:15px">Privacy</a>
 			&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
-			<a href="${pageContext.request.contextPath}/user/termsConditionOuter"><font style="color:blue">Terms & Condition</a>
+			<a href="${pageContext.request.contextPath}/user/termsConditionOuter"><font style=""/>Terms & Condition</a>
 			&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
-			<a href="${pageContext.request.contextPath}/user/signupdataOuter"><font style="color:blue">Signup-Data</a>
+			<a href="${pageContext.request.contextPath}/user/signupdataOuter"><font style="">Signup-Data</a>
 			&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
-			<a href="${pageContext.request.contextPath}/user/rulesouter"><font style="color:blue">Rules</a>
+			<a href="${pageContext.request.contextPath}/user/rulesouter"><font style="">Rules</a>
 			&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
-			<a href="${pageContext.request.contextPath}/user/contactusOuter"><font style="color:blue">Contact</a>
+			<a href="${pageContext.request.contextPath}/user/contactusOuter"><font style="">Contact</a>
 			&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
-			<a href="${pageContext.request.contextPath}/user/aboutusOuter"><font style="color:blue">About Us</a>
+			<a href="${pageContext.request.contextPath}/user/aboutusOuter"><font style="">About Us</a>
 			&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
 			<%-- <a href="">Cookies</a> --%>
 		<!-- <div style="color: black"> -->

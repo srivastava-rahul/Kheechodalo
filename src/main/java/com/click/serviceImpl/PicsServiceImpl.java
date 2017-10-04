@@ -115,6 +115,9 @@ public class PicsServiceImpl implements PicsService {
 		PictureUploadPojo pj = null;
 		if (singledata != null) {
 			pj = new PictureUploadPojo(singledata);
+			if (singledata.getFriendEmail().contains(SecurityLibrary.getLoggedInUserLoginEmailId().toUpperCase())) {
+				pj.setAllowToVote(false);
+			}
 		} else {
 
 		}

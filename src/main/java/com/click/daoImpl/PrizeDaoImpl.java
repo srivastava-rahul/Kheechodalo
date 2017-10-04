@@ -90,25 +90,27 @@ public class PrizeDaoImpl implements PrizeDao {
 		try {
 			Calendar date = Calendar.getInstance();
 			date.setTime(new Date());
-			date.add(Calendar.DATE, -2);
-			date.set(Calendar.HOUR, 23);
-			date.set(Calendar.MINUTE, 59);
-			date.set(Calendar.SECOND, 59);
-			Date previousDate = date.getTime();
-			
-			date.setTime(new Date());
-			date.add(Calendar.DATE, -1);
-			date.set(Calendar.HOUR, 23);
-			date.set(Calendar.MINUTE, 59);
-			date.set(Calendar.SECOND, 59);
-			Date currentDate = date.getTime();
-			
-			LOG.info("previousDate : "+ previousDate + "currentDate : " +currentDate);
-			
-			Query query = entityManager.createQuery(
-					"select up.prizeAmount from UserPrize up where up.prizeDate between :previousDate and :currentDate order by prizeDate desc");
-			query.setParameter("previousDate", previousDate);
-			query.setParameter("currentDate", currentDate);
+			date.set(Calendar.AM_PM, Calendar.AM);
+			date.set(Calendar.HOUR, 0);
+			date.set(Calendar.MINUTE, 0);
+			date.set(Calendar.SECOND, 0);
+			date.set(Calendar.MILLISECOND, 0);
+			Date todayMoringDate = date.getTime();
+
+			Calendar todayNight = Calendar.getInstance();
+			todayNight.setTime(new Date());
+			todayNight.set(Calendar.AM_PM, Calendar.PM);
+			todayNight.set(Calendar.HOUR, 11);
+			todayNight.set(Calendar.MINUTE, 59);
+			todayNight.set(Calendar.SECOND, 59);
+			todayNight.set(Calendar.MILLISECOND, 59);
+			Date todayNightDate = todayNight.getTime();
+
+			LOG.info("todayMoringDate : " + todayMoringDate + "todayNightDate : " + todayNightDate);
+
+			Query query = entityManager.createQuery("select up.prizeAmount from UserPrize up where up.prizeDate between :todayMoringDate and :todayNightDate order by prizeDate desc");
+			query.setParameter("todayMoringDate", todayMoringDate);
+			query.setParameter("todayNightDate", todayNightDate);
 			List<String> prizeList = query.getResultList();
 			if (CollectionUtil.isNotEmpty(prizeList)) {
 				prize = prizeList.get(0);
@@ -118,5 +120,30 @@ public class PrizeDaoImpl implements PrizeDao {
 			e.printStackTrace();
 		}
 		return prize;
+	}
+
+	public static void main(String[] args) {
+		Calendar date = Calendar.getInstance();
+		date.setTime(new Date());
+		// date.add(Calendar.DATE, -2);
+		date.set(Calendar.AM_PM, Calendar.AM);
+		date.set(Calendar.HOUR, 0);
+		date.set(Calendar.MINUTE, 0);
+		date.set(Calendar.SECOND, 0);
+		date.set(Calendar.MILLISECOND, 0);
+		Date todayMoringDate = date.getTime();
+
+		Calendar todayNight = Calendar.getInstance();
+		todayNight.setTime(new Date());
+		// date.add(Calendar.DATE, -1);
+		todayNight.set(Calendar.AM_PM, Calendar.PM);
+		todayNight.set(Calendar.HOUR, 11);
+		todayNight.set(Calendar.MINUTE, 59);
+		todayNight.set(Calendar.SECOND, 59);
+		todayNight.set(Calendar.MILLISECOND, 59);
+		Date todayNightDate = todayNight.getTime();
+
+		LOG.info("todayMoringDate : " + todayMoringDate + "todayNightDate : " + todayNightDate);
+
 	}
 }

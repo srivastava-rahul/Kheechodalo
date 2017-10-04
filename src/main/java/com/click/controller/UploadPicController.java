@@ -109,7 +109,7 @@ public class UploadPicController {
 			} catch (Exception e) {
 				System.out.println("Error :" + e.getMessage());
 				e.printStackTrace();
-				redir.addFlashAttribute("error", e.getMessage());
+				redir.addFlashAttribute("error", "Please upload photo less than 5MB");
 			}
 		} else {
 			LOG.info("file is null");

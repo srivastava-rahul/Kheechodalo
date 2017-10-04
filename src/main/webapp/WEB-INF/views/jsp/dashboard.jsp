@@ -91,7 +91,7 @@ $(document).ready(function() {
 
 .column {
   float: left;
-  width: auto;
+  width: 18.5%;
 }
 
 /* The Modal (background) */
@@ -258,7 +258,7 @@ function showSlides(n) {
 		<br/>
 		</div>
 		
-		<br/><br/>
+		<br/><br/><br/><br/>
 <jsp:include page="/WEB-INF/views/jsp/message.jsp" />
 	<div >
 		<div class="row">
@@ -266,18 +266,25 @@ function showSlides(n) {
 			<c:forEach var="pic" items="${picsList}" varStatus="index">
 			<div class="column">
 				<div class="card">
-					<img src="data:image/jpeg;base64,${pic.base64Encoded}"	alt="Picture" style="width: 291px; height: 320px;" onclick="openModal();currentSlide(${index.index +1})" class="hover-shadow cursor">
+					<img src="data:image/jpeg;base64,${pic.base64Encoded}"	alt="Picture" style="width: 200px; height:200px;border-radius:2%;margin:5%" onclick="openModal();currentSlide(${index.index +1})" class="hover-shadow cursor">
 					<h2><span style="margin-left: 50%;color: red" class="voteCount${pic.id}">${pic.picVote}</span></h2>
-					<div class="">
-						<b><h2 style="color:blue"><a href="${pageContext.request.contextPath}/user/viewProfile/${pic.userEmailId}">${pic.userName}</a></h2></b>
-						<%-- <b><h2 style="color:blue">${pic.userEmailId}</h2></b> --%>
-						<p style="color:green;">${pic.picDescription}</p><br/>
-					    <c:if test="${pic.allowToVote}"> 
+					 <c:if test="${pic.allowToVote}"> 
 						<p align="center" class="hideVote${pic.id}">
 							<button class="marg-bottom-10 button_submit  submit votePic">Vote</button>
 							<input type="hidden" id="picId" name="picId" value="${pic.id}">
 						</p>
 					</c:if>
+					<div class="">
+						<b><h3 style="color:blue;font"><a href="${pageContext.request.contextPath}/user/viewProfile/${pic.userEmailId}">${pic.userName}</a></h3></b>
+						<%-- <b><h2 style="color:blue">${pic.userEmailId}</h2></b> --%>
+						<p style="color:green;">${pic.picDescription}</p><br/>
+						
+					   <%--  <c:if test="${pic.allowToVote}"> 
+						<p align="center" class="hideVote${pic.id}">
+							<button class="marg-bottom-10 button_submit  submit votePic">Vote</button>
+							<input type="hidden" id="picId" name="picId" value="${pic.id}">
+						</p>
+					</c:if> --%>
 					</div>
 				</div>
 			</div>
@@ -286,18 +293,25 @@ function showSlides(n) {
 			<c:if test="${not empty searchPic}">
 			<div class="column">
 				<div class="card">
-					<img src="data:image/jpeg;base64,${searchPic.base64Encoded}"	alt="Picture" style="width: 291px; height: 320px;" onclick="openModal();currentSlide(${index.index +1})" class="hover-shadow cursor">
+					<img src="data:image/jpeg;base64,${searchPic.base64Encoded}"	alt="Picture" style="width: 200px; height:200px;border-radius:2%;margin:5%" onclick="openModal();currentSlide(${index.index +1})" class="hover-shadow cursor">
 					<h2><span style="margin-left: 50%;color: red" class="voteCount${searchPic.id}">${searchPic.picVote}</span></h2>
-					<div class="">
-						<b><h2 style="color:blue"><a href="${pageContext.request.contextPath}/user/viewProfile/${searchPic.userEmailId}">${searchPic.userName}</a></h2></b>
-						<%-- <b><h2 style="color:blue">${pic.userEmailId}</h2></b> --%>
-						<p>${searchPic.picDescription}</p>
 					 <c:if test="${searchPic.allowToVote}"> 
 						<p align="center" class="hideVote${searchPic.id}">
 							<button class="marg-bottom-10 button_submit  submit votePic">Vote</button>
 							<input type="hidden" id="picId" name="picId" value="${searchPic.id}">
 						</p>
 					</c:if>
+					
+					<div class="">
+						<b><h2 style="color:blue"><a href="${pageContext.request.contextPath}/user/viewProfile/${searchPic.userEmailId}">${searchPic.userName}</a></h2></b>
+						<%-- <b><h2 style="color:blue">${pic.userEmailId}</h2></b> --%>
+						<p>${searchPic.picDescription}</p>
+					<%--  <c:if test="${searchPic.allowToVote}"> 
+						<p align="center" class="hideVote${searchPic.id}">
+							<button class="marg-bottom-10 button_submit  submit votePic">Vote</button>
+							<input type="hidden" id="picId" name="picId" value="${searchPic.id}">
+						</p>
+					</c:if> --%>
 					</div>
 				</div>
 			</div>

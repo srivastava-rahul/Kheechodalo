@@ -126,7 +126,12 @@
          <div style="margin-bottom: 0px; background-color: rgba(19, 35, 47, 0.9);height:10%" >
          
           <span style="margin-left:1%;font-size: 25px;  cursor: pointer; padding-top: 16; color: #fff; font-style: bold; font-family: Charcoal;" onclick="openNav()"/>&#9776;</span>
-	         <img src="${pageContext.request.contextPath}/resources/images/logo4.png" alt="Avatar" class="" style="width:6%;"/>
+	        <c:if test="${!isAdmin}">
+	        <span><a href="${pageContext.request.contextPath}/user/dashboard"> <img src="${pageContext.request.contextPath}/resources/images/logofinal.png" alt="Avatar" class="" style="width:4.5%;"/></a></span>
+	        </c:if>
+	        <c:if test="${isAdmin}">
+	        <span><a href="${pageContext.request.contextPath}/admin/adminDashboard"> <img src="${pageContext.request.contextPath}/resources/images/logofinal.png" alt="Avatar" class="" style="width:4.5%;"/></a></span>
+	        </c:if>
 	        
 	        <span> 
 	        <c:if test="${!isAdmin}">

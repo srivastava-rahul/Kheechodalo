@@ -13,6 +13,11 @@
 
 
 <div class="body-area">
+
+
+<jsp:include page="/WEB-INF/views/jsp/footerOuterpage.jsp" />
+
+
 	<img style="float:right"src="${pageContext.request.contextPath}/resources/images/rules.jpg" alt="Avatar" class="page_pic"><br/>
 	<div class="information">
 		<p style="background-color: black;color:white;font-size: 25px;margin-left: 2%">Privacy</p>
@@ -22,7 +27,9 @@
 	<h2 style="color:white">Data Policy:</h2>
 
 
-<p style="color:red">The below list describes in details about policies pertaining to the usage and governance of your data provided on the website.</p>
+<p style="color:red;margin-left: 2%">The below list describes in details about policies pertaining to the usage and governance of your data provided on the website.</p>
+<br/>
+
 <h4 style="color:black;margin-left: 2%">
 1) What information do we collect.<br/><br/>
 	&nbsp; &nbsp;&nbsp;&nbsp;a) Your personal details - name, username, password, age, date of birth, contact number, contact address.<br/>

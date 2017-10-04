@@ -10,6 +10,10 @@
 
 </head>
 <div class="body-area">
+  
+  <jsp:include page="/WEB-INF/views/jsp/footerOuterpage.jsp" />
+  
+  
 	<img style="float:right"src="${pageContext.request.contextPath}/resources/images/aboutUs.jpg" alt="Avatar" class="page_pic">
 	<div class="information">
 		<p style="background-color: black;color:white;font-size: 25px;margin-left: 2%;margin-top: 2%">About--Us</p>

@@ -8,7 +8,12 @@
 <meta name="Keyword"  content="cute ,cute baby, cute girls, earn money online, photographs, online photography ,Photo competion, indian competition, vote photo, vote pic, Beautiful pic , pic upload , photo upload, indian photography, photo contest, photo sharing, free |KheechoDalo.com">
 <meta name="author" content="Kheechodalo origination |KheechoDalo.com">
 </head>
+
 <div class="body-area">
+
+  <jsp:include page="/WEB-INF/views/jsp/footerOuterpage.jsp" />
+	
+   
 	<img style="float:right"src="${pageContext.request.contextPath}/resources/images/rules.jpg" alt="Avatar" class="page_pic">
 	<br/>
 	<div class="information">

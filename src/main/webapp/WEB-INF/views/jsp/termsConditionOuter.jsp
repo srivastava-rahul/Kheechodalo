@@ -12,6 +12,9 @@
 
 </head>
 <div class="body-area">
+
+<jsp:include page="/WEB-INF/views/jsp/footerOuterpage.jsp" />
+   
 	<img src="${pageContext.request.contextPath}/resources/images/terms&Condition.png" alt="Avatar" class="page_pic" style="float:right">
 	<div >
 		<h2><b><p style="margin-left:2%;background-color: black;color:white;"> Terms  &  Condition</p></b></h2>

@@ -114,7 +114,7 @@
 
 				<br /> <br /> <br /> <br />
 				<div>
-					<span data-WRID="WRID-150329794559992600"
+				<!-- 	<span data-WRID="WRID-150329794559992600"
 						data-widgetType="productBanner"
 						data-class="affiliateAdsByFlipkart" height="240px" width="120px"></span>
 					<script async
@@ -123,12 +123,10 @@
 						data-widgetType="productBanner"
 						data-class="affiliateAdsByFlipkart" height="240px" width="120px"></span>
 					<script async
-						src="//affiliate.flipkart.com/affiliate/widgets/FKAffiliateWidgets.js"></script>
-					<span data-WRID="WRID-150325902204681690"
-						data-widgetType="staticBanner" data-responsive="yes"
-						data-class="affiliateAdsByFlipkart" height="200" width="1000"></span>
-					<script async
-						src="//affiliate.flipkart.com/affiliate/widgets/FKAffiliateWidgets.js"></script>
+						src="//affiliate.flipkart.com/affiliate/widgets/FKAffiliateWidgets.js"></script> -->
+					<span data-WRID="WRID-150143503619477538" data-widgetType="staticBanner" 
+					data-responsive="yes" data-class="affiliateAdsByFlipkart" height="90" width="728"></span>
+					<script async src="//affiliate.flipkart.com/affiliate/widgets/FKAffiliateWidgets.js"></script>
 				</div>
 			</div>
 		</form>

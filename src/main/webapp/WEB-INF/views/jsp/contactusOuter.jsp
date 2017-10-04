@@ -7,6 +7,7 @@
 
 <div class="body-area">
 
+  <jsp:include page="/WEB-INF/views/jsp/footerOuterpage.jsp" />
 
 	<div>
 		<!-- header -->

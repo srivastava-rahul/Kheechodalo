@@ -76,14 +76,24 @@ body {
 
 <body>
 
-	<div style="margin-bottom: 0px; background-color: rgba(19, 35, 47, 0.9);" >
+  <%-- <div style="margin-bottom: 0px; background-color: rgba(19, 35, 47, 0.9);" >
 	<span>
 	<img src="${pageContext.request.contextPath}/resources/images/logofinal.png" alt="Avatar" class="" style="width:4%;float:left;margin:0.5% "/>
 	</span>
 	 <font style="margin-top: 20%;font-size: 50px;color:#1ab188"> khëëchodalo</font>
 	 <br/><br/>
 	
+   </div> --%>
+   
+    <div style="margin-bottom: 0px; background-color: rgba(19, 35, 47, 0.9);" >
+	<span>
+	<img src="${pageContext.request.contextPath}/resources/images/logofinal.png" alt="Avatar" class="" style="width:4%;float:left;margin:0.2% "/>
+	</span>
+	 <span><font style="margin-top: 30%;font-size: 44px;color:#1ab188"> khëëchodalo</font></span>
+	 <br/><br/>
+	
    </div>
+  
 	
 	  <i style="color:blue;">Sign Up for free and Win Prize Money*. Note: Please Complete your profile as soon as you create account</i>
 	  <!--  <marquee><i style="color: red;background-color:yellow ">Sign Up for free and Win Prize Money*. Note: Please Complete your profile as soon as you create account</i></marquee> -->

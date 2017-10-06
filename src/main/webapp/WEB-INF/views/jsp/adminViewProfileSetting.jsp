@@ -12,7 +12,7 @@
 	</div>
 		
 		
-<a href="${pageContext.request.contextPath}/admin/adminDashboard"><img src="${pageContext.request.contextPath}/resources/images/download.jpg" style="margin-top: 1%;margin-left:2% ;background-color: transparent;" src="arrow.gif" width="5%" height="4%"/>&nbsp;Back to User Info</a>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
+<a href="${pageContext.request.contextPath}/admin/adminDashboard"><img src="${pageContext.request.contextPath}/resources/images/download.png" style="margin-top: 1%;margin-left:2% ;background-color: transparent;" src="arrow.gif" width="5%" height="4%"/>&nbsp;Back to User Info</a>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
 	
         <table style="margin-left: 5%;width:90%;padding: 5%;color:white;">
 		<%-- <c:forEach var="profileinfo" items="${profile}"> --%>

@@ -65,22 +65,20 @@
 <c:if test="${!isAdmin}">
 	<!-------------------------------------------------------Code for Right Menu------------------------------------------------------------------------->
 	<div id="mySidenav" class="sidenav">
-		<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+		<a href="javascript:void(0)" style="color:white" class="closebtn" onclick="closeNav()">&times;</a>
     <hr/>
 			  <table>
-			  <tr><td><span>&nbsp; &nbsp;<i class="fa fa-home" style="font-size:28px;color:red"></i><a href="${pageContext.request.contextPath}/user/dashboard">Home</a></span></td></tr>
-			  <tr><td><span>&nbsp; &nbsp;<i class="fa fa-gear fa-spin" style="font-size:24px;color:red"></i><a href="${pageContext.request.contextPath}/user/getProfileSettings">Settings</a></span></td></tr>
-			   <tr><td><span>&nbsp; &nbsp;<i class="fa fa-bell" style="font-size:28px;color:red"></i><a href="${pageContext.request.contextPath}/user/notification">Notifications</a></span></td></tr>
-			   <tr><td><span>&nbsp; &nbsp;<i class="fa fa-diamond" style="font-size:28px;color:red"></i><a href="${pageContext.request.contextPath}/user/rules">Rules</a></span></td></tr>
-			   <tr><td><span>&nbsp; &nbsp;<i class="fa fa-gift" style="font-size:28px;color:red"></i><a href="${pageContext.request.contextPath}/user/prizes">Prize</a></span></td></tr>
-			   <tr><td><span>&nbsp; &nbsp;<i class="fa fa-pencil-square-o" style="font-size:28px;color:red"></i><a href="${pageContext.request.contextPath}/user/testimonials">Testimonials</a></span></td></tr>
-              <tr><td><span>&nbsp; &nbsp;<i class="fa fa-envelope-o" style="font-size:28px;color:red"></i><a href="${pageContext.request.contextPath}/user/feedback">Feedback</a></span></td></tr>
-
-		
-		<tr><td><span>&nbsp; &nbsp;<i class="fa fa-info-circle" style="font-size:28px;color:red"></i><a href="${pageContext.request.contextPath}/user/aboutUs">About Us</a></span></tr></td>
-        <tr><td><span>&nbsp; &nbsp;<i class="fa fa-phone" style="font-size:28px;color:red"></i><a href="${pageContext.request.contextPath}/user/contactus">Contact Us</a></span></tr></td>
-        <tr><td><span>&nbsp; <i class="fa fa-key" style="font-size:28px;color:red"><a href="${pageContext.request.contextPath}/user/newUserPassword">Change Password</a></span></tr></td>
-		<tr><td><span>&nbsp; &nbsp;<i class="fa fa-question-circle" style="font-size:28px;color:red"></i><a href="${pageContext.request.contextPath}/user/quickHelp">Quick Help</a></span></td></tr>
+			 <tr bgcolor="#1F1F1F"><td><span>&nbsp; &nbsp;<i class="fa fa-home" style="font-size:28px;color:red"></i><a href="${pageContext.request.contextPath}/user/dashboard"><font style="color:white;">Home</a></span></td></tr>
+			 <tr bgcolor="white"><td><span>&nbsp; &nbsp;<i class="fa fa-gear fa-spin" style="font-size:24px;color:red"></i><a href="${pageContext.request.contextPath}/user/getProfileSettings">Settings</a></span></td></tr>
+			 <tr bgcolor="#1F1F1F"><td><span>&nbsp; &nbsp;<i class="fa fa-bell" style="font-size:28px;color:red"></i><a href="${pageContext.request.contextPath}/user/notification"><font style="color:white;">Notifications</a></span></td></tr>
+			 <tr bgcolor="white"><td><span>&nbsp; &nbsp;<i class="fa fa-diamond" style="font-size:28px;color:red"></i><a href="${pageContext.request.contextPath}/user/rules">Rules</a></span></td></tr>
+			 <tr bgcolor="#1F1F1F"><td><span>&nbsp; &nbsp;<i class="fa fa-gift" style="font-size:28px;color:red"></i><a href="${pageContext.request.contextPath}/user/prizes"><font style="color:white;">Prize</a></span></td></tr>
+			 <tr bgcolor="white"><td><span>&nbsp; &nbsp;<i class="fa fa-pencil-square-o" style="font-size:28px;color:red"></i><a href="${pageContext.request.contextPath}/user/testimonials">Testimonials</a></span></td></tr>
+             <tr bgcolor="#1F1F1F"><td><span>&nbsp; &nbsp;<i class="fa fa-envelope-o" style="font-size:28px;color:red"></i><a href="${pageContext.request.contextPath}/user/feedback"><font style="color:white;">Feedback</a></span></td></tr>
+             <tr bgcolor="white"><td><span>&nbsp; &nbsp;<i class="fa fa-info-circle" style="font-size:28px;color:red"></i><a href="${pageContext.request.contextPath}/user/aboutUs">About Us</a></span></tr></td>
+             <tr bgcolor="#1F1F1F"><td><span>&nbsp; &nbsp;<i class="fa fa-phone" style="font-size:28px;color:red"></i><a href="${pageContext.request.contextPath}/user/contactus"><font style="color:white;">Contact Us</a></span></tr></td>
+             <tr bgcolor="white"><td><span><i class="fa fa-key" style="font-size:28px;color:red"><a href="${pageContext.request.contextPath}/user/newUserPassword">Change Password</a></span></tr></td>
+		     <tr bgcolor="#1F1F1F"><td><span>&nbsp; &nbsp;<i class="fa fa-question-circle" style="font-size:28px;color:red"></i><a href="${pageContext.request.contextPath}/user/quickHelp"><font style="color:white;">Quick Help</a></span></td></tr>
 		
 	  </table>
 	</div>
@@ -123,7 +121,8 @@
 	<!-- <div id="page-header" class="bg-gradient-9" style="padding-left: 10px;"> -->
 		<!-----------------------------------------------Code for left navigator menu---------------------------------------------------------------- -->
 		
-         <div style="margin-bottom: 0px; background-color: rgba(19, 35, 47, 0.9);height:10%" >
+        <!--  <div style="margin-bottom: 0px; background-color: rgba(19, 35, 47, 0.9);height:10%" > -->
+         <div style="margin-bottom: 0px; background-color:#1F1F1F;height:10%" >
          
           <span style="margin-left:1%;font-size: 25px;  cursor: pointer; padding-top: 16; color: #fff; font-style: bold; font-family: Charcoal;" onclick="openNav()"/>&#9776;</span>
 	        <c:if test="${!isAdmin}">

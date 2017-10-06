@@ -85,7 +85,7 @@ body {
 	
    </div> --%>
    
-    <div style="margin-bottom: 0px; background-color: rgba(19, 35, 47, 0.9);" >
+    <div style="margin-bottom: 0px; background-color: #1F1F1F;" >
 	<span>
 	<img src="${pageContext.request.contextPath}/resources/images/logofinal.png" alt="Avatar" class="" style="width:4%;float:left;margin:0.2% "/>
 	</span>

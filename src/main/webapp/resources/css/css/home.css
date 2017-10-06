@@ -10,7 +10,8 @@ body {
     z-index: 1;
     top: 0;
     left: 0;
-    background-color:#bff5ee;
+   /*  background-color:#bff5ee; */
+   background-color:#1F1F1F;
     overflow-x: hidden;
     transition: 0.5s;
     padding-top: 60px;
@@ -38,6 +39,7 @@ body {
 	margin-left:70%;
     top:0;
     font-size: 36px;
+    color:white;
     
 }
 

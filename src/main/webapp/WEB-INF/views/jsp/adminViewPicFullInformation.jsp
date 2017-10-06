@@ -10,7 +10,7 @@
 		<p class="header_information">Pics Information for Admin</p>
 	</div>
 		<p style="color:blue">Admin View Full Information of Photos</p>
-	<a href="${pageContext.request.contextPath}/admin/adminpicinfo"><img src="${pageContext.request.contextPath}/resources/images/download.jpg" style="margin-top: 1%;margin-left:2% ;background-color: transparent;" src="arrow.gif" width="5%" height="4%"/>&nbsp;Back to Pics Info Page</a>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
+	<a href="${pageContext.request.contextPath}/admin/adminpicinfo"><img src="${pageContext.request.contextPath}/resources/images/download.png" style="margin-top: 1%;margin-left:2% ;background-color: transparent;" src="arrow.gif" width="5%" height="4%"/>&nbsp;Back to Pics Info Page</a>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
 	
 	<div style="margin-left:25%">
 

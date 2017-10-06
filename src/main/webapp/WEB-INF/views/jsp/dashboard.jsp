@@ -91,7 +91,7 @@ $(document).ready(function() {
 
 .column {
   float: left;
-  width: 18.5%;
+   width: auto;
 }
 
 /* The Modal (background) */
@@ -266,7 +266,7 @@ function showSlides(n) {
 			<c:forEach var="pic" items="${picsList}" varStatus="index">
 			<div class="column">
 				<div class="card">
-					<img src="data:image/jpeg;base64,${pic.base64Encoded}"	alt="Picture" style="width: 200px; height:200px;border-radius:2%;margin:5%" onclick="openModal();currentSlide(${index.index +1})" class="hover-shadow cursor">
+					<img src="data:image/jpeg;base64,${pic.base64Encoded}" style="width: 291px; height: 320px;" onclick="openModal();currentSlide(${index.index +1})" class="hover-shadow cursor">
 					<h2><span style="margin-left: 50%;color: red" class="voteCount${pic.id}">${pic.picVote}</span></h2>
 					 <c:if test="${pic.allowToVote}"> 
 						<p align="center" class="hideVote${pic.id}">
@@ -293,7 +293,7 @@ function showSlides(n) {
 			<c:if test="${not empty searchPic}">
 			<div class="column">
 				<div class="card">
-					<img src="data:image/jpeg;base64,${searchPic.base64Encoded}"	alt="Picture" style="width: 200px; height:200px;border-radius:2%;margin:5%" onclick="openModal();currentSlide(${index.index +1})" class="hover-shadow cursor">
+					<img src="data:image/jpeg;base64,${searchPic.base64Encoded}"	alt="Picture" style="width: 291px; height: 320px;" onclick="openModal();currentSlide(${index.index +1})" class="hover-shadow cursor">
 					<h2><span style="margin-left: 50%;color: red" class="voteCount${searchPic.id}">${searchPic.picVote}</span></h2>
 					 <c:if test="${searchPic.allowToVote}"> 
 						<p align="center" class="hideVote${searchPic.id}">
@@ -305,7 +305,9 @@ function showSlides(n) {
 					<div class="">
 						<b><h2 style="color:blue"><a href="${pageContext.request.contextPath}/user/viewProfile/${searchPic.userEmailId}">${searchPic.userName}</a></h2></b>
 						<%-- <b><h2 style="color:blue">${pic.userEmailId}</h2></b> --%>
-						<p>${searchPic.picDescription}</p>
+						<p style="color:green;">${searchPic.picDescription}</p><br/>
+						<%-- <p>${searchPic.picDescription}</p> --%>
+						
 					<%--  <c:if test="${searchPic.allowToVote}"> 
 						<p align="center" class="hideVote${searchPic.id}">
 							<button class="marg-bottom-10 button_submit  submit votePic">Vote</button>

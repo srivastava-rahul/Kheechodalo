@@ -55,7 +55,7 @@ $(document).ready(function() {
 </script>
 <div class="body-area">
 
-	<img src="${pageContext.request.contextPath}/resources/images/winner.jpg" alt="Avatar" class="page_pic">
+	<img src="${pageContext.request.contextPath}/resources/images/winner.png" alt="Avatar" class="page_pic">
 	<div class="information">
 		<p class="header_information">
 			<b>Prizes for participants</b>
@@ -78,7 +78,7 @@ $(document).ready(function() {
 		<c:forEach items="${winnerList}" var="winner">
 			<div class="containerwinner">
 				<div class="container_img_header">
-					<img src="data:image/jpeg;base64,${winner.base64Encoded}" alt="Avatar" style="width: 250px" />
+					<img src="data:image/jpeg;base64,${winner.base64Encoded}" alt="Avatar" style="width: 200px;height: 200px;" />
 						<fmt:formatDate value="${winner.createdDate}" pattern="dd/MMM/yyyy"
 						var="myValue" />
 					<font style="color: red; float: left;margin-left: 2%">${myValue}</font>

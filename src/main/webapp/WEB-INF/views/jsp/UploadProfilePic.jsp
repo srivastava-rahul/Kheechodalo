@@ -66,7 +66,7 @@
      <div class="MyownpicBodyright">
      
      
-			<h1><a href="${pageContext.request.contextPath}/user/getProfileSettings"  style="margin-top:10%;color:red "><span><img src="${pageContext.request.contextPath}/resources/images/download.jpg" style="margin-top: 1%; background-color: transparent;" src="arrow.gif" width="5%" height="4%"/>&nbsp;BACK</span></a></h1>
+			<h1><a href="${pageContext.request.contextPath}/user/getProfileSettings"  style="margin-top:10%;color:red "><span><img src="${pageContext.request.contextPath}/resources/images/download.png" style="margin-top: 1%; background-color: transparent;" src="arrow.gif" width="5%" height="4%"/>&nbsp;BACK</span></a></h1>
 
 			</div>
 			

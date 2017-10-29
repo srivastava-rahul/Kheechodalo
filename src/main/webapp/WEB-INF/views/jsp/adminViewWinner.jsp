@@ -139,7 +139,7 @@
 				<td><center>${win.createdDate}</center></td>
 				<td><center>${win.prize_desc}</center></td>
 				<td><center>${win.winner_desc}</center></td>
-				<td><center><img src="data:image/jpeg;base64,${win.base64Encoded}" alt="Avatar" style="width:100%;height: 20%" onclick="openModal();currentSlide(${index.index +1})"></center>
+				<td><center><img src="data:image/jpeg;base64,${win.base64Encoded}" alt="Avatar" style="width:10%;height: 5%" onclick="openModal();currentSlide(${index.index +1})"></center>
 				</td>
 				<td><center>${win.picVote}</center></td>
 				<td><center>${win.email_id}</center></td>

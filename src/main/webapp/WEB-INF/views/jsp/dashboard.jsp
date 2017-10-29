@@ -321,6 +321,16 @@ function showSlides(n) {
 		</div>
 	</div>
 	
+	
+	                    <div>
+                              <ul class="pagination" style="float:right;margin-right:3%;margin-top: 0%">
+                              </ul>
+      
+ 
+		                 <br/>
+		               </div>
+	
+	
 	    <div style="margin-top: 5%;margin-left: 10%;">
 		<div data-WRID="WRID-150143651598347589" data-widgetType="Push Content"  data-class="affiliateAdsByFlipkart" height="90" width="728"></div><script async src="//affiliate.flipkart.com/affiliate/widgets/FKAffiliateWidgets.js"></script>
 		

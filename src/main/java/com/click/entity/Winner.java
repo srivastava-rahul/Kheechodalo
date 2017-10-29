@@ -80,7 +80,8 @@ public class Winner implements Serializable {
 		this.winner_desc = winnerPic.getDescription();
 		this.winner_name = winnerPic.getUser() != null ? winnerPic.getUser().getFirstName() : null;
 		this.fileData = winnerPic.getPicUploadData() != null ? winnerPic.getPicUploadData().getFileData() : null;
-		this.createdDate = winnerPic.getUploadDate();
+		/*this.createdDate = winnerPic.getUploadDate();*/
+		this.createdDate = new Date();
 		this.picVote = winnerPic.getPicVote();
 	}
 

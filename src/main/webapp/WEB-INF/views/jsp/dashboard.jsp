@@ -67,6 +67,7 @@ $(document).ready(function() {
 
 
 </script>
+
 <style>
 /* body
  body
@@ -240,6 +241,9 @@ function showSlides(n) {
 </script>
 
 <div class="body-area">
+
+
+
 <div class="">
   <ul class="pagination" style="float:right;margin-right:3%">
   </ul>
@@ -434,11 +438,13 @@ function showSlides(n) {
 				beforeSend : function(xhr) {
 				//	xhr.setRequestHeader(header, token);
 					$('#loading').show();
+				
+					 $('.hideVote'+picId).addClass().hide();
 				},
 				success : function(data, textStatus, request) {
 					console.log("Success  : " + data);
 					$('.voteCount'+picId).html(data);
-					$('.hideVote'+picId).addClass().hide();
+					/* $('.hideVote'+picId).addClass().hide(); */
 				},
 				error : function(request, textStatus, errorThrown) {
 					var error = request.getResponseHeader('error');
@@ -448,3 +454,4 @@ function showSlides(n) {
 			}); 
 		});
 </script>
+

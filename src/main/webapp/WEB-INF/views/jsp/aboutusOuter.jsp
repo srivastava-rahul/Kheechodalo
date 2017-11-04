@@ -11,7 +11,7 @@
 </head>
 <div class="body-area">
   
-  <jsp:include page="/WEB-INF/views/jsp/footerOuterpage.jsp" />
+  <jsp:include page="/WEB-INF/views/jsp/headerOuterpage.jsp" />
   
   
 	<img style="float:right"src="${pageContext.request.contextPath}/resources/images/aboutUs.jpg" alt="Avatar" class="page_pic">
@@ -32,4 +32,10 @@ With daily competitions running on the website you can win some exciting prizes.
 	</h4>
 	
 	</p>
+	
+	 <div style="margin-top: 22.3%">
+     	<jsp:include page="/WEB-INF/views/jsp/footerOuterpage.jsp" />
+     </div>
+
 </div>
+

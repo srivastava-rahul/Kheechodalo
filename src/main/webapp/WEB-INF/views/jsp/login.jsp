@@ -64,10 +64,10 @@ cute ,cute baby, cute girls, earn money online, photographs, online photography 
 
 body {
 	background:
-		     url(${pageContext.request.contextPath}/resources/images/loginpagebackimage.jpeg);   
-		  /* url(${pageContext.request.contextPath}/resources/images/5.jpg); */ 
+		    /*  url(${pageContext.request.contextPath}/resources/images/loginpagebackimage.jpeg); */   
+		  url(${pageContext.request.contextPath}/resources/images/8.jpg); 
 		   height:auto;
-	   color: white;
+	       color: white;
 	   
 	   
 }
@@ -76,34 +76,28 @@ body {
 
 <body>
 
-  <%-- <div style="margin-bottom: 0px; background-color: rgba(19, 35, 47, 0.9);" >
-	<span>
-	<img src="${pageContext.request.contextPath}/resources/images/logofinal.png" alt="Avatar" class="" style="width:4%;float:left;margin:0.5% "/>
-	</span>
-	 <font style="margin-top: 20%;font-size: 50px;color:#1ab188"> khëëchodalo</font>
-	 <br/><br/>
+
+     <!-- Code for header start here -->
+     <div>
+    <div style="background-color: darkturquoise;width:100%;height:100% " >
+    
+	     <span>
+	          <img src="${pageContext.request.contextPath}/resources/images/logofinal.png" alt="Avatar" class="" style="width:3%;float:left;margin:0.1% "/>
+	     </span> &nbsp;&nbsp;&nbsp;
+	       <span>
+	          <font style="margin-top: 30%;font-size: 44px;color:white;font-family:Lucida Console"> Kheechodalo</font>
+	      </span>
+	      <span style="float:right;">
+	            <button class="buttonvideo" data-tooltip="Visit Here For Site Tour">
+		  <span id="myBtn">Demo </span>
+		         </button>
+		  </span><br/>
+	</div>
+	</div>
 	
-   </div> --%>
-   
-    <div style="margin-bottom: 0px; background-color: #1F1F1F;" >
-	<span>
-	<img src="${pageContext.request.contextPath}/resources/images/logofinal.png" alt="Avatar" class="" style="width:4%;float:left;margin:0.2% "/>
-	</span>
-	 <span><font style="margin-top: 30%;font-size: 44px;color:#1ab188"> khëëchodalo</font></span>
-	 <br/><br/>
-	
-   </div>
-  
-	
-	  <i style="color:blue;">Sign Up for free and Win Prize Money*. Note: Please Complete your profile as soon as you create account</i>
-	  <!--  <marquee><i style="color: red;background-color:yellow ">Sign Up for free and Win Prize Money*. Note: Please Complete your profile as soon as you create account</i></marquee> -->
-	<!-- <i style="color: red">In-Order to win Prize (Please Complete your profile as soon as you create account).</i> -->
-	
-		<div style="float: right;">
-	<button class="buttonvideo" data-tooltip="Visit Here For Site Tour">
-			<span id="myBtn">Demo </span>
-		</button>
-		</div>
+     <!-- Code for header end here -->
+     
+     <i style="color:blue;">Sign Up for free and Win Prize Money*. Note: Please Complete your profile as soon as you create account</i>
 	
 	
 	<!-- The Modal -->
@@ -217,7 +211,7 @@ body {
 					<button class="button button-block" id="myBtn">Get Started</button>
 					
 					
-				<%-- 	<div class="modal-content1">  
+					<div class="modal-content1">  
                      <p style="color:red">Before clicking Please Read below link..!!</p>  
                      <ul>
 						  <li><a href="${pageContext.request.contextPath}/user/rulesouter">Rule</a></li>
@@ -225,14 +219,14 @@ body {
 						  <li><a href="${pageContext.request.contextPath}/user/privacyOuter">Privacy</a></li>
 						  <li><a href="${pageContext.request.contextPath}/user/termsConditionOuter">Terms & Condition</a></li>
 					</ul> 
-                  </div> --%>
+                  </div>
 
 				</form>
                              
 			</div>
 		</div>
 		<!-- tab-content -->
-      
+   
 	</div>
 	<!-- /form -->
 
@@ -242,7 +236,9 @@ body {
 
 	<script src="${pageContext.request.contextPath}/resources/js/view/video.js"></script>
 	
-	<div style="margin-top: 6%; margin-left: 2%; width: 11%;">
+	
+	<div style="width: 20%;margin-left: 4%;margin-top:4%">
+	<div style="margin-top: 6%; margin-left: 2%; width: 0%;">
 	   <p style="color:blue;background-color: white;margin-left:8% "> Yesterday's  Winner...!</p>
 		<c:if test="${not empty winner}">
 				<img src="data:image/jpeg;base64,${winner.base64Encoded}" alt="Avatar" style="width: 250px; height: 250px; margin: 4px">
@@ -250,37 +246,37 @@ body {
 		<c:if test="${empty winner}">
 		<img src="${pageContext.request.contextPath}/resources/images/itg.jpg" alt="Avatar" style="width: 250px; height: 250px; margin: 4px;">
 		</c:if>
-
-	</div>
-
-	<div class="chip">
+		
+		<div class="chip">
 		<img src="${pageContext.request.contextPath}/resources/images/icon-prize.jpg" alt="Person" width="96" height="96">
 		 ${winner.winner_name} 
+	    </div>
+
 	</div>
+</div>
 
+	
 
-		<div style="margin-top: 11.2%; width: 100%; height: auto;">
-		<div style="padding-top:4px; background-color: rgba(19, 35, 47, 0.9);;" align="center">&copy; 2017 All rights reserved<br/><br/>
+   <div style="margin-top: 0%">
+		<div style="margin-top: 11%; width: 100%; height: auto;">
+		<div style="padding-top:4px; background-color:#bbc4ef;color:black" align="center">&copy; 2017 All rights reserved<br/><br/>
 		&nbsp;
-		    <a href="${pageContext.request.contextPath}/user/privacyOuter"><font style="font-size:15px">Privacy</a>
+		    <a href="${pageContext.request.contextPath}/user/privacyOuter"><font style="color:blue">Privacy</a>
 			&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
-			<a href="${pageContext.request.contextPath}/user/termsConditionOuter"><font style=""/>Terms & Condition</a>
+			<a href="${pageContext.request.contextPath}/user/termsConditionOuter"><font style="color:blue"/>Terms & Condition</a>
 			&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
-			<a href="${pageContext.request.contextPath}/user/signupdataOuter"><font style="">Signup-Data</a>
+			<a href="${pageContext.request.contextPath}/user/signupdataOuter"><font style="color:blue">Signup-Data</a>
 			&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
-			<a href="${pageContext.request.contextPath}/user/rulesouter"><font style="">Rules</a>
+			<a href="${pageContext.request.contextPath}/user/rulesouter"><font style="color:blue">Rules</a>
 			&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
-			<a href="${pageContext.request.contextPath}/user/contactusOuter"><font style="">Contact</a>
+			<a href="${pageContext.request.contextPath}/user/contactusOuter"><font style="color:blue">Contact</a>
 			&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
-			<a href="${pageContext.request.contextPath}/user/aboutusOuter"><font style="">About Us</a>
+			<a href="${pageContext.request.contextPath}/user/aboutusOuter"><font style="color:blue">About Us</a>
 			&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
-			<%-- <a href="">Cookies</a> --%>
-		<!-- <div style="color: black"> -->
-			
-		<!-- </div> -->
+	
 		</div>
-	</div>
-
+	  </div>
+  </div>
 
 </body>
 </html>

@@ -14,7 +14,7 @@
 </head>
 <Body>
 
-   <jsp:include page="/WEB-INF/views/jsp/footerOuterpage.jsp" />
+   <jsp:include page="/WEB-INF/views/jsp/headerOuterpage.jsp" />
 
 <div>
 	<img src="${pageContext.request.contextPath}/resources/images/rules.jpg" alt="Avatar" class="page_pic" style="float:right">
@@ -63,6 +63,8 @@
 </h4>	</p>
 
 <span style="color:red;margin-left: 5%"> * condition apply</span></br></br>
+
+<jsp:include page="/WEB-INF/views/jsp/footerOuterpage.jsp" />
 </div>
 
 </Body>

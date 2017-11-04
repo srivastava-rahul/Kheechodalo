@@ -21,7 +21,7 @@ input[type=checkbox] {
 
 a {
   text-decoration: none;
-  color: #1ab188;
+  color: white;
   -webkit-transition: .5s ease;
   transition: .5s ease;
 }
@@ -36,7 +36,7 @@ a:hover {
    max-width: 340px;
    border-radius: 4px;
    box-shadow: 0 4px 10px 4px rgba(19, 35, 47, 0.3);
-   margin-right: 1%;
+   margin-right: 8%;
    margin-top:4%;
 }
 .tab-group {
@@ -64,11 +64,13 @@ a:hover {
   transition: .5s ease;
 }
 .tab-group li a:hover {
-  background: #179b77;
+  /* background: #179b77; */
+  background: #62bcfa;
   color: #ffffff;
 }
 .tab-group .active a {
-  background: #1ab188;
+  /* background: #1ab188; */
+   background: #62bcfa;
   color: #ffffff;
 }
 
@@ -97,7 +99,7 @@ label {
 }
 label .req {
   margin: 2px;
-  color: #1ab188;
+  color: #6534ff;
 }
 
 label.active {
@@ -130,7 +132,7 @@ input, textarea {
 }
 input:focus, textarea:focus {
   outline: 0;
-  border-color: #1ab188;
+  border-color: #6534ff;
 }
 
 textarea {
@@ -166,14 +168,16 @@ textarea {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: .1em;
-  background: #1ab188;
+  background: #62bcfa;
   color: #ffffff;
   -webkit-transition: all 0.5s ease;
   transition: all 0.5s ease;
   -webkit-appearance: none;
 }
 .button:hover, .button:focus {
-  background: #179b77;
+  /* background: #179b77; */
+  background: #62bcfa;
+  
 }
 
 .button-block {
@@ -252,7 +256,7 @@ textarea {
 
 .modal-header {
     padding: 2px 16px;
-    background-color: rgba(83, 220, 100, 0.88);
+    background-color: #1da1f2;
     color: white;
 }
 
@@ -263,22 +267,23 @@ textarea {
 
 .modal-footer {
     padding: 2px 16px;
-    background-color: rgba(83, 220, 100, 0.88);
-    color: white;
+    background-color: #bbc4ef;
+    color: black;
 }
 /*******************************Video Button*****************************************************************/
 .buttonvideo {
   border-radius: 10px;
-  background-color: #1ab188;
+ /*  background-color: #1ab188; */
+  background-color:#4c94c5;
   border: none;
   color: #FFFFFF;
   text-align: center;
-  font-size: 28px;
+  font-size: 25px;
   padding: 8px;
   width: 120px;
   transition: all 0.5s;
   cursor: pointer;
-  margin: 5px;
+
 }
 
 .buttonvideo span {

@@ -7,7 +7,7 @@
 
 <div class="body-area">
 
-  <jsp:include page="/WEB-INF/views/jsp/footerOuterpage.jsp" />
+  <jsp:include page="/WEB-INF/views/jsp/headerOuterpage.jsp" />
 
 	<div>
 		<!-- header -->
@@ -31,31 +31,8 @@
 
 		</form>
 	</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<div  style="margin-top: 25.5%">
+  <jsp:include page="/WEB-INF/views/jsp/footerOuterpage.jsp" />
+</div>
 
 </div>

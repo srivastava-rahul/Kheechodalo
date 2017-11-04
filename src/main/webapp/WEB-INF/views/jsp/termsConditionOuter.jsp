@@ -13,7 +13,7 @@
 </head>
 <div class="body-area">
 
-<jsp:include page="/WEB-INF/views/jsp/footerOuterpage.jsp" />
+<jsp:include page="/WEB-INF/views/jsp/headerOuterpage.jsp" />
    
 	<img src="${pageContext.request.contextPath}/resources/images/terms&Condition.png" alt="Avatar" class="page_pic" style="float:right">
 	<div >
@@ -31,6 +31,8 @@
  8.In the event it is claimed that the photographs submitted by you infringes any person’s copyright, you agree to indemnify </br>&nbsp; &nbsp;&nbsp;against all costs, expenses, losses, fines etc. incurred, borne or suffered by website.
 	</h4>
 	</p>
-	</br></br></br></br></br></br></br></br>
-	<span style="color:red;margin-left: 5%"> * condition apply</span>
+	</br>
+	<span style="color:red;margin-left: 5%"> * condition apply</span><br/><br/><br/><br/>
+	
+	<jsp:include page="/WEB-INF/views/jsp/footerOuterpage.jsp" />
 </div>

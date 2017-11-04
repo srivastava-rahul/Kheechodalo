@@ -11,7 +11,7 @@
 
 <div class="body-area">
 
-  <jsp:include page="/WEB-INF/views/jsp/footerOuterpage.jsp" />
+  <jsp:include page="/WEB-INF/views/jsp/headerOuterpage.jsp" />
 	
    
 	<img style="float:right"src="${pageContext.request.contextPath}/resources/images/rules.jpg" alt="Avatar" class="page_pic">
@@ -66,6 +66,8 @@
 	&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;also to recover the lost password.
 	</p></h4>
 	
-	</br></br>
+	</br>
 	<span style="color:red;margin-left: 5%"> * condition apply</span>
+	
+	<jsp:include page="/WEB-INF/views/jsp/footerOuterpage.jsp" />
 </div>

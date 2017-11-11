@@ -55,7 +55,7 @@ public class PictureUploadPojo implements Serializable {
 		this.id = pictureUpload.getId();
 		this.picDescription = pictureUpload.getDescription();
 		this.picVote = pictureUpload.getPicVote();
-		this.userName = pictureUpload.getUser() != null ? pictureUpload.getUser().getFirstName() : null;
+		this.userName = pictureUpload.getUser() != null ? pictureUpload.getUser().getFirstName()+" "+pictureUpload.getUser().getLastName() : null;
 		this.userEmailId = pictureUpload.getUser() != null ? pictureUpload.getUser().getEmailId() : null;
 		// this.picData = picData;
 

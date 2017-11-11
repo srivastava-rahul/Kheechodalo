@@ -310,6 +310,7 @@ function showSlides(n) {
 		<br/><br/><br/><br/>
 <jsp:include page="/WEB-INF/views/jsp/message.jsp" />
 	<div >
+	         <!-- /////////////////This for pics on dashboard\\\\\\\\\\\\\\\\\\\\\\\\ -->
 		<div class="row">
 		<c:if test="${empty searchPic}">
 			<c:forEach var="pic" items="${picsList}" varStatus="index">
@@ -324,15 +325,12 @@ function showSlides(n) {
 						</p>
 					</c:if>
 					<div class="">
-						<b><h3 style="color:blue;font"><a href="${pageContext.request.contextPath}/user/viewProfile/${pic.userEmailId}">${pic.userName}</a></h3></b>
-						<%-- <b><h2 style="color:blue">${pic.userEmailId}</h2></b> --%>
-						<%-- <p style="color:green">${pic.picDescription}</p><br/> --%>
-						
-						
-                         
+						<h4 style="color:blue;margin-left:2%;font-weight: bold;font-family: serif; "><a href="${pageContext.request.contextPath}/user/viewProfile/${pic.userEmailId}">${pic.userName}</a></h4>
+					     
                          <div class="dropdown">
                                  <button class="dropbtn">Description</button>
                                  <div class="dropdown-content">
+                                 <br/>
                                  <p style="color:green">${pic.picDescription}</p><br/>
                                </div>
                          </div>
@@ -349,10 +347,13 @@ function showSlides(n) {
 			</div>
 			</c:forEach>
 			</c:if>
+			
+			
+			<!-- ////////////////This is the div for getting the pics on search ////////////////// -->
 			<c:if test="${not empty searchPic}">
 			<div class="column">
 				<div class="card">
-					<img src="data:image/jpeg;base64,${searchPic.base64Encoded}"	alt="Picture" style="width: 291px; height:320px;" onclick="openModal();currentSlide(${index.index +1})" class="hover-shadow cursor">
+					<img src="data:image/jpeg;base64,${searchPic.base64Encoded}"	alt="Picture" style="width: 200px; height: 200px;border-radius: 72%; margin-left: 15%" onclick="openModal();currentSlide(${index.index +1})" class="hover-shadow cursor">
 					<h2><span style="margin-left: 50%;color: red" class="voteCount${searchPic.id}">${searchPic.picVote}</span></h2>
 					 <c:if test="${searchPic.allowToVote}"> 
 						<p align="center" class="hideVote${searchPic.id}">
@@ -362,9 +363,15 @@ function showSlides(n) {
 					</c:if>
 					
 					<div class="">
-						<b><h2 style="color:blue"><a href="${pageContext.request.contextPath}/user/viewProfile/${searchPic.userEmailId}">${searchPic.userName}</a></h2></b>
-						<%-- <b><h2 style="color:blue">${pic.userEmailId}</h2></b> --%>
-						<p style="color:green;">${searchPic.picDescription}</p><br/>
+						<h4 style="color:blue;margin-left:2%;font-weight: bold;font-family: serif;"><a href="${pageContext.request.contextPath}/user/viewProfile/${searchPic.userEmailId}">${searchPic.userName}</a></h4>
+						 <div class="dropdown">
+                                 <button class="dropbtn">Description</button>
+                                 <div class="dropdown-content">
+                                 <br/>
+                                 <p style="color:green;">${searchPic.picDescription}</p><br/>
+                               </div>
+                         </div>
+						
 						<%-- <p>${searchPic.picDescription}</p> --%>
 						
 					<%--  <c:if test="${searchPic.allowToVote}"> 

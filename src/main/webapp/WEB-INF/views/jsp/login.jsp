@@ -210,14 +210,14 @@ body {
 					</div>					
 					<button class="button button-block" id="myBtn">Get Started</button>
 					
-					
+					 
 					<div class="modal-content1">  
                      <p style="color:red">Before clicking Please Read below link..!!</p>  
                      <ul>
-						  <li><a href="${pageContext.request.contextPath}/user/rulesouter">Rule</a></li>
-						  <li><a href="${pageContext.request.contextPath}/user/signupdataOuter">Signup-Data</a></li>
-						  <li><a href="${pageContext.request.contextPath}/user/privacyOuter">Privacy</a></li>
-						  <li><a href="${pageContext.request.contextPath}/user/termsConditionOuter">Terms & Condition</a></li>
+						  <li><a href="${pageContext.request.contextPath}/user/rulesouter" style="color:green"> Rule</a></li>
+						  <li><a href="${pageContext.request.contextPath}/user/signupdataOuter" style="color:green">Signup-Data</a></li>
+						  <li><a href="${pageContext.request.contextPath}/user/privacyOuter" style="color:green">Privacy</a></li>
+						  <li><a href="${pageContext.request.contextPath}/user/termsConditionOuter" style="color:green">Terms & Condition</a></li>
 					</ul> 
                   </div>
 

@@ -8,9 +8,9 @@
 		<p class="header_information">Why we need Your Information for Sign Up</p>
 	</div>
 		
-		<h2 style="color:white;margin-left: 2%">Related to Signup form</h2><br/> 
+		<h2 style="color:blue;margin-left: 2%">Related to Signup form</h2><br/> 
    <p style="color:red"> Why and what information we need from you to create your account on our website.</p>
-<p ><h4 style="color:">
+<p ><h4 style="color:white">
 	1. Name :- 
 	 Enter the name you want to use on the website. Your name will serve as your identity for others on the<br/> &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; website.
 	 Choose a friendly name (usually a combination of your first name and last name is preferred as<br/>&nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;

@@ -85,7 +85,7 @@ body {
 	          <img src="${pageContext.request.contextPath}/resources/images/logofinal.png" alt="Avatar" class="" style="width:3%;float:left;margin:0.1% "/>
 	     </span> &nbsp;&nbsp;&nbsp;
 	       <span>
-	          <font style="margin-top: 30%;font-size: 44px;color:white;font-family:Lucida Console"> Kheechodalo</font>
+	          <font style="margin-top: 30%;font-size: 44px;color:white;">khëëchodalo</font>
 	      </span>
 	      <span style="float:right;">
 	            <button class="buttonvideo" data-tooltip="Visit Here For Site Tour">
@@ -238,8 +238,8 @@ body {
 	
 	
 	<div style="width: 20%;margin-left: 4%;margin-top:4%">
-	<div style="margin-top: 6%; margin-left: 2%; width: 0%;">
-	   <p style="color:blue;background-color: white;margin-left:8% "> Yesterday's  Winner...!</p>
+	<div style="margin-top: 6%; margin-left: 2%;">
+	   <p style="color:red;margin-left:8% "> Yesterday's  Winner...!</p>
 		<c:if test="${not empty winner}">
 				<img src="data:image/jpeg;base64,${winner.base64Encoded}" alt="Avatar" style="width: 250px; height: 250px; margin: 4px">
 		</c:if>
@@ -258,7 +258,7 @@ body {
 	
 
    <div style="margin-top: 0%">
-		<div style="margin-top: 11%; width: 100%; height: auto;">
+		<div style="margin-top: 14.4%; width: 100%; height: auto;">
 		<div style="padding-top:4px; background-color:#bbc4ef;color:black" align="center">&copy; 2017 All rights reserved<br/><br/>
 		&nbsp;
 		    <a href="${pageContext.request.contextPath}/user/privacyOuter"><font style="color:blue">Privacy</a>

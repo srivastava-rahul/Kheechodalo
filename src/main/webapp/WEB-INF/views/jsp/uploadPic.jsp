@@ -11,10 +11,11 @@
 
 <div class="body-area">
 <jsp:include page="/WEB-INF/views/jsp/message.jsp" />
+
+   <!-- For loader image  -->
 	<div id="overlay"></div>
-	<img
-		src="${pageContext.request.contextPath}/resources/images/myownpicvote.png"
-		alt="Avatar" class="page_pic">
+
+		
 	<div class="information">
 		<p class="header_information">
 			<b>My Todays Photo</b>
@@ -56,7 +57,7 @@
 				<div class="row">
 					<div class="col-md-12">
 						<a href="javascript:" onclick="$('#picImg').click()"
-							style="color: black;" class="${not empty picImg ? ' changePic ': ''}">${not empty picImg ? ' Change ': 'Select '}Pic</a>
+							style="color: white;" class="${not empty picImg ? ' changePic ': ''}">${not empty picImg ? ' Change ': 'Select '}Pic</a>
 					</div>
 				</div>
 				<input type="file" accept="image/*" style="visibility: hidden"
@@ -70,8 +71,8 @@
 					<span style="color: black;">
 						<h2>Description</h2> <!-- <h5>Today 12:00</h5> --> <textarea
 							name="desc" id="desc" rows="6" cols="35" style="color: black"
-							placeholder="Please provide a detailed description of your Pic...Only 45 charcter is allowed"
-							aria-required="true" maxlength="45"></textarea>
+							placeholder="Please provide a detailed description of your Pic...Only 200 charcter is allowed"
+							aria-required="true" maxlength="200"></textarea>
 					</span>
 					<div style="margin-top: 24%">
 						<input type="submit" id="uploadPicBtnId" class="btn success"
@@ -81,8 +82,8 @@
 				<span id="picImgEmpty" style="display: none"> <span style="color: black;">
 						<h2>Description</h2> <!-- <h5>Today 12:00</h5> --> <textarea
 							name="desc" id="desc" rows="6" cols="35" style="color: black"
-							placeholder="Please provide a detailed description of your Pic...Only 45 charcter is allowed"
-							aria-required="true" maxlength="45">${picData.description}</textarea>
+							placeholder="Please provide a detailed description of your Pic...Only 200 charcter is allowed"
+							aria-required="true" maxlength="200">${picData.description}</textarea>
 				</span>
 					<div style="margin-top: 24%">
 						<input type="submit" id="uploadPicBtnId" class="btn success"
@@ -90,7 +91,7 @@
 					</div>
 				</span>
 				<c:if test="${not empty picImg}">
-					<span id="picImgNotEmpty"> <span style="color: black;">
+					<span id="picImgNotEmpty"> <span style="color: white;">
 					<h3>${picData.description}</h3>
 					</span>
 						<p style="color: green; font-size: 25px">Winner vote

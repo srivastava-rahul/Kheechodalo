@@ -27,7 +27,7 @@ cute ,cute baby, cute girls, earn money online, photographs, online photography 
 
 <style>
     body { 
-		 /*  background: url(${pageContext.request.contextPath}/resources/images/login_bck.jpg); */
+		   background: url(${pageContext.request.contextPath}/resources/images/8.jpg); 
 		  /* color: white;  */
         }
 </style>

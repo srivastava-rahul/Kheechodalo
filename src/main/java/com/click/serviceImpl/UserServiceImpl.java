@@ -48,7 +48,7 @@ public class UserServiceImpl implements UserService {
 	public User saveUser(User user) {
 		LOG.info("Inside saveUser() serviceImpl");
 		ProfileSetting pf = new ProfileSetting();
-		pf.setName_surname(user.getFirstName());
+		pf.setName_surname(user.getFirstName()+"  "+user.getLastName());
 		pf.setEmail_id(user.getEmailId());
 		profileSettingDao.updateUserProfile(pf);
 

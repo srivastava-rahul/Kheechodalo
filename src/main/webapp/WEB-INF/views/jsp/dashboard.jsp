@@ -68,6 +68,51 @@ $(document).ready(function() {
 
 </script>
 
+<!-- Description button drop down -->
+<style>
+.dropbtn {
+    background-color:lightseagreen;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown {
+    float:right;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;   
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #3e8e41;
+}
+</style>
+
+
+
+<!-- Css for dashboard card structure -->
 <style>
 /* body
  body
@@ -92,7 +137,7 @@ $(document).ready(function() {
 
 .column {
   float: left;
-   width: auto;
+   /* width: auto; */
 }
 
 /* The Modal (background) */
@@ -270,7 +315,7 @@ function showSlides(n) {
 			<c:forEach var="pic" items="${picsList}" varStatus="index">
 			<div class="column">
 				<div class="card">
-					<img src="data:image/jpeg;base64,${pic.base64Encoded}" style="width: 291px; height: 320px;" onclick="openModal();currentSlide(${index.index +1})" class="hover-shadow cursor">
+					<img src="data:image/jpeg;base64,${pic.base64Encoded}" style="width: 200px; height: 200px;border-radius: 72%; margin-left: 15%" onclick="openModal();currentSlide(${index.index +1})" class="hover-shadow cursor">
 					<h2><span style="margin-left: 50%;color: red" class="voteCount${pic.id}">${pic.picVote}</span></h2>
 					 <c:if test="${pic.allowToVote}"> 
 						<p align="center" class="hideVote${pic.id}">
@@ -281,7 +326,17 @@ function showSlides(n) {
 					<div class="">
 						<b><h3 style="color:blue;font"><a href="${pageContext.request.contextPath}/user/viewProfile/${pic.userEmailId}">${pic.userName}</a></h3></b>
 						<%-- <b><h2 style="color:blue">${pic.userEmailId}</h2></b> --%>
-						<p style="color:green;">${pic.picDescription}</p><br/>
+						<%-- <p style="color:green">${pic.picDescription}</p><br/> --%>
+						
+						
+                         
+                         <div class="dropdown">
+                                 <button class="dropbtn">Description</button>
+                                 <div class="dropdown-content">
+                                 <p style="color:green">${pic.picDescription}</p><br/>
+                               </div>
+                         </div>
+				
 						
 					   <%--  <c:if test="${pic.allowToVote}"> 
 						<p align="center" class="hideVote${pic.id}">
@@ -297,7 +352,7 @@ function showSlides(n) {
 			<c:if test="${not empty searchPic}">
 			<div class="column">
 				<div class="card">
-					<img src="data:image/jpeg;base64,${searchPic.base64Encoded}"	alt="Picture" style="width: 291px; height: 320px;" onclick="openModal();currentSlide(${index.index +1})" class="hover-shadow cursor">
+					<img src="data:image/jpeg;base64,${searchPic.base64Encoded}"	alt="Picture" style="width: 291px; height:320px;" onclick="openModal();currentSlide(${index.index +1})" class="hover-shadow cursor">
 					<h2><span style="margin-left: 50%;color: red" class="voteCount${searchPic.id}">${searchPic.picVote}</span></h2>
 					 <c:if test="${searchPic.allowToVote}"> 
 						<p align="center" class="hideVote${searchPic.id}">
@@ -454,4 +509,22 @@ function showSlides(n) {
 			}); 
 		});
 </script>
+
+<script>
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].onclick = function() {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.maxHeight){
+      panel.style.maxHeight = null;
+    } else {
+      panel.style.maxHeight = 130 + "px";
+    } 
+  }
+}
+</script>
+
 

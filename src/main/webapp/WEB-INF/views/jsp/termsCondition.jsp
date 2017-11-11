@@ -4,12 +4,12 @@
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/jquery-1.4.2.min.js"></script>
 
 <div class="body-area">
-	<img src="${pageContext.request.contextPath}/resources/images/terms&Condition.png" alt="Avatar" class="page_pic">
+	<img src="${pageContext.request.contextPath}/resources/images/rules.jpg" alt="Avatar" class="page_pic">
 	<div class="information">
 		<p class="header_information">Terms  &  Condition</p>
 	</div>
 		<p>	
-<h4 style="color:;margin-left:2%;">	
+<h4 style="color:white;margin-left:2%;">	
  1.Photographs must meet the following requirements:JPG or JPEG file format, 72dpi. </br> </br>
  2.Ideally, the photo dimensions should be 1024x768 pixels or with a higher resolution.</br></br>
  3.Minimal photo editing is permissible, but altering the photograph is not allowed.</br></br>

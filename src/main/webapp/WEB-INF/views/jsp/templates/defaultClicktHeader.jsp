@@ -60,6 +60,53 @@
     transition: width 0.4s ease-in-out; */
 }
 </style>
+
+
+<!-- profile button drop down -->
+<style>
+.dropbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown {
+    float:right;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+   
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #3e8e41;
+}
+</style>
+
+
+
 <div id="page-wrapper" align="left">
 
 <c:if test="${!isAdmin}">
@@ -69,16 +116,13 @@
     <hr/>
 			  <table>
 			 <tr bgcolor="#1F1F1F"><td><span>&nbsp; &nbsp;<i class="fa fa-home" style="font-size:28px;color:red"></i><a href="${pageContext.request.contextPath}/user/dashboard"><font style="color:white;">Home</a></span></td></tr>
-			 <tr bgcolor="white"><td><span>&nbsp; &nbsp;<i class="fa fa-gear fa-spin" style="font-size:24px;color:red"></i><a href="${pageContext.request.contextPath}/user/getProfileSettings">Settings</a></span></td></tr>
-			 <tr bgcolor="#1F1F1F"><td><span>&nbsp; &nbsp;<i class="fa fa-bell" style="font-size:28px;color:red"></i><a href="${pageContext.request.contextPath}/user/notification"><font style="color:white;">Notifications</a></span></td></tr>
 			 <tr bgcolor="white"><td><span>&nbsp; &nbsp;<i class="fa fa-diamond" style="font-size:28px;color:red"></i><a href="${pageContext.request.contextPath}/user/rules">Rules</a></span></td></tr>
-			 <tr bgcolor="#1F1F1F"><td><span>&nbsp; &nbsp;<i class="fa fa-gift" style="font-size:28px;color:red"></i><a href="${pageContext.request.contextPath}/user/prizes"><font style="color:white;">Prize</a></span></td></tr>
-			 <tr bgcolor="white"><td><span>&nbsp; &nbsp;<i class="fa fa-pencil-square-o" style="font-size:28px;color:red"></i><a href="${pageContext.request.contextPath}/user/testimonials">Testimonials</a></span></td></tr>
-             <tr bgcolor="#1F1F1F"><td><span>&nbsp; &nbsp;<i class="fa fa-envelope-o" style="font-size:28px;color:red"></i><a href="${pageContext.request.contextPath}/user/feedback"><font style="color:white;">Feedback</a></span></td></tr>
-             <tr bgcolor="white"><td><span>&nbsp; &nbsp;<i class="fa fa-info-circle" style="font-size:28px;color:red"></i><a href="${pageContext.request.contextPath}/user/aboutUs">About Us</a></span></tr></td>
-             <tr bgcolor="#1F1F1F"><td><span>&nbsp; &nbsp;<i class="fa fa-phone" style="font-size:28px;color:red"></i><a href="${pageContext.request.contextPath}/user/contactus"><font style="color:white;">Contact Us</a></span></tr></td>
-             <tr bgcolor="white"><td><span><i class="fa fa-key" style="font-size:28px;color:red"><a href="${pageContext.request.contextPath}/user/newUserPassword">Change Password</a></span></tr></td>
-		     <tr bgcolor="#1F1F1F"><td><span>&nbsp; &nbsp;<i class="fa fa-question-circle" style="font-size:28px;color:red"></i><a href="${pageContext.request.contextPath}/user/quickHelp"><font style="color:white;">Quick Help</a></span></td></tr>
+			 <tr bgcolor="#1F1F1F"><td><span>&nbsp; &nbsp;<i class="fa fa-pencil-square-o" style="font-size:28px;color:red"></i><a href="${pageContext.request.contextPath}/user/testimonials"><font style="color:white;">Testimonials</a></span></td></tr>
+             <tr bgcolor="white"><td><span>&nbsp; &nbsp;<i class="fa fa-envelope-o" style="font-size:28px;color:red"></i><a href="${pageContext.request.contextPath}/user/feedback">Feedback</a></span></td></tr>
+             <tr bgcolor="#1F1F1F"><td><span>&nbsp; &nbsp;<i class="fa fa-info-circle" style="font-size:28px;color:red"></i><a href="${pageContext.request.contextPath}/user/aboutUs"><font style="color:white;">About Us</a></span></tr></td>
+             <tr bgcolor="white"><td><span>&nbsp; &nbsp;<i class="fa fa-phone" style="font-size:28px;color:red"></i><a href="${pageContext.request.contextPath}/user/contactus">Contact Us</a></span></tr></td>
+             <tr bgcolor="#1F1F1F"><td><span><i class="fa fa-key" style="font-size:28px;color:red"><a href="${pageContext.request.contextPath}/user/newUserPassword"><font style="color:white;">Change Password</a></span></tr></td>
+		     <tr bgcolor="white"><td><span>&nbsp; &nbsp;<i class="fa fa-question-circle" style="font-size:28px;color:red"></i><a href="${pageContext.request.contextPath}/user/quickHelp">Quick Help</a></span></td></tr>
 		
 	  </table>
 	</div>
@@ -122,11 +166,12 @@
 		<!-----------------------------------------------Code for left navigator menu---------------------------------------------------------------- -->
 		
         <!--  <div style="margin-bottom: 0px; background-color: rgba(19, 35, 47, 0.9);height:10%" > -->
-         <div style="margin-bottom: 0px; background-color:#1F1F1F;height:10%" >
+        
+         <div style="margin-bottom: 0px; background-color:darkturquoise;height:10%" >
          
-          <span style="margin-left:1%;font-size: 25px;  cursor: pointer; padding-top: 16; color: #fff; font-style: bold; font-family: Charcoal;" onclick="openNav()"/>&#9776;</span>
+          <span style="margin-left:1%;font-size: 25px;  cursor: pointer; padding-top: 16; color: ; font-style: bold; font-family: Charcoal;" onclick="openNav()"/>&#9776;</span>
 	        <c:if test="${!isAdmin}">
-	        <span><a href="${pageContext.request.contextPath}/user/dashboard"> <img src="${pageContext.request.contextPath}/resources/images/logofinal.png" alt="Avatar" class="" style="width:4.5%;"/></a></span>
+	        <span><a href="${pageContext.request.contextPath}/user/dashboard"> <img src="${pageContext.request.contextPath}/resources/images/logofinal.png" alt="Avatar" style="width:4%;margin-bottom: 2%"/></a></span>
 	        </c:if>
 	        <c:if test="${isAdmin}">
 	        <span><a href="${pageContext.request.contextPath}/admin/adminDashboard"> <img src="${pageContext.request.contextPath}/resources/images/logofinal.png" alt="Avatar" class="" style="width:4.5%;"/></a></span>
@@ -134,32 +179,37 @@
 	        
 	        <span> 
 	        <c:if test="${!isAdmin}">
-			<a href="${pageContext.request.contextPath}/user/dashboard" style="color: black;" > <font style="margin-top: 20%;font-size: 50px;color:#1ab188"> khëëchodalo</font></a>
+			<a href="${pageContext.request.contextPath}/user/dashboard" style="color: black;" > <font style="margin-top: 20%;font-size: 50px;color:white"> khëëchodalo</font></a>
 			</c:if>
 			
 			
 			<c:if test="${isAdmin}">
 			<a href="${pageContext.request.contextPath}/admin/adminDashboard" style="color: black;" ><font style="margin-top: 20%;font-size: 50px;color:#1ab188"> khëëchodalo</font></a>
 			</c:if>
-	         
-	         
-	        <!--  <span class="user_Name"></span> -->
-					
-					<!-- <h4 class="user_mail">
-						 
-					</h4>
-	          -->
-	         
-	         <a id="logout-btn" href="${pageContext.request.contextPath}/logout" title="Logout">
-					<img class="mrg_none" width="30" align="right" src="${pageContext.request.contextPath}/resources/assets/images/logoutbtn.png" style="margin: 18px !important" alt="Profile image">
+			</span>
+			
+			     <a id="logout-btn" href="${pageContext.request.contextPath}/logout" title="Logout">
+			      <img class="mrg_none" width="30" align="right" src="${pageContext.request.contextPath}/resources/assets/images/logoutbtn.png" style="margin: 18px !important" alt="Profile image">
 				</a>
 				
-				   <span class="user_Name" style="margin-right:2%;color:white;float: right;">
-					<sec:authentication property="principal.firstName" />
-					(<sec:authentication property="principal.emailId" /> )
-					</span>
+				 
+				
+					<div class="dropdown">
+		                  <a class="dropdown"><img class="mrg_none" width="30" align="right" src="${pageContext.request.contextPath}/resources/images/profile.png" style="margin: 18px !important;border-radius:50%" alt="Profile image"></a>
+		                     <div class="dropdown-content">
+		                          <a style="color:red"><sec:authentication property="principal.firstName"/></a>
+				                	<a style="color:blue"><sec:authentication property="principal.emailId" /></a> 
+		                            <a href="${pageContext.request.contextPath}/user/profile">Profile&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-user" style="font-size: 20px; color: red"></i></a>
+		                            <a href="${pageContext.request.contextPath}/user/getProfileSettings">Setting &nbsp; &nbsp;&nbsp; &nbsp;<i class="fa fa-gear fa-spin" style="font-size:20px;color:red"></i></a>
+		                     </div>
+		             </div>
+				
+				
+				
+				<a href="${pageContext.request.contextPath}/user/notification"><i class="fa fa-bell" style="font-size:28px;color:red"></i></a>				
+				  
 					
-	        <div style="margin-left: 40%;">
+	        
 	          	<form id="search" method="post" action="${pageContext.request.contextPath}/user/search" >
 					<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
 					    
@@ -169,7 +219,7 @@
 								<span class="glyphicon glyphicon-search"></span>
 							</button>
 				</form>
-		   </div>
+		   
 			
 			
 	      <br/>

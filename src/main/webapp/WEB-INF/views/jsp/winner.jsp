@@ -55,7 +55,7 @@ $(document).ready(function() {
 </script>
 <div class="body-area">
 
-	<img src="${pageContext.request.contextPath}/resources/images/winner.png" alt="Avatar" class="page_pic">
+	
 	<div class="information">
 		<p class="header_information">
 			<b>Prizes for participants</b>
@@ -104,6 +104,10 @@ $(document).ready(function() {
 		</div>
 		
 	
-
+					<center>
+	                     <ul class="pagination"></ul>
+                    </center>
+     
+     
      
 </div>

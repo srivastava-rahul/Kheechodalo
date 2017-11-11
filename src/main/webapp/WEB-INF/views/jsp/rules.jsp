@@ -10,7 +10,7 @@
 		<p>	
 	<h2><b style="margin-left:2%; color:blue">Related to competition</b></h2> </br>
 
-<h4 style="margin-left:2%;">
+<h4 style="margin-left:2%;color:white">
     1. To participate in the competitions on the website the participant has to upload a picture clicked by them.</br>
         &nbsp; &nbsp;&nbsp;A participant passing someone else's pictures as their own will be disqualified from entering any competition on the website and will loose the claim to <br/> &nbsp;&nbsp; prize even her/his picture receives most votes.</br></br>
 	

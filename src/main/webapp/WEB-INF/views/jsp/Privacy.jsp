@@ -13,7 +13,7 @@
 
 
 <p style="color:red">The below list describes in details about policies pertaining to the usage and governance of your data provided on the website.</p>
-<h4 style="color:">
+<h4 style="color:white">
 1) What information do we collect.<br/><br/>
 	&nbsp; &nbsp;&nbsp;&nbsp;a) Your personal details - name, username, password, age, date of birth, contact number, contact address.<br/>
 	&nbsp; &nbsp;&nbsp;&nbsp;b) Your images - All the images shared by you will be available on the website based on image privacy terms.<br/>

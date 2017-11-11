@@ -239,7 +239,7 @@ body {
 	
 	<div style="width: 20%;margin-left: 4%;margin-top:4%">
 	<div style="margin-top: 6%; margin-left: 2%;">
-	   <p style="color:red;margin-left:8% "> Yesterday's  Winner...!</p>
+	   <p style="color:yellowgreen;margin-left:8% "> Yesterday's  Winner...!</p>
 		<c:if test="${not empty winner}">
 				<img src="data:image/jpeg;base64,${winner.base64Encoded}" alt="Avatar" style="width: 250px; height: 250px; margin: 4px">
 		</c:if>

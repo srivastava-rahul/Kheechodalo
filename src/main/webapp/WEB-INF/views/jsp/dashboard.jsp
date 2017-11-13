@@ -316,7 +316,7 @@ function showSlides(n) {
 			<c:forEach var="pic" items="${picsList}" varStatus="index">
 			<div class="column">
 				<div class="card">
-					<img src="data:image/jpeg;base64,${pic.base64Encoded}" style="width: 200px; height: 200px;border-radius: 72%; margin-left: 15%" onclick="openModal();currentSlide(${index.index +1})" class="hover-shadow cursor">
+					<img src="data:image/jpeg;base64,${pic.base64Encoded}" style="width: 200px; height: 200px;border-radius: 72%;" onclick="openModal();currentSlide(${index.index +1})" class="hover-shadow cursor">
 					<h2><span style="margin-left: 50%;color: red" class="voteCount${pic.id}">${pic.picVote}</span></h2>
 					 <c:if test="${pic.allowToVote}"> 
 						<p align="center" class="hideVote${pic.id}">
@@ -328,11 +328,13 @@ function showSlides(n) {
 						<h4 style="color:blue;margin-left:2%;font-weight: bold;font-family: serif; "><a href="${pageContext.request.contextPath}/user/viewProfile/${pic.userEmailId}">${pic.userName}</a></h4>
 					     
                          <div class="dropdown">
+                                                  
                                  <button class="dropbtn">Description</button>
                                  <div class="dropdown-content">
                                  <br/>
                                  <p style="color:green">${pic.picDescription}</p><br/>
                                </div>
+                               
                          </div>
 				
 						
@@ -353,7 +355,7 @@ function showSlides(n) {
 			<c:if test="${not empty searchPic}">
 			<div class="column">
 				<div class="card">
-					<img src="data:image/jpeg;base64,${searchPic.base64Encoded}"	alt="Picture" style="width: 200px; height: 200px;border-radius: 72%; margin-left: 15%" onclick="openModal();currentSlide(${index.index +1})" class="hover-shadow cursor">
+					<img src="data:image/jpeg;base64,${searchPic.base64Encoded}"	alt="Picture" style="width: 200px; height: 200px;border-radius: 72%;" onclick="openModal();currentSlide(${index.index +1})" class="hover-shadow cursor">
 					<h2><span style="margin-left: 50%;color: red" class="voteCount${searchPic.id}">${searchPic.picVote}</span></h2>
 					 <c:if test="${searchPic.allowToVote}"> 
 						<p align="center" class="hideVote${searchPic.id}">
@@ -366,10 +368,12 @@ function showSlides(n) {
 						<h4 style="color:blue;margin-left:2%;font-weight: bold;font-family: serif;"><a href="${pageContext.request.contextPath}/user/viewProfile/${searchPic.userEmailId}">${searchPic.userName}</a></h4>
 						 <div class="dropdown">
                                  <button class="dropbtn">Description</button>
+                                 
                                  <div class="dropdown-content">
                                  <br/>
                                  <p style="color:green;">${searchPic.picDescription}</p><br/>
                                </div>
+                                
                          </div>
 						
 						<%-- <p>${searchPic.picDescription}</p> --%>
@@ -398,7 +402,7 @@ function showSlides(n) {
 	
 	
 	    <div style="margin-top: 5%;margin-left: 10%;">
-		<div data-WRID="WRID-150143651598347589" data-widgetType="Push Content"  data-class="affiliateAdsByFlipkart" height="90" width="728"></div><script async src="//affiliate.flipkart.com/affiliate/widgets/FKAffiliateWidgets.js"></script>
+		<div data-WRID="WRID-150325420505791119" data-widgetType="staticBanner" data-responsive="yes" data-class="affiliateAdsByFlipkart" height="90" width="728"></div><script async src="//affiliate.flipkart.com/affiliate/widgets/FKAffiliateWidgets.js"></script>
 		
 		
 		</div>
@@ -455,7 +459,7 @@ function showSlides(n) {
 					<div class="">
 						<b><h2 style="color:blue">${searchPic.userName}</h2></b>
 						<%-- <b><h2 style="color:blue">${searchPic.userEmailId}</h2></b> --%>
-						<p>${searchPic.picDescription}</p>
+						<p style="color:green">${searchPic.picDescription}</p>
 					 <c:if test="${searchPic.allowToVote}"> 
 						<p align="center" class="hideVote${searchPic.id}">
 							<button class="marg-bottom-10 button_submit  submit votePic">Vote</button>

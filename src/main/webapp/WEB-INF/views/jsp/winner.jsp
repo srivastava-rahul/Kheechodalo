@@ -71,7 +71,7 @@ $(document).ready(function() {
   <div>
   
       <div style="width: 5%;height:0%;margin-left:78%;margin-top: 3%">
-		<div data-WRID="WRID-150143535395538190" data-widgetType="Push Content"  data-class="affiliateAdsByFlipkart" height="250" width="300"></div><script async src="//affiliate.flipkart.com/affiliate/widgets/FKAffiliateWidgets.js"></script>
+		<div  data-WRID="WRID-150325419568943179" data-widgetType="staticBanner" data-responsive="yes" data-class="affiliateAdsByFlipkart" height="250" width="500"></div><script async src="//affiliate.flipkart.com/affiliate/widgets/FKAffiliateWidgets.js"></script></script>
 		</div>
 		
 	 <div>

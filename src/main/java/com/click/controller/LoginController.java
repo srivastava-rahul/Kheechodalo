@@ -26,7 +26,7 @@ public class LoginController {
 	@RequestMapping(value = "/login", method = { RequestMethod.GET })
 	protected String showLogin(Model model) {
 		LOG.info("Login called  from  showLogin controller");
-
+//		model.addAttribute("error", "");
 		try {
 			Winner winner = winnerService.getLastWinner();
 			model.addAttribute("winner", winner);

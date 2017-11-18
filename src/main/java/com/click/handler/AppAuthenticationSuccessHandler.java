@@ -45,22 +45,19 @@ public class AppAuthenticationSuccessHandler extends SavedRequestAwareAuthentica
 
 		User dbUser = userDao.findById(user.getId());
 
-		LOG.info(" DbUser " + dbUser.toLogString());
 
 		SavedRequest savedRequest = new HttpSessionRequestCache().getRequest(request, response);
 
-		LOG.info("Auth success request : " + (savedRequest == null ? null : savedRequest.getRedirectUrl()));
-		String targetUrl = determineTargetUrl(authentication,(savedRequest == null ? null : savedRequest.getRedirectUrl()));
+		String targetUrl = determineTargetUrl(authentication,(savedRequest == null ? null : savedRequest.getRedirectUrl()) , request);
 
 		if (response.isCommitted()) {
 			LOG.warn("Response has already been committed. Unable to redirect to " + targetUrl);
 			return;
 		}
-		LOG.info("Redirecting user to : " + targetUrl);
 		redirectStrategy.sendRedirect(request, response, targetUrl);
 	}
 
-	protected String determineTargetUrl(Authentication authentication, String originalRequestUrl) {
+	protected String determineTargetUrl(Authentication authentication, String originalRequestUrl,HttpServletRequest request) {
 		LOG.info("Checking user type to redirect to respective dashboards...");
 		try {
 			boolean isAdmin = false;
@@ -82,8 +79,10 @@ public class AppAuthenticationSuccessHandler extends SavedRequestAwareAuthentica
 
 			if (isAdmin) {
 				LOG.info("User type is Admin.....");
+				request.getSession().setAttribute("error", "");
 				return originalRequestUrl != null ? originalRequestUrl : "/admin/adminDashboard";
 			} else {
+				request.getSession().setAttribute("error", "");
 				return originalRequestUrl != null ? originalRequestUrl : "/user/dashboard";
 			}
 		} catch (Exception e) {

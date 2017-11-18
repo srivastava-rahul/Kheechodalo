@@ -22,6 +22,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
+import com.click.handler.AppAuthenticationFailureHandler;
 import com.click.handler.AppAuthenticationSuccessHandler;
 
 @Configuration
@@ -34,6 +35,9 @@ public class SecutiryConfig extends WebSecurityConfigurerAdapter {
 
 	@Autowired
 	AppAuthenticationSuccessHandler authenticationSuccessHandler;
+
+	@Autowired
+	AppAuthenticationFailureHandler authenticationFailureHandler;
 
 	@Autowired
 	public void configure(AuthenticationManagerBuilder auth) throws Exception {
@@ -61,26 +65,14 @@ public class SecutiryConfig extends WebSecurityConfigurerAdapter {
 				// OWNER
 				.antMatchers("/user**").hasAnyRole("USER_ROLE")
 				// ADMIN
-				.antMatchers("/admin**")
-				.hasAnyRole("ROLE_ADMIN").and()
-				.formLogin()
-				.loginPage("/login")
-				.permitAll()
-				.usernameParameter("userName")
-				.passwordParameter("password")
-				.failureUrl("/login?error=true")
-				.successHandler(authenticationSuccessHandler).and().logout()
-				.invalidateHttpSession(true)
-				.logoutSuccessUrl("/login?logout")
-				.and().exceptionHandling()
-				.accessDeniedPage("/invalid-access.jsp").and()
-				.logout()
-				.logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-				.logoutSuccessUrl("/login?logout=true")
-				.clearAuthentication(true).invalidateHttpSession(true)
-				.deleteCookies("JSESSIONID").and()
-				.sessionManagement().maximumSessions(1)
-				.expiredUrl("/login?expired=true");
+				.antMatchers("/admin**").hasAnyRole("ROLE_ADMIN").and().formLogin().loginPage("/login").permitAll()
+				.usernameParameter("userName").passwordParameter("password")
+				.successHandler(authenticationSuccessHandler).failureHandler(authenticationFailureHandler).and()
+				.logout().invalidateHttpSession(true).logoutSuccessUrl("/login?logout").and().exceptionHandling()
+				.accessDeniedPage("/invalid-access.jsp").and().logout()
+				.logoutRequestMatcher(new AntPathRequestMatcher("/logout")).logoutSuccessUrl("/login?logout=true")
+				.clearAuthentication(true).invalidateHttpSession(true).deleteCookies("JSESSIONID").and()
+				.sessionManagement().maximumSessions(1).expiredUrl("/login?expired=true");
 	}
 
 	@Bean
